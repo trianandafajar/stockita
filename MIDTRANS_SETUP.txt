@@ -1,0 +1,76 @@
+# Setup Singkat Midtrans
+
+## 1. Register Akun
+Daftar akun di: https://midtrans.com
+
+--- 
+
+## 2. Aktifkan Mode Sandbox
+- Masuk ke dashboard Midtrans
+- Lihat bagian atas sidebar
+- Ubah environment menjadi **Sandbox** (untuk testing)
+
+---
+
+## 3. Ambil API Key
+Masuk ke: **Dashboard → Settings → Access Keys**
+
+Salin:
+- **Server Key**
+- **Client Key**
+
+---
+
+## 4. Konfigurasi di `.env`
+
+Tambahkan key berikut ke file `.env`:
+
+```env
+MIDTRANS_SERVER_KEY=your_server_key
+MIDTRANS_CLIENT_KEY=your_client_key
+````
+
+---
+
+## 5. Atur Snap Reference
+
+* Masuk ke: **Dashboard → Settings → Snap Reference**
+* Sesuaikan dengan nama website atau aplikasi kamu
+
+---
+
+## 6. Set Payment Notification URL (Webhook) ⚠️
+
+Bagian ini sangat penting agar sistem bisa otomatis mengetahui status pembayaran (tanpa cek manual).
+
+### Cara Setup:
+
+1. Masuk ke menu **Integrations** (sidebar kiri)
+2. Pilih **Configurations** **Lewati bagian lainya, langsung klik Configurations**
+3. Cari field: **Payment Notification URL**
+4. Isi dengan endpoint webhook kamu, contoh:
+
+```txt
+https://domainanda.com/midtrans/webhook
+```
+5. Isi hanya bagian **Payment Notification** URL saja
+6. Klik **Save / Update**
+
+---
+
+## 7. Jika Menggunakan Localhost
+
+Karena Midtrans butuh URL publik, gunakan:
+
+* Cloudflare Tunnel
+* ngrok
+* VS Code port forwarding
+
+---
+
+## ✅ Selesai
+
+Sekarang Midtrans sudah siap digunakan (mode Sandbox)
+
+```
+```

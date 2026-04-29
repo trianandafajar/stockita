@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* sidebar */
+.nav-item {
+    @apply flex items-center gap-3 p-3 rounded-xl text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-green-700 transition-all duration-200 cursor-pointer;
+}
+
+.nav-item.active {
+    @apply bg-gradient-to-r from-green-50 to-green-100 text-green-500 border border-green-200 shadow-sm;
+}
+
+.nav-item svg {
+    @apply flex-shrink-0;
+}
+
+/* Chrome, Edge, Safari */
+.no-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.no-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 116, 139, 0.4);
+    border-radius: 9999px;
+}
+
+/* Firefox */
+.no-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(100, 116, 139, 0.4) transparent;
+}

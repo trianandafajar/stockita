@@ -1,0 +1,2 @@
+<?php
+protected $proxies = '*';
