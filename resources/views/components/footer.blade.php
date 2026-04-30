@@ -3,6 +3,7 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
 
+            {{-- brand --}}
             <div>
                 <div class="flex items-center gap-3 mb-6">
                     <div class="w-12 h-12">
@@ -10,36 +11,39 @@
                     </div>
                     <div>
                         <h3 class="text-xl font-bold">StocKita</h3>
-                        <p class="text-white text-xs opacity-80">Inventory Pro</p>
+                        <p class="text-xs opacity-80">Inventory Pro</p>
                     </div>
                 </div>
 
-                <p class="text-white text-sm leading-relaxed max-w-sm opacity-90">
-                    Solusi lengkap untuk toko modern. Dari inventory sampai pembayaran terintegrasi.
+                <p class="text-sm leading-relaxed max-w-sm opacity-90">
+                    A complete solution for modern businesses. From inventory management to integrated payments in one
+                    platform.
                 </p>
             </div>
 
+            {{-- product --}}
             <div>
-                <h4 class="text-lg font-semibold mb-4">Produk</h4>
+                <h4 class="text-lg font-semibold mb-4">Product</h4>
                 <ul class="space-y-2 text-sm">
                     <li>
                         <a href="/blog/kelola-produk" class="hover:text-emerald-300 transition">
-                            Manajemen Produk
+                            Product Management
                         </a>
                     </li>
                     <li>
                         <a href="/features/pelanggan" class="hover:text-emerald-300 transition">
-                            Pelanggan
+                            Customer Management
                         </a>
                     </li>
                     <li>
                         <a href="#offer" class="hover:text-emerald-300 transition">
-                            Pembayaran
+                            Payments
                         </a>
                     </li>
                 </ul>
             </div>
 
+            {{-- legal --}}
             <div>
                 <h4 class="text-lg font-semibold mb-4">Legal</h4>
                 <ul class="space-y-2 text-sm">
@@ -50,7 +54,7 @@
                     </li>
                     <li>
                         <a href="/terms" class="hover:text-emerald-300 transition">
-                            Terms & Services
+                            Terms of Service
                         </a>
                     </li>
                     <li>
