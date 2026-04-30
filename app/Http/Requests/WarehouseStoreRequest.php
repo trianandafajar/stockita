@@ -28,26 +28,26 @@ class WarehouseStoreRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'location' => ['required', 'string'],
             'description' => ['required', 'string'],
-            
+
             'store_id' => [
-                    $this->isMethod('post') ? Rule::requiredIf(Auth::user()->hasRole('admin')) : 'nullable',
-                    'exists:stores,id'
-                ],
-            ];
+                $this->isMethod('post') ? Rule::requiredIf(Auth::user()->hasRole('admin')) : 'nullable',
+                'exists:stores,id'
+            ],
+        ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required' => 'Nama gudang wajib diisi.',
-            'name.max' => 'Nama gudang maksimal 255 karakter.',
+            'name.required' => 'Warehouse name is required.',
+            'name.max' => 'Warehouse name may not be greater than 255 characters.',
 
-            'location.required' => 'Lokasi wajib diisi.',
+            'location.required' => 'Location is required.',
 
-            'description.required' => 'Deskripsi wajib diisi.',
+            'description.required' => 'Description is required.',
 
-            'store_id.required' => 'Toko wajib dipilih.',
-            'store_id.exists' => 'Toko yang dipilih tidak valid.',
+            'store_id.required' => 'Store must be selected.',
+            'store_id.exists' => 'The selected store is invalid.',
         ];
     }
 }
