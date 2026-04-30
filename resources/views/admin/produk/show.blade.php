@@ -23,24 +23,12 @@
             <div>
                 <h1 class="text-2xl lg:text-3xl font-bold text-gray-900">{{ $product->name }}</h1>
                 <p class="text-sm text-gray-500 mt-1">
-                    Terakhir diupdate: {{ $product->updated_at->format('d M Y, H:i') }}
+                    Last updated: {{ $product->updated_at->format('d M Y, H:i') }}
                 </p>
             </div>
             @can('edit products')
-            <button @click.prevent="if (!canEditProducts) {
-                    Swal.fire({
-                        toast: true,
-                        icon: 'error',
-                        position: 'top-end',
-                        title: 'Kamu tidak punya izin edit produk!',
-                        showConfirmButton: false,
-                        timer: 3000
-                    });
-                } else {
-                    $dispatch('open-modal', { name: 'edit-produk'})
-                }" class="px-4 py-2 text-white rounded-lg text-sm font-medium {{ auth()->user()->can('edit products')
-                        ? 'bg-green-500 hover:bg-green-600 transition-colors shadow-sm'
-                        : 'bg-green-200 cursor-not-allowed' }} ">
+            <button @click.prevent=" $dispatch('open-modal', { name: 'edit-produk'})"
+                class="px-4 py-2 text-white rounded-lg text-sm font-medium bg-green-500 hover:bg-green-600 transition-colors shadow-sm">
                 Edit
             </button>
             @endcan
@@ -57,26 +45,12 @@
 
                     <div x-data
                         class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-200">
-                        <button type="button" @click.prevent="
-                                if (!canUploadImage) {
-                                    Swal.fire({
-                                        toast: true,
-                                        icon: 'error',
-                                        position: 'top-end',
-                                        title: 'Kamu tidak punya izin edit gambar!',
-                                        showConfirmButton: false,
-                                        timer: 3000
-                                    });
-                                } else {
-                                    $dispatch('open-modal', { name: 'edit-image' });
-                                }
-                            " class="bg-white/90 hover:bg-white text-gray-700 p-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center gap-1 text-sm font-medium border border-gray-200 {{ auth()->user()->can('upload product images')
-                                ? 'bg-white/90 hover:bg-white text-gray-700 border-gray-200 hover:shadow-xl'
-                                : 'bg-gray-100 text-gray-400 border-gray-200 cursor-not-allowed opacity-70' }}"">
+                        <button type="button" @click.prevent="$dispatch('open-modal', { name: 'edit-image' });"
+                            class="bg-white/90 hover:bg-white text-gray-700 p-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 flex items-center gap-1 text-sm font-medium border border-gray-200  bg-white/90 hover:bg-white text-gray-700 border-gray-200 hover:shadow-xl">
                             <svg class=" w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
-                            </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                </path>
                             </svg>
                             Edit
                         </button>
@@ -97,13 +71,13 @@
                         </span>
                     </div>
                     <div class="bg-green-50/50 p-4 rounded-lg border border-green-100">
-                        <p class="text-sm font-medium text-green-800 mb-1">Total Stok</p>
+                        <p class="text-sm font-medium text-green-800 mb-1">Total Stock</p>
                         <p class="text-xl font-bold text-green-900">{{ $product->stocks->sum('qty') }} pcs</p>
                     </div>
                 </div>
 
                 <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                    <p class="text-sm font-medium text-gray-600 uppercase tracking-wide mb-3">Harga Satuan</p>
+                    <p class="text-sm font-medium text-gray-600 uppercase tracking-wide mb-3">Unit Price</p>
                     <div class="flex items-baseline gap-1">
                         <span class="text-2xl font-bold text-gray-900">Rp</span>
                         <span class="text-3xl font-bold text-gray-900 tracking-tight">
@@ -122,7 +96,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
                     </svg>
-                    Distribusi Gudang
+                    Warehouse Distribution
                 </h2>
             </div>
 
@@ -139,7 +113,7 @@
                         </div>
                         <div>
                             <p class="font-medium text-gray-900">{{ $stock->warehouse->name }}</p>
-                            <p class="text-sm text-gray-500">Gudang</p>
+                            <p class="text-sm text-gray-500">Warehouse</p>
                         </div>
                     </div>
                     <span
@@ -156,7 +130,7 @@
                             </path>
                         </svg>
                     </div>
-                    <p class="text-gray-500 font-medium">Belum ada distribusi stok di gudang</p>
+                    <p class="text-gray-500 font-medium">No stock distribution available</p>
                 </div>
                 @endforelse
             </div>
@@ -167,7 +141,7 @@
     <x-modal name="edit-image" maxWidth="lg">
         <div class="p-6">
             <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-                <h3 class="text-lg font-semibold text-gray-900">Edit Foto Produk</h3>
+                <h3 class="text-lg font-semibold text-gray-900">Edit Product Image</h3>
                 <button type="button" @click="$dispatch('close-modal', 'edit-image')">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
@@ -187,11 +161,11 @@
                         <img id="image-preview" src="{{ asset('storage/' . $product->image) }}"
                             class="w-full h-full object-cover rounded-lg shadow-md">
                     </div>
-                    <p class="text-sm text-gray-500 mt-3">Preview foto saat ini</p>
+                    <p class="text-sm text-gray-500 mt-3">Current image preview</p>
                 </div>
 
                 <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Upload foto baru</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Upload new image</label>
                     <input type="file" name="image" id="image-input" required
                         class="block w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent px-3 py-2"
                         accept="image/*">
@@ -201,11 +175,11 @@
                 <div class="flex gap-3 pt-4">
                     <button type="button" @click="$dispatch('close-modal', 'edit-image')"
                         class="close-modal flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium transition-all">
-                        Batal
+                        Cancel
                     </button>
                     <button type="submit" id="save-btn"
                         class="close-modal flex-1 px-4 py-2.5 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium shadow-sm hover:shadow transition-all">
-                        Simpan Foto
+                        save
                     </button>
                 </div>
             </form>
@@ -225,7 +199,7 @@
                 @method('PUT')
 
                 <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-                    <h3 class="text-lg font-semibold text-gray-900">Edit Informasi Produk</h3>
+                    <h3 class="text-lg font-semibold text-gray-900">Edit Product Information</h3>
                     <button type="button" @click="$el.closest('form').reset(); $dispatch('close-modal', 'edit-produk')">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -237,7 +211,7 @@
 
                 <div class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Nama Produk <span
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Product Name <span
                                 class="text-red-500">*</span></label>
                         <input type="text" name="name" value="{{ $product->name }}" x-ref="productName"
                             class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none">
@@ -245,7 +219,7 @@
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Harga <span
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Price <span
                                 class="text-red-500">*</span></label>
                         <input type="number" name="price" value="{{ $product->price }}"
                             class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none">
@@ -255,7 +229,7 @@
 
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Kategori <span
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Category <span
                                 class="text-red-500">*</span></label>
                         <select name="category_id"
                             class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none">
@@ -276,22 +250,17 @@
                         <button type="button"
                             @click="$el.closest('form').reset(); $dispatch('close-modal', 'edit-produk')"
                             class="close-modal flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium transition-all">
-                            Batal
+                            Cancel
                         </button>
                         <button type="submit" id="save-btn"
                             class="close-modal flex-1 px-4 py-2.5 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium shadow-sm hover:shadow transition-all">
-                            Simpan
+                            Save
                         </button>
                     </div>
                 </div>
             </form>
         </div>
     </x-modal>
-
-    <script>
-        const canUploadImage = @json(auth()->user()->can('upload product images'));
-        const canEditProducts = @json(auth()->user()->can('edit products'));
-    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

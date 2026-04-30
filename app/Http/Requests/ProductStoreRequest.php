@@ -33,21 +33,21 @@ class ProductStoreRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Nama produk wajib diisi.',
-            'name.string' => 'Nama produk harus berupa teks.',
-            'name.max' => 'Nama produk maksimal 255 karakter.',
+            'name.required' => 'Product name is required.',
+            'name.string' => 'Product name must be a valid text.',
+            'name.max' => 'Product name may not be greater than 255 characters.',
 
-            'price.required' => 'Harga wajib diisi.',
-            'price.numeric' => 'Harga harus berupa angka.',
-            'price.min' => 'Harga tidak boleh kurang dari 0.',
+            'price.required' => 'Price is required.',
+            'price.numeric' => 'Price must be a number.',
+            'price.min' => 'Price must be at least 0.',
 
-            'image.required' => 'Gambar wajib diupload.',
-            'image.image' => 'File harus berupa gambar.',
-            'image.mimes' => 'Format gambar harus jpg, jpeg, atau png.',
-            'image.max' => 'Ukuran gambar maksimal 5MB.',
+            'image.required' => 'Image is required.',
+            'image.image' => 'The file must be an image.',
+            'image.mimes' => 'Image format must be jpg, jpeg, or png.',
+            'image.max' => 'Image size may not exceed 5MB.',
 
-            'category_id.required' => 'Kategori wajib dipilih.',
-            'category_id.exists' => 'Kategori tidak valid.',
+            'category_id.required' => 'Category is required.',
+            'category_id.exists' => 'Selected category is invalid.',
         ];
     }
 }

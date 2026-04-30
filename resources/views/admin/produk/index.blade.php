@@ -27,34 +27,22 @@
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
                 <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
-                    Manajemen Produk
+                    Product Management
                 </h1>
                 <p class="text-gray-600 mt-1 text-sm sm:text-base">
-                    Kelola semua produk toko Anda
+                    Manage all your store products
                 </p>
             </div>
 
             <div x-data class="flex gap-3">
                 @can('create products')
-                <button @click.prevent="if (!canCreateProducts) {
-                        Swal.fire({
-                            toast: true,
-                            icon: 'error',
-                            position: 'top-end',
-                            title: 'Kamu tidak punya izin menambah produk!',
-                            showConfirmButton: false,
-                            timer: 3000
-                        });
-                    } else {
-                        $dispatch('open-modal', { name: 'add-produk'})
-                    }" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-white font-medium text-sm rounded-xl {{ auth()->user()->can('create products')
-                            ? 'bg-green-500 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5'
-                            : 'bg-green-200 border-gray-200 cursor-not-allowed' }}">
+                <button @click.prevent="$dispatch('open-modal', { name: 'add-produk'})"
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-white font-medium text-sm rounded-xl bg-green-500 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                     </svg>
-                    Tambah Produk
+                    Add Product
                 </button>
                 @endcan
             </div>
@@ -66,14 +54,14 @@
                 <div class="flex flex-col sm:flex-row gap-3">
 
                     <input type="text" name="search" value="{{ request('search') }}"
-                        placeholder="Cari produk, kategori, nama owner atau nama toko..."
+                        placeholder="Search products, categories, owner name or store name..."
                         class="flex-1 px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500">
 
                     <div class="relative w-full sm:w-48">
                         <select name="store"
                             class="w-full appearance-none px-4 py-2 pr-10 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-blue-500">
 
-                            <option value="">Semua</option>
+                            <option value="">All Stores</option>
                             @foreach ($stores as $store)
                             <option value="{{ $store->id }}" {{ request('store')==$store->id ? 'selected' : '' }}>
                                 {{ $store->name }}
@@ -123,12 +111,12 @@
                 <table class="w-full text-sm text-left">
                     <thead class="bg-gray-50 text-gray-600 uppercase text-xs">
                         <tr>
-                            <th class="px-6 py-3">Produk</th>
-                            <th class="px-6 py-3">Harga</th>
-                            <th class="px-6 py-3">Kategori</th>
-                            <th class="px-6 py-3">Toko</th>
-                            <th class="px-6 py-3">Pemilik</th>
-                            <th class="px-6 py-3 text-right">Aksi</th>
+                            <th class="px-6 py-3">Product</th>
+                            <th class="px-6 py-3">Price</th>
+                            <th class="px-6 py-3">Category</th>
+                            <th class="px-6 py-3">Store</th>
+                            <th class="px-6 py-3">Owner</th>
+                            <th class="px-6 py-3 text-right">Action</th>
                         </tr>
                     </thead>
 
@@ -177,20 +165,9 @@
 
                                     @can('delete products')
                                     <button
-                                        class="px-3 py-1.5 text-xs font-medium bg-red-50 text-red-600 rounded-lg {{ auth()->user()->can('delete products') ? 'hover:bg-red-100 transition' : 'cursor-not-allowed' }}"
-                                        @click="if (!canDeleteProducts) {
-                                            Swal.fire({
-                                                toast: true,
-                                                icon: 'error',
-                                                position: 'top-end',
-                                                title: 'Kamu tidak punya izin menghapus produk!',
-                                                showConfirmButton: false,
-                                                timer: 3000
-                                            });
-                                        } else {
-                                            $dispatch('open-modal', { name: 'delete-product', id: {{ $product->id }} })
-                                        }">
-                                        Hapus
+                                        class="px-3 py-1.5 text-xs font-medium bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition"
+                                        @click="$dispatch('open-modal', { name: 'delete-product', id: {{ $product->id }} })">
+                                        Delete
                                     </button>
                                     @endcan
                                 </div>
@@ -200,7 +177,7 @@
                         @empty
                         <tr>
                             <td colspan="5" class="text-center py-10 text-gray-400">
-                                Belum ada produk
+                                No products available
                             </td>
                         </tr>
                         @endforelse
@@ -218,7 +195,7 @@
             }" class="p-6">
             <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Hapus Produk
+                    Delete Product
                 </h3>
 
                 <button type="button" @click="$dispatch('close-modal', 'delete-product')"
@@ -230,7 +207,7 @@
                 </button>
             </div>
 
-            <p>Apakah anda yakin ingin meghapus produk ini?</p>
+            <p>Are you sure you want to delete this product?</p>
 
             <form :action="`/admin/products/${productId}`" method="POST">
                 @csrf
@@ -238,11 +215,11 @@
                 <div class="flex justify-end gap-2 pt-4">
                     <button type="button" @click="$dispatch('close-modal', 'delete-product')"
                         class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-green-700">
-                        Hapus
+                        Delete
                     </button>
                 </div>
             </form>
@@ -256,12 +233,12 @@
         if ($event.detail.name === 'add-produk') {
             setTimeout(() => $refs.productName.focus(), 100)
         }
-    " class="p-6">
+        " class="p-6">
             <form action="/admin/products" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-                    <h3 class="text-lg font-semibold text-gray-900">Tambah Produk</h3>
+                    <h3 class="text-lg font-semibold text-gray-900">Add Product</h3>
                     <button type="button" @click="$el.closest('form').reset(); $dispatch('close-modal', 'add-produk')">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -274,7 +251,7 @@
                 <div class="space-y-4">
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Nama Produk <span
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Product Name <span
                                     class="text-red-500">*</span></label>
                             <input type="text" name="name" value="{{ old('name') }}" x-ref="productName"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none">
@@ -282,7 +259,7 @@
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Harga <span
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Price <span
                                     class="text-red-500">*</span></label>
                             <input type="number" name="price" value="{{ old('price') }}"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none">
@@ -291,9 +268,9 @@
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium mb-1">Toko <span class="text-red-500">*</span></label>
+                        <label class="block text-sm font-medium mb-1">Store <span class="text-red-500">*</span></label>
                         <select name="store_id" id="storeSelect" class="w-full px-4 py-2 border rounded-lg">
-                            <option value="">-- Pilih Toko --</option>
+                            <option value="">-- Select Store --</option>
                             @foreach ($stores as $store)
                             <option value="{{ $store->id }}">
                                 {{ $store->name }}
@@ -303,17 +280,17 @@
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Kategori <span
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Category <span
                                 class="text-red-500">*</span></label>
                         <select name="category_id" id="categorySelect" class="w-full px-4 py-2 border rounded-lg">
-                            <option value="">-- Pilih Kategori --</option>
-                            <option value="" disabled>Pilih toko terlebih dahulu!</option>
+                            <option value="">-- Select Category --</option>
+                            <option value="" disabled>Select store first!</option>
                         </select>
                         <x-input-error :messages="$errors->get('category_id')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
                     <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2">Gambar Produk <span
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Product Image <span
                                 class="text-red-500">*</span></label>
                         <div
                             class="border-2 border-dashed border-gray-200 rounded-xl p-6 text-center hover:border-gray-300 hover:bg-gray-50 transition-colors duration-200">
@@ -325,7 +302,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                                             d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                     </svg>
-                                    <p class="text-sm font-medium text-gray-700 mb-1">Klik untuk upload gambar</p>
+                                    <p class="text-sm font-medium text-gray-700 mb-1">Click to upload image</p>
                                     <p class="text-xs text-gray-500">PNG, JPG, GIF (max 5MB)</p>
                                 </label>
                             </div>
@@ -341,12 +318,12 @@
                     <div class="flex justify-end gap-3 pt-4">
                         <button @click.prevent="$el.closest('form').reset(); $dispatch('close-modal', 'add-produk')"
                             class="px-4 py-2 text-sm bg-gray-200 rounded-lg hover:bg-gray-300">
-                            Batal
+                            Cancel
                         </button>
 
                         <button type="submit"
                             class="px-5 py-2 bg-green-600 text-white text-sm rounded-lg hover:bg-green-700">
-                            Simpan
+                            Save
                         </button>
                     </div>
                 </div>
@@ -362,7 +339,7 @@
 
                 <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100">
                     <h3 class="text-lg font-semibold text-gray-900">
-                        Import Produk (Excel)
+                        Import Product (Excel)
                     </h3>
 
                     <button type="button" @click="$dispatch('close-modal', 'import-produk')"
@@ -375,9 +352,9 @@
                 </div>
 
                 <div class="mb-4">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Target Toko</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Target Store</label>
                     <select name="store_id" required class="w-full px-4 py-2 border border-gray-200 rounded-lg">
-                        <option value="">-- Pilih Toko --</option>
+                        <option value="">-- Select Store --</option>
                         @foreach($stores as $store)
                         <option value="{{ $store->id }}">{{ $store->name }}</option>
                         @endforeach
@@ -385,7 +362,7 @@
                 </div>
 
                 <p class="text-sm text-gray-600 mb-4">
-                    Upload file Excel (.xlsx / .xls). Pastikan format sesuai template.
+                    Upload Excel file (.xlsx / .xls). Make sure it matches the template.
                 </p>
 
                 <div
@@ -401,7 +378,7 @@
                         </svg>
 
                         <p class="text-sm font-medium text-gray-700 mb-1">
-                            Klik untuk upload file Excel
+                            Click to upload Excel file
                         </p>
 
                         <p class="text-xs text-gray-500">
@@ -414,13 +391,13 @@
                 <x-input-error :messages="$errors->import->get('file')" class="mt-2 text-red-500 text-sm" />
 
                 <a href="{{ route('products.template')}}" class="text-sm text-blue-600 hover:underline">
-                    Download template Excel
+                    Download Excel template
                 </a>
 
                 <div class="flex justify-end gap-2 pt-4">
                     <button type="button" @click="$dispatch('close-modal', 'import-produk')"
                         class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
@@ -432,8 +409,6 @@
     </x-modal>
 
     <script>
-        const canCreateProducts = @json(auth()->user()->can('create products'));
-        const canDeleteProducts = @json(auth()->user()->can('delete products'));
         const canUploadImage = @json(auth()->user()->can('upload product images'));
     </script>
 
@@ -465,7 +440,7 @@
             fetch(`/admin/categories-by-store/${storeId}`)
                 .then(res => res.json())
                 .then(data => {
-                    categorySelect.innerHTML = '<option value="">-- Pilih Kategori --</option>';
+                    categorySelect.innerHTML = '<option value="">-- Select Category --</option>';
 
                     data.forEach(cat => {
                         categorySelect.innerHTML += `
@@ -491,7 +466,7 @@
                         toast: true,
                         icon: 'error',
                         position: 'top-end',
-                        title: 'Kamu tidak punya izin upload gambar!',
+                        title: 'You do not have permission to upload images!',
                         showConfirmButton: false,
                         timer: 3000
                     });
@@ -505,7 +480,7 @@
                         toast: true,
                         icon: 'error',
                         position: 'top-end',
-                        title: 'Kamu tidak punya izin upload gambar!',
+                        title: 'You do not have permission to upload images!',
                         showConfirmButton: false,
                         timer: 3000
                     });
@@ -536,7 +511,7 @@
                         toast: true,
                         icon: 'error',
                         position: 'top-end',
-                        title: 'Kamu tidak punya izin upload gambar!',
+                        title: 'You do not have permission to upload images!',
                         showConfirmButton: false,
                         timer: 3000
                     });

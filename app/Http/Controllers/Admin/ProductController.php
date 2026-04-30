@@ -100,7 +100,7 @@ class ProductController extends Controller
 
                 $imagePath = 'products/' . $filename;
             } else {
-                session()->flash('error', 'Gambar tidak diupload karena tidak punya izin');
+                session()->flash('error', 'Image was not uploaded due to missing permission!');
             }
         }
 
@@ -121,7 +121,7 @@ class ProductController extends Controller
             'category_id' => $product->category_id,
         ]);
 
-        return redirect()->back()->with('success', 'Produk baru berhasil ditambahkan!');
+        return redirect()->back()->with('success', 'Product successfully added!');
     }
 
     /**
@@ -154,16 +154,16 @@ class ProductController extends Controller
             'category_id' => 'required|exists:categories,id',
 
         ], [
-            'name.required' => 'Nama produk wajib diisi.',
-            'name.string' => 'Nama produk harus berupa teks.',
-            'name.max' => 'Nama produk maksimal 255 karakter.',
+            'name.required' => 'Product name is required.',
+            'name.string' => 'Product name must be a text.',
+            'name.max' => 'Product name may not be greater than 255 characters.',
 
-            'price.required' => 'Harga wajib diisi.',
-            'price.numeric' => 'Harga harus berupa angka.',
-            'price.min' => 'Harga tidak boleh kurang dari 0.',
+            'price.required' => 'Price is required.',
+            'price.numeric' => 'Price must be a number.',
+            'price.min' => 'Price cannot be less than 0.',
 
-            'category_id.required' => 'Kategori wajib dipilih.',
-            'category_id.exists' => 'Kategori tidak valid.',
+            'category_id.required' => 'Category is required.',
+            'category_id.exists' => 'Selected category is invalid.',
         ]);
 
         $product = Product::findOrFail($id);
@@ -181,7 +181,7 @@ class ProductController extends Controller
             'after' => $product->only(['name', 'price', 'category_id'])
         ]);
 
-        return redirect()->back()->with('success', 'Produk berhasil diperbarui!');
+        return redirect()->back()->with('success', 'Product successfully updated!');
     }
 
     // update image
@@ -220,11 +220,11 @@ class ProductController extends Controller
                     'image' => $imagePath
                 ]);
             } catch (\Exception $e) {
-                return back()->with('error', 'Gagal memproses gambar: ' . $e->getMessage());
+                return back()->with('error', 'Failed to process image: ' . $e->getMessage());
             }
         }
 
-        return redirect()->back()->with('success', 'Gambar produk berhasil diperbarui!');
+        return redirect()->back()->with('success', 'Product image updated successfully!');
     }
 
     /**
@@ -240,12 +240,12 @@ class ProductController extends Controller
 
         logActivity('DELETE', $product, $data);
 
-        return redirect()->back()->with('success', 'Produk berhasil dihapus!');
+        return redirect()->back()->with('success', 'Product deleted successfully!');
     }
 
     public function export()
     {
-        return Excel::download(new ProductsExport(auth()->user()), 'daftar-produk.xlsx');
+        return Excel::download(new ProductsExport(auth()->user()), 'product-list.xlsx');
     }
 
     public function template()
@@ -282,7 +282,7 @@ class ProductController extends Controller
                     ['', '', '', '']
                 ];
             }
-        }, 'template-produk.xlsx');
+        }, 'product-template.xlsx');
     }
 
     public function import(Request $request)
@@ -290,10 +290,6 @@ class ProductController extends Controller
         $validator = Validator::make($request->all(), [
             'file' => 'required|mimes:xlsx,xls,csv',
             'store_id' => 'required'
-        ], [
-            'file.required' => 'File wajib diupload!',
-            'file.mimes' => 'Format file harus Excel (.xlsx, .xls, .csv)',
-            'store_id.required' => 'Toko harus dipilih!'
         ]);
 
         if ($validator->fails()) {
@@ -304,7 +300,7 @@ class ProductController extends Controller
 
         try {
             Excel::import(new ProductsImport($request->store_id), $request->file('file'));
-            return back()->with('success', 'Data produk berhasil diimport!');
+            return back()->with('success', 'Product data imported successfully!');
         } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
             $failures = $e->failures();
             $errorMessages = [];
@@ -326,7 +322,7 @@ class ProductController extends Controller
 
             return back()->with('error', $fullMessage);
         } catch (\Exception $e) {
-            return back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            return back()->with('error', 'An error occurred: ' . $e->getMessage());
         }
     }
 

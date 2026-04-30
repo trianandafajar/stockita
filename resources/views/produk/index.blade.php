@@ -25,10 +25,10 @@
         <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
                 <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
-                    Manajemen Produk
+                    Product Management
                 </h1>
                 <p class="text-gray-600 mt-1 text-sm sm:text-base">
-                    Kelola semua produk toko Anda
+                    Manage all your store products
                 </p>
             </div>
 
@@ -67,7 +67,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                     </svg>
-                    Tambah Produk
+                    Add Product
                 </button>
                 @endcan
             </div>
@@ -79,10 +79,10 @@
                 <table class="w-full text-sm text-left">
                     <thead class="bg-gray-50 text-gray-600 uppercase text-xs">
                         <tr>
-                            <th class="px-6 py-3">Produk</th>
-                            <th class="px-6 py-3">Harga</th>
-                            <th class="px-6 py-3">Kategori</th>
-                            <th class="px-6 py-3 text-right">Aksi</th>
+                            <th class="px-6 py-3">Product</th>
+                            <th class="px-6 py-3">Price</th>
+                            <th class="px-6 py-3">Category</th>
+                            <th class="px-6 py-3 text-right">Action</th>
                         </tr>
                     </thead>
 
@@ -125,7 +125,7 @@
                                     <button
                                         class="px-3 py-1.5 text-xs font-medium bg-red-50 text-red-600 rounded-lg {{ auth()->user()->can('delete products') ? 'hover:bg-red-100 transition' : 'cursor-not-allowed' }}"
                                         @click="$dispatch('open-modal', { name: 'delete-product', id: {{ $product->id }} })">
-                                        Hapus
+                                        Delete
                                     </button>
                                     @endcan
                                 </div>
@@ -135,7 +135,7 @@
                         @empty
                         <tr>
                             <td colspan="5" class="text-center py-10 text-gray-400">
-                                Belum ada produk
+                                No products available
                             </td>
                         </tr>
                         @endforelse
@@ -153,7 +153,7 @@
             }" class="p-6">
             <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Hapus Produk
+                    Delete Product
                 </h3>
 
                 <button type="button" @click="$dispatch('close-modal', 'delete-product')"
@@ -165,7 +165,7 @@
                 </button>
             </div>
 
-            <p>Apakah anda yakin ingin meghapus produk ini?</p>
+            <p>Are you sure you want to delete this product?</p>
 
             <form :action="`/products/${productId}`" method="POST">
                 @csrf
@@ -173,11 +173,11 @@
                 <div class="flex justify-end gap-2 pt-4">
                     <button type="button" @click="$dispatch('close-modal', 'delete-product')"
                         class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-green-700">
-                        Hapus
+                        Delete
                     </button>
                 </div>
             </form>
@@ -196,7 +196,7 @@
                 @csrf
 
                 <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-                    <h3 class="text-lg font-semibold text-gray-900">Tambah Produk</h3>
+                    <h3 class="text-lg font-semibold text-gray-900">Add Product</h3>
                     <button type="button" @click="$el.closest('form').reset(); $dispatch('close-modal', 'add-produk')">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -209,7 +209,7 @@
                 <div class="space-y-4">
                     <div class="grid grid-col-2 gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Nama Produk <span
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Product Name<span
                                     class="text-red-500">*</span></label>
                             <input type="text" name="name" value="{{ old('name') }}" x-ref="productName"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none">
@@ -217,7 +217,7 @@
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Harga <span
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Price <span
                                     class="text-red-500">*</span></label>
                             <input type="number" name="price" value="{{ old('price') }}"
                                 class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none">
@@ -226,11 +226,11 @@
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Kategori <span
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Category <span
                                 class="text-red-500">*</span></label>
                         <select name="category_id"
                             class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none">
-                            <option value="">-- Pilih Kategori --</option>
+                            <option value="">-- Select Category --</option>
                             @foreach ($categories as $category)
                             <option value="{{ $category->id }}">
                                 {{ $category->name }}
@@ -241,7 +241,7 @@
                     </div>
 
                     <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-2">Gambar Produk <span
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Product Image<span
                                 class="text-red-500">*</span></label>
                         <div
                             class="border-2 border-dashed border-gray-200 rounded-xl p-6 text-center hover:border-gray-300 hover:bg-gray-50 transition-colors duration-200">
@@ -253,7 +253,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                                             d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                     </svg>
-                                    <p class="text-sm font-medium text-gray-700 mb-1">Klik untuk upload gambar</p>
+                                    <p class="text-sm font-medium text-gray-700 mb-1">Click to upload image</p>
                                     <p class="text-xs text-gray-500">PNG, JPG, GIF (max 5MB)</p>
                                 </label>
                             </div>
@@ -269,12 +269,12 @@
                     <div class="flex justify-end gap-3 pt-4">
                         <button @click.prevent="$el.closest('form').reset(); $dispatch('close-modal', 'add-produk')"
                             class="px-4 py-2 text-sm bg-gray-200 rounded-lg hover:bg-gray-300">
-                            Batal
+                            Cancel
                         </button>
 
                         <button type="submit"
                             class="px-5 py-2 bg-green-600 text-white text-sm rounded-lg hover:bg-green-700">
-                            Simpan
+                            Save
                         </button>
                     </div>
                 </div>
@@ -290,7 +290,7 @@
 
                 <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100">
                     <h3 class="text-lg font-semibold text-gray-900">
-                        Import Produk (Excel)
+                        Import Product (Excel)
                     </h3>
 
                     <button type="button" @click="$dispatch('close-modal', 'import-produk')"
@@ -303,7 +303,7 @@
                 </div>
 
                 <p class="text-sm text-gray-600 mb-4">
-                    Upload file Excel (.xlsx / .xls). Pastikan format sesuai template.
+                    Upload Excel file (.xlsx / .xls). Make sure it matches the template.
                 </p>
 
                 <div
@@ -319,7 +319,7 @@
                         </svg>
 
                         <p class="text-sm font-medium text-gray-700 mb-1">
-                            Klik untuk upload file Excel
+                            Click to upload Excel file
                         </p>
 
                         <p class="text-xs text-gray-500">
@@ -331,13 +331,13 @@
                     <p id="fileName" class="mt-3 text-sm text-green-600 hidden"></p>
                 </div>
                 <a href="{{ route('products.template')}}" class="text-sm text-blue-600 hover:underline">
-                    Download template Excel
+                    Download Excel template
                 </a>
 
                 <div class="flex justify-end gap-2 pt-4">
                     <button type="button" @click="$dispatch('close-modal', 'import-produk')"
                         class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
@@ -386,7 +386,7 @@
                         toast: true,
                         icon: 'error',
                         position: 'top-end',
-                        title: 'Kamu tidak punya izin upload gambar!',
+                        title: 'You do not have permission to upload images!',
                         showConfirmButton: false,
                         timer: 3000
                     });
@@ -400,7 +400,7 @@
                         toast: true,
                         icon: 'error',
                         position: 'top-end',
-                        title: 'Kamu tidak punya izin upload gambar!',
+                        title: 'You do not have permission to upload images!',
                         showConfirmButton: false,
                         timer: 3000
                     });
@@ -431,7 +431,7 @@
                         toast: true,
                         icon: 'error',
                         position: 'top-end',
-                        title: 'Kamu tidak punya izin upload gambar!',
+                        title: 'You do not have permission to upload images!',
                         showConfirmButton: false,
                         timer: 3000
                     });
