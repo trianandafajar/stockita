@@ -1,4 +1,4 @@
-<x-app-layout title="Detail Gudang">
+<x-app-layout title="Warehouse Details">
     <script>
         const canManageStockMovement = @json(auth()->user()->can('create inventory'));
     </script>

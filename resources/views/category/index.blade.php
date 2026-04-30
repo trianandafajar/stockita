@@ -1,4 +1,4 @@
-<x-app-layout title="Kategori">
+<x-app-layout title="Categories">
     @if ($message = session('success') ?? (session('error') ?? (session('warning') ?? session('info'))))
     <script>
         document.addEventListener('DOMContentLoaded', function() {

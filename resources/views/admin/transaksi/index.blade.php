@@ -1,4 +1,4 @@
-<x-app-layout title="Manajemen Transaksi & Stok">
+<x-app-layout title="Transactions">
     @if ($message = session('success') ?? (session('error') ?? (session('warning') ?? session('info'))))
     <script>
         document.addEventListener('DOMContentLoaded', function() {

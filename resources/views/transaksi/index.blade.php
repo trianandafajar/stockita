@@ -1,4 +1,4 @@
-<x-app-layout title="Manajemen Transaksi & Stok">
+<x-app-layout title="Transactions">
     <script>
         const canCreateTransactions = @json(auth()->user()->can('create transactions'));
         const canDeleteTransactions = @json(auth()->user()->can('delete transactions'));

@@ -1,4 +1,4 @@
-<x-app-layout title="Detail Transaksi #{{ $transaction->invoice_code }}">
+<x-app-layout title="Transaction Details #{{ $transaction->invoice_code }}">
 
     <div class="space-y-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">

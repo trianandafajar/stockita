@@ -1,4 +1,4 @@
-<x-app-layout title="Detail Pelanggan">
+<x-app-layout title="Customer Details">
     @if ($message = session('success') ?? (session('error') ?? (session('warning') ?? session('info'))))
     <script>
         document.addEventListener('DOMContentLoaded', function() {
