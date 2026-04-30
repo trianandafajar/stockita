@@ -25,23 +25,23 @@
         <div class="mb-12">
             <h1 class="text-3xl font-bold text-gray-900 mb-2">Settings</h1>
             @role('admin')
-            <p class="text-lg text-gray-600">Kelola konfigurasi aplikasi</p>
+            <p class="text-lg text-gray-600">Manage application configuration</p>
             @endrole
             @role('owner')
-            <p class="text-lg text-gray-600">Kelola Toko anda</p>
+            <p class="text-lg text-gray-600">Manage your store</p>
             @endrole
         </div>
 
         <div class="space-y-8">
 
-            {{-- setting admin --}}
+            {{-- admin settings --}}
             @role('admin')
             {{-- general --}}
             <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
                 <div x-data class="flex justify-between items-start mb-8">
                     <div>
                         <h2 class="text-2xl font-semibold text-gray-900 mb-1">General</h2>
-                        <p class="text-sm text-gray-500">Identitas aplikasi</p>
+                        <p class="text-sm text-gray-500">Application identity</p>
                     </div>
                     <button @click="$dispatch('open-modal', { name: 'edit-app'})"
                         class="text-sm font-medium text-green-600 hover:text-green-700 px-3 py-1 border border-green-100 rounded-lg hover:bg-green-50 transition-colors">
@@ -51,11 +51,11 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="space-y-2">
-                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Nama Aplikasi</p>
+                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Application Name</p>
                         <p class="text-2xl font-bold text-gray-900">{{ config('app.name', 'StocKita') }}</p>
                     </div>
                     <div class="space-y-2">
-                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Deskripsi</p>
+                        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Description</p>
                         <p class="text-lg font-semibold text-gray-900">{{ setting('app.description', 'POS ') }}</p>
                     </div>
                 </div>
@@ -67,7 +67,7 @@
                 <div x-data class="flex justify-between items-start mb-8">
                     <div>
                         <h2 class="text-2xl font-semibold text-gray-900 mb-1">Plan Settings</h2>
-                        <p class="text-sm text-gray-500">Pengaturan paket langganan</p>
+                        <p class="text-sm text-gray-500">Subscription package settings</p>
                     </div>
                 </div>
 
@@ -83,36 +83,36 @@
                         </span>
                         @endif
 
-                        {{-- nama --}}
+                        {{-- name --}}
                         <p class="text-sm uppercase 
                                          {{ $plan->name == 'Pro' ? 'text-green-600' : 'text-gray-500' }}">
                             {{ $plan->name }}
                         </p>
 
-                        {{-- harga --}}
+                        {{-- price --}}
                         <p class="text-2xl font-bold text-gray-900">
                             Rp {{ number_format($plan->price, 0, ',', '.') }}
                         </p>
 
                         <p class="text-sm text-gray-500">
-                            /tahun Rp {{ number_format($plan->yearly_price, 0, ',', '.') }}
+                            /year Rp {{ number_format($plan->yearly_price, 0, ',', '.') }}
                         </p>
 
-                        {{-- durasi --}}
+                        {{-- duration --}}
                         <p class="text-sm text-gray-400 mt-1">
-                            Berlaku {{ $plan->duration_days }} hari
+                            Valid for {{ $plan->duration_days }} days
                         </p>
 
-                        {{-- limit --}}
+                        {{-- limits --}}
                         <ul class="mt-4 text-sm text-gray-600 space-y-1">
-                            <li>- Produk: {{ $plan->max_products ?? 'Unlimited' }}</li>
-                            <li>- Order: {{ $plan->max_orders ?? 'Unlimited' }}</li>
-                            <li>- Gudang: {{ $plan->max_warehouses ?? 'Unlimited' }}</li>
-                            <li>- Kategori: {{ $plan->max_categories ?? 'Unlimited' }}</li>
-                            <li>- Customer: {{ $plan->max_customers ?? 'Unlimited' }}</li>
+                            <li>- Products: {{ $plan->max_products ?? 'Unlimited' }}</li>
+                            <li>- Orders: {{ $plan->max_orders ?? 'Unlimited' }}</li>
+                            <li>- Warehouses: {{ $plan->max_warehouses ?? 'Unlimited' }}</li>
+                            <li>- Categories: {{ $plan->max_categories ?? 'Unlimited' }}</li>
+                            <li>- Customers: {{ $plan->max_customers ?? 'Unlimited' }}</li>
                         </ul>
 
-                        {{-- fitur --}}
+                        {{-- features --}}
                         @if ($plan->features)
                         <ul class="mt-4 text-sm text-gray-700 space-y-1">
                             @foreach ($plan->features as $feature)
@@ -132,7 +132,7 @@
                         </div>
 
                         <p class="text-xs text-gray-400 mt-3">
-                            Ditampilkan ke user di halaman pricing
+                            Displayed to users on the pricing page
                         </p>
                     </div>
                     @endforeach
@@ -145,7 +145,7 @@
                 <div class="flex justify-between items-center mb-6">
                     <div>
                         <h2 class="text-2xl font-semibold text-gray-900">Email Template</h2>
-                        <p class="text-sm text-gray-500">Kelola template email sistem</p>
+                        <p class="text-sm text-gray-500">Manage system email templates</p>
                     </div>
                 </div>
 
@@ -188,7 +188,7 @@
             </div>
             @endrole
 
-            {{-- setting owner --}}
+            {{-- owner settings --}}
             @role('owner')
             {{-- store --}}
             <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm space-y-8">
@@ -197,7 +197,7 @@
                 <div x-data class="flex justify-between items-start">
                     <div>
                         <h2 class="text-2xl font-semibold text-gray-900 mb-1">Store</h2>
-                        <p class="text-sm text-gray-500">Informasi toko & pemilik</p>
+                        <p class="text-sm text-gray-500">Store & owner information</p>
                     </div>
 
                     <div class="flex gap-2">
@@ -214,7 +214,7 @@
                 {{-- STORE INFO --}}
                 <div class="grid grid-cols-2 gap-8">
                     <div>
-                        <p class="text-sm text-gray-500">Nama Toko</p>
+                        <p class="text-sm text-gray-500">Store Name</p>
                         <p class="font-semibold text-lg">{{ $store?->name ?? '-' }}</p>
                     </div>
                     <div>
@@ -222,21 +222,21 @@
                         <p>{{ $store?->email ?? '-' }}</p>
                     </div>
                     <div>
-                        <p class="text-sm text-gray-500">No HP</p>
+                        <p class="text-sm text-gray-500">Phone Number</p>
                         <p>{{ $store?->phone ?? '-' }}</p>
                     </div>
                     <div>
-                        <p class="text-sm text-gray-500">Alamat</p>
+                        <p class="text-sm text-gray-500">Address</p>
                         <p>{{ $store?->address ?? '-' }}</p>
                     </div>
                 </div>
             </div>
 
-            {{-- subscribtion --}}
+            {{-- subscription --}}
             <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
                 <div class="mb-8">
                     <h2 class="text-2xl font-semibold text-gray-900 mb-1">Subscription</h2>
-                    <p class="text-sm text-gray-500">Status paket saat ini</p>
+                    <p class="text-sm text-gray-500">Current package status</p>
                 </div>
 
                 @if ($plan)
@@ -244,7 +244,7 @@
                     <div>
                         <p class="text-xl font-bold text-gray-900">{{ $plan->name }} Plan</p>
                         <p class="text-sm text-gray-600">
-                            Limit {{ $plan->max_products }} produk • {{ ucfirst($subscription->status) }}
+                            Limit {{ $plan->max_products }} products • {{ ucfirst($subscription->status) }}
                         </p>
                     </div>
                     <form action="{{ route('subscription.index') }}" method="GET">
@@ -256,10 +256,10 @@
                 </div>
                 @else
                 <div class="p-6 border border-gray-100 rounded-xl bg-gray-50 text-center">
-                    <p class="text-gray-500">Belum ada paket aktif</p>
+                    <p class="text-gray-500">No active package yet</p>
                     <a href="{{ route('subscription.index') }}"
                         class="mt-4 inline-block bg-green-600 text-white px-6 py-2.5 rounded-lg font-medium text-sm hover:bg-green-700 transition-colors shadow-sm hover:shadow-md">
-                        Pilih Paket
+                        Choose a Plan
                     </a>
                 </div>
                 @endif
@@ -274,7 +274,7 @@
         <div class="p-6">
             <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Edit Informasi Aplikasi
+                    Edit Application Information
                 </h3>
 
                 <button type="button" @click="$dispatch('close-modal', 'edit-app')"
@@ -291,14 +291,15 @@
                 <div class="space-y-4">
 
                     <div>
-                        <label class="text-sm font-medium">Nama Aplikasi</label>
+                        <label class="text-sm font-medium">Application Name</label>
                         <input type="text" name="app[name]" value="{{ config('app.name', 'StocKita') }}"
                             class="w-full border px-3 py-2 rounded-xl">
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">Deskripsi</label>
-                        <input type="text" name="app[description]" value="{{ setting('app.description', 'Deskripsi') }}"
+                        <label class="text-sm font-medium">Description</label>
+                        <input type="text" name="app[description]"
+                            value="{{ setting('app.description', 'Description') }}"
                             class="w-full border px-3 py-2 rounded-xl">
                     </div>
                 </div>
@@ -306,12 +307,12 @@
                 <div class="flex justify-end gap-2 pt-4 border-t">
                     <button type="button" @click="$dispatch('close-modal', 'edit-app')"
                         class="px-4 py-2 text-sm border rounded-lg">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit"
                         class="px-4 py-2 text-sm bg-green-600 text-white rounded-lg hover:bg-green-700">
-                        Simpan
+                        Save
                     </button>
                 </div>
 
@@ -345,54 +346,54 @@
 
                 <div class="grid grid-cols-2 gap-4">
                     <div>
-                        <label class="text-sm font-medium">Nama Plan</label>
+                        <label class="text-sm font-medium">Plan Name</label>
                         <input type="text" name="name" x-model="plan.name" class="w-full border px-3 py-2 rounded-xl">
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">Harga</label>
+                        <label class="text-sm font-medium">Price</label>
                         <input type="number" name="price" x-model="plan.price"
                             class="w-full border px-3 py-2 rounded-xl">
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">Harga Tahunan</label>
+                        <label class="text-sm font-medium">Yearly Price</label>
                         <input type="number" name="yearly_price" x-model="plan.yearly_price"
                             class="w-full border px-3 py-2 rounded-xl">
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">Durasi (hari)</label>
+                        <label class="text-sm font-medium">Duration (days)</label>
                         <input type="number" name="duration_days" x-model="plan.duration_days"
                             class="w-full border px-3 py-2 rounded-xl">
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">Max Produk</label>
+                        <label class="text-sm font-medium">Max Products</label>
                         <input type="number" name="max_products" x-model="plan.max_products"
                             class="w-full border px-3 py-2 rounded-xl">
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">Max Order</label>
+                        <label class="text-sm font-medium">Max Orders</label>
                         <input type="number" name="max_orders" x-model="plan.max_orders"
                             class="w-full border px-3 py-2 rounded-xl">
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">Max Gudang</label>
+                        <label class="text-sm font-medium">Max Warehouses</label>
                         <input type="number" name="max_warehouses" x-model="plan.max_warehouses"
                             class="w-full border px-3 py-2 rounded-xl">
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">Max Kategori</label>
+                        <label class="text-sm font-medium">Max Categories</label>
                         <input type="number" name="max_categories" x-model="plan.max_categories"
                             class="w-full border px-3 py-2 rounded-xl">
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">Max Customer</label>
+                        <label class="text-sm font-medium">Max Customers</label>
                         <input type="number" name="max_customers" x-model="plan.max_customers"
                             class="w-full border px-3 py-2 rounded-xl">
                     </div>
@@ -400,7 +401,7 @@
                 </div>
 
                 <div>
-                    <label class="text-sm font-medium">Features (pisahkan dengan koma)</label>
+                    <label class="text-sm font-medium">Features (separate with commas)</label>
                     <textarea type="text" name="features" x-text="plan.features ? plan.features.join(', ') : ''"
                         class="w-full h-40 border px-3 py-2 rounded-xl">
                         </textarea>
@@ -408,12 +409,12 @@
                 <div class="flex justify-end gap-2 pt-4 border-t">
                     <button type="button" @click="$dispatch('close-modal', 'edit-plan')"
                         class="px-4 py-2 text-sm border rounded-lg">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit"
                         class="px-4 py-2 text-sm bg-green-600 text-white rounded-lg hover:bg-green-700">
-                        Simpan
+                        Save
                     </button>
                 </div>
 
@@ -421,7 +422,7 @@
         </div>
     </x-modal>
 
-    {{-- email templte --}}
+    {{-- email template --}}
     <x-modal name="email-template" maxWidth="2xl">
         <div x-data="{
         template: {},
@@ -458,7 +459,7 @@
             " class="p-6">
 
             <div class="flex justify-between items-center mb-5 pb-3 border-b">
-                <h3 class="text-lg font-semibold">Edit Template Email</h3>
+                <h3 class="text-lg font-semibold">Edit Email Template</h3>
             </div>
 
             <form method="POST" :action="`/email-template/${template.key}`" class="space-y-6" x-on:submit="
@@ -475,18 +476,18 @@
                 </div>
 
                 <div>
-                    <label class="text-sm font-medium">Template Email</label>
+                    <label class="text-sm font-medium">Email Template</label>
 
                     {{-- Quill editor container --}}
                     <div id="quill-editor" class="mt-2 bg-white rounded-xl text-sm min-h-[200px]"></div>
 
-                    {{-- Hidden input untuk submit nilai HTML --}}
+                    {{-- Hidden input for HTML submit value --}}
                     <input type="hidden" name="body" id="hidden-body">
                 </div>
 
                 <div class="flex justify-end">
                     <button type="submit" class="px-5 py-2.5 bg-green-600 text-white rounded-lg">
-                        Simpan
+                        Save
                     </button>
                 </div>
 
@@ -495,13 +496,13 @@
     </x-modal>
     @endrole
 
-    {{-- edit toko --}}
+    {{-- edit store --}}
     @role('owner')
     <x-modal name="edit-store" maxWidth="lg">
         <div class="p-6">
             <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Edit Informasi Toko
+                    Edit Store Information
                 </h3>
 
                 <button type="button" @click="$dispatch('close-modal', 'edit-store')"
@@ -519,7 +520,7 @@
                 <div class="space-y-4">
 
                     <div>
-                        <label class="text-sm font-medium">Nama Toko</label>
+                        <label class="text-sm font-medium">Store Name</label>
                         <input type="text" name="store[name]" value="{{ $store->name }}"
                             class="w-full border px-3 py-2 rounded-xl">
                     </div>
@@ -531,13 +532,13 @@
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">No HP</label>
+                        <label class="text-sm font-medium">Phone Number</label>
                         <input type="text" name="store[phone]" value="{{ $store->phone }}"
                             class="w-full border px-3 py-2 rounded-xl">
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">Alamat</label>
+                        <label class="text-sm font-medium">Address</label>
                         <textarea name="store[address]"
                             class="w-full h-32 border px-3 py-2 rounded-xl">{{ $store->address }}</textarea>
                     </div>
@@ -547,12 +548,12 @@
                 <div class="flex justify-end gap-2 pt-4 border-t">
                     <button type="button" @click="$dispatch('close-modal', 'edit-store')"
                         class="px-4 py-2 text-sm border rounded-lg">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit"
                         class="px-4 py-2 text-sm bg-green-600 text-white rounded-lg hover:bg-green-700">
-                        Simpan
+                        Save
                     </button>
                 </div>
 
