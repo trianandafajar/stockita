@@ -63,7 +63,7 @@
                         </div>
                         <div class="min-w-0 flex-1">
                             <span class="font-medium block">Profile</span>
-                            <span class="text-xs opacity-75 block">Lihat profil Anda</span>
+                            <span class="text-xs opacity-75 block">View your profile</span>
                         </div>
                         <div
                             class="w-2 h-2 bg-green-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity ml-auto">
@@ -84,11 +84,10 @@
                             </svg>
                         </div>
                         <div class="min-w-0 flex-1 text-left">
-                            <span class="font-medium block">Keluar</span>
-                            <span class="text-xs opacity-75 block">Keluar dari akun</span>
+                            <span class="font-medium block">Logout</span>
+                            <span class="text-xs opacity-75 block">Sign out of account</span>
                         </div>
                     </button>
-                    {{-- </form> --}}
                 </div>
             </div>
         </div>

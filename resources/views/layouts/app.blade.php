@@ -92,7 +92,6 @@ function urlBase64ToUint8Array(base64String) {
                             <div class="flex items-center gap-3">
                                 <div
                                     class="w-10 h-10 flex items-center justify-center rounded-full bg-red-100 text-red-600">
-
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h6a2 2 0 012 2v1" />
@@ -100,7 +99,7 @@ function urlBase64ToUint8Array(base64String) {
                                 </div>
 
                                 <h3 class="text-lg font-semibold text-gray-900">
-                                    Logout Akun
+                                    Logout Account
                                 </h3>
                             </div>
 
@@ -114,7 +113,8 @@ function urlBase64ToUint8Array(base64String) {
                         </div>
 
                         <p class="text-sm text-gray-600 mb-6 leading-relaxed">
-                            Apakah kamu yakin ingin keluar dari akun? Kamu perlu login kembali untuk mengakses aplikasi.
+                            Are you sure you want to log out of your account? You will need to log in again to access
+                            the application.
                         </p>
 
                         <form method="POST" action="{{ route('logout') }}">
@@ -123,12 +123,12 @@ function urlBase64ToUint8Array(base64String) {
                             <div class="flex gap-3">
                                 <button type="button" @click="$dispatch('close-modal', 'logout')"
                                     class="flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">
-                                    Batal
+                                    Cancel
                                 </button>
 
                                 <button type="submit"
                                     class="flex-1 px-4 py-2.5 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium shadow-sm hover:shadow transition">
-                                    Ya, Logout
+                                    Yes, Logout
                                 </button>
                             </div>
                         </form>
