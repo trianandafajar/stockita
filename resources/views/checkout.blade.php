@@ -20,15 +20,16 @@
 
             <div class="text-center mb-10">
                 <h1 class="text-3xl font-bold text-gray-900">
-                    Selesaikan Pembayaran
+                    Complete Your Payment
                 </h1>
                 <p class="text-gray-500 mt-2">
-                    Satu langkah lagi untuk mengaktifkan paketmu
+                    One last step to activate your plan
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
 
+                <!-- Plan Info -->
                 <div class="bg-white p-8 rounded-2xl shadow-sm border">
                     <h2 class="text-xl font-semibold mb-4">
                         {{ $plan->name }} Plan
@@ -39,7 +40,7 @@
                             Rp {{ $interval == 'yearly' ? $plan->yearly_price : $plan->price }}
                         </span>
                         <span class="text-base text-gray-500">
-                            /{{ $interval == 'yearly' ? 'tahun' : 'bulan' }}
+                            /{{ $interval == 'yearly' ? 'year' : 'month' }}
                         </span>
                     </div>
 
@@ -51,26 +52,27 @@
 
                     @if ($interval == 'yearly')
                     <div class="text-sm text-emerald-600 font-semibold">
-                        Hemat lebih dengan paket tahunan
+                        Save more with the yearly plan
                     </div>
                     @endif
                 </div>
 
+                <!-- Payment Summary -->
                 <div class="bg-white p-8 rounded-2xl shadow-sm border flex flex-col justify-between">
 
                     <div>
                         <h2 class="text-lg font-semibold mb-4">
-                            Ringkasan Pembayaran
+                            Payment Summary
                         </h2>
 
                         <div class="flex justify-between mb-2 text-gray-600">
-                            <span>Paket</span>
+                            <span>Plan</span>
                             <span>{{ $plan->name }}</span>
                         </div>
 
                         <div class="flex justify-between mb-2 text-gray-600">
-                            <span>Durasi</span>
-                            <span>{{ $interval }}</span>
+                            <span>Billing Cycle</span>
+                            <span>{{ ucfirst($interval) }}</span>
                         </div>
 
                         <div class="flex justify-between font-bold text-lg mt-4">
@@ -85,16 +87,17 @@
 
                     <button onclick="pay({{ $plan->id }}, '{{ $interval }}')"
                         class="mt-6 w-full bg-emerald-500 hover:bg-emerald-600 text-white py-3 rounded-xl font-semibold transition">
-                        Bayar Sekarang
+                        Pay Now
                     </button>
+
                     <div class="flex justify-center">
-                        <p class="flex items-center gap-1 text-xs text-gray-400  mt-4">
+                        <p class="flex items-center gap-1 text-xs text-gray-400 mt-4">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="size-4">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
                             </svg>
-                            Pembayaran aman via Midtrans
+                            Secure payment via Midtrans
                         </p>
                     </div>
                 </div>
@@ -116,7 +119,7 @@
         });
 
         function formatRupiahK(num) {
-            if (num == 0) return 'Gratis';
+            if (num == 0) return 'Free';
 
             if (num >= 1000) {
                 return (num / 1000) + 'K';
@@ -155,7 +158,7 @@
                             toast: true,
                             icon: 'warning',
                             position: 'top-end',
-                            title: 'Menunggu pembayaran',
+                            title: 'Waiting for payment',
                             showConfirmButton: false,
                             timer: 3000
                         });
@@ -165,7 +168,7 @@
                             toast: true,
                             icon: 'error',
                             position: 'top-end',
-                            title: 'Pembayaran gagal',
+                            title: 'Payment failed',
                             showConfirmButton: false,
                             timer: 3000
                         });
@@ -178,7 +181,7 @@
                     toast: true,
                     icon: 'error',
                     position: 'top-end',
-                    title: 'Terjadi error pada system, tunggu beberapa saat untuk mencoba lagi',
+                    title: 'Something went wrong, please try again later',
                     showConfirmButton: false,
                     timer: 3000
                 });
