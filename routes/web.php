@@ -99,7 +99,7 @@ Route::get('/search', function (Request $request) {
                 'excerpt' => Str::limit(strip_tags($item['content']), 150),
                 'link' => "/blog/{$slug}",
                 'image' => $item['image'],
-                'type' => 'Panduan'
+                'type' => 'Guide'
             ];
         }
     }
@@ -111,7 +111,7 @@ Route::get('/search', function (Request $request) {
                 'excerpt' => $item['excerpt'],
                 'link' => "/features/{$slug}",
                 'image' => $item['image'],
-                'type' => 'Fitur'
+                'type' => 'Feature'
             ];
         }
     }

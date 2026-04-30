@@ -544,7 +544,7 @@ inputs.forEach((input, i) => {
             if (currentResults.length > 0) {
                 const seeAll = document.createElement('div');
                 seeAll.className = 'p-3 text-sm text-center border-t border-slate-100 text-emerald-600 font-bold cursor-pointer hover:bg-slate-50';
-                seeAll.innerHTML = `Lihat semua hasil untuk "${keyword}"`;
+                seeAll.innerHTML = `See all results for "${keyword}"`;
                 seeAll.onclick = () => window.location.href = `/search?q=${encodeURIComponent(keyword)}`;
                 resultsBox.appendChild(seeAll);
             }

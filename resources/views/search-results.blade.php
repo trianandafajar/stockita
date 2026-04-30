@@ -10,20 +10,20 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                 </svg>
 
-                Kembali
+                Back
             </a>
 
             <form action="/search" method="GET" class="mb-8">
-                <input type="text" name="q" value="{{ $query }}" placeholder="Cari sesuatu..."
+                <input type="text" name="q" value="{{ $query }}" placeholder="Search something..."
                     class="w-full px-5 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none">
             </form>
 
             <div class="mb-6">
                 <h1 class="text-2xl font-semibold text-slate-900">
-                    Hasil pencarian untuk "<span class="text-emerald-600">{{ $query }}</span>"
+                    Search results for "<span class="text-emerald-600">{{ $query }}</span>"
                 </h1>
                 <p class="text-sm text-slate-500 mt-1">
-                    {{ count($results) }} hasil ditemukan
+                    {{ count($results) }} results found
                 </p>
             </div>
 
@@ -60,10 +60,10 @@
 
             <div class="text-center py-20">
                 <h3 class="text-lg font-medium text-slate-700">
-                    Tidak ada hasil
+                    No results found
                 </h3>
                 <p class="text-slate-500 text-sm mt-2">
-                    Coba kata kunci lain
+                    Try using different keywords
                 </p>
             </div>
 
