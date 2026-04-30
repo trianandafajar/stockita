@@ -20,8 +20,8 @@
 
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
-                <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">Manajemen Gudang</h1>
-                <p class="text-gray-600 mt-1 text-sm sm:text-base">Kelola semua Gudang</p>
+                <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">Warehouse Management</h1>
+                <p class="text-gray-600 mt-1 text-sm sm:text-base">Manage all warehouses</p>
             </div>
 
             <div x-data class="flex gap-3">
@@ -32,7 +32,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                     </svg>
-                    Tambah Gudang
+                    Add Warehouse
                 </button>
                 @endcan
             </div>
@@ -43,14 +43,14 @@
                 <div class="flex flex-col sm:flex-row gap-3">
 
                     <input type="text" name="search" value="{{ request('search') }}"
-                        placeholder="Cari Nama gudang, lokasi, atau nama toko..."
+                        placeholder="Search warehouse name, location, or store name..."
                         class="flex-1 px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500">
 
                     <div class="relative w-full sm:w-48">
                         <select name="store"
                             class="w-full appearance-none px-4 py-2 pr-10 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-blue-500">
 
-                            <option value="">Semua</option>
+                            <option value="">All Store</option>
                             @foreach ($stores as $store)
                             <option value="{{ $store->id }}" {{ request('store')==$store->id ? 'selected' : '' }}>
                                 {{ $store->name }}
@@ -77,12 +77,12 @@
                 <table class="w-full text-sm text-left">
                     <thead class="bg-gray-50 text-gray-600 uppercase text-xs">
                         <tr>
-                            <th class="p-3 text-left">Kode</th>
-                            <th class="p-3 text-left">Nama</th>
-                            <th class="p-3 text-left">Toko</th>
-                            <th class="p-3 text-left">Lokasi</th>
-                            <th class="p-3 text-left">Deskripsi</th>
-                            <th class="px-6 py-3 text-right">Aksi</th>
+                            <th class="p-3 text-left">Code</th>
+                            <th class="p-3 text-left">Name</th>
+                            <th class="p-3 text-left">Store</th>
+                            <th class="p-3 text-left">location</th>
+                            <th class="p-3 text-left">Description</th>
+                            <th class="px-6 py-3 text-right">Action</th>
                         </tr>
                     </thead>
 
@@ -121,7 +121,7 @@
                                     <button
                                         @click="$dispatch('open-modal', { name: 'delete-warehouse', id: {{ $w->id }} })"
                                         class="px-3 py-1 text-xs bg-red-100 text-red-600 rounded-lg hover:bg-red-200">
-                                        Hapus
+                                        Delete
                                     </button>
                                     @endcan
                                 </div>
@@ -131,7 +131,7 @@
                         @empty
                         <tr>
                             <td colspan="5" class="text-center py-10 text-gray-400">
-                                Belum ada gudang
+                                No warehouses available
                             </td>
                         </tr>
                         @endforelse
@@ -149,7 +149,7 @@
                 @method('POST')
 
                 <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-                    <h3 class="text-lg font-semibold">Tambah Gudang Baru</h3>
+                    <h3 class="text-lg font-semibold">Add New Warehouse</h3>
                     <button type="button"
                         @click="$el.closest('form').reset(); $dispatch('close-modal', 'create-warehouse')">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,11 +162,11 @@
 
                 <div class="space-y-4">
                     <div>
-                        <label class="text-sm font-medium">Toko <span class="text-red-500">*</span></label>
+                        <label class="text-sm font-medium">Store <span class="text-red-500">*</span></label>
                         <select name="store_id" x-model="storeId"
                             class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
 
-                            <option value="">--- Pilih toko ---</option>
+                            <option value="">--- Select Store ---</option>
 
                             @foreach ($stores as $store)
                             <option value="{{ $store->id }}">
@@ -180,21 +180,21 @@
 
 
                     <div>
-                        <label class="text-sm font-medium">Nama Gudang <span class="text-red-500">*</span></label>
+                        <label class="text-sm font-medium">Warehouse Name <span class="text-red-500">*</span></label>
                         <input type="text" name="name" value="{{ old('name') }}"
                             class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">Lokasi <span class="text-red-500">*</span></label>
+                        <label class="text-sm font-medium">Location <span class="text-red-500">*</span></label>
                         <input type="text" name="location" value="{{ old('location') }}"
                             class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
                         <x-input-error :messages="$errors->get('location')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">Deskripsi <span class="text-red-500">*</span></label>
+                        <label class="text-sm font-medium">Description <span class="text-red-500">*</span></label>
                         <textarea name="description"
                             class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">{{ old('description') }}</textarea>
                         <x-input-error :messages="$errors->get('description')" class="mt-2 text-red-500 text-sm" />
@@ -204,11 +204,11 @@
                         <button type="button"
                             @click="$el.closest('form').reset(); $dispatch('close-modal', 'create-warehouse')"
                             class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
-                            Batal
+                            Cancel
                         </button>
 
                         <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
-                            Simpan
+                            Save
                         </button>
                     </div>
                 </div>
@@ -230,7 +230,7 @@
                 @method('PUT')
 
                 <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-                    <h3 class="text-lg font-semibold">Edit Gudang</h3>
+                    <h3 class="text-lg font-semibold">Edit Warehouse</h3>
                     <button type="button" @click="$dispatch('close-modal', 'edit-warehouse')">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -241,21 +241,21 @@
 
                 <div class="space-y-4">
                     <div>
-                        <label class="text-sm font-medium">Nama Gudang <span class="text-red-500">*</span></label>
+                        <label class="text-sm font-medium">Warehouse Name <span class="text-red-500">*</span></label>
                         <input type="text" name="name" x-model="name"
                             class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">Lokasi <span class="text-red-500">*</span></label>
+                        <label class="text-sm font-medium">Location <span class="text-red-500">*</span></label>
                         <input type="text" name="location" x-model="location"
                             class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
                         <x-input-error :messages="$errors->get('location')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">Deskripsi <span class="text-red-500">*</span></label>
+                        <label class="text-sm font-medium">Description <span class="text-red-500">*</span></label>
                         <textarea name="description" x-model="description"
                             class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500"></textarea>
                         <x-input-error :messages="$errors->get('description')" class="mt-2 text-red-500 text-sm" />
@@ -264,11 +264,11 @@
                     <div class="flex justify-end gap-2 pt-4">
                         <button type="button" @click="$dispatch('close-modal', 'edit-warehouse')"
                             class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
-                            Batal
+                            Cancel
                         </button>
 
                         <button type="submit" class="px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700">
-                            Update Gudang
+                            Update
                         </button>
                     </div>
                 </div>
@@ -284,7 +284,7 @@
             }" class="p-6">
             <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Hapus Gudang
+                    Delete Warehouse
                 </h3>
 
                 <button type="button" @click="$dispatch('close-modal', 'delete-warehouse')"
@@ -298,11 +298,11 @@
 
             <div class="text-center space-y-3">
                 <p class="text-gray-700 text-md">
-                    Apakah kamu yakin ingin menghapus gudang ini?
+                    Are you sure you want to delete this warehouse?
                 </p>
 
                 <p class="text-sm text-gray-400">
-                    Data yang dihapus tidak dapat dikembalikan.
+                    This action cannot be undone.
                 </p>
             </div>
 
@@ -313,12 +313,12 @@
                 <div class="flex gap-3">
                     <button type="button" @click="$dispatch('close-modal', 'delete-warehouse')"
                         class="flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit"
                         class="flex-1 px-4 py-2.5 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium shadow-sm hover:shadow transition">
-                        Ya, Hapus
+                        Yes, Delete
                     </button>
                 </div>
             </form>

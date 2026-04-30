@@ -23,15 +23,15 @@ class StockController extends Controller
             'warehouse_id' => ['required', 'exists:warehouses,id'],
             'qty' => ['required', 'integer', 'min:1'],
         ], [
-            'product_id.required' => 'Produk wajib diisi.',
-            'product_id.exists' => 'Produk tidak valid.',
+            'product_id.required' => 'Product is required.',
+            'product_id.exists' => 'Invalid product.',
 
-            'warehouse_id.required' => 'Gudang wajib diisi.',
-            'warehouse_id.exists' => 'Gudang tidak valid.',
+            'warehouse_id.required' => 'Warehouse is required.',
+            'warehouse_id.exists' => 'Invalid warehouse.',
 
-            'qty.required' => 'Jumlah wajib diisi.',
-            'qty.integer' => 'Jumlah harus berupa angka.',
-            'qty.min' => 'Jumlah minimal 1.',
+            'qty.required' => 'Quantity is required.',
+            'qty.integer' => 'Quantity must be a number.',
+            'qty.min' => 'Minimum quantity is 1.',
         ]);
 
         if ($validator->fails()) {
@@ -59,7 +59,7 @@ class StockController extends Controller
             'qty' => $stock->qty,
         ]);
 
-        return redirect()->back()->with('success', 'Barang berhasil ditambah!');
+        return redirect()->back()->with('success', 'Stock added successfully!');
     }
 
     // tambah
@@ -67,10 +67,10 @@ class StockController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'qty' => ['required', 'integer', 'min:1'],
-        ], [
-            'qty.required' => 'Jumlah wajib diisi.',
-            'qty.integer' => 'Jumlah harus berupa angka.',
-            'qty.min' => 'Jumlah minimal 1.',
+        ],  [
+            'qty.required' => 'Quantity is required.',
+            'qty.integer' => 'Quantity must be a number.',
+            'qty.min' => 'Minimum quantity is 1.',
         ]);
 
         if ($validator->fails()) {
@@ -98,7 +98,7 @@ class StockController extends Controller
             'after' => $updateQty,
         ]);
 
-        return redirect()->back()->with('success', 'Stok barang berhasil ditambah!');
+        return redirect()->back()->with('success', 'Stock added successfully!');
     }
 
     // kuarngi
@@ -107,9 +107,9 @@ class StockController extends Controller
         $validator = Validator::make($request->all(), [
             'qty' => ['required', 'integer', 'min:1'],
         ], [
-            'qty.required' => 'Jumlah wajib diisi.',
-            'qty.integer' => 'Jumlah harus berupa angka.',
-            'qty.min' => 'Jumlah minimal 1.',
+            'qty.required' => 'Quantity is required.',
+            'qty.integer' => 'Quantity must be a number.',
+            'qty.min' => 'Minimum quantity is 1.',
         ]);
 
         if ($validator->fails()) {
@@ -137,7 +137,7 @@ class StockController extends Controller
             'after' => $reduceQty
         ]);
 
-        return redirect()->back()->with('success', 'Stok barang berhasil dikurangi!');
+        return redirect()->back()->with('success', 'Stock reduced successfully!');
     }
 
     // hapus
@@ -151,6 +151,6 @@ class StockController extends Controller
 
         logActivity('DELETE', $stock, $data);
 
-        return redirect()->back()->with('success', 'Stok barang berhasil dihapus!');
+        return redirect()->back()->with('success', 'Stock deleted successfully!');
     }
 }

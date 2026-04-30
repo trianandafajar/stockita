@@ -48,14 +48,6 @@ class WarehouseController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(WarehouseStoreRequest $request)
@@ -77,7 +69,7 @@ class WarehouseController extends Controller
             'store_id' => $warehouse->store_id,
         ]);
 
-        return redirect()->back()->with('success', 'Gudang berhasil disi!');
+        return redirect()->back()->with('success', 'Warehouse created successfully!');
     }
 
     /**
@@ -94,15 +86,6 @@ class WarehouseController extends Controller
             ->get();
 
         return view('admin.warehouse.show', compact('warehouse', 'stocks', 'products'));
-    }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
     }
 
     /**
@@ -125,7 +108,7 @@ class WarehouseController extends Controller
             'after' => $warehouse->only(['name', 'location', 'description'])
         ]);
 
-        return redirect()->back()->with('success', 'Gudang Berhasil diupdate!');
+        return redirect()->back()->with('success', 'Warehouse updated successfully!');
     }
 
     /**
@@ -141,7 +124,7 @@ class WarehouseController extends Controller
 
         logActivity('DELETE', $warehouse, $data);
 
-        return redirect()->back()->with('success', 'Gudang Berhasil dihapus!');
+        return redirect()->back()->with('success', 'Warehouse deleted successfully!');
     }
 
     // generate code

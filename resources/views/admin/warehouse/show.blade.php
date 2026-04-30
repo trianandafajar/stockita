@@ -60,7 +60,7 @@
                                 d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                         </svg>
 
-                        Tambah Barang
+                        Add Item
                     </button>
                     @endcan
                 </div>
@@ -73,21 +73,21 @@
                     <div class="text-xl sm:text-2xl font-bold text-green-600">
                         {{ $stocks->count() }}
                     </div>
-                    <div class="text-xs sm:text-sm text-slate-500">Total Produk</div>
+                    <div class="text-xs sm:text-sm text-slate-500">Total Products</div>
                 </div>
 
                 <div class="p-4 rounded-xl border text-center">
                     <div class="text-xl sm:text-2xl font-bold text-blue-600">
                         {{ $stocks->sum('qty') }}
                     </div>
-                    <div class="text-xs sm:text-sm text-slate-500">Total Stok</div>
+                    <div class="text-xs sm:text-sm text-slate-500">Total Stock</div>
                 </div>
 
                 <div class="p-4 rounded-xl border text-center">
                     <div class="text-lg sm:text-2xl font-bold text-emerald-600">
                         Rp {{ number_format($stocks->sum(fn($s) => $s->qty * $s->product->price), 0, ',', '.') }}
                     </div>
-                    <div class="text-xs sm:text-sm text-slate-500">Nilai Stok</div>
+                    <div class="text-xs sm:text-sm text-slate-500">Stock Value</div>
                 </div>
 
             </div>
@@ -127,7 +127,7 @@
                                     stroke="currentColor" class="size-3">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                                 </svg>
-                                Tambah
+                                Add
                             </button>
 
                             <button @click="$dispatch('open-modal', { 
@@ -140,7 +140,7 @@
                                     stroke="currentColor" class="size-3">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
                                 </svg>
-                                Kurangi
+                                Reduce
                             </button>
                             @endcan
 
@@ -153,7 +153,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" />
                                 </svg>
-                                Hapus
+                                Delete
                             </button>
                             @endcan
 
@@ -182,7 +182,7 @@
             </div>
             @empty
             <div class="col-span-full text-center text-gray-400 py-10">
-                Belum ada produk di gudang ini
+                No products in this warehouse yet
             </div>
             @endforelse
 
@@ -196,7 +196,7 @@
                 @csrf
 
                 <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-                    <h3 class="text-lg font-semibold">Tambah Barang</h3>
+                    <h3 class="text-lg font-semibold">Add Item</h3>
                     <button type="button"
                         @click="$el.closest('form').reset(); $dispatch('close-modal', 'create-stock')">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -209,10 +209,10 @@
 
                 <div class="space-y-4">
                     <div>
-                        <label class="text-sm font-medium">Produk <span class="text-red-500">*</span></label>
+                        <label class="text-sm font-medium">Product <span class="text-red-500">*</span></label>
                         <select name="product_id"
                             class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
-                            <option value="">--- Pilih Produk ---</option>
+                            <option value="">--- Select Product ---</option>
                             @foreach ($products as $product)
                             <option value="{{ $product->id }}">
                                 {{ $product->name }}
@@ -224,7 +224,7 @@
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">Jumlah <span class="text-red-500">*</span></label>
+                        <label class="text-sm font-medium">Quantity <span class="text-red-500">*</span></label>
                         <input type="number" name="qty"
                             class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
                         <x-input-error :messages="$errors->createStock->get('qty')" class="mt-2 text-red-500 text-sm" />
@@ -234,11 +234,11 @@
                     <div class="flex justify-end gap-2 pt-3">
                         <button @click="$el.closest('form').reset(); $dispatch('close-modal', 'create-stock')"
                             type="button" id="closeModal" class="px-3 py-2 text-sm bg-gray-200 rounded-lg">
-                            Batal
+                            Cancel
                         </button>
 
                         <button type="submit" class="px-4 py-2 text-sm bg-green-600 text-white rounded-lg">
-                            Simpan
+                            Save
                         </button>
                     </div>
                 </div>
@@ -258,7 +258,7 @@
                 @method('PUT')
 
                 <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-                    <h3 class="text-lg font-semibold">Tambah Stok</h3>
+                    <h3 class="text-lg font-semibold">Add Stock</h3>
                     <button type="button" @click="$el.closest('form').reset(); $dispatch('close-modal', 'add-stock')">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -270,9 +270,9 @@
 
                 <div class="space-y-4">
                     <div>
-                        <label class="text-sm font-medium">Masukan Stok <span class="text-red-500">*</span>
+                        <label class="text-sm font-medium">Enter Quantity <span class="text-red-500">*</span>
                         </label>
-                        <input type="number" name="qty" value="{{ old('qty') }}" placeholder="Masukan Angka"
+                        <input type="number" name="qty" value="{{ old('qty') }}" placeholder="Enter Numbers"
                             class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
                         <x-input-error :messages="$errors->addStock->get('qty')" class="mt-2 text-red-500 text-sm" />
                     </div>
@@ -280,11 +280,11 @@
                     <div class="flex justify-end gap-2 pt-3">
                         <button @click="$el.closest('form').reset(); $dispatch('close-modal', 'add-stock')"
                             type="button" id="closeModal" class="px-3 py-2 text-sm bg-gray-200 rounded-lg">
-                            Batal
+                            Cancel
                         </button>
 
                         <button type="submit" class="px-4 py-2 text-sm bg-green-600 text-white rounded-lg">
-                            Simpan
+                            Save
                         </button>
                     </div>
                 </div>
@@ -318,7 +318,7 @@
                 @method('PUT')
 
                 <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-                    <h3 class="text-lg font-semibold text-yellow-600">Kurangi Stok</h3>
+                    <h3 class="text-lg font-semibold text-yellow-600">Reduce Stock</h3>
 
                     <button type="button" @click="$dispatch('close-modal', 'reduce-stock')">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -355,12 +355,12 @@
 
                     <button type="button" @click="$dispatch('close-modal', 'reduce-stock')"
                         class="px-3 py-2 text-sm bg-gray-200 rounded-lg">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit" :disabled="qty > max || max === 0"
                         class="px-4 py-2 text-sm bg-yellow-500 text-white rounded-lg disabled:opacity-50">
-                        Kurangi
+                        Reduce
                     </button>
 
                 </div>
@@ -377,7 +377,7 @@
             }" class="p-6">
             <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Hapus Stok Produk
+                    Delete Product Stock
                 </h3>
 
                 <button type="button" @click="$dispatch('close-modal', 'delete-stock')"
@@ -391,11 +391,11 @@
 
             <div class="text-center space-y-3">
                 <p class="text-gray-700 text-md">
-                    Apakah kamu yakin ingin menghapus stok produk ini?
+                    Are you sure you want to delete this product stock?
                 </p>
 
                 <p class="text-sm text-gray-400">
-                    Data yang dihapus tidak dapat dikembalikan.
+                    Deleted data cannot be recovered.
                 </p>
             </div>
 
@@ -406,12 +406,12 @@
                 <div class="flex gap-3">
                     <button type="button" @click="$dispatch('close-modal', 'delete-stock')"
                         class="flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit"
                         class="flex-1 px-4 py-2.5 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium shadow-sm hover:shadow transition">
-                        Ya, Hapus
+                        Yes, Delete
                     </button>
                 </div>
             </form>

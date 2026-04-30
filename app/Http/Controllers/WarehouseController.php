@@ -80,7 +80,7 @@ class WarehouseController extends Controller
         ]);
 
 
-        return redirect()->back()->with('success', 'Gudang berhasil disi!');
+        return redirect()->back()->with('success', 'Warehouse created successfully!');
     }
 
     /**
@@ -127,7 +127,7 @@ class WarehouseController extends Controller
             'after' => $warehouse->only(['name', 'location', 'description'])
         ]);
 
-        return redirect()->back()->with('success', 'Gudang Berhasil diupdate!');
+        return redirect()->back()->with('success', 'Warehouse updated successfully!');
     }
 
     /**
@@ -143,6 +143,6 @@ class WarehouseController extends Controller
 
         logActivity('DELETE', $warehouse, $data);
 
-        return redirect()->back()->with('success', 'Gudang Berhasil dihapus!');
+        return redirect()->back()->with('success', 'Warehouse deleted successfully!');
     }
 }
