@@ -11,11 +11,10 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
-   public function __construct()
+    public function __construct()
     {
         $this->middleware('permission:edit own profile');
     }
-
 
     /**
      * Display the user's profile form.
@@ -40,7 +39,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit')->with('success', 'Informasi profil berhasil diperbarui!');
+        return Redirect::route('profile.edit')->with('success', 'Profile information updated successfully!');
     }
 
     /**

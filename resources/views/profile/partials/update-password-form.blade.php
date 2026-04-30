@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
-            {{ __('Perbarui Kata Sandi') }}
+            {{ __('Update Password') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __('Pastikan akun Anda menggunakan kata sandi yang panjang dan acak agar tetap aman.') }}
+            {{ __('Ensure your account is using a long, random password to stay secure.') }}
         </p>
     </header>
 
@@ -14,7 +14,7 @@
         @method('put')
 
         <div x-data="{ show: false }" class="mb-4 relative">
-            <x-input-label for="update_password_current_password" :value="__('Kata Sandi Saat Ini')"
+            <x-input-label for="update_password_current_password" :value="__('Current Password')"
                 class="text-gray-800 font-semibold mb-2 block" />
 
             <x-text-input id="update_password_current_password" name="current_password"
@@ -45,7 +45,7 @@
         </div>
 
         <div x-data="{ show: false }" class="mb-4 relative">
-            <x-input-label for="update_password_password" :value="__('Kata Sandi Baru')"
+            <x-input-label for="update_password_password" :value="__('New Password')"
                 class="text-gray-800 font-semibold mb-2 block" />
 
             <x-text-input id="update_password_password" name="password" autocomplete="new-password"
@@ -75,7 +75,7 @@
         </div>
 
         <div x-data="{ show: false }" class="mb-4 relative">
-            <x-input-label for="update_password_password_confirmation" :value="__('Konfirmasi Kata Sandi')"
+            <x-input-label for="update_password_password_confirmation" :value="__('Confirm Password')"
                 class="text-gray-800 font-semibold mb-2 block" />
 
             <x-text-input id="update_password_password_confirmation" name="password_confirmation"
@@ -113,7 +113,7 @@
                     }))
                 }
             ">
-                Simpan
+                {{ __('Save') }}
             </x-primary-button>
 
             @if (session('status') === 'password-updated')
@@ -127,24 +127,24 @@
         <div class="p-6">
             <div class="flex items-center gap-3 mb-5 pb-3 border-b border-gray-100">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Konfirmasi Perubahan
+                    Confirm Changes
                 </h3>
             </div>
 
             <p class="text-sm text-gray-600 mb-6">
-                Apakah Anda yakin ingin mengubah kata sandi?
+                Are you sure you want to change your password?
             </p>
 
             <div class="flex gap-3">
                 <button type="button" @click="window.dispatchEvent(new CustomEvent('close-modal', {
                     detail: 'confirm-password-update'
                 }))" class="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg">
-                    Batal
+                    Cancel
                 </button>
 
                 <button type="submit" form="password-form"
                     class="flex-1 px-4 py-2.5 bg-green-600 text-white rounded-lg">
-                    Ya, Perbarui
+                    Yes, Update
                 </button>
             </div>
         </div>
