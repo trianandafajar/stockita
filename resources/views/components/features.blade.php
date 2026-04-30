@@ -3,10 +3,10 @@
 
         <div class="text-center mb-16">
             <h2 class="text-4xl font-bold text-slate-800 mb-4">
-                Fitur Unggulan
+                Key Features
             </h2>
             <p class="text-slate-600">
-                Semua yang kamu butuhkan untuk mengelola toko dengan mudah
+                Everything you need to manage your store with ease
             </p>
         </div>
 
@@ -18,9 +18,9 @@
                         class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="p-5">
-                    <h3 class="font-semibold text-lg mb-2">POS Modern & Cepat</h3>
+                    <h3 class="font-semibold text-lg mb-2">Fast & Modern POS</h3>
                     <p class="text-sm text-gray-600">
-                        Sistem kasir real-time untuk transaksi cepat, efisien, dan minim kesalahan.
+                        A real-time cashier system for fast, efficient, and error-free transactions.
                     </p>
                 </div>
             </a>
@@ -32,9 +32,9 @@
                         class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="p-5">
-                    <h3 class="font-semibold text-lg mb-2">Manajemen Stok Pintar</h3>
+                    <h3 class="font-semibold text-lg mb-2">Smart Inventory Management</h3>
                     <p class="text-sm text-gray-600">
-                        Pantau stok barang secara otomatis dengan indikator produk hampir habis.
+                        Automatically track stock with low-stock alerts to avoid running out.
                     </p>
                 </div>
             </a>
@@ -46,9 +46,9 @@
                         class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="p-5">
-                    <h3 class="font-semibold text-lg mb-2">Struk Otomatis & Profesional</h3>
+                    <h3 class="font-semibold text-lg mb-2">Automatic & Professional Receipts</h3>
                     <p class="text-sm text-gray-600">
-                        Generate struk transaksi secara otomatis dengan tampilan rapi dan siap cetak.
+                        Generate clean, ready-to-print receipts automatically for every transaction.
                     </p>
                 </div>
             </a>
@@ -60,9 +60,9 @@
                         class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="p-5">
-                    <h3 class="font-semibold text-lg mb-2">Laporan & Statistik</h3>
+                    <h3 class="font-semibold text-lg mb-2">Reports & Analytics</h3>
                     <p class="text-sm text-gray-600">
-                        Analisis penjualan dan performa toko dengan dashboard statistik interaktif.
+                        Analyze sales and store performance with an interactive dashboard.
                     </p>
                 </div>
             </a>
@@ -74,9 +74,9 @@
                         class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="p-5">
-                    <h3 class="font-semibold text-lg mb-2">Manajemen Pelanggan</h3>
+                    <h3 class="font-semibold text-lg mb-2">Customer Management</h3>
                     <p class="text-sm text-gray-600">
-                        Kelola data pelanggan dan kirim email promosi atau notifikasi dengan mudah.
+                        Manage customer data and send promotions or notifications easily.
                     </p>
                 </div>
             </a>
@@ -88,9 +88,9 @@
                         class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="p-5">
-                    <h3 class="font-semibold text-lg mb-2">Multi Role & Akses</h3>
+                    <h3 class="font-semibold text-lg mb-2">Multi Roles & Access Control</h3>
                     <p class="text-sm text-gray-600">
-                        Sistem role Admin, Owner, dan Buyer untuk kontrol penuh dan aman.
+                        Role-based system for Admin, Owner, and Buyer with full control and security.
                     </p>
                 </div>
             </a>

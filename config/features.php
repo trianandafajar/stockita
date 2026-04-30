@@ -3,227 +3,227 @@
 return [
 
     'transaksi-kasir' => [
-        'title' => 'POS Modern & Cepat',
-        'excerpt' => 'Proses transaksi pelanggan dengan cepat langsung dari sistem kasir.',
-        'image' => 'https://images.unsplash.com/photo-1718157582099-5227b1f7112d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fFBvaW50JTIwb2YlMjBzZWxsJTIwZGFzaGJvYXJkfGVufDB8fDB8fHww',
+        'title' => 'Fast & Modern POS',
+        'excerpt' => 'Process customer transactions quickly through the POS system.',
+        'image' => 'https://images.unsplash.com/photo-1718157582099-5227b1f7112d?w=600&auto=format&fit=crop&q=60',
 
-        'description' => 'Fitur kasir memungkinkan transaksi penjualan secara cepat, akurat, dan otomatis tanpa pencatatan manual.',
+        'description' => 'The POS feature enables fast, accurate, and automated sales transactions without manual recording.',
 
         'highlights' => [
-            ['title' => '< 5 detik', 'desc' => 'Waktu transaksi'],
-            ['title' => 'Real-time', 'desc' => 'Data langsung masuk'],
-            ['title' => 'Akurat', 'desc' => 'Minim kesalahan'],
+            ['title' => '< 5 sec', 'desc' => 'Transaction time'],
+            ['title' => 'Real-time', 'desc' => 'Instant data sync'],
+            ['title' => 'Accurate', 'desc' => 'Minimal errors'],
         ],
 
         'steps' => [
-            'Masuk ke menu Transaksi',
-            'Klik "Transaksi Baru"',
-            'Pilih produk',
-            'Pilih / isi pelanggan',
-            'Klik bayar dan masukkan jumlah',
-            'Transaksi selesai',
+            'Go to the Transaction menu',
+            'Click "New Transaction"',
+            'Select products',
+            'Select or add customer',
+            'Click pay and enter the amount',
+            'Transaction completed',
         ],
 
         'benefits' => [
-            'Transaksi super cepat',
-            'Minim kesalahan input',
-            'Data otomatis tersimpan',
+            'Super fast transactions',
+            'Minimal input errors',
+            'Data saved automatically',
         ],
 
         'use_cases' => [
-            'Kasir toko retail',
-            'Warung / UMKM',
-            'Toko dengan transaksi cepat',
+            'Retail cashier',
+            'Small businesses (SMEs)',
+            'High-volume stores',
         ],
 
         'faqs' => [
-            ['q' => 'Apakah bisa tanpa pelanggan?', 'a' => 'Bisa, cukup isi manual.'],
-            ['q' => 'Apakah data tersimpan?', 'a' => 'Ya, semua otomatis tersimpan.'],
+            ['q' => 'Can I proceed without a customer?', 'a' => 'Yes, you can input manually.'],
+            ['q' => 'Is the data saved?', 'a' => 'Yes, everything is stored automatically.'],
         ],
     ],
 
     'kelola-produk' => [
-        'title' => 'Manajemen Stok Pintar',
-        'excerpt' => 'Pantau stok barang secara otomatis.',
+        'title' => 'Smart Inventory Management',
+        'excerpt' => 'Monitor stock automatically.',
         'image' => 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800',
 
-        'description' => 'Kelola produk dan stok dengan mudah dalam satu sistem terpusat.',
+        'description' => 'Manage products and inventory easily in one centralized system.',
 
         'highlights' => [
-            ['title' => 'Auto Update', 'desc' => 'Stok terupdate otomatis'],
-            ['title' => 'Low Alert', 'desc' => 'Notifikasi stok habis'],
-            ['title' => 'Rapi', 'desc' => 'Data terorganisir'],
+            ['title' => 'Auto Update', 'desc' => 'Stock updates automatically'],
+            ['title' => 'Low Stock Alert', 'desc' => 'Out-of-stock notifications'],
+            ['title' => 'Organized', 'desc' => 'Well-structured data'],
         ],
 
         'steps' => [
-            'Masuk menu Produk',
-            'Tambah produk',
-            'Isi data produk',
-            'Simpan',
-            'Masuk menu Gudang',
-            'Buat gudang',
-            'Tambahkan produk dan isi stoknya',
+            'Go to Products menu',
+            'Add product',
+            'Fill in product details',
+            'Save',
+            'Go to Warehouse menu',
+            'Create warehouse',
+            'Add products and set stock',
         ],
 
         'benefits' => [
-            'Stok selalu terkontrol',
-            'Produk lebih rapi',
-            'Menghindari kehabisan barang',
+            'Stock always under control',
+            'Well-organized products',
+            'Avoid running out of items',
         ],
 
         'use_cases' => [
-            'Gudang kecil',
-            'Toko retail',
-            'Bisnis online',
+            'Small warehouses',
+            'Retail stores',
+            'Online businesses',
         ],
 
         'faqs' => [
-            ['q' => 'Apakah stok otomatis berkurang?', 'a' => 'Ya saat transaksi.'],
-            ['q' => 'Bisa edit produk?', 'a' => 'Bisa kapan saja.'],
+            ['q' => 'Does stock decrease automatically?', 'a' => 'Yes, during transactions.'],
+            ['q' => 'Can I edit products?', 'a' => 'Yes, anytime.'],
         ],
     ],
 
     'struk-otomatis' => [
-        'title' => 'Struk Otomatis & Profesional',
-        'excerpt' => 'Generate struk otomatis.',
-        'image' => 'https://images.unsplash.com/photo-1654263736203-a289f57c0d82?q=80&w=687',
+        'title' => 'Automatic & Professional Receipts',
+        'excerpt' => 'Generate receipts automatically.',
+        'image' => 'https://images.unsplash.com/photo-1654263736203-a289f57c0d82',
 
-        'description' => 'Setiap transaksi langsung menghasilkan struk siap cetak.',
+        'description' => 'Every transaction instantly generates a ready-to-print receipt.',
 
         'highlights' => [
-            ['title' => 'Auto Generate', 'desc' => 'Struk otomatis'],
-            ['title' => 'Siap Cetak', 'desc' => 'Print langsung'],
-            ['title' => 'Profesional', 'desc' => 'Tampilan rapi'],
+            ['title' => 'Auto Generate', 'desc' => 'Automatic receipts'],
+            ['title' => 'Ready to Print', 'desc' => 'Instant printing'],
+            ['title' => 'Professional', 'desc' => 'Clean design'],
         ],
 
         'steps' => [
-            'Selesaikan transaksi',
-            'Struk otomatis muncul',
-            'Cetak atau simpan',
+            'Complete the transaction',
+            'Receipt appears automatically',
+            'Print or save',
         ],
 
         'benefits' => [
-            'Tanpa input manual',
-            'Tampilan profesional',
-            'Cepat & praktis',
+            'No manual input needed',
+            'Professional appearance',
+            'Fast & practical',
         ],
 
         'use_cases' => [
-            'Toko retail',
-            'Kasir cepat',
+            'Retail stores',
+            'Fast-paced cashier systems',
         ],
 
         'faqs' => [
-            ['q' => 'Bisa print?', 'a' => 'Ya langsung cetak.'],
-            ['q' => 'Bisa simpan?', 'a' => 'Bisa sebagai bukti transaksi.'],
+            ['q' => 'Can I print receipts?', 'a' => 'Yes, instantly.'],
+            ['q' => 'Can I save them?', 'a' => 'Yes, as transaction proof.'],
         ],
     ],
 
     'laporan' => [
-        'title' => 'Laporan & Statistik',
-        'excerpt' => 'Analisis bisnis dengan mudah.',
+        'title' => 'Reports & Analytics',
+        'excerpt' => 'Analyze your business with ease.',
         'image' => 'https://plus.unsplash.com/premium_photo-1661297441050-cd5f9980051d?w=600',
 
-        'description' => 'Pantau performa bisnis lewat laporan dan grafik.',
+        'description' => 'Monitor business performance through reports and visual charts.',
 
         'highlights' => [
-            ['title' => 'Realtime', 'desc' => 'Data langsung'],
-            ['title' => 'Grafik', 'desc' => 'Visual mudah'],
-            ['title' => 'Insight', 'desc' => 'Analisis cepat'],
+            ['title' => 'Real-time', 'desc' => 'Instant updates'],
+            ['title' => 'Charts', 'desc' => 'Easy visualization'],
+            ['title' => 'Insights', 'desc' => 'Quick analysis'],
         ],
 
         'steps' => [
-            'Masuk dashboard',
-            'Lihat laporan',
-            'Analisis data',
+            'Open dashboard',
+            'View reports',
+            'Analyze data',
         ],
 
         'benefits' => [
-            'Mudah memahami bisnis',
-            'Data lengkap',
-            'Bantu keputusan',
+            'Easy to understand business performance',
+            'Complete data overview',
+            'Better decision making',
         ],
 
         'use_cases' => [
-            'Owner bisnis',
-            'Manajemen toko',
+            'Business owners',
+            'Store management',
         ],
 
         'faqs' => [
-            ['q' => 'Apakah realtime?', 'a' => 'Ya langsung update.'],
-            ['q' => 'Bisa analisis?', 'a' => 'Ya dengan grafik.'],
+            ['q' => 'Is it real-time?', 'a' => 'Yes, data updates instantly.'],
+            ['q' => 'Can I analyze data?', 'a' => 'Yes, with charts and insights.'],
         ],
     ],
 
     'pelanggan' => [
-        'title' => 'Manajemen Pelanggan',
-        'excerpt' => 'Kelola data pelanggan.',
+        'title' => 'Customer Management',
+        'excerpt' => 'Manage customer data easily.',
         'image' => 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800',
 
-        'description' => 'Simpan dan kelola pelanggan dengan mudah.',
+        'description' => 'Store and manage customer data efficiently.',
 
         'highlights' => [
-            ['title' => 'Database', 'desc' => 'Data tersimpan'],
-            ['title' => 'Riwayat', 'desc' => 'Tracking transaksi'],
-            ['title' => 'Loyalitas', 'desc' => 'Bangun relasi'],
+            ['title' => 'Database', 'desc' => 'Stored data'],
+            ['title' => 'History', 'desc' => 'Transaction tracking'],
+            ['title' => 'Loyalty', 'desc' => 'Build relationships'],
         ],
 
         'steps' => [
-            'Masuk menu pelanggan',
-            'Tambah data',
-            'Gunakan saat transaksi',
+            'Go to Customers menu',
+            'Add customer data',
+            'Use during transactions',
         ],
 
         'benefits' => [
-            'Data pelanggan rapi',
-            'Meningkatkan loyalitas',
-            'Transaksi lebih cepat',
+            'Organized customer data',
+            'Increase customer loyalty',
+            'Faster transactions',
         ],
 
         'use_cases' => [
-            'Toko langganan',
-            'Bisnis repeat order',
+            'Subscription-based stores',
+            'Repeat-order businesses',
         ],
 
         'faqs' => [
-            ['q' => 'Apakah wajib isi pelanggan?', 'a' => 'Tidak wajib.'],
-            ['q' => 'Data aman?', 'a' => 'Ya tersimpan aman.'],
+            ['q' => 'Is customer data required?', 'a' => 'No, it is optional.'],
+            ['q' => 'Is the data secure?', 'a' => 'Yes, it is safely stored.'],
         ],
     ],
 
     'multi-role' => [
-        'title' => 'Multi Role & Akses',
-        'excerpt' => 'Atur akses pengguna.',
+        'title' => 'Multi Roles & Access Control',
+        'excerpt' => 'Manage user access easily.',
         'image' => 'https://plus.unsplash.com/premium_photo-1733328013343-e5ee77acaf05?w=600',
 
-        'description' => 'Kontrol akses user dengan sistem role.',
+        'description' => 'Control user access with a flexible role-based system.',
 
         'highlights' => [
-            ['title' => 'Secure', 'desc' => 'Akses aman'],
-            ['title' => 'Flexible', 'desc' => 'Role bisa diatur'],
-            ['title' => 'Control', 'desc' => 'Full kontrol'],
+            ['title' => 'Secure', 'desc' => 'Safe access control'],
+            ['title' => 'Flexible', 'desc' => 'Customizable roles'],
+            ['title' => 'Control', 'desc' => 'Full control'],
         ],
 
         'steps' => [
-            'Masuk menu role',
-            'Atur role',
-            'Assign ke user',
+            'Go to Roles menu',
+            'Configure roles',
+            'Assign to users',
         ],
 
         'benefits' => [
-            'Keamanan lebih baik',
-            'Kontrol penuh',
-            'Cocok untuk tim',
+            'Better security',
+            'Full access control',
+            'Perfect for teams',
         ],
 
         'use_cases' => [
-            'Tim admin',
-            'Bisnis dengan banyak user',
+            'Admin teams',
+            'Multi-user businesses',
         ],
 
         'faqs' => [
-            ['q' => 'Bisa edit role?', 'a' => 'Ya fleksibel.'],
-            ['q' => 'Aman?', 'a' => 'Ya sesuai role.'],
+            ['q' => 'Can roles be edited?', 'a' => 'Yes, fully flexible.'],
+            ['q' => 'Is it secure?', 'a' => 'Yes, access is role-based.'],
         ],
     ],
 

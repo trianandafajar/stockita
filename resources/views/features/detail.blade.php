@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -20,12 +20,13 @@
             </h1>
 
             <p class="max-w-2xl mx-auto text-lg text-emerald-100 mb-8 leading-relaxed">
-                {{ $excerpt ?? 'Fitur ini membantu operasional bisnis jadi lebih cepat dan efisien.' }}
+                {{ $excerpt ?? 'This feature helps streamline your business operations to be faster and more efficient.'
+                }}
             </p>
 
             <a href="/register"
                 class="inline-block bg-white text-emerald-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-colors duration-200 shadow-md hover:shadow-lg">
-                Mulai Gratis
+                Get Started for Free
             </a>
         </div>
     </section>
@@ -61,7 +62,7 @@
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <h2 class="text-3xl lg:text-4xl font-bold mb-6 text-slate-900 tracking-tight">
-                        Tentang Fitur Ini
+                        About This Feature
                     </h2>
                     <p class="text-lg text-slate-600 leading-relaxed">{{ $description }}</p>
                 </div>
@@ -89,7 +90,7 @@
     <section class="bg-slate-50 py-20">
         <div class="max-w-3xl mx-auto px-6">
             <h2 class="text-3xl font-bold text-center mb-12 text-slate-900">
-                Cara Menggunakan
+                How to Use
             </h2>
             <div class="relative border-l-2 border-emerald-600 space-y-10">
                 @foreach ($steps as $index => $step)
@@ -99,7 +100,7 @@
                         {{ $index + 1 }}
                     </div>
                     <h3 class="font-semibold text-lg mb-1 text-slate-900">
-                        Langkah {{ $index + 1 }}
+                        Step {{ $index + 1 }}
                     </h3>
                     <p class="text-slate-600">
                         {{ $step }}
@@ -114,7 +115,7 @@
     <section class="bg-white py-16">
         <div class="max-w-6xl mx-auto px-6">
             <h2 class="text-2xl font-bold text-center mb-10 text-slate-900">
-                Cocok Digunakan Untuk
+                Best Used For
             </h2>
             <div class="grid md:grid-cols-3 gap-6">
                 @foreach ($use_cases as $case)
@@ -134,7 +135,7 @@
     <section class="py-16">
         <div class="max-w-6xl px-6 mx-auto">
             <h2 class="text-2xl font-bold text-center mb-10 text-slate-900">
-                Pertanyaan Umum
+                Frequently Asked Questions
             </h2>
             <div class="space-y-4">
                 @foreach ($faqs as $faq)
@@ -160,14 +161,14 @@
 
     <section class="bg-emerald-600 text-white py-20 text-center">
         <h2 class="text-3xl font-bold mb-4">
-            Siap Menggunakan Fitur Ini?
+            Ready to Use This Feature?
         </h2>
         <p class="mb-6 text-emerald-100">
-            Mulai sekarang dan rasakan kemudahannya.
+            Get started now and experience the simplicity.
         </p>
         <a href="/register"
             class="bg-white text-emerald-600 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-200">
-            Mulai Gratis
+            Get Started for Free
         </a>
     </section>
 
