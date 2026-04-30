@@ -3,7 +3,7 @@ $isAdmin = auth()->user()->hasRole('admin');
 
 $prefix = $isAdmin ? '/admin' : '';
 @endphp
-<x-app-layout title="Toko">
+<x-app-layout title="Store">
     @if ($message = session('success') ?? (session('error') ?? (session('warning') ?? session('info'))))
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -26,10 +26,10 @@ $prefix = $isAdmin ? '/admin' : '';
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
                 <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
-                    Manajemen Toko
+                    Store Management
                 </h1>
                 <p class="text-gray-600 mt-1 text-sm sm:text-base">
-                    Kelola Toko produk dengan mudah
+                    Manage your stores easily
                 </p>
             </div>
 
@@ -41,7 +41,7 @@ $prefix = $isAdmin ? '/admin' : '';
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                     </svg>
-                    Tambah Toko
+                    Add Store
                 </button>
                 @endcan
             </div>
@@ -52,12 +52,12 @@ $prefix = $isAdmin ? '/admin' : '';
                 <table class="w-full text-sm">
                     <thead class="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider">
                         <tr>
-                            <th class="px-6 py-4 text-left font-semibold">Nama</th>
-                            <th class="px-6 py-4 text-left font-semibold">Pemilik</th>
+                            <th class="px-6 py-4 text-left font-semibold">Name</th>
+                            <th class="px-6 py-4 text-left font-semibold">Owner</th>
                             <th class="px-6 py-4 text-left font-semibold">Slug</th>
                             <th class="px-6 py-4 text-left font-semibold">Email</th>
-                            <th class="px-6 py-4 text-left font-semibold">Alamat</th>
-                            <th class="px-6 py-4 text-right font-semibold">Aksi</th>
+                            <th class="px-6 py-4 text-left font-semibold">Address</th>
+                            <th class="px-6 py-4 text-right font-semibold">Actions</th>
                         </tr>
                     </thead>
 
@@ -81,7 +81,7 @@ $prefix = $isAdmin ? '/admin' : '';
                                 {{ $store->email ?? '-' }}
                             </td>
 
-                            <td class="px-6 py-4 text-gray-500 whitespace-nowrap lg:whitespace-normal">
+                            <td class="px-6 py-4 text-gray-500 whitespace-nowrap">
                                 {{ $store->address ?? '-' }}
                             </td>
 
@@ -97,7 +97,7 @@ $prefix = $isAdmin ? '/admin' : '';
                                     <button
                                         @click="$dispatch('open-modal', { name: 'delete-store', id: {{ $store->id }} })"
                                         class="px-3 py-1.5 text-xs font-medium bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition">
-                                        Hapus
+                                        Delete
                                     </button>
                                     @endcan
                                 </div>
@@ -107,7 +107,7 @@ $prefix = $isAdmin ? '/admin' : '';
                         @empty
                         <tr>
                             <td colspan="4" class="text-center py-12 text-gray-400">
-                                Belum ada Toko
+                                No stores found
                             </td>
                         </tr>
                         @endforelse
@@ -124,7 +124,7 @@ $prefix = $isAdmin ? '/admin' : '';
                 @csrf
 
                 <div class="flex justify-between items-center mb-6 pb-4 border-b">
-                    <h3 class="text-lg font-semibold">Tambah Toko</h3>
+                    <h3 class="text-lg font-semibold">Add Store</h3>
 
                     <button type="button"
                         @click="$el.closest('form').reset(); $dispatch('close-modal', 'create-store')">
@@ -141,13 +141,13 @@ $prefix = $isAdmin ? '/admin' : '';
                     <div class="grid grid-cols-2 gap-4">
                         {{-- OWNER --}}
                         <div>
-                            <label class="text-sm font-medium">Pemilik <span class="text-red-500">*</span></label>
+                            <label class="text-sm font-medium">Owner <span class="text-red-500">*</span></label>
                             <input type="text" name="owner_name" class="w-full mt-1 px-4 py-2 border rounded-lg">
                             <x-input-error :messages="$errors->get('owner_name')" />
                         </div>
 
                         <div>
-                            <label class="text-sm font-medium">Email Pemilik <span class="text-red-500">*</span></label>
+                            <label class="text-sm font-medium">Owner Email <span class="text-red-500">*</span></label>
                             <input type="email" name="owner_email" class="w-full mt-1 px-4 py-2 border rounded-lg">
                             <x-input-error :messages="$errors->get('owner_email')" />
                         </div>
@@ -156,7 +156,7 @@ $prefix = $isAdmin ? '/admin' : '';
                     <div class="grid grid-cols-2 gap-4">
                         {{-- NAME --}}
                         <div>
-                            <label class="text-sm font-medium">Nama Toko <span class="text-red-500">*</span></label>
+                            <label class="text-sm font-medium">Store Name <span class="text-red-500">*</span></label>
                             <input type="text" name="name" class="w-full mt-1 px-4 py-2 border rounded-lg">
                             <x-input-error :messages="$errors->get('name')" />
                         </div>
@@ -171,14 +171,14 @@ $prefix = $isAdmin ? '/admin' : '';
 
                     {{-- PHONE --}}
                     <div>
-                        <label class="text-sm font-medium">No Telepon</label>
+                        <label class="text-sm font-medium">Phone Number</label>
                         <input type="text" name="phone" class="w-full mt-1 px-4 py-2 border rounded-lg">
                         <x-input-error :messages="$errors->get('phone')" />
                     </div>
 
                     {{-- ADDRESS --}}
                     <div>
-                        <label class="text-sm font-medium">Alamat</label>
+                        <label class="text-sm font-medium">Address</label>
                         <textarea name="address" class="w-full mt-1 px-4 py-2 border rounded-lg"></textarea>
                         <x-input-error :messages="$errors->get('address')" />
                     </div>
@@ -188,11 +188,11 @@ $prefix = $isAdmin ? '/admin' : '';
                         <button type="button"
                             @click="$el.closest('form').reset(); $dispatch('close-modal', 'create-store')"
                             class="px-4 py-2 bg-gray-200 rounded-lg">
-                            Batal
+                            Cancel
                         </button>
 
                         <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg">
-                            Simpan
+                            Save
                         </button>
                     </div>
 
@@ -209,7 +209,7 @@ $prefix = $isAdmin ? '/admin' : '';
             }" class="p-6">
             <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Hapus Toko
+                    Delete Store
                 </h3>
 
                 <button type="button" @click="$dispatch('close-modal', 'delete-store')"
@@ -223,11 +223,11 @@ $prefix = $isAdmin ? '/admin' : '';
 
             <div class="text-center space-y-3">
                 <p class="text-gray-700 text-md">
-                    Apakah kamu yakin ingin menghapus Toko ini?
+                    Are you sure you want to delete this store?
                 </p>
 
                 <p class="text-sm text-gray-400">
-                    Data yang dihapus tidak dapat dikembalikan.
+                    Deleted data cannot be recovered.
                 </p>
             </div>
 
@@ -238,12 +238,12 @@ $prefix = $isAdmin ? '/admin' : '';
                 <div class="flex gap-3">
                     <button type="button" @click="$dispatch('close-modal', 'delete-store')"
                         class="flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit"
                         class="flex-1 px-4 py-2.5 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium shadow-sm hover:shadow transition">
-                        Ya, Hapus
+                        Yes, Delete
                     </button>
                 </div>
             </form>

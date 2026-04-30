@@ -30,48 +30,48 @@ class StoreController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'owner_name' => 'required',
-            'owner_email'      => 'required|email|unique:users,email',
-            'email'      => 'required|email|unique:stores,email',
-            'name'       => 'required',
-            'phone'      => 'nullable',
-            'address'    => 'nullable',
+            'owner_name'  => 'required|string|max:255',
+            'owner_email' => 'required|email|unique:users,email',
+            'name'        => 'required|string|max:255',
+            'email'       => 'required|email|unique:stores,email',
+            'phone'       => 'nullable',
+            'address'     => 'nullable',
         ], [
-            'owner_name.required' => 'Nama pemilik wajib diisi!',
-            'owner_email.required'      => 'Email wajib diisi!',
-            'owner_email.email'         => 'Format email tidak valid!',
-            'owner_email.unique'        => 'Email sudah digunakan!',
-            'email.required'      => 'Email wajib diisi!',
-            'email.email'         => 'Format email tidak valid!',
-            'email.unique'        => 'Email sudah digunakan!',
-            'name.required'       => 'Nama toko wajib diisi!',
+            'owner_name.required'  => 'Owner name is required!',
+            'owner_email.required' => 'Owner email is required!',
+            'owner_email.email'    => 'Invalid email format!',
+            'owner_email.unique'   => 'Owner email is already in use!',
+            'email.required'       => 'Store email is required!',
+            'email.email'          => 'Invalid store email format!',
+            'email.unique'         => 'Store email is already in use!',
+            'name.required'        => 'Store name is required!',
         ]);
 
         $owner = User::create([
-            'name' => $request->owner_name,
-            'email' => $request->owner_email,
+            'name'     => $request->owner_name,
+            'email'    => $request->owner_email,
             'password' => Hash::make($request->password),
         ]);
 
         $owner->assignRole('owner');
 
         $store = Store::create([
-            'name' => $request->name,
-            'email' => $request->email,
+            'name'     => $request->name,
+            'email'    => $request->email,
             'owner_id' => $owner->id,
-            'address' => $request->address,
-            'phone' => $request->phone,
-            'slug' => $this->generateUniqueSlug($request->name),
+            'address'  => $request->address,
+            'phone'    => $request->phone,
+            'slug'     => $this->generateUniqueSlug($request->name),
         ]);
 
         logActivity('CREATE', $store, [
-            'store_name' => $store->name,
+            'store_name'  => $store->name,
             'store_email' => $store->email,
-            'owner_name' => $owner->name,
+            'owner_name'  => $owner->name,
             'owner_email' => $owner->email,
         ]);
 
-        return redirect()->back()->with('success', 'Toko berhasil dibuat');
+        return redirect()->back()->with('success', 'Store created successfully!');
     }
 
     public function show($id)
@@ -89,69 +89,73 @@ class StoreController extends Controller
     public function update(Request $request, $id)
     {
         $store = Store::findOrFail($id);
-        $owner = User::findOrFail($store->owner->id);
+        $owner = User::findOrFail($store->owner_id);
 
         $request->validate([
-            'owner_name' => 'required',
+            'owner_name'  => 'required|string|max:255',
             'owner_email' => [
                 'required',
                 'email',
                 Rule::unique('users', 'email')->ignore($owner->id),
             ],
-
             'email' => [
                 'required',
                 'email',
                 Rule::unique('stores', 'email')->ignore($store->id),
             ],
-
-            'name'       => 'required',
-            'phone'      => 'nullable',
-            'address'    => 'nullable',
+            'name'     => 'required|string|max:255',
+            'phone'    => 'nullable',
+            'address'  => 'nullable',
+            'password' => 'nullable|min:8', // Optional password update
         ], [
-            'owner_name.required' => 'Nama pemilik wajib diisi!',
-            'owner_email.required'      => 'Email wajib diisi!',
-            'owner_email.email'         => 'Format email tidak valid!',
-            'owner_email.unique'        => 'Email sudah digunakan!',
-            'email.required'      => 'Email wajib diisi!',
-            'email.email'         => 'Format email tidak valid!',
-            'email.unique'        => 'Email sudah digunakan!',
-            'name.required'       => 'Nama toko wajib diisi!',
+            'owner_name.required'  => 'Owner name is required!',
+            'owner_email.required' => 'Owner email is required!',
+            'owner_email.unique'   => 'Owner email is already in use!',
+            'email.required'       => 'Store email is required!',
+            'email.unique'         => 'Store email is already in use!',
+            'name.required'        => 'Store name is required!',
         ]);
 
         $before = [
-            'store_name' => $store->name,
+            'store_name'  => $store->name,
             'store_email' => $store->email,
-            'owner_name' => $owner->name,
+            'owner_name'  => $owner->name,
             'owner_email' => $owner->email,
         ];
 
-        $owner->update([
-            'name' => $request->owner_name,
+        // Update Owner details
+        $ownerData = [
+            'name'  => $request->owner_name,
             'email' => $request->owner_email,
-            'password' => Hash::make($request->password),
-        ]);
+        ];
 
+        if ($request->filled('password')) {
+            $ownerData['password'] = Hash::make($request->password);
+        }
+
+        $owner->update($ownerData);
+
+        // Update Store details
         $store->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'owner_id' => $owner->id,
+            'name'    => $request->name,
+            'email'   => $request->email,
             'address' => $request->address,
-            'phone' => $request->phone,
-            'slug' => $this->generateUniqueSlug($request->name),
+            'phone'   => $request->phone,
+            // Only update slug if name changed
+            'slug'    => ($store->name !== $request->name) ? $this->generateUniqueSlug($request->name) : $store->slug,
         ]);
 
         logActivity('UPDATE', $store, [
             'before' => $before,
-            'after' => [
-                'store_name' => $request->name,
+            'after'  => [
+                'store_name'  => $request->name,
                 'store_email' => $request->email,
-                'owner_name' => $request->owner_name,
+                'owner_name'  => $request->owner_name,
                 'owner_email' => $request->owner_email,
             ]
         ]);
 
-        return redirect()->back()->with('success', 'Informasi toko berhasil diperbarui!');
+        return redirect()->back()->with('success', 'Store information updated successfully!');
     }
 
     public function destroy(string $id)
@@ -159,16 +163,16 @@ class StoreController extends Controller
         $store = Store::findOrFail($id);
 
         $data = [
-            'store_name' => $store->name,
+            'store_name'  => $store->name,
             'store_email' => $store->email,
-            'owner_id' => $store->owner_id,
+            'owner_id'    => $store->owner_id,
         ];
 
         $store->delete();
 
         logActivity('DELETE', $store, $data);
 
-        return redirect()->back()->with('success', 'Toko berhasil dihapus!');
+        return redirect()->back()->with('success', 'Store deleted successfully!');
     }
 
     private function generateUniqueSlug($name)
