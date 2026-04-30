@@ -29,7 +29,7 @@ $notifications = auth()->user()->notifications()->latest()->limit(10)->get();
         class="fixed inset-x-2 top-17 sm:absolute sm:inset-auto sm:right-0 sm:mt-2 w-auto sm:w-80 bg-white rounded-xl shadow-lg border z-50 overflow-hidden">
 
         <div class="p-3 font-semibold border-b text-gray-700">
-            Notifikasi
+            Notifications
         </div>
 
         <div class="max-h-72 overflow-y-auto">
@@ -70,7 +70,7 @@ $notifications = auth()->user()->notifications()->latest()->limit(10)->get();
             </a>
             @empty
             <p class="p-3 text-sm text-center text-gray-500">
-                Tidak ada notifikasi.
+                No notifications found.
             </p>
             @endforelse
 

@@ -40,8 +40,8 @@ class StockLowNotification extends Notification
             : '/warehouse/' . $this->stock->warehouse_id;
 
         return (new WebPushMessage)
-            ->title('Stok Menipis')
-            ->body($this->stock->product->name . ' sisa ' . $this->stock->qty)
+            ->title('Low Stock Alert')
+            ->body($this->stock->product->name . ' has ' . $this->stock->qty . ' remaining')
             ->icon('/favicon.ico')
             ->data(['url' => $url]);
     }
@@ -54,8 +54,8 @@ class StockLowNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'title' => 'Stok Menipis',
-            'message' => $this->stock->product->name . ' sisa ' . $this->stock->qty,
+            'title' => 'Low Stock Alert',
+            'message' => $this->stock->product->name . ' has ' . $this->stock->qty . ' remaining',
             'url' => '/warehouse/' . $this->stock->warehouse_id,
         ];
     }

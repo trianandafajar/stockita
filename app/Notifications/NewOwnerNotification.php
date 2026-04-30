@@ -31,14 +31,14 @@ class NewOwnerNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['database',  WebPushChannel::class];
+        return ['database', WebPushChannel::class];
     }
 
     public function toWebPush($notifiable, $notification)
     {
         return (new WebPushMessage)
-            ->title('Owner Baru')
-            ->body($this->user->name . ' baru mendaftar')
+            ->title('New Owner')
+            ->body($this->user->name . ' has just registered')
             ->icon('/favicon.ico')
             ->data(['url' => '/admin/store/' . ($this->user->store->id ?? '')]);
     }
@@ -47,8 +47,8 @@ class NewOwnerNotification extends Notification
     {
         return [
             'type' => 'success',
-            'title' => 'Owner Baru',
-            'message' => $this->user->name . ' baru mendaftar',
+            'title' => 'New Owner',
+            'message' => $this->user->name . ' has just registered',
             'url' => '/store/' . ($this->user->store->id ?? ''),
         ];
     }

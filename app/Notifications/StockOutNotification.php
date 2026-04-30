@@ -32,7 +32,7 @@ class StockOutNotification extends Notification
             : '/warehouse/' . $this->stock->warehouse_id;
 
         return (new WebPushMessage)
-            ->title('Stok Habis')
+            ->title('Out of Stock')
             ->body($this->stock->product->name . ' - ' . $this->stock->warehouse->name)
             ->icon('/favicon.ico')
             ->data(['url' => $url]);
@@ -41,7 +41,7 @@ class StockOutNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            'title' => 'Stok Habis',
+            'title' => 'Out of Stock',
             'message' => $this->stock->product->name . ' - ' . $this->stock->warehouse->name,
             'url' => '/warehouse/' . $this->stock->warehouse_id,
         ];
