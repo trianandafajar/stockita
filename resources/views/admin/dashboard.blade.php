@@ -2,15 +2,14 @@
     <div class="min-h-screen">
 
         {{-- header --}}
-        <div
-            class="bg-white/80 backdrop-blur-md shadow-sm border-b border-green-200 rounded-2xl border">
+        <div class="bg-white/80 backdrop-blur-md shadow-sm border-b border-green-200 rounded-2xl border">
             <div class="max-w-7xl">
                 <div class="flex items-center justify-between">
                     <div class="px-6 py-6">
                         <h1 class="text-3xl font-bold text-green-600">
-                            Dashboard Admin
+                            Admin Dashboard
                         </h1>
-                        <p class="text-green-900">Monitoring seluruh platform</p>
+                        <p class="text-green-900">Monitoring all platforms</p>
                     </div>
                 </div>
             </div>
@@ -114,7 +113,7 @@
 
                         <p class="text-sm mt-2 {{ $revenueGrowth >= 0 ? 'text-green-500' : 'text-red-500' }}">
                             {{ $revenueGrowth >= 0 ? '▲' : '▼' }}
-                            {{ number_format($revenueGrowth, 1) }}% dari periode sebelumnya
+                            {{ number_format($revenueGrowth, 1) }}% from previous period
                         </p>
                     </div>
                     <canvas id="miniRevenueChart"></canvas>
@@ -122,14 +121,14 @@
 
                 <div class="bg-white p-6 lg:col-span-3 rounded-2xl border">
                     <div class="flex justify-between items-center mb-4">
-                        <h3 class="font-semibold">Trend Revenue & Orders</h3>
+                        <h3 class="font-semibold">Revenue & Orders Trend</h3>
 
                         <form method="GET">
                             <select name="range" onchange="this.form.submit()"
                                 class="w-full appearance-none px-4 py-2 pr-10 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                                <option value="7" {{ $range == 7 ? 'selected' : '' }}>7 Hari</option>
-                                <option value="30" {{ $range == 30 ? 'selected' : '' }}>30 Hari</option>
-                                <option value="90" {{ $range == 90 ? 'selected' : '' }}>90 Hari</option>
+                                <option value="7" {{ $range==7 ? 'selected' : '' }}>7 Days</option>
+                                <option value="30" {{ $range==30 ? 'selected' : '' }}>30 Days</option>
+                                <option value="90" {{ $range==90 ? 'selected' : '' }}>90 Days</option>
                             </select>
                         </form>
                     </div>
@@ -152,18 +151,18 @@
                     <h3 class="font-semibold mb-4">Recent Transactions</h3>
 
                     @foreach ($latestTransactions as $trx)
-                        <div class="flex items-start gap-3 pb-2 border-b  mb-2">
-                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                    <div class="flex items-start gap-3 pb-2 border-b  mb-2">
+                        <div class="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
 
-                            <div class="flex-1">
-                                <p class="text-sm font-medium">{{ $trx->invoice_code }}</p>
-                                <p class="text-xs text-gray-500">{{ $trx->store->name }}</p>
-                            </div>
-
-                            <span class="text-sm font-semibold">
-                                Rp {{ number_format($trx->total) }}
-                            </span>
+                        <div class="flex-1">
+                            <p class="text-sm font-medium">{{ $trx->invoice_code }}</p>
+                            <p class="text-xs text-gray-500">{{ $trx->store->name }}</p>
                         </div>
+
+                        <span class="text-sm font-semibold">
+                            Rp {{ number_format($trx->total) }}
+                        </span>
+                    </div>
                     @endforeach
                 </div>
 
@@ -183,7 +182,7 @@
                     data: {
                         labels: @json($chartLabels),
                         datasets: [{
-                                label: 'Order',
+                                label: 'Orders',
                                 data: @json($chartOrders),
                                 borderWidth: 3,
                                 tension: 0.4,
@@ -212,7 +211,7 @@
                                 beginAtZero: true,
                                 title: {
                                     display: true,
-                                    text: 'Order'
+                                    text: 'Orders'
                                 }
                             },
                             yRevenue: {
@@ -235,7 +234,7 @@
                                         if (context.dataset.label === 'Revenue') {
                                             return 'Rp ' + context.raw.toLocaleString('id-ID');
                                         }
-                                        return context.raw + ' order';
+                                        return context.raw + ' orders';
                                     }
                                 }
                             }

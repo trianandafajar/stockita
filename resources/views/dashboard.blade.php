@@ -15,12 +15,12 @@
                                     clip-rule="evenodd" />
                             </svg>
 
-                            Dashboard Toko, @php
-                                $user = Auth::user();
+                            Store Dashboard, @php
+                            $user = Auth::user();
                             @endphp
                             {{ $user->store->name }}
                         </h1>
-                        <p class="text-green-900 font-medium">Selamat datang kembali!</p>
+                        <p class="text-green-900 font-medium">Welcome back!</p>
                     </div>
                 </div>
             </div>
@@ -28,27 +28,26 @@
 
         <div class="mx-auto py-6">
 
-            {{-- statis --}}
+            {{-- statistics --}}
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                 {{-- total order --}}
                 <div class="bg-white p-6 rounded-2xl border border-green-200 hover:border-green-500">
                     <div class="flex items-center justify-between">
                         <div class="flex flex-col gap-2">
-                            <p class="text-sm font-medium text-green-700 uppercase tracking-wide">Total Order</p>
+                            <p class="text-sm font-medium text-green-700 uppercase tracking-wide">Total Orders</p>
                             <p class="text-3xl font-bold text-green-900">
                                 {{ number_format($totalOrder) }}
                             </p>
                             @php
-                                $isUp = $percentOrder >= 0;
+                            $isUp = $percentOrder >= 0;
                             @endphp
 
-                            <p
-                                class="font-semibold flex items-center 
+                            <p class="font-semibold flex items-center 
                                  {{ $isUp ? 'text-green-600' : 'text-red-600' }}">
                                 <i
                                     class="fas {{ $isUp ? 'fa-arrow-up text-green-500' : 'fa-arrow-down text-red-500' }} mr-1"></i>
 
-                                {{ $percentOrderLabel }} dari kemarin
+                                {{ $percentOrderLabel }} from yesterday
                             </p>
                         </div>
                         <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center">
@@ -66,7 +65,7 @@
                     <div class="flex items-center justify-between">
                         <div class="flex flex-col gap-2">
                             <p class="text-sm font-medium text-green-700 uppercase tracking-wide">
-                                Revenue Ini
+                                Today's Revenue
                             </p>
 
                             <p class="text-3xl font-bold text-green-900 mt-1">
@@ -74,11 +73,10 @@
                             </p>
 
                             @php
-                                $isUp = $percentRevenue >= 0;
+                            $isUp = $percentRevenue >= 0;
                             @endphp
 
-                            <p
-                                class="font-semibold flex items-center 
+                            <p class="font-semibold flex items-center 
                                 {{ $isUp ? 'text-green-600' : 'text-red-600' }}">
 
                                 <i
@@ -107,17 +105,16 @@
                 <div class="bg-white p-6 rounded-2xl border border-green-200 hover:border-green-500">
                     <div class="flex items-center justify-between">
                         <div class="flex flex-col gap-2">
-                            <p class="text-sm font-medium text-green-700 uppercase tracking-wide">Stock Siap Jual</p>
+                            <p class="text-sm font-medium text-green-700 uppercase tracking-wide">Ready Stock</p>
                             <p class="text-3xl font-bold text-green-900">
                                 {{ number_format($totalStock) }}
                             </p>
 
                             @php
-                                $isUp = $percentStock >= 0;
+                            $isUp = $percentStock >= 0;
                             @endphp
 
-                            <p
-                                class="font-semibold flex items-center 
+                            <p class="font-semibold flex items-center 
                                 {{ $isUp ? 'text-green-600' : 'text-orange-600' }}">
 
                                 <i
@@ -148,24 +145,25 @@
                             </p>
 
                             @php
-                                $isUp = $percentLow >= 0;
+                            $isUp = $percentLow >= 0;
                             @endphp
 
-                            <p
-                                class="font-bold text-lg flex items-center gap-2
+                            <p class="font-bold text-lg flex items-center gap-2
                                 {{ $isUp ? 'text-green-500' : 'text-amber-600' }}">
 
                                 {!! $lowStockCount > 0
-                                    ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                                                            <path fill-rule="evenodd"
-                                                                                d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
-                                                                                clip-rule="evenodd" />
-                                                                        </svg> Periksa!'
-                                    : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
-                                                                            <path fill-rule="evenodd"
-                                                                                d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
-                                                                                clip-rule="evenodd" />
-                                                                        </svg> Aman' !!}
+                                ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="size-6">
+                                    <path fill-rule="evenodd"
+                                        d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
+                                        clip-rule="evenodd" />
+                                </svg> Check Now!'
+                                : '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                                    class="size-6">
+                                    <path fill-rule="evenodd"
+                                        d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
+                                        clip-rule="evenodd" />
+                                </svg> Safe' !!}
                             </p>
                         </div>
                         <div
@@ -195,7 +193,7 @@
                                         d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" />
                                 </svg>
 
-                                Produk Terlaris
+                                Best Selling Products
                             </h3>
                         </div>
 
@@ -204,7 +202,7 @@
                         </div>
 
                         <p class="text-xs text-gray-400 text-center mt-3">
-                            Berdasarkan jumlah penjualan
+                            Based on sales volume
                         </p>
 
                     </div>
@@ -220,16 +218,16 @@
                                         d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                                 </svg>
 
-                                Trend Revenue & Order
+                                Revenue & Order Trends
                             </h3>
 
                             <form method="GET">
                                 <select name="range" onchange="this.form.submit()"
                                     class="w-full appearance-none px-4 py-2 pr-10 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                                    <option value="7" {{ $range == 7 ? 'selected' : '' }}>7 Hari Terakhir
+                                    <option value="7" {{ $range==7 ? 'selected' : '' }}>Last 7 Days
                                     </option>
-                                    <option value="30" {{ $range == 30 ? 'selected' : '' }}>30 Hari</option>
-                                    <option value="90" {{ $range == 90 ? 'selected' : '' }}>3 Bulan</option>
+                                    <option value="30" {{ $range==30 ? 'selected' : '' }}>Last 30 Days</option>
+                                    <option value="90" {{ $range==90 ? 'selected' : '' }}>Last 3 Months</option>
                                 </select>
                             </form>
                         </div>
@@ -262,7 +260,7 @@
                                 tension: 0.4
                             },
                             {
-                                label: 'Order',
+                                label: 'Orders',
                                 data: @json($chartOrders),
                                 borderWidth: 3,
                                 tension: 0.4
@@ -282,7 +280,7 @@
                                         if (context.dataset.label === 'Revenue') {
                                             return 'Rp ' + context.raw.toLocaleString('id-ID');
                                         }
-                                        return context.raw + ' order';
+                                        return context.raw + ' orders';
                                     }
                                 }
                             }
