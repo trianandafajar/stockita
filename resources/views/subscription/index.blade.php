@@ -1,18 +1,18 @@
 <x-app-layout title="Subscription">
     @php
-        $plans = $plans ?? [];
+    $plans = $plans ?? [];
     @endphp
 
     <section class="py-24 bg-gradient-to-b from-white rounded-2xl to-emerald-50">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-4">Kelola Subscription</h2>
+            <h2 class="text-4xl font-bold mb-4">Manage Subscription</h2>
             @if ($subscription)
-                <p class="text-lg text-gray-600 mb-6">Subscription aktif:
-                    <strong>{{ $subscription->plan->name }}</strong>
-                    ({{ $subscription->interval }})
-                </p>
+            <p class="text-lg text-gray-600 mb-6">Active Subscription:
+                <strong>{{ $subscription->plan->name }}</strong>
+                ({{ ucfirst($subscription->interval) }})
+            </p>
             @else
-                <p class="text-lg text-gray-600 mb-6">Belum memiliki subscription aktif</p>
+            <p class="text-lg text-gray-600 mb-6">You don't have an active subscription yet</p>
             @endif
 
             <div class="flex justify-center mb-12">
@@ -26,43 +26,48 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 @foreach ($plans as $plan)
-                    <div
-                        class="offer-card {{ $plan->name == 'Pro' ? 'bg-emerald-500 text-white p-10 shadow-2xl' : 'bg-white p-8 border shadow-sm hover:shadow-xl' }} rounded-3xl transition relative">
-                        @if ($plan->name == 'Pro')
-                            <span
-                                class="absolute top-4 right-4 bg-white text-emerald-600 text-xs px-3 py-1 rounded-full">POPULER</span>
-                        @endif
+                <div
+                    class="offer-card {{ $plan->name == 'Pro' ? 'bg-emerald-500 text-white p-10 shadow-2xl' : 'bg-white p-8 border shadow-sm hover:shadow-xl' }} rounded-3xl transition relative">
+                    @if ($plan->name == 'Pro')
+                    <span
+                        class="absolute top-4 right-4 bg-white text-emerald-600 text-xs px-3 py-1 rounded-full">POPULAR</span>
+                    @endif
 
-                        @if ($plan->id == 1)
-                            <span
-                                class="absolute top-4 right-4 bg-emerald-100 text-emerald-600 text-xs px-3 py-1 rounded-full font-semibold">
-                                FREE TRIAL
-                            </span>
-                        @endif
+                    @if ($plan->id == 1)
+                    <span
+                        class="absolute top-4 right-4 bg-emerald-100 text-emerald-600 text-xs px-3 py-1 rounded-full font-semibold">
+                        FREE TRIAL
+                    </span>
+                    @endif
 
-                        <h3 class="text-xl font-semibold mb-2">{{ $plan->name }}</h3>
-                        <p class="mb-6 {{ $plan->name == 'Pro' ? 'opacity-90' : 'text-gray-500' }}">
-                            {{ $plan->description }}
-                        </p>
+                    <h3 class="text-xl font-semibold mb-2">{{ $plan->name }}</h3>
+                    <p class="mb-6 {{ $plan->name == 'Pro' ? 'opacity-90' : 'text-gray-500' }}">
+                        {{ $plan->description }}
+                    </p>
 
-                        <div class="text-4xl font-bold mb-6 price" data-monthly="{{ $plan->price }}"
-                            data-yearly="{{ $plan->yearly_price }}">
-                            Rp {{ $plan->price }}
-                        </div>
-
-                        <ul class="space-y-3 mb-8">
-                            @foreach ($plan->features as $feature)
-                                <li> {{ $feature }}</li>
-                            @endforeach
-                        </ul>
-
-                        <button
-                            class="w-full py-3 rounded-xl transition-all duration-200
-                            {{ $plan->name == 'Pro' ? 'bg-white text-emerald-600 font-semibold' : 'bg-gray-900 text-white' }} 
-                            pay-btn"
-                            data-plan-id="{{ $plan->id }}">
-                        </button>
+                    <div class="text-4xl font-bold mb-6 price" data-monthly="{{ $plan->price }}"
+                        data-yearly="{{ $plan->yearly_price }}">
+                        Rp {{ number_format($plan->price, 0, ',', '.') }}
                     </div>
+
+                    <ul class="space-y-3 mb-8">
+                        @foreach ($plan->features as $feature)
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 {{ $plan->name == 'Pro' ? 'text-white' : 'text-emerald-500' }}"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            {{ $feature }}
+                        </li>
+                        @endforeach
+                    </ul>
+
+                    <button class="w-full py-3 rounded-xl transition-all duration-200
+                            {{ $plan->name == 'Pro' ? 'bg-white text-emerald-600 font-semibold' : 'bg-gray-900 text-white' }} 
+                            pay-btn" data-plan-id="{{ $plan->id }}">
+                    </button>
+                </div>
                 @endforeach
             </div>
         </div>
@@ -78,8 +83,8 @@
             const yearlyBtn = document.getElementById('yearlyBtn');
             const prices = document.querySelectorAll('.price');
 
-            function formatRupiah(num) {
-                if (num == 0) return 'Rp 0';
+            function formatCurrency(num) {
+                if (num == 0) return 'Free';
                 return 'Rp ' + (num / 1000) + 'K';
             }
 
@@ -88,8 +93,8 @@
                     const monthly = el.dataset.monthly;
                     const yearly = el.dataset.yearly;
                     const value = isYearly ? yearly : monthly;
-                    el.innerHTML = formatRupiah(value) + (value != 0 ?
-                        `<span class="text-lg">/${isYearly ? 'tahun' : 'bulan'}</span>` : '');
+                    el.innerHTML = formatCurrency(value) + (value != 0 ?
+                        `<span class="text-lg">/${isYearly ? 'year' : 'month'}</span>` : '');
                 });
             }
 
@@ -112,7 +117,7 @@
                         btn.disabled = true;
                         btn.classList.add('bg-green-500', 'text-green-700', 'cursor-not-allowed');
 
-                        btn.innerText = isSameInterval ? 'Aktif' : 'Paket aktif';
+                        btn.innerText = isSameInterval ? 'Active' : 'Current Plan';
 
                     } else if (isDowngrade) {
                         btn.disabled = true;
@@ -120,12 +125,12 @@
                         btn.classList.add('bg-gray-300', 'text-gray-500', 'cursor-not-allowed',
                             'opacity-50');
 
-                        btn.innerText = 'Tidak tersedia';
+                        btn.innerText = 'Not Available';
 
                     } else {
                         btn.disabled = false;
 
-                        btn.innerText = 'Pilih Paket';
+                        btn.innerText = 'Choose Plan';
                     }
                 });
             }
@@ -166,14 +171,12 @@
 
                         const data = await res.json();
 
-                        console.log('ini data dari midtrans', data)
-
                         if (data.free) {
                             Swal.fire({
                                 toast: true,
                                 icon: 'success',
                                 position: 'top-end',
-                                title: 'Paket gratis aktif',
+                                title: 'Free plan activated',
                                 showConfirmButton: false,
                                 timer: 3000
                             });
@@ -187,7 +190,7 @@
                                     toast: true,
                                     icon: 'success',
                                     position: 'top-end',
-                                    title: 'Pembayaran sukses',
+                                    title: 'Payment successful',
                                     showConfirmButton: false,
                                     timer: 3000
                                 });
@@ -196,9 +199,9 @@
                             onPending: function(result) {
                                 Swal.fire({
                                     toast: true,
-                                    icon: 'success',
+                                    icon: 'info',
                                     position: 'top-end',
-                                    title: 'Mengunggu pembayaran',
+                                    title: 'Awaiting payment',
                                     showConfirmButton: false,
                                     timer: 3000
                                 });
@@ -206,9 +209,9 @@
                             onError: function(result) {
                                 Swal.fire({
                                     toast: true,
-                                    icon: 'success',
+                                    icon: 'error',
                                     position: 'top-end',
-                                    title: 'Pembayaran gagal',
+                                    title: 'Payment failed',
                                     showConfirmButton: false,
                                     timer: 3000
                                 });
@@ -220,15 +223,15 @@
                             toast: true,
                             icon: 'error',
                             position: 'top-end',
-                            title: 'Terjadi error pada system, tunggu beberapa saat untuk mencoba lagi',
+                            title: 'System error occurred, please try again later',
                             showConfirmButton: false,
                             timer: 3000
                         });
                     }
                 });
             });
-            updatePrice()
-            updateButtons()
+            updatePrice();
+            updateButtons();
         });
     </script>
 </x-app-layout>
