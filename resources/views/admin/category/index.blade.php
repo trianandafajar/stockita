@@ -1,10 +1,4 @@
 <x-app-layout title="Kategori">
-    <script>
-        const canCreateCategories = @json(auth()->user()->can('create categories'));
-        const canEditCategories = @json(auth()->user()->can('edit categories'));
-        const canDeleteCategories = @json(auth()->user()->can('delete categories'));
-    </script>
-
     @if ($message = session('success') ?? (session('error') ?? (session('warning') ?? session('info'))))
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -27,28 +21,16 @@
         <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
                 <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
-                    Manajemen Kategori
+                    Category Management
                 </h1>
                 <p class="text-gray-600 mt-1 text-sm sm:text-base">
-                    Kelola kategori produk dengan mudah
+                    Easily manage your product categories
                 </p>
             </div>
 
             <div class="flex w-full sm:w-auto">
                 @can('create categories')
-                <button x-data @click="
-                if (!canCreateCategories) {
-                    Swal.fire({
-                        toast: true,
-                        icon: 'error',
-                        position: 'top-end',
-                        title: 'Kamu tidak punya izin menambah kategori!',
-                        showConfirmButton: false,
-                        timer: 3000
-                    });
-                } else {
-                    $dispatch('open-modal', { name: 'create-category' })
-                }" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-white font-medium text-sm rounded-xl
+                <button x-data @click="$dispatch('open-modal', { name: 'create-category' })" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-white font-medium text-sm rounded-xl
                 {{ auth()->user()->can('create categories')
                     ? 'bg-green-500 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5'
                     : 'bg-green-200 border-gray-200 cursor-not-allowed' }}">
@@ -58,7 +40,7 @@
                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                     </svg>
 
-                    <span class="whitespace-nowrap">Tambah Kategori</span>
+                    <span class="whitespace-nowrap">Add Category</span>
                 </button>
                 @endcan
             </div>
@@ -70,14 +52,14 @@
                 <div class="flex flex-col sm:flex-row gap-3">
 
                     <input type="text" name="search" value="{{ request('search') }}"
-                        placeholder="Cari kategori, nama owner atau nama toko..."
+                        placeholder="Search categories, owner name, or store..."
                         class="flex-1 px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500">
 
                     <div class="relative w-full sm:w-48">
                         <select name="store"
                             class="w-full appearance-none px-4 py-2 pr-10 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-blue-500">
 
-                            <option value="">Semua</option>
+                            <option value="">All Stores</option>
                             @foreach ($stores as $store)
                             <option value="{{ $store->id }}" {{ request('store')==$store->id ? 'selected' : '' }}>
                                 {{ $store->name }}
@@ -106,12 +88,12 @@
                 <table class="w-full text-sm">
                     <thead class="bg-gray-50 text-gray-500 text-xs uppercase tracking-wider">
                         <tr>
-                            <th class="px-6 py-4 text-left font-semibold">Nama</th>
+                            <th class="px-6 py-4 text-left font-semibold">Name</th>
                             <th class="px-6 py-4 text-left font-semibold">Slug</th>
-                            <th class="px-6 py-4 text-left font-semibold">Toko</th>
-                            <th class="px-6 py-4 text-left font-semibold">Pemilik</th>
-                            <th class="px-6 py-4 text-left font-semibold whitespace-nowrap">Total Produk</th>
-                            <th class="px-6 py-4 text-right font-semibold">Aksi</th>
+                            <th class="px-6 py-4 text-left font-semibold">Store</th>
+                            <th class="px-6 py-4 text-left font-semibold">Owner</th>
+                            <th class="px-6 py-4 text-left font-semibold whitespace-nowrap">Total Products</th>
+                            <th class="px-6 py-4 text-right font-semibold">Actions</th>
                         </tr>
                     </thead>
 
@@ -137,7 +119,7 @@
 
                             <td class="px-6 py-4 whitespace-nowrap whitespace-nowrap">
                                 <span class="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-700 rounded-lg">
-                                    {{ $cat->products_count ?? $cat->products->count() }} produk
+                                    {{ $cat->products_count ?? $cat->products->count() }} products
                                 </span>
                             </td>
 
@@ -145,38 +127,18 @@
                                 <div x-data class="flex justify-end gap-2">
 
                                     @can('edit categories')
-                                    <button @click="if (!canEditCategories) {
-                                            Swal.fire({
-                                                toast: true,
-                                                icon: 'error',
-                                                position: 'top-end',
-                                                title: 'Kamu tidak punya izin edit kategori!',
-                                                showConfirmButton: false,
-                                                timer: 3000
-                                            });
-                                        } else {
-                                            $dispatch('open-modal', { name: 'edit-category', id: {{ $cat->id }}, categoryName: '{{ $cat->name }}', storeId: {{ $cat->store_id }} })
-                                        }"
+                                    <button
+                                        @click="$dispatch('open-modal', { name: 'edit-category', id: {{ $cat->id }}, categoryName: '{{ $cat->name }}', storeId: {{ $cat->store_id }} })"
                                         class="px-3 py-1.5 text-xs font-medium rounded-lg bg-blue-50 text-blue-600 {{ auth()->user()->can('edit categories') ? 'hover:bg-blue-100 transition' : 'cursor-not-allowed' }}">
                                         Edit
                                     </button>
                                     @endcan
 
                                     @can('delete categories')
-                                    <button @click="if (!canDeleteCategories) {
-                                            Swal.fire({
-                                                toast: true,
-                                                icon: 'error',
-                                                position: 'top-end',
-                                                title: 'Kamu tidak punya izin menghapus kategori!',
-                                                showConfirmButton: false,
-                                                timer: 3000
-                                            });
-                                        } else {
-                                            $dispatch('open-modal', { name: 'delete-category', id: {{ $cat->id }} })
-                                        }"
+                                    <button
+                                        @click="$dispatch('open-modal', { name: 'delete-category', id: {{ $cat->id }} })"
                                         class="px-3 py-1.5 text-xs font-medium bg-red-50 text-red-600 rounded-lg {{ auth()->user()->can('delete categories') ? 'hover:bg-red-100 transition' : 'cursor-not-allowed' }}">
-                                        Hapus
+                                        Delete
                                     </button>
                                     @endcan
                                 </div>
@@ -186,7 +148,7 @@
                         @empty
                         <tr>
                             <td colspan="6" class="text-center py-12 text-gray-400">
-                                Belum ada kategori
+                                No categories available
                             </td>
                         </tr>
                         @endforelse
@@ -207,7 +169,7 @@
                 @csrf
                 @method('POST')
                 <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-                    <h3 class="text-lg font-semibold">Tambah Kategori Baru</h3>
+                    <h3 class="text-lg font-semibold">Create New Category</h3>
                     <button type="button"
                         @click="$el.closest('form').reset(); $dispatch('close-modal', 'create-category')">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -220,10 +182,10 @@
 
                 <div class="space-y-4">
                     <div>
-                        <label class="text-sm font-medium">Toko <span class="text-red-500">*</span></label>
+                        <label class="text-sm font-medium">Store <span class="text-red-500">*</span></label>
                         <select name="store"
                             class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
-                            <option value="">--- Pilih toko ---</option>
+                            <option value="">--- Select store ---</option>
                             @foreach ($stores as $store)
                             <option value="{{ $store->id }}" {{ request('store')==$store->id ? 'selected' : '' }}>
                                 {{ $store->name }}
@@ -234,7 +196,7 @@
                     </div>
 
                     <div>
-                        <label class="text-sm font-medium">Nama <span class="text-red-500">*</span></label>
+                        <label class="text-sm font-medium">Name <span class="text-red-500">*</span></label>
                         <input type="text" name="name" x-ref="categoryName"
                             class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-500 text-sm" />
@@ -244,11 +206,11 @@
                         <button type="button"
                             @click="$el.closest('form').reset(); $dispatch('close-modal', 'create-category')"
                             class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
-                            Batal
+                            Cancel
                         </button>
 
                         <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
-                            Simpan
+                            Save
                         </button>
                     </div>
                 </div>
@@ -270,7 +232,7 @@
         }" class="p-6">
             <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Edit Kategori
+                    Edit Category
                 </h3>
 
                 <button type="button" @click="$dispatch('close-modal', 'edit-category')"
@@ -287,11 +249,11 @@
                 @method('PUT')
 
                 <div>
-                    <label class="text-sm font-medium">Toko <span class="text-red-500">*</span></label>
+                    <label class="text-sm font-medium">Store <span class="text-red-500">*</span></label>
                     <select name="store" x-model="storeId"
                         class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
 
-                        <option value="">--- Pilih toko ---</option>
+                        <option value="">--- Select store ---</option>
 
                         @foreach ($stores as $store)
                         <option value="{{ $store->id }}">
@@ -304,7 +266,7 @@
                 </div>
 
                 <div>
-                    <label class="text-sm font-medium">Nama <span class="text-red-500">*</span></label>
+                    <label class="text-sm font-medium">Name <span class="text-red-500">*</span></label>
                     <input type="text" name="name" x-model="categoryName" x-ref="editCategoryName"
                         class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
                     <x-input-error :messages="$errors->editCategory->get('name')" class="mt-2 text-red-500 text-sm" />
@@ -314,11 +276,11 @@
                     <button type="button"
                         @click="$el.closest('form').reset(); $dispatch('close-modal', 'edit-category')"
                         class="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
-                        Simpan
+                        Save
                     </button>
                 </div>
             </form>
@@ -334,7 +296,7 @@
             }" class="p-6">
             <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Hapus Kategori
+                    Delete Category
                 </h3>
 
                 <button type="button" @click="$dispatch('close-modal', 'delete-category')"
@@ -348,11 +310,11 @@
 
             <div class="text-center space-y-3">
                 <p class="text-gray-700 text-md">
-                    Apakah kamu yakin ingin menghapus kategori ini?
+                    Are you sure you want to delete this category?
                 </p>
 
                 <p class="text-sm text-gray-400">
-                    Data yang dihapus tidak dapat dikembalikan.
+                    This action cannot be undone.
                 </p>
             </div>
 
@@ -363,12 +325,12 @@
                 <div class="flex gap-3">
                     <button type="button" @click="$dispatch('close-modal', 'delete-category')"
                         class="flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit"
                         class="flex-1 px-4 py-2.5 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium shadow-sm hover:shadow transition">
-                        Ya, Hapus
+                        Yes, Delete
                     </button>
                 </div>
             </form>

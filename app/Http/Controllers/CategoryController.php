@@ -41,26 +41,16 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
         if (! auth()->user()->canCreateCategories()) {
-            return back()->with('error', 'Limit Kategori habis');
+            return back()->with('error', 'Category limit reached');
         }
 
         $request->validate([
             'name' => 'required',
-        ], [
-            'name.required' => 'Nama kategori wajib diisi!',
         ]);
 
         $category = Category::create([
@@ -75,23 +65,7 @@ class CategoryController extends Controller
             'store_id' => $category->store_id,
         ]);
 
-        return redirect()->back()->with('success', 'Data berhasil disimpan!');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        return redirect()->back()->with('success', 'Category created successfully!');
     }
 
     /**
@@ -103,8 +77,6 @@ class CategoryController extends Controller
 
         $validator = Validator::make($request->all(), [
             'name' => ['required'],
-        ], [
-            'name.required' => 'Nama kategori wajib diisi!',
         ]);
 
         if ($validator->fails()) {
@@ -127,7 +99,7 @@ class CategoryController extends Controller
         ]);
 
 
-        return redirect()->back()->with('success', 'Data berhasil diperbarui!');
+        return redirect()->back()->with('success', 'Category updated successfully!');
     }
 
     /**
@@ -138,7 +110,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
 
         if ($category->products()->count() > 0) {
-            return redirect()->back()->with('error', 'Kategori tidak bisa dihapus karena masih memiliki produk!');
+            return redirect()->back()->with('error', 'Category cannot be deleted because it still has products!');
         }
 
         $data = $category->only(['name', 'slug', 'store_id']);
@@ -147,6 +119,6 @@ class CategoryController extends Controller
 
         logActivity('DELETE', $category, $data);
 
-        return redirect()->back()->with('success', 'Data berhasil dihapus!');
+        return redirect()->back()->with('success', 'Category deleted successfully!');
     }
 }
