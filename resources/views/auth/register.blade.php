@@ -2,21 +2,23 @@
     <form method="POST" action="{{ route('register') }}" class="mx-auto p-2">
         @csrf
         <div class="mb-6 text-center">
-            <h2 class="text-2xl font-bold text-gray-800">Buat Akun</h2>
-            <p class="text-gray-500 text-sm mt-1">Daftar untuk mulai menggunakan aplikasi</p>
+            <h2 class="text-2xl font-bold text-gray-800">Create Account</h2>
+            <p class="text-gray-500 text-sm mt-1">Sign up to start using the application</p>
         </div>
+
         <div class="mb-4">
             <x-input-label for="name" :value="__('Name')" class="text-gray-800 font-semibold mb-2 block" />
             <x-text-input id="name"
                 class="block w-full border-2 border-green-200 focus:border-green-500 focus:ring-green-500 bg-green-50 text-gray-800 rounded-lg px-4 py-3"
-                type="text" name="name" :value="old('name')" required autofocus />
+                type="text" name="name" :value="old('name')" required autofocus placeholder="Enter your full name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-500 text-sm" />
         </div>
+
         <div class="mb-4">
             <x-input-label for="email" :value="__('Email')" class="text-gray-800 font-semibold mb-2 block" />
             <x-text-input id="email"
                 class="block w-full border-2 border-green-200 focus:border-green-500 focus:ring-green-500 bg-green-50 text-gray-800 rounded-lg px-4 py-3"
-                type="email" name="email" :value="old('email')" required />
+                type="email" name="email" :value="old('email')" required placeholder="name@example.com" />
             <x-input-error :messages="$errors->get('email')" class="mt-2 text-red-500 text-sm" />
         </div>
 
@@ -25,29 +27,25 @@
 
             <x-text-input id="password" x-bind:type="show ? 'text' : 'password'"
                 class="block w-full border-2 border-green-200 focus:border-green-500 focus:ring-green-500 bg-green-50 text-gray-800 rounded-lg px-4 py-3 pr-12"
-                name="password" required />
+                name="password" required autocomplete="new-password" />
 
             <button type="button" @click="show = !show"
                 class="absolute right-3 top-[42px] text-gray-500 hover:text-green-600">
-
                 <svg x-show="!show" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" class="size-5">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                 </svg>
-
                 <svg x-show="show" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-5">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88" />
                 </svg>
-
             </button>
 
             <x-input-error :messages="$errors->get('password')" class="mt-2 text-red-500 text-sm" />
         </div>
-
 
         <div x-data="{ showConfirm: false }" class="mb-6 relative">
             <x-input-label for="password_confirmation" :value="__('Confirm Password')"
@@ -59,14 +57,12 @@
 
             <button type="button" @click="showConfirm = !showConfirm"
                 class="absolute right-3 top-[42px] text-gray-500 hover:text-green-600">
-
                 <svg x-show="!showConfirm" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" class="size-5">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                 </svg>
-
                 <svg x-show="showConfirm" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" class="size-5">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -77,30 +73,28 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2 text-red-500 text-sm" />
         </div>
 
-
         <button
             class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all">
             Register
         </button>
 
-
         <p class="text-center text-sm text-gray-600 mt-6">
-            Sudah punya akun?
+            Already have an account?
             <a href="{{ route('login') }}" class="text-green-600 hover:text-green-700 font-semibold">
-                Login di sini
+                Login here
             </a>
         </p>
     </form>
+
     <div class="max-w-md mx-auto mt-6">
         <div class="relative">
             <div class="absolute inset-0 flex items-center">
                 <div class="w-full border-t border-gray-300"></div>
             </div>
             <div class="relative flex justify-center text-sm">
-                <span class="px-4 bg-white text-gray-500">Atau</span>
+                <span class="px-4 bg-white text-gray-500">Or</span>
             </div>
         </div>
-
 
         <a href="/auth/google"
             class="flex items-center justify-center w-full mt-6 mb-6 bg-white border-2 border-green-200 hover:border-green-400 text-gray-800 hover:text-green-700 font-semibold py-3 rounded-xl shadow-md hover:shadow-lg transition-all gap-3">
@@ -114,7 +108,7 @@
                 <path fill="#EA4335"
                     d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
             </svg>
-            Daftar dengan Google
+            Sign up with Google
         </a>
     </div>
 </x-guest-layout>

@@ -53,20 +53,20 @@ class RegisteredUserController extends Controller
                     ->symbols(),
             ],
         ], [
-            'name.required' => 'Nama wajib diisi.',
-            'name.string' => 'Nama harus berupa teks.',
-            'name.max' => 'Nama maksimal :max karakter.',
+            'name.required' => 'The name field is required.',
+            'name.string' => 'The name must be a string.',
+            'name.max' => 'The name may not be greater than :max characters.',
 
-            'email.required' => 'Email wajib diisi.',
-            'email.email' => 'Email tidak valid.',
-            'email.unique' => 'Email sudah terdaftar.',
+            'email.required' => 'The email field is required.',
+            'email.email' => 'Please enter a valid email address.',
+            'email.unique' => 'This email is already registered.',
 
-            'password.required' => 'Password wajib diisi.',
-            'password.confirmed' => 'Konfirmasi password tidak sesuai.',
-            'password.min' => 'Password minimal :min karakter.',
-            'password.mixed' => 'Password harus mengandung minimal 1 huruf besar dan 1 huruf kecil.',
-            'password.numbers' => 'Password harus mengandung minimal 1 angka.',
-            'password.symbols' => 'Password harus mengandung minimal 1 karakter unik/simbol.',
+            'password.required' => 'The password field is required.',
+            'password.confirmed' => 'The password confirmation does not match.',
+            'password.min' => 'The password must be at least :min characters.',
+            'password.mixed' => 'The password must contain at least one uppercase and one lowercase letter.',
+            'password.numbers' => 'The password must contain at least one number.',
+            'password.symbols' => 'The password must contain at least one special character or symbol.',
         ]);
 
         $user = User::create([
@@ -95,8 +95,9 @@ class RegisteredUserController extends Controller
         $plan = session('plan_id');
         $interval = session('interval');
 
-        if ($plan) {
+        event(new Registered($user));
 
+        if ($plan) {
             Auth::login($user);
 
             $planModel = Plan::find($plan);
@@ -110,11 +111,7 @@ class RegisteredUserController extends Controller
             return redirect("/checkout?plan={$plan}&interval={$interval}");
         }
 
-        return redirect("/dashboard");
-
-        event(new Registered($user));
-
-        return redirect(route('login'))->with('success', 'Registrasi berhasil silahkan login!');
+        return redirect('login')->with('success', 'Registration successful! Welcome to the dashboard.');
     }
 
     private function generateUniqueSlug($name)
