@@ -9,7 +9,7 @@
                     Activity Logs
                 </h1>
                 <p class="text-gray-600 mt-1 text-sm sm:text-base">
-                    Riwayat aktivitas sistem
+                    System activity history
                 </p>
             </div>
 
@@ -19,7 +19,7 @@
                         <div class="relative w-full sm:w-48">
                             <select name="action"
                                 class="w-full appearance-none px-4 py-2 pr-10 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-blue-500">
-                                <option value="">Semua Action</option>
+                                <option value="">All Actions</option>
                                 <option value="CREATE" {{ request('action')=='CREATE' ? 'selected' : '' }}>Create
                                 </option>
                                 <option value="UPDATE" {{ request('action')=='UPDATE' ? 'selected' : '' }}>Update
@@ -50,8 +50,8 @@
                             <th class="px-6 py-4 text-left font-semibold">Action</th>
                             <th class="px-6 py-4 text-left font-semibold">Model</th>
                             <th class="px-6 py-4 text-left font-semibold">User</th>
-                            <th class="px-6 py-4 text-left font-semibold">Tanggal</th>
-                            <th class="px-6 py-4 text-right font-semibold">Detail</th>
+                            <th class="px-6 py-4 text-left font-semibold">Date</th>
+                            <th class="px-6 py-4 text-right font-semibold">Details</th>
                         </tr>
                     </thead>
 
@@ -87,7 +87,7 @@
                                 <button
                                     @click="$dispatch('open-modal', { name: 'log-detail', data: {{ json_encode($log->metadata) }} })"
                                     class="px-3 py-1.5 text-xs font-medium bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition">
-                                    Lihat
+                                    View
                                 </button>
                             </td>
 
@@ -95,7 +95,7 @@
                         @empty
                         <tr>
                             <td colspan="5" class="text-center py-12 text-gray-400">
-                                Tidak ada log
+                                No logs available
                             </td>
                         </tr>
                         @endforelse
@@ -113,7 +113,7 @@
     </div>
 
 
-    {{-- MODAL DETAIL --}}
+    {{-- DETAIL MODAL --}}
     <x-modal name="log-detail" maxWidth="md">
         <div x-data="{ logData: null }" x-on:open-modal.window="
                 if ($event.detail.name === 'log-detail') {
@@ -123,7 +123,7 @@
 
             <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Detail Log
+                    Log Details
                 </h3>
 
                 <button type="button" @click="$dispatch('close-modal', 'log-detail')"
