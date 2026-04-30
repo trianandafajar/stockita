@@ -1,9 +1,4 @@
 <x-app-layout title="Pelanggan & Marketing">
-    <script>
-        const canCreateCustomers = @json(auth()->user()->can('create customers'));
-        const canDeleteCustomers = @json(auth()->user()->can('delete customers'))
-    </script>
-
     @if ($message = session('success') ?? (session('error') ?? (session('warning') ?? session('info'))))
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -27,7 +22,7 @@
             <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition">
                 <div class="flex items-center justify-between">
                     <div>
-                        <p class="text-sm text-gray-500">Total Pelanggan</p>
+                        <p class="text-sm text-gray-500">Total Customers </p>
                         <p class="text-2xl font-bold text-gray-900 mt-1">
                             {{ number_format($stats['total']) }}
                         </p>
@@ -48,14 +43,14 @@
             </div>
 
             <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-                <p class="text-sm text-gray-500">Pelanggan Aktif</p>
+                <p class="text-sm text-gray-500">Active Customers</p>
                 <p class="text-2xl font-bold text-gray-900 mt-1">
                     {{ number_format($stats['active']) }}
                 </p>
             </div>
 
             <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
-                <p class="text-sm text-gray-500">Total Pengeluaran</p>
+                <p class="text-sm text-gray-500">Total Spending</p>
                 <p class="text-2xl font-bold text-gray-900 mt-1">
                     Rp {{ number_format($stats['total_spent'], 0, ',', '.') }}
                 </p>
@@ -75,11 +70,12 @@
                             <div class="relative w-full sm:w-44">
                                 <select name="status"
                                     class="w-full appearance-none px-4 py-2 pr-10 border border-gray-200 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 text-sm">
-                                    <option value="">Semua Status</option>
-                                    <option value="active" {{ request('status')=='active' ? 'selected' : '' }}>Aktif
+                                    <option value="">All Status</option>
+                                    <option value="active" {{ request('status')=='active' ? 'selected' : '' }}>Active
                                     </option>
-                                    <option value="inactive" {{ request('status')=='inactive' ? 'selected' : '' }}>Tidak
-                                        Aktif</option>
+                                    <option value="inactive" {{ request('status')=='inactive' ? 'selected' : '' }}>
+                                        Inactive
+                                    </option>
                                 </select>
                                 <div
                                     class="absolute inset-y-0 right-3 flex items-center text-gray-400 pointer-events-none">
@@ -93,7 +89,7 @@
                             <div class="relative w-full sm:w-44">
                                 <select name="type"
                                     class="w-full appearance-none px-4 py-2 pr-10 border border-gray-200 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 text-sm">
-                                    <option value="">Semua Tipe</option>
+                                    <option value="">All Types</option>
                                     <option value="regular" {{ request('type')=='regular' ? 'selected' : '' }}>Regular
                                     </option>
                                     <option value="exclusive" {{ request('type')=='exclusive' ? 'selected' : '' }}>
@@ -114,7 +110,7 @@
 
                             <div class="relative w-full sm:w-72 lg:w-80">
                                 <input type="text" name="search" value="{{ request('search') }}"
-                                    placeholder="Cari nama, email, atau nomor..."
+                                    placeholder="Search name, email, or phone number..."
                                     class="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-blue-500">
                                 <div class="absolute left-3 top-2.5 text-gray-400 pointer-events-none">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -151,16 +147,13 @@
                             </a>
 
                             @can('create customers')
-                            <button type="button" @click="if (!canCreateCustomers) {
-                        Swal.fire({ toast: true, icon: 'error', position: 'top-end', title: 'Kamu tidak punya izin menambah pelanggan!', showConfirmButton: false, timer: 3000 });
-                    } else {
-                        $dispatch('open-modal', { name: 'create-customer' })
-                    }" class="px-4 py-2.5 bg-green-500 hover:bg-green-600 text-white rounded-xl text-sm font-semibold flex items-center gap-2 whitespace-nowrap shadow transition">
+                            <button type="button" @click="$dispatch('open-modal', { name: 'create-customer' })"
+                                class="px-4 py-2.5 bg-green-500 hover:bg-green-600 text-white rounded-xl text-sm font-semibold flex items-center gap-2 whitespace-nowrap shadow transition">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                 </svg>
-                                Pelanggan Baru
+                                New Customer
                             </button>
                             @endcan
 
@@ -177,11 +170,13 @@
                 <table class="w-full">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Pelanggan</th>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Kontak</th>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Tipe</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Contact</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
                             <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase w-32">Aksi</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase w-32">
+                                Actions
+                            </th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
@@ -228,18 +223,7 @@
 
                                         <button type="submit"
                                             class="p-1.5 text-gray-400 rounded-lg transition-all {{ auth()->user()->can('send customer email') ? 'hover:text-blue-600 hover:bg-gray-100' : 'cursor-not-allowed opacity-50' }}"
-                                            title="Kirim Email" @click.prevent="if (!{{ auth()->user()->can('send customer email') ? 'true' : 'false' }}) {
-                                                    Swal.fire({
-                                                        toast: true,
-                                                        icon: 'error',
-                                                        position: 'top-end',
-                                                        title: 'Kamu tidak punya izin mengirim email!',
-                                                        showConfirmButton: false,
-                                                        timer: 3000
-                                                    });
-                                                } else {
-                                                    $el.closest('form').submit();
-                                                }">
+                                            title="Send Email" @click.prevent="$el.closest('form').submit();">
 
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                                 stroke-width="1.5" stroke="currentColor" class="size-4">
@@ -252,7 +236,7 @@
                                     @endcan
 
                                     @can('view customers')
-                                    <a title="Detail Pelanggan" href="{{ route('customers.show', $customer->id) }}"
+                                    <a title="Detail Customer" href="{{ route('customers.show', $customer->id) }}"
                                         class="p-1.5 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-lg transition-all">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-4">
@@ -266,21 +250,9 @@
                                     @endcan
 
                                     @can('delete customers')
-                                    <button title="Hapus Pelanggan"
-                                        class="p-1.5 text-gray-400 rounded-lg transition-all 
-                                            {{ auth()->user()->can('delete customers') ? 'hover:text-red-600 hover:bg-gray-100' : 'cursor-not-allowed opacity-50' }}"
-                                        @click="if (!canDeleteCustomers) {
-                                                Swal.fire({
-                                                    toast: true,
-                                                    icon: 'error',
-                                                    position: 'top-end',
-                                                    title: 'Kamu tidak punya izin menghapus pelanggan!',
-                                                    showConfirmButton: false,
-                                                    timer: 3000
-                                                });
-                                            } else {
-                                                $dispatch('open-modal', { name: 'delete-customer', id: {{ $customer->id }} })
-                                            }">
+                                    <button title="Delete Customer"
+                                        class="p-1.5 text-gray-400 rounded-lg transition-all hover:text-red-600 hover:bg-gray-100"
+                                        @click="$dispatch('open-modal', { name: 'delete-customer', id: {{ $customer->id }} })">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
@@ -303,21 +275,10 @@
                                         </path>
                                     </svg>
                                 </div>
-                                <h3 class="text-lg font-semibold mb-2">Belum ada pelanggan</h3>
+                                <h3 class="text-lg font-semibold mb-2">No customers yet</h3>
                                 <p class="mb-4">Mulai tambahkan pelanggan pertama Anda</p>
-                                <button @click="if (!canCreateCustomers) {
-                                            Swal.fire({
-                                                toast: true,
-                                                icon: 'error',
-                                                position: 'top-end',
-                                                title: 'Kamu tidak punya izin menambah pelanggan!',
-                                                showConfirmButton: false,
-                                                timer: 3000
-                                            });
-                                        } else {
-                                            $dispatch('open-modal', { name: 'create-customer' })
-                                        }"
-                                    class="px-4 py-2 text-white rounded-lg font-medium {{ auth()->user()->can('create customers') ? 'bg-green-500 hover:bg-green-600' : 'bg-green-200 cursor-not-allowed' }}">
+                                <button @click="$dispatch('open-modal', { name: 'create-customer' })"
+                                    class="px-4 py-2 text-white rounded-lg font-medium bg-green-500 hover:bg-green-600">
                                     + Tambah Pelanggan
                                 </button>
                             </td>
@@ -338,7 +299,7 @@
             <form action="/customers" method="POST">
                 @csrf
                 <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-                    <h3 class="text-lg font-semibold">Tambah Pelanggan Baru</h3>
+                    <h3 class="text-lg font-semibold">Add New Customer </h3>
                     <button type="button"
                         @click="$el.closest('form').reset(); $dispatch('close-modal', 'create-customer')">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -351,7 +312,7 @@
 
                 <div class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap <span
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Full Name<span
                                 class="text-red-500">*</span></label>
                         <input type="text" name="name" value="{{ old('name') }}"
                             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
@@ -366,7 +327,7 @@
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Tipe Pelanggan <span
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Customer Type<span
                                     class="text-red-500">*</span></label>
                             <select name="type" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
                                 <option value="regular" {{ old('type')=='regular' ? 'selected' : '' }}>Regular
@@ -382,17 +343,16 @@
                             <label class="block text-sm font-medium text-gray-700 mb-2">Status <span
                                     class="text-red-500">*</span></label>
                             <select name="status" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
-                                <option value="active" {{ old('status')=='active' ? 'selected' : '' }}>Aktif
+                                <option value="active" {{ old('status')=='active' ? 'selected' : '' }}>Active
                                 </option>
-                                <option value="inactive" {{ old('status')=='inactive' ? 'selected' : '' }}>Tidak
-                                    Aktif
+                                <option value="inactive" {{ old('status')=='inactive' ? 'selected' : '' }}>Inactive
                                 </option>
                             </select>
                             <x-input-error :messages="$errors->get('status')" class="mt-2 text-red-500 text-sm" />
                         </div>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Nomor WhatsApp <span
+                        <label class="block text-sm font-medium text-gray-700 mb-2">WhatsApp Number<span
                                 class="text-red-500">*</span></label>
                         <input type="tel" name="phone" value="{{ old('phone') }}"
                             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
@@ -402,11 +362,11 @@
                         <button type="button"
                             @click="$el.closest('form').reset(); $dispatch('close-modal', 'create-customer')"
                             class="close-modal flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
-                            Batal
+                            Cancel
                         </button>
                         <button type="submit"
                             class="flex-1 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium">
-                            Simpan Pelanggan
+                            Save Customer
                         </button>
                     </div>
                 </div>
@@ -422,7 +382,7 @@
             }" class="p-6">
             <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Hapus Pelanggan
+                    Delete Customer
                 </h3>
 
                 <button type="button" @click="$dispatch('close-modal', 'delete-customer')"
@@ -436,11 +396,11 @@
 
             <div class="text-center space-y-3">
                 <p class="text-gray-700 text-md">
-                    Apakah kamu yakin ingin menghapus pelanggan ini?
+                    Are you sure you want to delete this customer?
                 </p>
 
                 <p class="text-sm text-gray-400">
-                    Data yang dihapus tidak dapat dikembalikan.
+                    Deleted data cannot be recovered.
                 </p>
             </div>
 
@@ -451,23 +411,16 @@
                 <div class="flex gap-3">
                     <button type="button" @click="$dispatch('close-modal', 'delete-customer')"
                         class="flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit"
                         class="flex-1 px-4 py-2.5 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium shadow-sm hover:shadow transition">
-                        Ya, Hapus
+                        Yes, Delete
                     </button>
                 </div>
             </form>
 
-        </div>
-    </x-modal>
-
-    {{-- EMAIL MODAL --}}
-    <x-modal name="send-email" max-width="lg">
-        <div class="p-6">
-            <h3 class="text-lg font-semibold mb-6">Kirim Email</h3>
         </div>
     </x-modal>
 
@@ -477,7 +430,7 @@
                 @csrf
 
                 <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-                    <h3 class="text-lg font-semibold">Import Pelanggan</h3>
+                    <h3 class="text-lg font-semibold">Import Customers</h3>
                     <button type="button" @click="$dispatch('close-modal', 'import-customer')">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -489,18 +442,18 @@
                 <div class="space-y-4">
 
                     <div class="p-3 bg-blue-50 border border-blue-100 rounded-lg text-sm text-blue-700">
-                        Format Excel:
+                        Excel Format
                         <ul class="list-disc ml-5 mt-1">
-                            <li>nama</li>
+                            <li>name</li>
                             <li>email</li>
-                            <li>no_telepon</li>
-                            <li>alamat</li>
+                            <li>phone_number</li>
+                            <li>address</li>
                         </ul>
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">
-                            File Excel <span class="text-red-500">*</span>
+                            Excel File <span class="text-red-500">*</span>
                         </label>
 
                         <input type="file" name="file" class="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white
@@ -512,13 +465,13 @@
                     </div>
 
                     <a href="{{ route('customers.template')}}" class="text-sm text-blue-600 hover:underline">
-                        Download template Excel
+                        Download Excel template
                     </a>
 
                     <div class="flex gap-3 pt-4">
                         <button type="button" @click="$dispatch('close-modal', 'import-customer')"
                             class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
-                            Batal
+                            Cancel
                         </button>
 
                         <button type="submit"

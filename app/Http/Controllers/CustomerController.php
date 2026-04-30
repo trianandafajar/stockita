@@ -103,7 +103,7 @@ class CustomerController extends Controller
             'status' => $customer->status,
         ]);
 
-        return redirect()->back()->with('success', 'Pelanggan berhasil disimpan!');
+        return redirect()->back()->with('success', 'Customer created successfully!');
     }
 
     /**
@@ -182,7 +182,7 @@ class CustomerController extends Controller
             ]
         ]);
 
-        return redirect()->back()->with('success', 'Pelanggan berhasil diperbarui!');
+        return redirect()->back()->with('success', 'Customer updated successfully!');
     }
 
     /**
@@ -203,7 +203,7 @@ class CustomerController extends Controller
 
         logActivity('DELETE', $customer, $data);
 
-        return redirect()->back()->with('success', 'Pelanggan berhasil dihapus!');
+        return redirect()->back()->with('success', 'Customer deleted successfully!');
     }
 
     // kirim email
@@ -219,7 +219,7 @@ class CustomerController extends Controller
             'customer_name' => $customer->user->name,
         ]);
 
-        return back()->with('success', 'Email berhasil dikirim!');
+        return back()->with('success', 'Email sent successfully!');
     }
 
     public function import(Request $request)
@@ -240,7 +240,7 @@ class CustomerController extends Controller
         try {
             Excel::import(new CustomerImport, $request->file('file'));
 
-            return back()->with('success', 'Data pelanggan berhasil diimport!');
+            return back()->with('success', 'Customer data imported successfully!');
         } catch (\Maatwebsite\Excel\Validators\ValidationException $e) {
             $failures = $e->failures();
             $errorMessages = [];
@@ -262,7 +262,7 @@ class CustomerController extends Controller
 
             return back()->with('error', $fullMessage);
         } catch (\Exception $e) {
-            return back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+            return back()->with('error', 'An error occurred: ' . $e->getMessage());
         }
     }
 }
