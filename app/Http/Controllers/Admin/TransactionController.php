@@ -89,7 +89,7 @@ class TransactionController extends Controller
 
         try {
             if (empty($request->items)) {
-                return response()->json(['message' => 'Keranjang kosong'], 422);
+                return response()->json(['message' => 'Cart is empty'], 422);
             }
 
             $invoice = 'INV-' . now()->format('YmdHis');
@@ -103,7 +103,7 @@ class TransactionController extends Controller
             $change = $paid - $total;
 
             if ($change < 0) {
-                return response()->json(['message' => 'Nominal bayar kurang!'], 422);
+                return response()->json(['message' => 'Insufficient payment amount!'], 422);
             }
 
             $transaction = Transaction::create([
@@ -132,7 +132,7 @@ class TransactionController extends Controller
                     DB::rollBack();
 
                     return response()->json([
-                        'message' => "Stok produk '{$product->name}' tidak cukup",
+                        'message' => "Insufficient stock for product '{$product->name}'"
                     ], 422);
                 }
 
@@ -199,14 +199,14 @@ class TransactionController extends Controller
             }
 
             return response()->json([
-                'message' => 'Transaksi berhasil',
+                'message' => 'Transaction successful',
                 'data' => $transaction,
             ], 200);
         } catch (\Exception $e) {
             DB::rollBack();
 
             return response()->json([
-                'message' => 'Terjadi kesalahan: ' . $e->getMessage(),
+                'message' => 'An error occurred:' . $e->getMessage(),
             ], 500);
         }
     }
@@ -239,7 +239,7 @@ class TransactionController extends Controller
 
         logActivity('DELETE', $transaksi, $data);
 
-        return back()->with('success', 'Data transaksi berhasil dihapus');
+        return back()->with('success', 'Transaction deleted successfully');
     }
 
     // search

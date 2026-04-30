@@ -1,4 +1,4 @@
-<x-app-layout title="Transaksi Baru">
+<x-app-layout title="New Transaction">
     <div class="space-y-6">
 
         <div class="flex items-center gap-4">
@@ -9,8 +9,8 @@
                 </svg>
             </button>
             <div>
-                <h1 class="text-2xl font-bold text-gray-900">Transaksi Baru</h1>
-                <p class="text-gray-500">Pilih produk, customer, dan gudang</p>
+                <h1 class="text-2xl font-bold text-gray-900">New Transaction</h1>
+                <p class="text-gray-500">Select products, customer, and store</p>
             </div>
         </div>
 
@@ -19,22 +19,22 @@
                 <div class="lg:col-span-8 space-y-4">
 
                     <div class="bg-white p-6 rounded-2xl border">
-                        <label class="block text-sm font-medium mb-2">Pilih Toko</label>
+                        <label class="block text-sm font-medium mb-2">Select Store</label>
                         <select id="storeSelect"
                             class="w-full px-4 py-2 border rounded-xl focus:ring-2 focus:ring-blue-500">
-                            <option value="">-- Pilih Toko --</option>
+                            <option value="">-- Select Store --</option>
                             @foreach ($stores as $store)
-                                <option value="{{ $store->id }}">
-                                    {{ $store->name }}
-                                </option>
+                            <option value="{{ $store->id }}">
+                                {{ $store->name }}
+                            </option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="bg-white p-6 rounded-2xl shadow-sm border">
-                        <h3 class="font-semibold text-lg mb-4">Pilih Produk</h3>
+                        <h3 class="font-semibold text-lg mb-4">Select Products</h3>
                         <div class="relative mb-4">
-                            <input type="text" id="productSearch" placeholder="Cari produk..."
+                            <input type="text" id="productSearch" placeholder="Search products..."
                                 class="w-full pl-10 pr-4 py-3 border rounded-xl focus:ring-2 focus:ring-blue-500">
                             <div class="absolute left-3 top-4 text-gray-400"><svg xmlns="http://www.w3.org/2000/svg"
                                     fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -56,7 +56,7 @@
                         <label class="block text-sm font-medium mb-2">Customer</label>
 
                         <input type="text" id="customerInput" class="w-full border px-3 py-2 rounded-xl"
-                            placeholder="Cari / isi nama customer" disabled>
+                            placeholder="Search / enter customer name" disabled>
 
                         <input type="hidden" name="customer_id" id="customerId">
 
@@ -69,7 +69,7 @@
                     <div class="bg-white p-6 rounded-2xl border flex flex-col h-[420px]">
 
                         <h4 id="cartTitle" class="font-semibold mb-3">
-                            Keranjang (0)
+                            Cart (0)
                         </h4>
 
                         <div id="cartItems" class="flex-1 overflow-y-auto space-y-2"></div>
@@ -82,7 +82,7 @@
                             <button id="buttonSubmit" type="button"
                                 @click="$dispatch('open-modal', { name: 'payment-modal' })"
                                 class="w-full mt-3 bg-green-500 text-white py-3 rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed">
-                                Simpan Transaksi
+                                Save Transaction
                             </button>
                         </div>
 
@@ -96,7 +96,7 @@
     <x-modal name="payment-modal" maxWidth="md">
         <div class="p-6">
             <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-                <h3 class="text-lg font-semibold">Pembayaran</h3>
+                <h3 class="text-lg font-semibold">Payment</h3>
                 <button type="button" @click="$dispatch('close-modal', 'payment-modal')">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
@@ -106,12 +106,12 @@
             </div>
             <div class="space-y-4">
                 <div>
-                    <label class="text-sm">Nominal Dibayar</label>
+                    <label class="text-sm">Amount Paid</label>
                     <input type="number" id="paid" class="w-full border px-3 py-2 rounded-xl" placeholder="0">
                 </div>
 
                 <div>
-                    <label class="text-sm">Metode Pembayaran</label>
+                    <label class="text-sm">Payment Method</label>
                     <select id="payment_method" class="w-full border px-3 py-2 rounded-xl">
                         <option value="cash">Cash</option>
                         <option value="transfer">Transfer</option>
@@ -120,24 +120,23 @@
                 </div>
 
                 <div>
-                    <label class="text-sm">Tanggal Bayar</label>
+                    <label class="text-sm">Payment Date</label>
                     <input type="datetime-local" id="paid_at" class="w-full border px-3 py-2 rounded-xl">
                 </div>
 
                 <div>
-                    <label class="text-sm">Catatan</label>
+                    <label class="text-sm">Notes</label>
                     <textarea id="notes" class="w-full border px-3 py-2 rounded-xl"></textarea>
                 </div>
 
                 <div class="flex justify-end gap-2">
-                    <button @click="$dispatch('close-modal', 'payment-modal')"
-                        class="px-4 py-2 bg-gray-200 rounded-xl">
-                        Batal
+                    <button @click="$dispatch('close-modal', 'payment-modal')" class="px-4 py-2 bg-gray-200 rounded-xl">
+                        Cencel
                     </button>
                     <button onclick="submitTransaction()" id="submitBtn"
                         class="px-4 py-2 bg-green-500 text-white rounded-xl flex items-center justify-center gap-2">
 
-                        <span id="btnText">Simpan</span>
+                        <span id="btnText">Save</span>
                     </button>
                 </div>
 
@@ -166,7 +165,7 @@
             if (!storeId) {
                 Swal.fire({
                     icon: 'warning',
-                    title: 'Pilih toko dulu!',
+                    title: 'Please select a store first!',
                     toast: true,
                     position: 'top-end',
                     timer: 2000,
@@ -214,7 +213,7 @@
             if (cart.length === 0) {
                 container.innerHTML = `
                     <div class="text-center text-gray-400 py-6">
-                        Keranjang kosong
+                        Cart is empty
                     </div>`;
                 totalEl.textContent = 'Rp 0';
                 updateTitle();
@@ -275,7 +274,7 @@
 
         function updateTitle() {
             document.getElementById('cartTitle').innerText =
-                `Keranjang (${cart.length})`;
+                `Cart (${cart.length})`;
         }
 
         function format(num) {
@@ -310,8 +309,8 @@
                 <svg class="w-24 h-24 mx-auto mb-8 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                 </svg>
-                <h3 class="text-2xl font-bold text-gray-500 mb-2">Produk tidak ditemukan</h3>
-                <p class="text-lg">Coba kata kunci lain atau hapus pencarian</p>
+                <h3 class="text-2xl font-bold text-gray-500 mb-2">Product not found</h3>
+                <p class="text-lg">Try another keyword or clear the search</p>
             `;
                     document.getElementById('productsGrid').appendChild(noResults);
                 }
@@ -342,7 +341,7 @@
 
             const btn = document.getElementById('submitBtn');
             btn.disabled = true;
-            btn.innerText = 'Menyimpan...';
+            btn.innerText = 'Saving...';
 
             const paid = document.getElementById('paid').value;
             const payment_method = document.getElementById('payment_method').value;
@@ -380,7 +379,7 @@
                         toast: true,
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Transaksi berhasil!',
+                        title: 'Transaction successful!',
                         showConfirmButton: false,
                         timer: 3000
                     });
@@ -392,7 +391,7 @@
                 }
 
             } catch (err) {
-                let message = err.message || 'Gagal menyimpan transaksi';
+                let message = err.message || 'Failed to save transaction';
 
                 if (err.errors) {
                     message = Object.values(err.errors).flat().join('<br>');
@@ -402,7 +401,7 @@
                     toast: true,
                     icon: 'warning',
                     position: 'top-end',
-                    title: 'Transaksi Gagal',
+                    title: 'Transaction failed',
                     html: message,
                     showConfirmButton: false,
                     timer: 3000
@@ -448,7 +447,7 @@
             if (products.length === 0) {
                 productGrid.innerHTML = `
                     <div class="col-span-full text-center text-gray-400 py-10">
-                        Produk tidak tersedia
+                        No products available
                     </div>
                 `;
                 return;
@@ -470,7 +469,7 @@
                 </p>
 
                 <p class="text-xs text-gray-500">
-                    Stok: ${(product.stocks || []).reduce((total, item) => total + (Number(item.qty) || 0), 0)}
+                    Stock: ${(product.stocks || []).reduce((total, item) => total + (Number(item.qty) || 0), 0)}
                 </p>
 
                 <p class="text-xs text-gray-500">

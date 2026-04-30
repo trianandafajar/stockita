@@ -10,53 +10,57 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                         </svg>
-                        Daftar Item ({{ $transaction->items->count() }})
+                        Item List ({{ $transaction->items->count() }})
                     </h2>
 
                     <div class="space-y-3 max-h-96 overflow-y-auto">
                         @forelse($transaction->items as $item)
+                        <div
+                            class="group flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all border hover:shadow-sm hover:border-gray-200">
                             <div
-                                class="group flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all border hover:shadow-sm hover:border-gray-200">
+                                class="w-16 h-16 rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex-shrink-0">
+                                @if ($item->product->image)
+                                <img src="{{ asset('storage/' . $item->product->image) }}"
+                                    class="w-full h-full object-cover" alt="{{ $item->product->name }}"
+                                    onerror="this.parentElement.innerHTML='<svg class=\" w-8 h-8 mx-auto mt-4
+                                    text-gray-400\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\">
+                                <path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M4
+                                    16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20
+                                    14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z\">
+                                </path></svg>'">
+                                @else
                                 <div
-                                    class="w-16 h-16 rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 flex-shrink-0">
-                                    @if ($item->product->image)
-                                        <img src="{{ asset('storage/' . $item->product->image) }}"
-                                            class="w-full h-full object-cover" alt="{{ $item->product->name }}"
-                                            onerror="this.parentElement.innerHTML='<svg class=\"w-8 h-8 mx-auto mt-4 text-gray-400\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z\"></path></svg>'">
-                                    @else
-                                        <div
-                                            class="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center">
-                                            <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor"
-                                                viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
-                                                </path>
-                                            </svg>
-                                        </div>
-                                    @endif
+                                    class="w-full h-full bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                                        </path>
+                                    </svg>
                                 </div>
-
-                                <div class="flex-1 min-w-0">
-                                    <h4 class="font-semibold text-gray-900 truncate">{{ $item->product->name }}</h4>
-                                    <p class="text-sm text-gray-500">Rp {{ number_format($item->price, 0, ',', '.') }}
-                                        x {{ $item->qty }}</p>
-                                </div>
-
-                                <div class="text-right">
-                                    <p class="font-bold text-lg text-gray-900">
-                                        Rp {{ number_format($item->subtotal, 0, ',', '.') }}
-                                    </p>
-                                </div>
+                                @endif
                             </div>
+
+                            <div class="flex-1 min-w-0">
+                                <h4 class="font-semibold text-gray-900 truncate">{{ $item->product->name }}</h4>
+                                <p class="text-sm text-gray-500">Rp {{ number_format($item->price, 0, ',', '.') }}
+                                    x {{ $item->qty }}</p>
+                            </div>
+
+                            <div class="text-right">
+                                <p class="font-bold text-lg text-gray-900">
+                                    Rp {{ number_format($item->subtotal, 0, ',', '.') }}
+                                </p>
+                            </div>
+                        </div>
                         @empty
-                            <div class="text-center py-12 text-gray-400">
-                                <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                                </svg>
-                                <p class="text-lg font-medium">Tidak ada item</p>
-                            </div>
+                        <div class="text-center py-12 text-gray-400">
+                            <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                            </svg>
+                            <p class="text-lg font-medium">No items available</p>
+                        </div>
                         @endforelse
                     </div>
                 </div>
@@ -69,7 +73,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                         </svg>
-                        Ringkasan Pembayaran
+                        Payment Summary
                     </h2>
 
                     <div class="space-y-4 mb-6">
@@ -79,19 +83,19 @@
                         </div>
 
                         @if ($transaction->paid)
-                            <div class="flex justify-between py-2 border-b">
-                                <span class="text-sm text-gray-600">Dibayar</span>
-                                <span class="font-semibold text-green-600">Rp
-                                    {{ number_format($transaction->paid, 0, ',', '.') }}</span>
-                            </div>
+                        <div class="flex justify-between py-2 border-b">
+                            <span class="text-sm text-gray-600">Paid</span>
+                            <span class="font-semibold text-green-600">Rp
+                                {{ number_format($transaction->paid, 0, ',', '.') }}</span>
+                        </div>
                         @endif
 
                         @if ($transaction->change)
-                            <div class="flex justify-between py-2 border-b">
-                                <span class="text-sm text-gray-600">Kembali</span>
-                                <span class="font-semibold text-green-600">Rp
-                                    {{ number_format($transaction->change, 0, ',', '.') }}</span>
-                            </div>
+                        <div class="flex justify-between py-2 border-b">
+                            <span class="text-sm text-gray-600">Change</span>
+                            <span class="font-semibold text-green-600">Rp
+                                {{ number_format($transaction->change, 0, ',', '.') }}</span>
+                        </div>
                         @endif
                     </div>
 
@@ -99,9 +103,9 @@
                         class="bg-gradient-to-r from-emerald-50 to-green-50 border border-green-100 rounded-xl p-4 mb-6">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-sm text-green-700 font-medium">Status Pembayaran</p>
+                                <p class="text-sm text-green-700 font-medium">Payment Status</p>
                                 <p class="text-2xl font-bold text-green-600">
-                                    {{ $transaction->status == 'paid' ? 'LUNAS' : 'MENUNGGU' }}
+                                    {{ $transaction->status == 'paid' ? 'PAID' : 'PENDING' }}
                                 </p>
                             </div>
                             <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center">
@@ -116,19 +120,19 @@
                 </div>
 
                 @if ($transaction->receipt)
-                    <div class="bg-white rounded-2xl shadow-sm border border-green-500 p-6 mt-6">
-                        <h3 class="font-semibold text-lg mb-4 flex items-center gap-2">
-                            <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                            </svg>
-                            Pratinjau Struk
-                        </h3>
-                        <div class="border rounded-xl overflow-hidden shadow-inner max-h-64 overflow-y-auto">
-                            <img src="{{ asset('storage/' . $transaction->receipt) }}" class="w-full h-auto"
-                                alt="Struk Transaksi {{ $transaction->invoice_code }}">
-                        </div>
+                <div class="bg-white rounded-2xl shadow-sm border border-green-500 p-6 mt-6">
+                    <h3 class="font-semibold text-lg mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        Receipt Preview
+                    </h3>
+                    <div class="border rounded-xl overflow-hidden shadow-inner max-h-64 overflow-y-auto">
+                        <img src="{{ asset('storage/' . $transaction->receipt) }}" class="w-full h-auto"
+                            alt="Transaction Receipt {{ $transaction->invoice_code }}">
                     </div>
+                </div>
                 @endif
             </div>
         </div>
@@ -136,7 +140,7 @@
 
     <script>
         function markAsPaid(id) {
-            if (!confirm('Tandai transaksi ini sebagai lunas?')) return;
+            if (!confirm('Mark this transaction as paid?')) return;
 
             fetch(`/transactions/${id}/pay`, {
                     method: 'POST',
@@ -153,7 +157,7 @@
                         alert('Error: ' + data.message);
                     }
                 })
-                .catch(err => alert('Terjadi kesalahan'));
+                .catch(err => alert('An error occurred'));
         }
 
         function printReceipt(id) {

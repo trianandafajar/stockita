@@ -21,10 +21,10 @@
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
                 <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
-                    Manajemen Transaksi
+                    Transaction Management
                 </h1>
                 <p class="text-gray-600 mt-1 text-sm sm:text-base">
-                    Kelola semua transaksi anda
+                    Manage all your transactions
                 </p>
             </div>
 
@@ -32,7 +32,7 @@
                 @can('create transactions')
                 <a href="/admin/transactions/create"
                     class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-white font-medium text-sm rounded-xl bg-green-500 hover:bg-green-600">
-                    + Transaksi Baru
+                    + New Transaction
                 </a>
                 @endcan
             </div>
@@ -41,32 +41,32 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div class="bg-white p-6 rounded-xl shadow-sm border text-center">
                 <div class="text-2xl font-bold text-blue-600">{{ $stats['total'] ?? 0 }}</div>
-                <div class="text-sm text-gray-500">Total Transaksi</div>
+                <div class="text-sm text-gray-500">Total Transactions</div>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border text-center">
                 <div class="text-2xl font-bold text-green-600">Rp {{ number_format($stats['total_amount'] ?? 0) }}</div>
-                <div class="text-sm text-gray-500">Total Nilai</div>
+                <div class="text-sm text-gray-500">Total Amount</div>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border text-center">
                 <div class="text-2xl font-bold text-orange-600">{{ $stats['pending'] ?? 0 }}</div>
-                <div class="text-sm text-gray-500">Belum Bayar</div>
+                <div class="text-sm text-gray-500">Unpaid</div>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border text-center">
                 <div class="text-2xl font-bold text-gray-600">{{ $stats['items'] ?? 0 }}</div>
-                <div class="text-sm text-gray-500">Total Item</div>
+                <div class="text-sm text-gray-500">Total Items</div>
             </div>
         </div>
 
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
             <form method="GET" action="{{ route('admin.transactions.index') }}" class="p-6">
                 <div class="flex flex-col lg:flex-row gap-3"> <input type="text" name="search"
-                        value="{{ request('search') }}" placeholder="Cari invoice, customer, atau produk..."
+                        value="{{ request('search') }}" placeholder="Search invoice, customer, or product..."
                         class="flex-1 px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500">
 
                     <div class="relative w-full sm:w-48">
                         <select name="store"
                             class="w-full appearance-none px-4 py-2 pr-10 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-blue-500">
-                            <option value="">Semua Toko</option>
+                            <option value="">All Stores</option>
                             @foreach ($stores as $store)
                             <option value="{{ $store->id }}" {{ request('store')==$store->id ? 'selected' : '' }}>
                                 {{ $store->name }}
@@ -78,7 +78,7 @@
                     <div class="relative w-full sm:w-48">
                         <select name="status"
                             class="w-full appearance-none px-4 py-2 pr-10 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-blue-500">
-                            <option value="">Semua Status</option>
+                            <option value="">All Statuses</option>
                             <option value="paid" {{ request('status')=='paid' ? 'selected' : '' }}>Paid</option>
                             <option value="unpaid" {{ request('status')=='unpaid' ? 'selected' : '' }}>Unpaid</option>
                         </select>
@@ -107,13 +107,13 @@
                     <thead class="bg-gray-50 text-gray-600 uppercase text-xs">
                         <tr>
                             <th class="px-6 py-3">Invoice</th>
-                            <th class="px-6 py-3">Toko</th>
-                            <th class="px-6 py-3">Tanggal</th>
+                            <th class="px-6 py-3">Store</th>
+                            <th class="px-6 py-3">Date</th>
                             <th class="px-6 py-3">Customer</th>
-                            <th class="px-6 py-3">Produk</th>
+                            <th class="px-6 py-3">Products</th>
                             <th class="px-6 py-3">Status</th>
                             <th class="px-6 py-3">Total</th>
-                            <th class="px-6 py-3 text-right">Aksi</th>
+                            <th class="px-6 py-3 text-right">Actions</th>
                         </tr>
                     </thead>
 
@@ -124,7 +124,7 @@
                             <td class="px-6 py-4 font-semibold text-gray-900 whitespace-nowrap">
                                 {{ $trx->invoice_code }}
                                 <p class="text-xs text-gray-400">
-                                    {{ $trx->type == 'in' ? 'MASUK' : 'KELUAR' }}
+                                    {{ $trx->type == 'in' ? 'IN' : 'OUT' }}
                                 </p>
                             </td>
 
@@ -137,13 +137,13 @@
                             </td>
 
                             <td class="px-6 py-4 whitespace-nowrap">
-                                {{ $trx->customer->user->name ?? 'Customer Umum' }}
+                                {{ $trx->customer->user->name ?? 'Walk-in Customer' }}
                             </td>
 
                             <td class="px-6 py-4 text-gray-500 text-xs whitespace-nowrap">
                                 {{ $trx->items->pluck('product.name')->take(2)->implode(', ') }}
                                 @if ($trx->items->count() > 2)
-                                +{{ $trx->items->count() - 2 }} lainnya
+                                +{{ $trx->items->count() - 2 }} more
                                 @endif
                             </td>
 
@@ -165,7 +165,7 @@
                                     @if ($trx->status != 'paid')
                                     <button onclick="confirmPayment({{ $trx->id }})"
                                         class="px-3 py-1 text-xs bg-green-100 text-green-700 rounded-lg hover:bg-green-200">
-                                        Bayar
+                                        Pay
                                     </button>
                                     @endif
 
@@ -178,7 +178,7 @@
                                     <button
                                         @click="$dispatch('open-modal', { name: 'delete-transaksi', id: {{ $trx->id }} })"
                                         class="px-3 py-1 text-xs bg-red-100 text-red-600 rounded-lg hover:bg-red-200">
-                                        Hapus
+                                        Delete
                                     </button>
                                     @endcan
                                 </div>
@@ -188,7 +188,7 @@
                         @empty
                         <tr>
                             <td colspan="7" class="text-center py-12 text-gray-400">
-                                Belum ada transaksi
+                                No transactions yet
                             </td>
                         </tr>
                         @endforelse
@@ -209,7 +209,7 @@
             }" class="p-6">
             <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Hapus Transaksi
+                    Delete Transaction
                 </h3>
 
                 <button type="button" @click="$dispatch('close-modal', 'delete-transaksi')"
@@ -223,11 +223,11 @@
 
             <div class="text-center space-y-3">
                 <p class="text-gray-700 text-md">
-                    Apakah kamu yakin ingin menghapus transaksi ini?
+                    Are you sure you want to delete this transaction?
                 </p>
 
                 <p class="text-sm text-gray-400">
-                    Data yang dihapus tidak dapat dikembalikan.
+                    Deleted data cannot be recovered.
                 </p>
             </div>
 

@@ -10,7 +10,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                         </svg>
-                        Daftar Item ({{ $transaction->items->count() }})
+                        Item List ({{ $transaction->items->count() }})
                     </h2>
 
                     <div class="space-y-3 max-h-96 overflow-y-auto">
@@ -55,7 +55,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                                 </svg>
-                                <p class="text-lg font-medium">Tidak ada item</p>
+                                <p class="text-lg font-medium">No items available</p>
                             </div>
                         @endforelse
                     </div>
@@ -69,7 +69,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                         </svg>
-                        Ringkasan Pembayaran
+                        Payment Summary
                     </h2>
 
                     <div class="space-y-4 mb-6">
@@ -80,7 +80,7 @@
 
                         @if ($transaction->paid)
                             <div class="flex justify-between py-2 border-b">
-                                <span class="text-sm text-gray-600">Dibayar</span>
+                                <span class="text-sm text-gray-600">Paid</span>
                                 <span class="font-semibold text-green-600">Rp
                                     {{ number_format($transaction->paid, 0, ',', '.') }}</span>
                             </div>
@@ -88,7 +88,7 @@
 
                         @if ($transaction->change)
                             <div class="flex justify-between py-2 border-b">
-                                <span class="text-sm text-gray-600">Kembali</span>
+                                <span class="text-sm text-gray-600">Change</span>
                                 <span class="font-semibold text-green-600">Rp
                                     {{ number_format($transaction->change, 0, ',', '.') }}</span>
                             </div>
@@ -99,9 +99,9 @@
                         class="bg-gradient-to-r from-emerald-50 to-green-50 border border-green-100 rounded-xl p-4 mb-6">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-sm text-green-700 font-medium">Status Pembayaran</p>
+                                <p class="text-sm text-green-700 font-medium">Payment Status</p>
                                 <p class="text-2xl font-bold text-green-600">
-                                    {{ $transaction->status == 'paid' ? 'LUNAS' : 'MENUNGGU' }}
+                                    {{ $transaction->status == 'paid' ? 'PAID' : 'PENDING' }}
                                 </p>
                             </div>
                             <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center">
@@ -122,11 +122,11 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
-                            Pratinjau Struk
+                            Receipt Preview
                         </h3>
                         <div class="border rounded-xl overflow-hidden shadow-inner max-h-64 overflow-y-auto">
                             <img src="{{ asset('storage/' . $transaction->receipt) }}" class="w-full h-auto"
-                                alt="Struk Transaksi {{ $transaction->invoice_code }}">
+                                alt="Transaction Receipt {{ $transaction->invoice_code }}">
                         </div>
                     </div>
                 @endif
@@ -136,7 +136,7 @@
 
     <script>
         function markAsPaid(id) {
-            if (!confirm('Tandai transaksi ini sebagai lunas?')) return;
+            if (!confirm('Mark this transaction as paid?')) return;
 
             fetch(`/transactions/${id}/pay`, {
                     method: 'POST',
@@ -153,7 +153,7 @@
                         alert('Error: ' + data.message);
                     }
                 })
-                .catch(err => alert('Terjadi kesalahan'));
+                .catch(err => alert('An error occurred'));
         }
 
         function printReceipt(id) {

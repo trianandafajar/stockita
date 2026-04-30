@@ -26,10 +26,10 @@
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
                 <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
-                    Manajemen Transaksi
+                    Transaction Management
                 </h1>
                 <p class="text-gray-600 mt-1 text-sm sm:text-base">
-                    Kelola semua transaksi anda
+                    Manage all your transactions
                 </p>
             </div>
 
@@ -37,7 +37,7 @@
                 @can('create transactions')
                 <a href="/transactions/create"
                     class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-white font-medium text-sm rounded-xl bg-green-500 hover:bg-green-600">
-                    + Transaksi Baru
+                    + New Transaction
                 </a>
                 @endcan
             </div>
@@ -48,13 +48,13 @@
                 <div class="flex flex-col sm:flex-row gap-3">
 
                     <input type="text" name="search" value="{{ request('search') }}"
-                        placeholder="Cari invoice, customer, atau produk..."
+                        placeholder="Search invoice, customer, or product..."
                         class="flex-1 px-4 py-2 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500">
 
                     <div class="relative w-full sm:w-48">
                         <select name="status"
                             class="w-full appearance-none px-4 py-2 pr-10 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-blue-500">
-                            <option value="">Semua</option>
+                            <option value="">All Statuses</option>
                             <option value="paid" {{ request('status')=='paid' ? 'selected' : '' }}>Paid</option>
                             <option value="unpaid" {{ request('status')=='unpaid' ? 'selected' : '' }}>Unpaid</option>
                         </select>
@@ -82,20 +82,20 @@
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div class="bg-white p-6 rounded-xl shadow-sm border text-center">
                 <div class="text-2xl font-bold text-blue-600">{{ $stats['total'] ?? 0 }}</div>
-                <div class="text-sm text-gray-500">Total Transaksi</div>
+                <div class="text-sm text-gray-500">Total Transactions</div>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border text-center">
                 <div class="text-2xl font-bold text-green-600">Rp {{ number_format($stats['total_amount'] ?? 0) }}
                 </div>
-                <div class="text-sm text-gray-500">Total Nilai</div>
+                <div class="text-sm text-gray-500">Total Amount</div>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border text-center">
                 <div class="text-2xl font-bold text-orange-600">{{ $stats['pending'] ?? 0 }}</div>
-                <div class="text-sm text-gray-500">Belum Bayar</div>
+                <div class="text-sm text-gray-500">Unpaid</div>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border text-center">
                 <div class="text-2xl font-bold text-gray-600">{{ $stats['items'] ?? 0 }}</div>
-                <div class="text-sm text-gray-500">Total Item</div>
+                <div class="text-sm text-gray-500">Total Items</div>
             </div>
         </div>
 
@@ -115,7 +115,7 @@
 
                     <span class="px-3 py-1 rounded-full text-xs font-semibold
                         {{ $trx->type == 'in' ? 'bg-green-100 text-green-500' : 'bg-red-100 text-red-800' }}">
-                        {{ $trx->type == 'in' ? 'MASUK' : 'KELUAR' }}
+                        {{ $trx->type == 'in' ? 'IN' : 'OUT' }}
                     </span>
                 </div>
 
@@ -140,14 +140,14 @@
                                     d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                             </svg>
                         </span>
-                        {{ $trx->customer->user->name ?? 'Customer Umum' }}
+                        {{ $trx->customer->user->name ?? 'Walk-in Customer' }}
                     </div>
 
                     @if ($trx->items->count() > 0)
                     <div class="text-xs text-gray-500">
-                        Produk: {{ $trx->items->pluck('product.name')->take(2)->implode(', ') }}
+                        Product: {{ $trx->items->pluck('product.name')->take(2)->implode(', ') }}
                         @if ($trx->items->count() > 2)
-                        +{{ $trx->items->count() - 2 }} lainnya
+                        +{{ $trx->items->count() - 2 }} more
                         @endif
                     </div>
                     @endif
@@ -163,7 +163,7 @@
                     @if ($trx->status != 'paid')
                     <button onclick="confirmPayment({{ $trx->id }})"
                         class="flex-1 px-3 py-2 text-xs bg-green-100 text-green-700 rounded-lg hover:bg-green-200 font-medium">
-                        Bayar
+                        Pay
                     </button>
                     @endif
 
@@ -179,20 +179,9 @@
                     @endcan
 
                     @can('delete transactions')
-                    <button @click="if (!canDeleteTransactions) {
-                                Swal.fire({
-                                    toast: true,
-                                    icon: 'error',
-                                    position: 'top-end',
-                                    title: 'Kamu tidak punya izin menghapus produk!',
-                                    showConfirmButton: false,
-                                    timer: 3000
-                                });
-                            } else {
-                                $dispatch('open-modal', { name: 'delete-transaksi', id: {{ $trx->id }} })
-                            }"
-                        class="px-3 py-2 text-xs bg-red-100 text-red-700 rounded-lg {{ auth()->user()->can('delete transactions') ? 'hover:bg-red-200' : 'cursor-not-allowed opacity-50' }}">
-                        Hapus
+                    <button @click="$dispatch('open-modal', { name: 'delete-transaksi', id: {{ $trx->id }} })"
+                        class="px-3 py-2 text-xs bg-red-100 text-red-700 rounded-lg hover:bg-red-200">
+                        Delete
                     </button>
                     @endcan
                 </div>
@@ -208,7 +197,7 @@
                         </svg>
                     </div>
                 </div>
-                <h3 class="text-xl font-semibold mb-2 text-gray-500">Belum ada transaksi</h3>
+                <h3 class="text-xl font-semibold mb-2 text-gray-500">No transactions yet</h3>
             </div>
             @endforelse
         </div>
@@ -226,7 +215,7 @@
             }" class="p-6">
             <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Hapus Transaksi
+                    Delete Transaction
                 </h3>
 
                 <button type="button" @click="$dispatch('close-modal', 'delete-transaksi')"
@@ -240,11 +229,11 @@
 
             <div class="text-center space-y-3">
                 <p class="text-gray-700 text-md">
-                    Apakah kamu yakin ingin menghapus transaksi ini?
+                    Are you sure you want to delete this transaction?
                 </p>
 
                 <p class="text-sm text-gray-400">
-                    Data yang dihapus tidak dapat dikembalikan.
+                    Deleted data cannot be recovered.
                 </p>
             </div>
 
@@ -255,12 +244,12 @@
                 <div class="flex gap-3">
                     <button type="button" @click="$dispatch('close-modal', 'delete-transaksi')"
                         class="flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit"
                         class="flex-1 px-4 py-2.5 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium shadow-sm hover:shadow transition">
-                        Ya, Hapus
+                        Yes, Delete
                     </button>
                 </div>
             </form>
