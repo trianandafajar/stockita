@@ -11,7 +11,7 @@ class SettingSeeder extends Seeder
     {
         $settings = [
             'app.name' => 'StocKita',
-            'app.description' => 'Sistem kasir modern',
+            'app.description' => 'Modern cashier system',
         ];
 
         foreach ($settings as $key => $value) {
