@@ -3,207 +3,205 @@
 return [
 
     'dashboard-pos' => [
-        'title' => 'Cara Menggunakan Dashboard POS untuk Pemula',
+        'title' => 'How to Use the POS Dashboard for Beginners',
         'image' => 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800',
         'content' => '
-                <p>Dashboard POS adalah pusat kontrol utama dalam sistem kasir digital modern. Dari satu halaman ini, kamu bisa memantau performa bisnis secara real-time, melihat transaksi, hingga mengambil keputusan penting dengan cepat.</p>
+                <p>The POS Dashboard is the main control center in a modern digital cashier system. From this single page, you can monitor business performance in real-time, view transactions, and make important decisions quickly.</p>
 
-                <h2>Kenapa Dashboard Itu Penting?</h2>
-                <p>Tanpa dashboard yang jelas, kamu akan kesulitan memahami kondisi bisnis. Dashboard membantu kamu melihat data secara visual dan langsung.</p>
+                <h2>Why is the Dashboard Important?</h2>
+                <p>Without a clear dashboard, it is difficult to understand your business condition. A dashboard helps you visualize data instantly.</p>
 
                 <ul>
-                    <li>Melihat penjualan harian</li>
-                    <li>Mengetahui produk terlaris</li>
-                    <li>Mengontrol stok barang</li>
+                    <li>View daily sales</li>
+                    <li>Identify best-selling products</li>
+                    <li>Control inventory stock</li>
                 </ul>
 
-                <h2>1. Login ke Sistem</h2>
-                <p>Masukkan email dan password yang sudah terdaftar. Setelah berhasil login, kamu akan diarahkan ke halaman utama dashboard.</p>
+                <h2>1. Log in to the System</h2>
+                <p>Enter your registered email and password. After logging in successfully, you will be directed to the main dashboard page.</p>
 
-                <h2>2. Memahami Statistik</h2>
-                <p>Di bagian atas dashboard biasanya terdapat ringkasan data penting:</p>
+                <h2>2. Understanding Statistics</h2>
+                <p>At the top of the dashboard, you will usually find important summaries:</p>
 
                 <ul>
-                    <li><strong>Total Penjualan:</strong> Jumlah pemasukan hari ini</li>
-                    <li><strong>Jumlah Transaksi:</strong> Banyaknya transaksi</li>
-                    <li><strong>Produk Terlaris:</strong> Barang yang paling sering dibeli</li>
+                    <li><strong>Total Sales:</strong> Today’s revenue</li>
+                    <li><strong>Number of Transactions:</strong> Total transactions</li>
+                    <li><strong>Best-Selling Products:</strong> Most purchased items</li>
                 </ul>
 
                 <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl">
-                <strong>Tips:</strong> Perhatikan tren penjualan setiap hari untuk menentukan strategi bisnis.
+                <strong>Tip:</strong> Observe daily sales trends to determine your business strategy.
                 </div>
 
-                <h2>3. Navigasi Menu</h2>
-                <p>Gunakan sidebar untuk mengakses fitur lain seperti:</p>
+                <h2>3. Navigation Menu</h2>
+                <p>Use the sidebar to access other features such as:</p>
 
                 <ul>
-                    <li>Produk</li>
-                    <li>Pelanggan</li>
-                    <li>Laporan</li>
+                    <li>Products</li>
+                    <li>Customers</li>
+                    <li>Reports</li>
                 </ul>
 
-                <h2>4. Analisis Data</h2>
-                <p>Dashboard bukan hanya untuk melihat data, tapi juga untuk menganalisisnya. Kamu bisa menentukan:</p>
+                <h2>4. Data Analysis</h2>
+                <p>The dashboard is not just for viewing data, but also for analyzing it. You can determine:</p>
 
                 <ul>
-                    <li>Produk mana yang perlu ditambah stok</li>
-                    <li>Produk yang kurang laku</li>
-                    <li>Waktu penjualan paling ramai</li>
+                    <li>Which products need restocking</li>
+                    <li>Which products are underperforming</li>
+                    <li>Peak sales hours</li>
                 </ul>
 
                 <blockquote>
-                Dashboard yang baik bukan hanya menampilkan data, tapi membantu kamu mengambil keputusan.
+                A good dashboard does not only display data, but helps you make decisions.
                 </blockquote>
 
-                <h2>Kesimpulan</h2>
-                <p>Dengan memahami dashboard POS, kamu bisa menjalankan bisnis dengan lebih efisien, cepat, dan terarah.</p>
+                <h2>Conclusion</h2>
+                <p>By understanding the POS dashboard, you can run your business more efficiently, quickly, and strategically.</p>
                 ',
     ],
 
     'kelola-produk' => [
-        'title' => 'Cara Mengelola Produk & Stok dengan Efisien',
+        'title' => 'How to Manage Products & Inventory Efficiently',
         'image' => 'https://media.istockphoto.com/id/1484852942/photo/smart-warehouse-inventory-management-system-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=0AdwccZASPFJm1I99lN3q9RHz8lNkPUxMOrbHWYfr88=',
         'content' => '
-                <p>Mengelola produk dan stok dengan baik adalah salah satu fondasi utama dalam menjalankan bisnis, terutama jika kamu menggunakan sistem POS. Tanpa manajemen yang rapi, kamu bisa mengalami kehabisan stok, overstock, bahkan kerugian tanpa sadar.</p>
+                <p>Managing products and inventory properly is one of the main foundations of running a business, especially when using a POS system. Without proper management, you may face stock shortages, overstocking, or unnoticed losses.</p>
 
-                <h2>Kenapa Manajemen Produk Itu Penting?</h2>
-                <p>Produk adalah aset utama bisnis kamu. Dengan pengelolaan yang baik, kamu bisa meningkatkan efisiensi, mengurangi kesalahan, dan mempercepat operasional.</p>
+                <h2>Why is Product Management Important?</h2>
+                <p>Products are your main business assets. Proper management improves efficiency, reduces errors, and speeds up operations.</p>
 
                 <ul>
-                    <li>Mencegah kehabisan stok (out of stock)</li>
-                    <li>Menghindari penumpukan barang</li>
-                    <li>Meningkatkan kepuasan pelanggan</li>
+                    <li>Prevent out-of-stock situations</li>
+                    <li>Avoid overstocking</li>
+                    <li>Increase customer satisfaction</li>
                 </ul>
 
-                <h2>1. Menambahkan Produk Baru</h2>
-                <p>Langkah pertama adalah memastikan semua produk tercatat di sistem. Masuk ke menu produk lalu klik <strong>Tambah Produk</strong>.</p>
+                <h2>1. Adding New Products</h2>
+                <p>The first step is ensuring all products are recorded in the system. Go to the product menu and click <strong>Add Product</strong>.</p>
 
                 <ul>
-                    <li>Nama produk harus jelas dan mudah dicari</li>
-                    <li>Masukkan harga jual yang sesuai</li>
-                    <li>Isi stok awal dengan benar</li>
+                    <li>Use clear and searchable product names</li>
+                    <li>Enter the correct selling price</li>
+                    <li>Set the initial stock properly</li>
                 </ul>
 
                 <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl">
-                <strong>Tips:</strong> Gunakan nama produk yang konsisten agar mudah dicari saat transaksi.
+                <strong>Tip:</strong> Use consistent product naming for easier searching during transactions.
                 </div>
 
-                <h2>2. Mengatur dan Memantau Stok</h2>
-                <p>Stok harus selalu diperbarui agar data tetap akurat. Sistem POS biasanya menyediakan fitur otomatis, tapi tetap perlu kamu cek secara berkala.</p>
+                <h2>2. Managing and Monitoring Stock</h2>
+                <p>Stock must always be updated to keep data accurate. POS systems often provide automation, but regular checks are still important.</p>
 
                 <ul>
-                    <li>Gunakan notifikasi stok minimum</li>
-                    <li>Lakukan pengecekan stok harian atau mingguan</li>
-                    <li>Update stok setelah barang masuk atau keluar</li>
+                    <li>Use minimum stock alerts</li>
+                    <li>Perform daily or weekly stock checks</li>
+                    <li>Update stock when items move in or out</li>
                 </ul>
 
                 <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-xl">
-                <strong>Perhatian:</strong> Kesalahan stok bisa menyebabkan kehilangan penjualan atau kerugian finansial.
+                <strong>Warning:</strong> Stock errors can lead to lost sales or financial losses.
                 </div>
 
-                <h2>3. Mengelompokkan Produk dengan Kategori</h2>
-                <p>Kategori membantu kamu mengorganisir produk agar lebih rapi dan mudah dicari, terutama jika jumlah produk sudah banyak.</p>
+                <h2>3. Categorizing Products</h2>
+                <p>Categories help organize products for easier management, especially when you have many items.</p>
 
                 <ul>
-                    <li>Kategori berdasarkan jenis (Makanan, Minuman, dll)</li>
-                    <li>Kategori berdasarkan brand</li>
-                    <li>Kategori berdasarkan kebutuhan bisnis</li>
+                    <li>Category by type (Food, Drinks, etc.)</li>
+                    <li>Category by brand</li>
+                    <li>Category based on business needs</li>
                 </ul>
 
-                <h2>4. Analisis Produk</h2>
-                <p>Gunakan data dari sistem POS untuk memahami performa produk kamu.</p>
+                <h2>4. Product Analysis</h2>
+                <p>Use POS data to understand product performance.</p>
 
                 <ul>
-                    <li>Produk terlaris → tambah stok lebih banyak</li>
-                    <li>Produk kurang laku → evaluasi atau promo</li>
-                    <li>Produk musiman → atur stok sesuai kebutuhan</li>
+                    <li>Best-selling products → increase stock</li>
+                    <li>Slow-moving products → evaluate or promote</li>
+                    <li>Seasonal products → adjust stock accordingly</li>
                 </ul>
 
                 <blockquote>
-                Mengelola produk bukan hanya soal mencatat, tapi memahami perilaku penjualan.
+                Managing products is not just about recording, but understanding sales behavior.
                 </blockquote>
 
-                <h2>5. Gunakan Barcode atau SKU</h2>
-                <p>Untuk bisnis yang lebih besar, gunakan barcode atau SKU agar proses input dan pencarian produk jadi lebih cepat dan akurat.</p>
+                <h2>5. Use Barcode or SKU</h2>
+                <p>For larger businesses, use barcodes or SKUs to speed up input and improve accuracy.</p>
 
                 <ul>
-                    <li>Mempercepat transaksi</li>
-                    <li>Mengurangi human error</li>
-                    <li>Mempermudah tracking produk</li>
+                    <li>Speed up transactions</li>
+                    <li>Reduce human errors</li>
+                    <li>Simplify product tracking</li>
                 </ul>
 
-                <h2>Kesimpulan</h2>
-                <p>Manajemen produk dan stok yang baik akan membuat bisnis kamu lebih terstruktur, efisien, dan siap berkembang. Dengan sistem yang rapi, kamu bisa fokus ke hal yang lebih penting: meningkatkan penjualan.</p>
+                <h2>Conclusion</h2>
+                <p>Good product and inventory management makes your business more structured, efficient, and ready to grow.</p>
                 ',
-
     ],
 
     'cara-transaksi' => [
-        'title' => 'Cara Melakukan Transaksi di Sistem POS (Panduan Kasir)',
+        'title' => 'How to Perform Transactions in a POS System (Cashier Guide)',
         'image' => 'https://images.unsplash.com/photo-1556740772-1a741367b93e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dHJhbnNhY3Rpb258ZW58MHx8MHx8fDA%3D',
         'content' => '
-                    <p>Melakukan transaksi adalah aktivitas utama dalam sistem POS. Dengan alur yang tepat, kamu bisa melayani pelanggan lebih cepat, akurat, dan minim kesalahan.</p>
+                    <p>Transactions are the core activity in a POS system. With the right flow, you can serve customers faster, more accurately, and with minimal errors.</p>
 
-                    <h2>Bagaimana Alur Transaksi di Sistem POS?</h2>
-                    <p>Di sistem ini, proses transaksi dirancang sederhana agar mudah digunakan oleh kasir, bahkan untuk pemula.</p>
+                    <h2>What is the Transaction Flow in a POS System?</h2>
+                    <p>This system is designed to be simple and user-friendly, even for beginners.</p>
 
-                    <h2>1. Masuk ke Halaman Transaksi</h2>
-                    <p>Buka menu <strong>Transaksi</strong> dari sidebar, lalu klik tombol <strong>Transaksi Baru</strong> untuk memulai proses penjualan.</p>
+                    <h2>1. Open the Transaction Page</h2>
+                    <p>Go to the <strong>Transaction</strong> menu from the sidebar, then click <strong>New Transaction</strong> to start.</p>
 
                     <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl">
-                    <strong>Tips:</strong> Pastikan semua produk sudah tersedia sebelum memulai transaksi.
+                    <strong>Tip:</strong> Make sure all products are ready before starting a transaction.
                     </div>
 
-                    <h2>2. Pilih Produk</h2>
-                    <p>Tambahkan produk yang dibeli pelanggan ke dalam daftar transaksi.</p>
+                    <h2>2. Select Products</h2>
+                    <p>Add the items purchased by the customer to the transaction list.</p>
 
                     <ul>
-                        <li>Klik produk untuk menambahkan</li>
-                        <li>Atur jumlah (qty) sesuai pembelian</li>
-                        <li>Pastikan harga sudah benar</li>
+                        <li>Click products to add them</li>
+                        <li>Adjust quantity (qty)</li>
+                        <li>Ensure the price is correct</li>
                     </ul>
 
-                    <h2>3. Pilih atau Tambah Pelanggan</h2>
-                    <p>Kamu bisa memilih pelanggan yang sudah terdaftar atau langsung memasukkan nama pelanggan baru.</p>
+                    <h2>3. Select or Add Customer</h2>
+                    <p>You can choose an existing customer or enter a new one.</p>
 
                     <ul>
-                        <li>Pilih dari daftar pelanggan</li>
-                        <li>Atau ketik nama jika belum terdaftar</li>
+                        <li>Select from customer list</li>
+                        <li>Or type a new name</li>
                     </ul>
 
                     <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl">
-                    <strong>Catatan:</strong> Menyimpan data pelanggan membantu kamu dalam analisis dan promosi ke depannya.
+                    <strong>Note:</strong> Saving customer data helps future analysis and promotions.
                     </div>
 
-                    <h2>4. Proses Pembayaran</h2>
-                    <p>Setelah semua produk ditambahkan, klik tombol <strong>Bayar</strong> untuk melanjutkan ke proses pembayaran.</p>
+                    <h2>4. Process Payment</h2>
+                    <p>After adding all products, click <strong>Pay</strong> to proceed.</p>
 
                     <ul>
-                        <li>Masukkan jumlah uang dari pelanggan</li>
-                        <li>Pilih metode pembayaran (tunai atau lainnya)</li>
-                        <li>Sistem akan menghitung kembalian secara otomatis</li>
+                        <li>Enter the payment amount</li>
+                        <li>Select payment method (cash or others)</li>
+                        <li>The system calculates change automatically</li>
                     </ul>
 
                     <blockquote>
-                    Kecepatan dan ketelitian saat proses pembayaran sangat mempengaruhi pengalaman pelanggan.
+                    Speed and accuracy during payment greatly affect customer experience.
                     </blockquote>
 
-                    <h2>5. Lihat Detail Transaksi</h2>
-                    <p>Setelah pembayaran berhasil, kamu akan diarahkan ke halaman detail transaksi.</p>
+                    <h2>5. View Transaction Details</h2>
+                    <p>After payment, you will be redirected to the transaction detail page.</p>
 
                     <ul>
-                        <li>Informasi produk yang dibeli</li>
-                        <li>Total harga</li>
-                        <li>Metode pembayaran</li>
-                        <li>Data pelanggan</li>
+                        <li>Purchased products</li>
+                        <li>Total price</li>
+                        <li>Payment method</li>
+                        <li>Customer data</li>
                     </ul>
 
-                    <p>Halaman ini juga bisa digunakan sebagai referensi atau laporan transaksi.</p>
+                    <p>This page can also be used as a transaction report.</p>
 
-                    <h2>Kesimpulan</h2>
-                    <p>Dengan mengikuti alur transaksi yang benar, proses penjualan menjadi lebih cepat, rapi, dan profesional. Sistem POS membantu mengurangi kesalahan manual dan meningkatkan efisiensi operasional toko kamu.</p>
+                    <h2>Conclusion</h2>
+                    <p>By following the correct transaction flow, your sales process becomes faster, more organized, and professional.</p>
                     ',
-
     ],
 
 ];

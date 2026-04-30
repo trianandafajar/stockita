@@ -2,10 +2,10 @@
     <div class="max-w-7xl mx-auto px-3 md:px-6">
         <div class="text-center mb-16">
             <h2 class="text-4xl md:text-5xl font-bold text-gray-900">
-                Panduan & Tips Bisnis
+                Guides & Business Tips
             </h2>
             <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-                Pelajari cara menggunakan sistem dan tingkatkan penjualan tokomu.
+                Learn how to use the system and boost your store’s sales.
             </p>
         </div>
 
@@ -25,11 +25,11 @@
                     </span>
 
                     <h3 class="text-xl font-bold mt-2 group-hover:text-emerald-600 transition line-clamp-2">
-                        Cara Menggunakan Dashboard POS untuk Pertama Kali
+                        How to Use the POS Dashboard for the First Time
                     </h3>
 
                     <p class="text-gray-600 mt-3 text-sm md:line-clamp-2 lg:line-clamp-none">
-                        Pelajari langkah awal mulai dari login hingga melakukan transaksi pertama.
+                        Learn the basics, from logging in to completing your first transaction.
                     </p>
                 </div>
             </a>
@@ -44,15 +44,15 @@
 
                 <div class="p-6 flex flex-col flex-1">
                     <span class="text-sm text-emerald-600 font-semibold">
-                        Produk & Stok
+                        Products & Inventory
                     </span>
 
                     <h3 class="text-xl font-bold mt-2 group-hover:text-emerald-600 transition line-clamp-2">
-                        Cara Menambahkan dan Mengelola Produk
+                        How to Add and Manage Products
                     </h3>
 
                     <p class="text-gray-600 mt-3 text-sm md:line-clamp-2 lg:line-clamp-none">
-                        Tambahkan produk baru, atur stok, dan kelola data barang dengan mudah.
+                        Add new products, manage stock, and organize your inventory with ease.
                     </p>
                 </div>
             </a>
@@ -67,15 +67,15 @@
 
                 <div class="p-6 flex flex-col flex-1">
                     <span class="text-sm text-emerald-600 font-semibold">
-                        Transaksi
+                        Transactions
                     </span>
 
                     <h3 class="text-xl font-bold mt-2 group-hover:text-emerald-600 transition line-clamp-2">
-                        Cara Melakukan Transaksi di Sistem POS (Panduan Kasir)
+                        How to Process Transactions in the POS System (Cashier Guide)
                     </h3>
 
                     <p class="text-gray-600 mt-3 text-sm md:line-clamp-2 lg:line-clamp-none">
-                        Lakukan transaksi penjualan dengan cepat melalui sistem kasir yang sederhana dan efisien.
+                        Complete sales transactions quickly using a simple and efficient POS system.
                     </p>
                 </div>
             </a>

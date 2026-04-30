@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -21,19 +21,18 @@
             </h1>
 
             <p class="text-lg text-gray-600 mt-4">
-                Panduan lengkap untuk memahami dan menggunakan fitur POS secara efektif.
+                A complete guide to help you understand and use POS features effectively.
             </p>
 
             <div class="flex items-center gap-4 text-sm text-gray-500 mt-6">
                 <span>Admin</span>
                 <span>•</span>
-                <span>5 menit baca</span>
+                <span>5 min read</span>
                 <span>•</span>
                 <span>{{ date('d M Y') }}</span>
             </div>
 
             <img src="{{ $image }}" class="w-full h-80 object-cover rounded-2xl mt-10 shadow-sm">
-
         </div>
     </section>
 
@@ -50,6 +49,7 @@
                 prose-blockquote:border-l-emerald-500
                 prose-blockquote:bg-emerald-50
                 prose-blockquote:px-6 prose-blockquote:py-3 prose-blockquote:rounded-lg">
+
                 {!! $content !!}
 
             </div>
@@ -58,17 +58,16 @@
 
     <section class="bg-emerald-600 text-white py-20 text-center">
         <h3 class="text-2xl font-bold">
-            Siap Mengelola Bisnismu Lebih Mudah?
+            Ready to Manage Your Business More Easily?
         </h3>
         <p class="mt-2 text-emerald-100">
-            Gunakan sistem POS kami untuk meningkatkan efisiensi dan penjualan.
+            Use our POS system to improve efficiency and increase your sales.
         </p>
         <a href="/register"
             class="inline-block mt-4 px-6 py-3 bg-white text-emerald-600 rounded-xl font-semibold hover:bg-gray-100 transition">
-            Coba Sekarang
+            Try It Now
         </a>
     </section>
-
 
     <footer class="bg-gray-50 border-t">
         <div class="max-w-6xl mx-auto px-6 py-8 text-center text-sm text-gray-500">
