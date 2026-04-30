@@ -27,24 +27,24 @@
                             <div>
                                 <h1
                                     class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black bg-gradient-to-r from-white via-white to-green-100/50 bg-clip-text text-transparent leading-tight lg:leading-[0.9] mb-4 sm:mb-6 drop-shadow-2xl">
-                                    Kondisi Tak Menentu,
+                                    Uncertain Conditions,
                                     <br class="hidden sm:block">
 
                                     <span
                                         class="block mt-2 sm:mt-0 bg-gradient-to-r from-green-300 via-green-200 to-emerald-300 bg-clip-text text-transparent drop-shadow-2xl">
-                                        Usaha Tetap Maju
+                                        Your Business Keeps Growing
                                     </span>
                                 </h1>
 
                                 <p
                                     class="text-base sm:text-lg md:text-xl text-white/95 max-w-md sm:max-w-lg leading-relaxed font-medium drop-shadow-lg">
-                                    Dipercaya oleh
+                                    Trusted by
                                     <span class="font-black text-green-100 text-lg sm:text-xl">
-                                        2 juta++
+                                        2 million++
                                     </span>
-                                    pengguna,
-                                    <strong class="text-green-100">Kasir Pintar</strong> hadir untuk membantu
-                                    bisnismu tumbuh lebih besar.
+                                    users,
+                                    <strong class="text-green-100">StocKita</strong> is here to help your business
+                                    grow bigger.
                                 </p>
                             </div>
 
@@ -64,7 +64,7 @@
                                     min-w-0 sm:min-w-[220px] 
                                     border-2 border-white/20 hover:border-green-200/50">
 
-                                    <span class="relative z-10">Daftar Gratis</span>
+                                    <span class="relative z-10">Start for Free</span>
 
                                     <svg class="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-2 transition-transform duration-300"
                                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -102,32 +102,34 @@
                         <div class="w-full lg:w-1/2 space-y-6 sm:space-y-8 lg:pr-12">
 
                             <div>
+                                <!-- SLIDE 2 -->
                                 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl 
-                                    font-black 
-                                    bg-gradient-to-r from-white via-white to-green-100/50 
-                                    bg-clip-text text-transparent 
-                                    leading-tight lg:leading-[0.9] 
-                                    mb-4 sm:mb-6 drop-shadow-2xl">
+    font-black 
+    bg-gradient-to-r from-white via-white to-green-100/50 
+    bg-clip-text text-transparent 
+    leading-tight lg:leading-[0.9] 
+    mb-4 sm:mb-6 drop-shadow-2xl">
 
-                                    Aplikasi Kasir
+                                    POS Application
 
                                     <span class="block mt-2 sm:mt-0 
-                                        bg-gradient-to-r from-green-300 via-green-200 to-emerald-300 
-                                        bg-clip-text text-transparent drop-shadow-2xl">
-                                        Terbaik
+        bg-gradient-to-r from-green-300 via-green-200 to-emerald-300 
+        bg-clip-text text-transparent drop-shadow-2xl">
+                                        The Best
                                     </span>
 
-                                    Dan Terlengkap
+                                    and Most Complete
                                 </h1>
 
                                 <p class="text-base sm:text-lg md:text-xl 
-                                    text-white/95 max-w-md sm:max-w-lg 
-                                    leading-relaxed font-medium drop-shadow-lg">
+    text-white/95 max-w-md sm:max-w-lg 
+    leading-relaxed font-medium drop-shadow-lg">
 
-                                    Tingkatkan kinerja usaha Anda dengan fitur lengkap dan
+                                    Improve your business performance with complete features and a
                                     <strong class="text-green-100 font-bold sm:font-black">
                                         user-friendly
-                                    </strong> dari Kasir Pintar.
+                                    </strong>
+                                    experience from StocKita.
                                 </p>
                             </div>
 
@@ -147,7 +149,7 @@
                                     min-w-0 sm:min-w-[220px] 
                                     border-2 border-white/20">
 
-                                    <span class="relative z-10">Mulai Gratis</span>
+                                    <span class="relative z-10">Get Started for Free</span>
 
                                     <svg class="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-2 transition-transform duration-300"
                                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -185,33 +187,36 @@
                         <div class="w-full lg:w-1/2 space-y-6 sm:space-y-8 lg:pr-12">
 
                             <div>
+                                <!-- SLIDE 3 -->
                                 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl 
-                                    font-black 
-                                    bg-gradient-to-r from-white via-white to-green-100/50 
-                                    bg-clip-text text-transparent 
-                                    leading-tight lg:leading-[0.9] 
-                                    mb-4 sm:mb-6 drop-shadow-2xl">
+    font-black 
+    bg-gradient-to-r from-white via-white to-green-100/50 
+    bg-clip-text text-transparent 
+    leading-tight lg:leading-[0.9] 
+    mb-4 sm:mb-6 drop-shadow-2xl">
 
-                                    Dukung Usaha Anda
+                                    Support Your Business
 
                                     <br class="hidden sm:block">
 
                                     <span class="block mt-2 sm:mt-0 
-                                        bg-gradient-to-r from-green-300 via-green-200 to-emerald-300 
-                                        bg-clip-text text-transparent drop-shadow-2xl">
-                                        Dengan Kasir Pintar
+        bg-gradient-to-r from-green-300 via-green-200 to-emerald-300 
+        bg-clip-text text-transparent drop-shadow-2xl">
+                                        With StocKita
                                     </span>
                                 </h1>
 
                                 <p class="text-base sm:text-lg md:text-xl 
-                                    text-white/95 max-w-md sm:max-w-lg 
-                                    leading-relaxed font-medium drop-shadow-lg">
+    text-white/95 max-w-md sm:max-w-lg 
+    leading-relaxed font-medium drop-shadow-lg">
 
                                     <span class="font-black text-green-100 text-lg sm:text-xl">
-                                        1,5 juta UMKM
+                                        1.5 million MSMEs
                                     </span>
-                                    telah mempercayakan Kasir Pintar untuk mengembangkan usaha mereka secara digital.
+                                    have trusted StocKita to grow their business digitally.
                                 </p>
+
+
                             </div>
 
                             <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
@@ -230,7 +235,7 @@
                                     min-w-0 sm:min-w-[220px] 
                                     border-2 border-white/20 hover:border-green-200/50">
 
-                                    <span class="relative z-10">Bergabung Sekarang</span>
+                                    <span class="relative z-10">Join Now</span>
 
                                     <svg class="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-2 transition-transform duration-300"
                                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
