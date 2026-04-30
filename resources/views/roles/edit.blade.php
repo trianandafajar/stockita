@@ -5,7 +5,6 @@ $prefix = $isAdmin ? 'admin.' : '';
 @endphp
 <x-app-layout title="Edit Role - {{ $role->name }}">
     <div class="py-8 mx-auto">
-        <!-- Header -->
         <div class="flex flex-col-reverse sm:flex-row sm:items-start sm:justify-between mb-8 gap-4">
             <div>
                 <div class="flex items-center gap-4 mb-2">
@@ -19,7 +18,7 @@ $prefix = $isAdmin ? 'admin.' : '';
                     </div>
                     <div>
                         <h1 class="text-3xl font-bold text-gray-900">Edit Role</h1>
-                        <p class="text-gray-600">Update nama role dan permissions</p>
+                        <p class="text-gray-600">Update role name and permissions</p>
                     </div>
                 </div>
             </div>
@@ -30,7 +29,7 @@ $prefix = $isAdmin ? 'admin.' : '';
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                     </svg>
-                    Kembali
+                    Back
                 </a>
             </div>
         </div>
@@ -41,7 +40,7 @@ $prefix = $isAdmin ? 'admin.' : '';
                 @method('PUT')
                 <div class="mb-10">
                     <label for="name" class="block text-sm font-semibold text-gray-700 mb-3">
-                        Nama Role
+                        Role Name
                     </label>
                     <div class="relative">
                         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -52,7 +51,7 @@ $prefix = $isAdmin ? 'admin.' : '';
                         </div>
                         <input type="text" id="name" name="name" value="{{ old('name', $role->name) }}"
                             class="block w-full pl-12 pr-4 py-4 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 @error('name') border-red-300 bg-red-50 @enderror"
-                            placeholder="Masukkan nama role" required>
+                            placeholder="Enter role name" required>
                     </div>
                     @error('name')
                     <p class="mt-2 text-sm text-red-600 flex items-center">
@@ -74,7 +73,7 @@ $prefix = $isAdmin ? 'admin.' : '';
                                     d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
                                 </path>
                             </svg>
-                            Permissions ({{ $role->permissions->count() }} terpilih)
+                            Permissions ({{ $role->permissions->count() }} selected)
                         </h3>
                         <div class="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
                             {{ $permissions->count() }} total
@@ -119,7 +118,7 @@ $prefix = $isAdmin ? 'admin.' : '';
                     </button>
                     <a href="{{ route($prefix . 'roles.index') }}"
                         class="flex-1 text-center py-4 px-6 border border-gray-300 text-gray-700 font-semibold rounded-xl hover:bg-gray-50 hover:border-gray-400 transition-all duration-200">
-                        Batal
+                        Cancel
                     </a>
                 </div>
             </form>
