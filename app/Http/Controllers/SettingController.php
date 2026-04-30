@@ -77,7 +77,7 @@ class SettingController extends Controller
 
         cache()->forget('settings');
 
-        return back()->with('success', 'Setting berhasil disimpan');
+        return back()->with('success', 'Settings saved successfully');
     }
 
     public function updateStore(Request $request, $id)
@@ -96,7 +96,7 @@ class SettingController extends Controller
             ]
         );
 
-        return redirect()->back()->with('success', 'Informasi toko berhasil diperbarui!');
+        return redirect()->back()->with('success', 'Store information has been updated successfully!');
     }
 
     public function updateEmail(Request $request, $key)
@@ -109,6 +109,6 @@ class SettingController extends Controller
             ]
         );
 
-        return back()->with('success', 'Template berhasil disimpan');
+        return back()->with('success', 'Template saved successfully');
     }
 }

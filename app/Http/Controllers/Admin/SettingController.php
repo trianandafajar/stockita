@@ -41,7 +41,7 @@ class SettingController extends Controller
 
         cache()->forget('settings');
 
-        return back()->with('success', 'Setting berhasil disimpan');
+        return back()->with('success', 'Settings saved successfully');
     }
 
     // update plan
@@ -57,6 +57,6 @@ class SettingController extends Controller
 
         $plan->update($data);
 
-        return redirect()->back()->with('success', 'Plan berhasil diperbarui!');
+        return redirect()->back()->with('success', 'Plan updated successfully!');
     }
 }
