@@ -38,15 +38,15 @@ class ProductsExport implements FromCollection, WithHeadings, WithMapping, WithD
     {
         return [
             'No',
-            'Gambar Produk',
-            'Nama Produk',
+            'Product Image',
+            'Product Name',
             'SKU',
-            'Harga',
-            'Kategori',
-            'Gudang',
-            'Status Aktif',
-            'Toko',
-            'Tanggal Dibuat',
+            'Price',
+            'Category',
+            'Warehouse',
+            'Status',
+            'Store',
+            'Created At',
         ];
     }
 
@@ -57,13 +57,13 @@ class ProductsExport implements FromCollection, WithHeadings, WithMapping, WithD
 
         return [
             $no,
-            '',
+            '', // Placeholder for Drawing
             $product->name,
             $product->sku,
             $product->price,
             $product->category?->name ?? '-',
             $product->warehouse_id,
-            $product->is_active ? 'Aktif' : 'Non-Aktif',
+            $product->is_active ? 'Active' : 'Inactive',
             $product->store?->name ?? '-',
             $product->created_at->format('d-m-Y')
         ];
@@ -72,7 +72,6 @@ class ProductsExport implements FromCollection, WithHeadings, WithMapping, WithD
     public function drawings()
     {
         $drawings = [];
-
         $products = $this->collection();
 
         foreach ($products as $index => $product) {
@@ -85,7 +84,7 @@ class ProductsExport implements FromCollection, WithHeadings, WithMapping, WithD
                 $drawing->setHeight(50);
 
                 $column = 'B';
-                $row = $index + 2;
+                $row = $index + 2; // Offset for header
                 $drawing->setCoordinates($column . $row);
 
                 $drawings[] = $drawing;
@@ -99,8 +98,10 @@ class ProductsExport implements FromCollection, WithHeadings, WithMapping, WithD
     {
         return [
             AfterSheet::class => function (AfterSheet $event) {
+                // Set width for Image column
                 $event->sheet->getDelegate()->getColumnDimension('B')->setWidth(15);
 
+                // Set row height to accommodate images
                 $highestRow = $event->sheet->getDelegate()->getHighestRow();
                 for ($i = 2; $i <= $highestRow; $i++) {
                     $event->sheet->getDelegate()->getRowDimension($i)->setRowHeight(45);

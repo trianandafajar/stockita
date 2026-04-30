@@ -12,11 +12,6 @@ use Maatwebsite\Excel\Concerns\WithValidation;
 
 class ProductsImport implements ToModel, WithHeadingRow, WithValidation
 {
-    /**
-     * @param array $row
-     *
-     * @return \Illuminate\Database\Eloquent\Model|null
-     */
     protected $storeId;
 
     public function __construct($storeId = null)
@@ -24,48 +19,56 @@ class ProductsImport implements ToModel, WithHeadingRow, WithValidation
         $this->storeId = $storeId;
     }
 
+    /**
+     * @param array $row
+     *
+     * @return \Illuminate\Database\Eloquent\Model|null
+     */
     public function model(array $row)
     {
         $finalStoreId = $this->storeId ?? Auth::user()->store->id;
 
+        // Automatically create category if it doesn't exist
         $category = Category::firstOrCreate(
-            ['name' => $row['kategori']],
+            ['name' => $row['category']],
             [
-                'store_id'     => $finalStoreId,
-                'slug' => $this->generateUniqueSlug($row['kategori']),
+                'store_id'  => $finalStoreId,
+                'slug'      => $this->generateUniqueSlug($row['category']),
                 'is_active' => true
             ]
         );
 
         return new Product([
-            'name'         => $row['nama_produk'],
-            'sku'          => $row['sku'],
-            'price'        => $row['harga'],
-            'image'        => null,
-            'category_id'  => $category->id,
-            'store_id'     => $finalStoreId,
-            'created_by'   => Auth::id(),
+            'name'        => $row['product_name'],
+            'sku'         => $row['sku'],
+            'price'       => $row['price'],
+            'image'       => null,
+            'category_id' => $category->id,
+            'store_id'    => $finalStoreId,
+            'created_by'  => Auth::id(),
         ]);
     }
 
     public function rules(): array
     {
         return [
-            'nama_produk' => 'required|string|max:255',
-            'sku'         => 'required|unique:products,sku',
-            'harga'       => 'required|numeric',
-            'kategori'    => 'required',
+            'product_name' => 'required|string|max:255',
+            'sku'          => 'required|unique:products,sku',
+            'price'        => 'required|numeric',
+            'category'     => 'required',
         ];
     }
 
-    // pesan error
+    /**
+     * Custom validation messages
+     */
     public function customValidationMessages()
     {
         return [
-            'sku.unique'   => 'Baris :row gagal diimport: SKU ":input" sudah terdaftar di sistem.',
-            'sku.required' => 'Baris :row gagal: Kolom SKU tidak boleh kosong.',
-            'harga.numeric' => 'Baris :row gagal: Harga harus berupa angka.',
-            'nama_produk.required' => 'Baris :row gagal: Nama produk wajib diisi.',
+            'sku.unique'           => 'Row :row failed to import: SKU ":input" is already registered in the system.',
+            'sku.required'         => 'Row :row failed: SKU column cannot be empty.',
+            'price.numeric'        => 'Row :row failed: Price must be a number.',
+            'product_name.required' => 'Row :row failed: Product name is required.',
         ];
     }
 

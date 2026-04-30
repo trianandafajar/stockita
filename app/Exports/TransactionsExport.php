@@ -9,7 +9,6 @@ use Maatwebsite\Excel\Concerns\WithMapping;
 
 class TransactionsExport implements FromCollection, WithHeadings, WithMapping
 {
-
     protected $user;
 
     public function __construct($user)
@@ -32,38 +31,39 @@ class TransactionsExport implements FromCollection, WithHeadings, WithMapping
     }
 
     /**
-     * Menentukan Header Excel
+     * Define Excel Headings
      */
     public function headings(): array
     {
         return [
             'No',
-            'Kode Invoice',
-            'Nama Pelanggan',
-            'Item Barang',
-            'Total Bayar (Paid)',
-            'Kembalian (Change)',
-            'Total Transaksi',
+            'Invoice Code',
+            'Customer Name',
+            'Purchased Items',
+            'Amount Paid',
+            'Change',
+            'Total Transaction',
             'Status',
-            'Metode Pembayaran',
-            'Waktu Bayar',
-            'Catatan',
-            'Status Aktif',
-            'Tanggal Dibuat',
-            'Toko'
+            'Payment Method',
+            'Payment Time',
+            'Notes',
+            'Active Status',
+            'Created At',
+            'Store'
         ];
     }
 
     /**
-     * Memetakan baris data
+     * Map data rows
      */
     public function map($transaction): array
     {
         static $rowNumber = 0;
         $rowNumber++;
 
+        // Map items to a string format: Product Name (Qty)
         $itemDetails = $transaction->items->map(function ($item) {
-            $productName = $item->product->name ?? $item->product_name ?? 'Produk';
+            $productName = $item->product->name ?? $item->product_name ?? 'Product';
             return $productName . ' (' . $item->qty . ')';
         })->implode(', ');
 
@@ -76,10 +76,10 @@ class TransactionsExport implements FromCollection, WithHeadings, WithMapping
             $transaction->change,
             $transaction->total,
             strtoupper($transaction->status),
-            $transaction->payment_method ?? '-',
+            ucfirst($transaction->payment_method ?? '-'),
             $transaction->paid_at ? \Carbon\Carbon::parse($transaction->paid_at)->format('d-m-Y H:i') : '-',
             $transaction->notes ?? '-',
-            $transaction->is_active ? 'Aktif' : 'Non-Aktif',
+            $transaction->is_active ? 'Active' : 'Inactive',
             $transaction->created_at->format('d-m-Y H:i'),
             $transaction->store?->name ?? '-',
         ];

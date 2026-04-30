@@ -24,41 +24,46 @@ class SubscriptionsImport implements ToModel, WithHeadingRow, WithValidation
     {
         return DB::transaction(function () use ($row) {
 
+            // Find or create the user
             $user = User::firstOrCreate(
                 ['email' => $row['email']],
                 [
-                    'name'     => $row['nama'],
+                    'name'     => $row['name'],
                     'password' => Hash::make($row['password']),
                 ]
             );
 
+            // Find or create the store if the user doesn't have one
             if (!$user->store) {
                 $store = Store::create([
-                    'name'    => $row['nama_toko'],
-                    'address' => $row['alamat'] ?? null,
+                    'name'     => $row['store_name'],
+                    'address'  => $row['address'] ?? null,
                     'owner_id' => $user->id,
-                    'slug' => $this->generateUniqueSlug($row['nama_toko']),
+                    'slug'     => $this->generateUniqueSlug($row['store_name']),
                     'email'    => $row['email'],
                 ]);
             } else {
                 $store = $user->store;
             }
 
+            // Get the subscription plan
             $plan = Plan::where('name', $row['plan'])->firstOrFail();
 
-            $subscription = $user->subscription()->updateOrCreate(
+            // Create or update the subscription
+            $subscription = Subscription::updateOrCreate(
                 ['user_id' => $user->id],
                 [
-                    'plan_id' => $plan->id,
-                    'interval' => $row['interval'],
-                    'status' => 'active',
-                    'started_at' => now(),
+                    'plan_id'            => $plan->id,
+                    'interval'           => $row['interval'],
+                    'status'             => 'active',
+                    'started_at'         => now(),
                     'current_period_end' => $row['interval'] === 'yearly'
                         ? now()->addYear()
                         : now()->addMonth(),
                 ]
             );
 
+            // Sync usage limits (e.g., product or employee quotas)
             $user->syncAllLimits();
 
             return $subscription;
@@ -68,10 +73,10 @@ class SubscriptionsImport implements ToModel, WithHeadingRow, WithValidation
     public function rules(): array
     {
         return [
-            'nama'       => 'required|string',
+            'name'       => 'required|string',
             'email'      => 'required|email',
             'password'   => 'required|min:6',
-            'nama_toko'  => 'required|string',
+            'store_name' => 'required|string',
             'plan'       => 'required|exists:plans,name',
             'interval'   => 'required|in:monthly,yearly',
         ];

@@ -24,9 +24,9 @@ class CustomerImport implements ToModel, WithHeadingRow, WithValidation
     {
         $finalStoreId = $this->storeId ?? Auth::user()->store->id;
 
-        $rawPhone = (string) ($row['no_telepon'] ?? '');
+        $rawPhone = (string) ($row['phone_number'] ?? '');
 
-        // sanitize
+        // sanitize phone number
         $phone = preg_replace('/[^0-9+]/', '', $rawPhone);
         if (str_starts_with($phone, '0')) {
             $phone = '+62' . substr($phone, 1);
@@ -38,7 +38,7 @@ class CustomerImport implements ToModel, WithHeadingRow, WithValidation
 
         // create user
         $user = User::create([
-            'name'     => $row['nama'],
+            'name'     => $row['name'],
             'email'    => $row['email'],
             'password' => Hash::make('password'),
             'store_id' => $finalStoreId,
@@ -50,7 +50,7 @@ class CustomerImport implements ToModel, WithHeadingRow, WithValidation
         return new Customer([
             'user_id'  => $user->id,
             'phone'    => $phone,
-            'address'  => $row['alamat'] ?? null,
+            'address'  => $row['address'] ?? null,
             'store_id' => $finalStoreId,
         ]);
     }
@@ -58,19 +58,19 @@ class CustomerImport implements ToModel, WithHeadingRow, WithValidation
     public function rules(): array
     {
         return [
-            'nama'        => 'required|string|max:255',
-            'email'       => 'required|email|unique:users,email',
-            'alamat'      => 'nullable|string|max:255',
+            'name'    => 'required|string|max:255',
+            'email'   => 'required|email|unique:users,email',
+            'address' => 'nullable|string|max:255',
         ];
     }
 
     public function customValidationMessages()
     {
         return [
-            'nama.required' => 'Baris :row gagal: Nama wajib diisi.',
-            'email.required' => 'Baris :row gagal: Email wajib diisi.',
-            'email.email' => 'Baris :row gagal: Format email tidak valid.',
-            'email.unique' => 'Baris :row gagal: Email ":input" sudah digunakan.',
+            'name.required'  => 'Row :row failed: Name is required.',
+            'email.required' => 'Row :row failed: Email is required.',
+            'email.email'    => 'Row :row failed: Invalid email format.',
+            'email.unique'   => 'Row :row failed: The email ":input" is already in use.',
         ];
     }
 }

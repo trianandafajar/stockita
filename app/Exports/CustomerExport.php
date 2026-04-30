@@ -9,10 +9,6 @@ use Maatwebsite\Excel\Concerns\WithMapping;
 
 class CustomerExport implements FromCollection, WithHeadings, WithMapping
 {
-    /**
-     * @return \Illuminate\Support\Collection
-     */
-
     protected $user;
 
     public function __construct($user)
@@ -20,6 +16,9 @@ class CustomerExport implements FromCollection, WithHeadings, WithMapping
         $this->user = $user;
     }
 
+    /**
+     * @return \Illuminate\Support\Collection
+     */
     public function collection()
     {
         $query = Customer::with(['user', 'store']);
@@ -27,6 +26,7 @@ class CustomerExport implements FromCollection, WithHeadings, WithMapping
         if ($this->user->hasRole('admin')) {
             return $query->get();
         }
+
         if ($this->user->hasRole('owner')) {
             return $query->where('store_id', $this->user->store->id)->get();
         }
@@ -38,14 +38,14 @@ class CustomerExport implements FromCollection, WithHeadings, WithMapping
     {
         return [
             'No',
-            'Nama',
+            'Name',
             'Email',
-            'No Telepon',
-            'Tipe',
+            'Phone Number',
+            'Type',
             'Status',
-            'Toko',
-            'Status Aktif',
-            'Tanggal Dibuat',
+            'Store',
+            'Active Status',
+            'Created At',
         ];
     }
 
@@ -62,7 +62,7 @@ class CustomerExport implements FromCollection, WithHeadings, WithMapping
             $customer->type,
             $customer->status,
             $customer->store->name,
-            $customer->is_active ? 'Aktif' : 'Non-Aktif',
+            $customer->is_active ? 'Active' : 'Inactive',
             $customer->created_at->format('d-m-Y')
         ];
     }
