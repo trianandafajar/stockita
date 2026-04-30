@@ -10,10 +10,10 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
 
         <div class="text-center mb-10">
             <h2 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                Kelola Toko Tanpa Ribet
+                Manage Your Store Effortlessly
             </h2>
             <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-                Semua kebutuhan inventory, transaksi, dan laporan dalam satu dashboard simpel.
+                All your inventory, transactions, and reports in one simple dashboard.
             </p>
         </div>
 
@@ -41,7 +41,7 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
                 {{-- Badge --}}
                 @if ($plan->name == 'Pro')
                 <span class="absolute top-4 right-4 bg-white text-emerald-600 text-xs px-3 py-1 rounded-full">
-                    POPULER
+                    MOST POPULAR
                 </span>
                 @endif
 
@@ -57,11 +57,11 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
 
                 <p class="{{ $plan->name == 'Pro' ? 'opacity-90' : 'text-gray-500' }} mb-6">
                     @if ($plan->name == 'Starter')
-                    Untuk bisnis kecil
+                    For small businesses
                     @elseif ($plan->name == 'Business')
-                    Untuk skala besar
+                    For large-scale businesses
                     @else
-                    Untuk bisnis berkembang
+                    For growing businesses
                     @endif
                 </p>
 
@@ -69,7 +69,7 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
                 <div class="mb-6">
                     <div
                         class="text-sm mt-1 {{ $plan->name == 'Pro' ? 'text-white' : 'text-emerald-500' }} save-badge hidden">
-                        Hemat 20%
+                        Save 20%
                     </div>
 
                     <div class="text-4xl font-bold price" data-monthly="{{ $plan->price }}"
@@ -88,18 +88,18 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
                 {{-- Button --}}
                 @if ($plan->name == 'Starter')
                 <button class="w-full py-3 rounded-xl bg-gray-900 text-white pay-btn" data-plan-id="{{ $plan->id }}">
-                    Mulai Gratis
+                    Start Free
                 </button>
 
                 @elseif($plan->name == 'Pro')
                 <button class="w-full py-3 rounded-xl bg-white text-emerald-600 font-semibold pay-btn"
                     data-plan-id="{{ $plan->id }}">
-                    Pilih Paket
+                    Choose Plan
                 </button>
 
                 @else
                 <button class="w-full py-3 rounded-xl bg-gray-900 text-white pay-btn" data-plan-id="{{ $plan->id }}">
-                    Pilih Paket
+                    Choose Plan
                 </button>
                 @endif
 
@@ -139,7 +139,7 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
                 let value = isYearly ? yearly : monthly;
 
                 el.innerHTML = formatRupiah(value) +
-                    (value != 0 ? `<span class="text-lg">/${isYearly ? 'tahun' : 'bulan'}</span>` : '');
+                    (value != 0 ? `<span class="text-lg">/${isYearly ? 'year' : 'month'}</span>` : '');
 
                 const saveBadge = el.parentElement.querySelector('.save-badge');
                 if (saveBadge) {
@@ -171,7 +171,7 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
 
                     btn.classList.add('bg-green-500', 'text-green-700', 'cursor-not-allowed');
 
-                    btn.innerText = 'Aktif';
+                    btn.innerText = 'Active';
 
                 } else if (isDowngrade) {
                     btn.disabled = true;
@@ -179,12 +179,12 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
                     btn.classList.add('bg-gray-300', 'text-gray-500', 'cursor-not-allowed',
                         'opacity-50');
 
-                    btn.innerText = 'Tidak tersedia';
+                    btn.innerText = 'Not Available';
 
                 } else {
                     btn.disabled = false;
 
-                    btn.innerText = 'Pilih Paket';
+                    btn.innerText = 'Choose Plan';
                 }
             });
         }
@@ -239,7 +239,7 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
                             toast: true,
                             icon: 'success',
                             position: 'top-end',
-                            title: 'Paket gratis aktif, silahkan login!',
+                            title: 'Free plan activated, please login!',
                             showConfirmButton: false,
                             timer: 3000
                         });
@@ -253,7 +253,7 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
                                 toast: true,
                                 icon: 'success',
                                 position: 'top-end',
-                                title: 'Pembayaran sukses',
+                                title: 'Payment successful',
                                 showConfirmButton: false,
                                 timer: 3000
                             });
@@ -264,7 +264,7 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
                                 toast: true,
                                 icon: 'warning',
                                 position: 'top-end',
-                                title: 'Menunggu pembayaran',
+                                title: 'Waiting for payment',
                                 showConfirmButton: false,
                                 timer: 3000
                             });
@@ -274,7 +274,7 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
                                 toast: true,
                                 icon: 'error',
                                 position: 'top-end',
-                                title: 'Pembayaran gagal',
+                                title: 'Payment failed',
                                 showConfirmButton: false,
                                 timer: 3000
                             });
@@ -286,8 +286,8 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
                     Swal.fire({
                         toast: true,
                         icon: 'error',
-                        position: 'Terjadi error pada system, tunggu beberapa saat untuk mencoba lagi',
-                        title: 'Terjadi error',
+                        position: 'top-end',
+                        title: 'System error, please try again later',
                         showConfirmButton: false,
                         timer: 3000
                     });

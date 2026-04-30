@@ -16,7 +16,7 @@ class PlanSeeder extends Seeder
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
-        Plan::create([
+        Plan::updateOrCreate([
             'name' => 'Starter',
             'price' => 0,
             'max_products' => 10,
@@ -26,13 +26,16 @@ class PlanSeeder extends Seeder
             'max_warehouses' => 5,
             'duration_days' => 30,
             'features' => [
-                'Kelola produk',
-                '10 produk',
-                '5 Gudang',
+                'Basic product management',
+                'Up to 10 products',
+                'Up to 50 orders per month',
+                'Up to 5 customers',
+                'Up to 100 categories',
+                'Up to 5 warehouses',
             ],
         ]);
 
-        Plan::create([
+        Plan::updateOrCreate([
             'name' => 'Pro',
             'price' => 99000,
             'yearly_price' => 990000,
@@ -43,13 +46,16 @@ class PlanSeeder extends Seeder
             'max_orders' => 500,
             'duration_days' => 30,
             'features' => [
-                'Semua fitur Starter',
-                '100 produk',
-                '50 Gudang',
+                'Everything in Starter',
+                'Up to 100 products',
+                'Up to 500 orders per month',
+                'Up to 100 customers',
+                'Up to 500 categories',
+                'Up to 50 warehouses',
             ],
         ]);
 
-        Plan::create([
+        Plan::updateOrCreate([
             'name' => 'Business',
             'price' => 199000,
             'yearly_price' => 1990000,
@@ -60,9 +66,12 @@ class PlanSeeder extends Seeder
             'max_warehouses' => null,
             'duration_days' => 30,
             'features' => [
-                'Semua fitur Pro',
-                'Unlimited produk',
-                'Unlimited Gudang',
+                'Everything in Pro',
+                'Unlimited products',
+                'Unlimited orders',
+                'Unlimited customers',
+                'Unlimited categories',
+                'Unlimited warehouses',
             ],
         ]);
     }
