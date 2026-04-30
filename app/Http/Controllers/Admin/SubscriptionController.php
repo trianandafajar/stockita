@@ -104,7 +104,7 @@ class SubscriptionController extends Controller
         ]);
 
         return redirect($prefix . '/subscriptions')
-            ->with('success', 'Langganan berhasil dibuat!');
+            ->with('success', 'Subscription created successfully!');
     }
 
     public function update(Request $request, $id)
@@ -155,11 +155,11 @@ class SubscriptionController extends Controller
         ]);
 
         if ($isUpgrade) {
-            $message = 'Berhasil upgrade paket!';
+            $message = 'Plan upgraded successfully!';
         } elseif ($isDowngrade) {
-            $message = 'Berhasil downgrade paket!';
+            $message = 'Plan downgraded successfully!';
         } else {
-            $message = 'Langganan berhasil diperbarui!';
+            $message = 'Subscription updated successfully!';
         }
 
         return back()->with('success', $message);
@@ -187,7 +187,7 @@ class SubscriptionController extends Controller
             'after' => $subscription->status,
         ]);
 
-        return back()->with('success', 'Status langganan berhasil diperbarui!');
+        return back()->with('success', 'Subscription status updated successfully!');
     }
 
     public function destroy($id)
@@ -204,7 +204,7 @@ class SubscriptionController extends Controller
 
         logActivity('DELETE', $subscription, $data);
 
-        return redirect()->back()->with('success', 'Data langganan berhasil dihapus!');
+        return redirect()->back()->with('success', 'Subscription data deleted successfully!');
     }
 
     // import
@@ -214,9 +214,9 @@ class SubscriptionController extends Controller
             'file' => 'required|mimes:xlsx,xls,csv',
             'store_id' => 'required'
         ], [
-            'file.required' => 'File wajib diupload!',
-            'file.mimes' => 'Format file harus Excel (.xlsx, .xls, .csv)',
-            'store_id.required' => 'Toko harus dipilih!'
+            'file.required' => 'File is required!',
+            'file.mimes' => 'File format must be Excel (.xlsx, .xls, .csv)',
+            'store_id.required' => 'Store must be selected!'
         ]);
 
         if ($validator->fails()) {
@@ -227,7 +227,7 @@ class SubscriptionController extends Controller
 
         Excel::import(new SubscriptionsImport, $request->file('file'));
 
-        return back()->with('success', 'Import berhasil!');
+        return back()->with('success', 'Import completed successfully!');
     }
 
     public function template()
@@ -239,11 +239,11 @@ class SubscriptionController extends Controller
             public function headings(): array
             {
                 return [
-                    'nama',
+                    'name',
                     'email',
                     'password',
-                    'nama_toko',
-                    'alamat',
+                    'store_name',
+                    'address',
                     'plan',
                     'interval'
                 ];
@@ -253,16 +253,16 @@ class SubscriptionController extends Controller
             {
                 return [
                     [
-                        'Budi Santoso',
-                        'budi@email.com',
+                        'John Doe',
+                        'john@example.com',
                         'password123',
-                        'Toko Budi',
-                        'Jl. Contoh No.1',
+                        'John Store',
+                        '123 Sample St.',
                         'Business',
                         'monthly'
                     ]
                 ];
             }
-        }, 'template-import.xlsx');
+        }, 'import-template.xlsx');
     }
 }

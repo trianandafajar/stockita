@@ -3,14 +3,14 @@ $isAdmin = auth()->user()->hasRole('admin');
 
 $prefix = $isAdmin ? '/admin' : '';
 @endphp
-<x-app-layout title="Buat Langganan">
+<x-app-layout title="Create Subscription">
     <section class="max-w-7xl mx-auto text-center">
         <div class="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
             <div class="w-full md:w-1/3">
                 <select id="user_id"
                     class="w-full border-gray-300 rounded-xl px-4 py-2 focus:ring-2 focus:ring-emerald-500">
-                    <option value="">Pilih Owner</option>
+                    <option value="">Select Owner</option>
                     @foreach ($owners as $user)
                     <option value="{{ $user->id }}">{{ $user->name }}</option>
                     @endforeach
@@ -42,7 +42,7 @@ $prefix = $isAdmin ? '/admin' : '';
                         rounded-3xl relative">
                 @if ($plan->name == 'Pro')
                 <span
-                    class="absolute top-4 right-4 bg-white text-emerald-600 text-xs px-3 py-1 rounded-full">POPULER</span>
+                    class="absolute top-4 right-4 bg-white text-emerald-600 text-xs px-3 py-1 rounded-full">POPULAR</span>
                 @endif
 
                 @if ($plan->id == 1)
@@ -78,7 +78,7 @@ $prefix = $isAdmin ? '/admin' : '';
                     <button type="submit"
                         class="w-full py-3 rounded-xl
                             {{ $plan->name == 'Pro' ? 'bg-white text-emerald-600 font-semibold' : 'bg-gray-900 text-white' }}">
-                        Pilih Paket
+                        Choose Plan
                     </button>
                 </form>
             </div>
@@ -112,7 +112,7 @@ $prefix = $isAdmin ? '/admin' : '';
                     const value = isYearly ? yearly : monthly;
 
                     el.innerHTML = formatRupiah(value) + (value != 0 ?
-                        `<span class="text-lg">/${isYearly ? 'tahun' : 'bulan'}</span>` :
+                        `<span class="text-lg">/${isYearly ? 'year' : 'month'}</span>` :
                         '');
                 });
             }
@@ -157,7 +157,7 @@ $prefix = $isAdmin ? '/admin' : '';
                     toast: true,
                     icon: 'error',
                     position: 'top-end',
-                    title: 'pilih owner terlebih dahulu!',
+                    title: 'Please select an owner first!',
                     showConfirmButton: false,
                     timer: 3000
                 });

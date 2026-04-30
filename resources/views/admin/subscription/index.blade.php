@@ -3,7 +3,7 @@ $isAdmin = auth()->user()->hasRole('admin');
 
 $prefix = $isAdmin ? '/admin' : '';
 @endphp
-<x-app-layout title="Langganan">
+<x-app-layout title="Subscriptions">
     @if ($message = session('success') ?? (session('error') ?? (session('warning') ?? session('info'))))
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -26,10 +26,10 @@ $prefix = $isAdmin ? '/admin' : '';
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
                 <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
-                    Manajemen Langganan
+                    Subscription Management
                 </h1>
                 <p class="text-gray-600 mt-1 text-sm sm:text-base">
-                    Kelola semua langganan
+                    Manage all subscriptions
                 </p>
             </div>
 
@@ -49,7 +49,7 @@ $prefix = $isAdmin ? '/admin' : '';
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                     </svg>
-                    Tambah Langganan
+                    Add Subscription
                 </a>
             </div>
         </div>
@@ -63,7 +63,7 @@ $prefix = $isAdmin ? '/admin' : '';
                         <div class="relative w-full sm:w-48">
                             <select name="interval"
                                 class="w-full appearance-none px-4 py-2 pr-10 border border-gray-200 rounded-xl bg-white">
-                                <option value="">Semua Interval</option>
+                                <option value="">All Intervals</option>
                                 <option value="monthly" {{ request('status')=='monthly' ? 'selected' : '' }}>Monthly
                                 </option>
                                 <option value="yearly" {{ request('status')=='yearly' ? 'selected' : '' }}>Yearly
@@ -82,7 +82,7 @@ $prefix = $isAdmin ? '/admin' : '';
                         <div class="relative w-full sm:w-48">
                             <select name="status"
                                 class="w-full appearance-none px-4 py-2 pr-10 border border-gray-200 rounded-lg bg-white">
-                                <option value="">Semua Status</option>
+                                <option value="">All Statuses</option>
                                 <option value="active" {{ request('status')=='active' ? 'selected' : '' }}>
                                     Active
                                 </option>
@@ -103,7 +103,7 @@ $prefix = $isAdmin ? '/admin' : '';
                         <div class="relative w-full sm:w-48">
                             <select name="type"
                                 class="w-full appearance-none px-4 py-2 pr-10 border border-gray-200 rounded-lg bg-white">
-                                <option value="">Semua Tipe</option>
+                                <option value="">All Types</option>
                                 @foreach ($plans as $plan)
                                 <option value="{{ $plan->id }}" {{ request('type')=='$plan->id' ? 'selected' : '' }}>
                                     {{ $plan->name }}
@@ -125,7 +125,7 @@ $prefix = $isAdmin ? '/admin' : '';
                         <div class="relative w-full max-w-[600px]">
 
                             <input type="text" name="search" value="{{ request('search') }}"
-                                placeholder="Cari nama, atau email..."
+                                placeholder="Search by name or email..."
                                 class="w-full pl-10 py-3 border border-gray-200 rounded-xl text-sm">
 
                             <div class="absolute left-2 top-3 text-gray-400 pointer-events-none">
@@ -149,12 +149,13 @@ $prefix = $isAdmin ? '/admin' : '';
                 <table class="w-full">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Pelanggan</th>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Paket</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Subscriber</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Plan</th>
                             <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Interval</th>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Periode</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Period</th>
                             <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase w-32">Aksi</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase w-32">Actions
+                            </th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
@@ -234,14 +235,14 @@ $prefix = $isAdmin ? '/admin' : '';
                                         </button>
                                     </form>
 
-                                    {{-- upgrade / downgarde --}}
+                                    {{-- upgrade / downgrade --}}
                                     <button @click="$dispatch('open-modal', { 
                                                 name: 'upgrade-subscription', 
                                                 id: {{ $subscription->id }},
                                                 plan_id: {{ $subscription->plan_id }},
                                                 interval: '{{ $subscription->interval }}'
                                             })" class="p-1.5 text-yellow-600 hover:bg-yellow-100 rounded-lg"
-                                        title="Upgrade / downgrade">
+                                        title="Upgrade / Downgrade">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="size-5">
                                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -266,7 +267,7 @@ $prefix = $isAdmin ? '/admin' : '';
                         @empty
                         <tr>
                             <td colspan="6" class="px-6 py-12 text-center text-gray-500">
-                                <h3 class="text-lg font-semibold mb-2">Belum ada langganan</h3>
+                                <h3 class="text-lg font-semibold mb-2">No subscriptions found</h3>
                             </td>
                         </tr>
                         @endforelse
@@ -285,7 +286,7 @@ $prefix = $isAdmin ? '/admin' : '';
             <form action="//customers" method="POST">
                 @csrf
                 <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-                    <h3 class="text-lg font-semibold">Tambah Pelanggan Baru</h3>
+                    <h3 class="text-lg font-semibold">Add New Subscriber</h3>
                     <button type="button"
                         @click="$el.closest('form').reset(); $dispatch('close-modal', 'create-customer')">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -298,11 +299,11 @@ $prefix = $isAdmin ? '/admin' : '';
 
                 <div class="space-y-4">
                     <div>
-                        <label class="text-sm font-medium">Toko</label>
+                        <label class="text-sm font-medium">Store</label>
                         <select name="store_id" x-model="storeId"
                             class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
 
-                            <option value="">--- Pilih toko ---</option>
+                            <option value="">--- Select store ---</option>
 
                             @foreach ($stores as $store)
                             <option value="{{ $store->id }}">
@@ -315,7 +316,7 @@ $prefix = $isAdmin ? '/admin' : '';
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap *</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
                         <input type="text" name="name" value="{{ old('name') }}"
                             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-500 text-sm" />
@@ -328,7 +329,7 @@ $prefix = $isAdmin ? '/admin' : '';
                     </div>
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Tipe Pelanggan *</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Customer Type *</label>
                             <select name="type" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
                                 <option value="regular" {{ old('type')=='regular' ? 'selected' : '' }}>Regular
                                 </option>
@@ -341,17 +342,16 @@ $prefix = $isAdmin ? '/admin' : '';
                         <div>
                             <label class="block text-sm font-medium text-gray-700 mb-2">Status *</label>
                             <select name="status" class="w-full px-3 py-2 border border-gray-300 rounded-lg">
-                                <option value="active" {{ old('status')=='active' ? 'selected' : '' }}>Aktif
+                                <option value="active" {{ old('status')=='active' ? 'selected' : '' }}>Active
                                 </option>
-                                <option value="inactive" {{ old('status')=='inactive' ? 'selected' : '' }}>Tidak
-                                    Aktif
+                                <option value="inactive" {{ old('status')=='inactive' ? 'selected' : '' }}>Inactive
                                 </option>
                             </select>
                             <x-input-error :messages="$errors->get('status')" class="mt-2 text-red-500 text-sm" />
                         </div>
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-2">Nomor WhatsApp</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">WhatsApp Number</label>
                         <input type="tel" name="phone" value="{{ old('phone') }}"
                             class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
                         <x-input-error :messages="$errors->get('phone')" class="mt-2 text-red-500 text-sm" />
@@ -360,11 +360,11 @@ $prefix = $isAdmin ? '/admin' : '';
                         <button type="button"
                             @click="$el.closest('form').reset(); $dispatch('close-modal', 'create-customer')"
                             class="close-modal flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
-                            Batal
+                            Cancel
                         </button>
                         <button type="submit"
                             class="flex-1 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium">
-                            Simpan Pelanggan
+                            Save Subscriber
                         </button>
                     </div>
                 </div>
@@ -375,12 +375,12 @@ $prefix = $isAdmin ? '/admin' : '';
     {{-- delete modal --}}
     <x-modal name="delete-subscription" maxWidth="md">
         <div x-data="{ subscriptionId: null }" x-on:open-modal.window="
-            if ($event.detail.name === 'delete-subscription'    ) {
+            if ($event.detail.name === 'delete-subscription') {
                 subscriptionId = $event.detail.id
             }" class="p-6">
             <div class="flex justify-between items-center mb-5 pb-3 border-b border-gray-100">
                 <h3 class="text-lg font-semibold text-gray-900">
-                    Hapus Pelanggan
+                    Delete Subscription
                 </h3>
 
                 <button type="button" @click="$dispatch('close-modal', 'delete-subscription')"
@@ -394,11 +394,11 @@ $prefix = $isAdmin ? '/admin' : '';
 
             <div class="text-center space-y-3">
                 <p class="text-gray-700 text-md">
-                    Apakah kamu yakin ingin menghapus pelanggan ini?
+                    Are you sure you want to delete this subscription?
                 </p>
 
                 <p class="text-sm text-gray-400">
-                    Data yang dihapus tidak dapat dikembalikan.
+                    Deleted data cannot be recovered.
                 </p>
             </div>
 
@@ -409,12 +409,12 @@ $prefix = $isAdmin ? '/admin' : '';
                 <div class="flex gap-3">
                     <button type="button" @click="$dispatch('close-modal', 'delete-subscription')"
                         class="flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit"
                         class="flex-1 px-4 py-2.5 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium shadow-sm hover:shadow transition">
-                        Ya, Hapus
+                        Yes, Delete
                     </button>
                 </div>
             </form>
@@ -422,7 +422,7 @@ $prefix = $isAdmin ? '/admin' : '';
         </div>
     </x-modal>
 
-    {{-- upgarede modal --}}
+    {{-- upgrade modal --}}
     <x-modal name="upgrade-subscription" maxWidth="md">
         <div x-data="{ subscriptionId: null, planId: '', interval: '' }" x-on:open-modal.window="
         if ($event.detail.name === 'upgrade-subscription') {
@@ -431,7 +431,7 @@ $prefix = $isAdmin ? '/admin' : '';
             interval = $event.detail.interval
         }" class="p-6">
 
-            <h3 class="text-lg font-semibold mb-4">Upgrade / Downgrade Paket</h3>
+            <h3 class="text-lg font-semibold mb-4">Upgrade / Downgrade Plan</h3>
 
             <form :action="`{{ $prefix }}/subscriptions/${subscriptionId}`" method="POST">
                 @csrf
@@ -453,11 +453,11 @@ $prefix = $isAdmin ? '/admin' : '';
                 <div class="flex gap-3">
                     <button type="button" @click="$dispatch('close-modal', 'upgrade-subscription')"
                         class="flex-1 border rounded-lg py-2">
-                        Batal
+                        Cancel
                     </button>
 
                     <button type="submit" class="flex-1 bg-blue-500 text-white rounded-lg py-2">
-                        Simpan
+                        Save
                     </button>
                 </div>
             </form>
@@ -471,7 +471,7 @@ $prefix = $isAdmin ? '/admin' : '';
                 @csrf
 
                 <div class="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
-                    <h3 class="text-lg font-semibold text-gray-900">Import Langganan</h3>
+                    <h3 class="text-lg font-semibold text-gray-900">Import Subscriptions</h3>
                     <button type="button" @click="$dispatch('close-modal', 'import-subscription')"
                         class="text-gray-400 hover:text-gray-600 transition">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -485,29 +485,29 @@ $prefix = $isAdmin ? '/admin' : '';
                     <div
                         class="border-2 border-dashed border-gray-200 rounded-xl p-6 text-center hover:border-blue-300 hover:bg-blue-50 transition-colors">
                         <input type="file" name="file" accept=".xlsx,.xls,.csv" class="hidden" id="importFile"
-                            onchange="document.getElementById('importFileName').textContent = this.files[0]?.name || 'Belum ada file dipilih'">
+                            onchange="document.getElementById('importFileName').textContent = this.files[0]?.name || 'No file selected'">
                         <label for="importFile" class="cursor-pointer block">
                             <svg class="w-10 h-10 mx-auto mb-3 text-gray-400" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                                     d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m6.75 12-3-3m0 0-3 3m3-3v6m-1.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
                             </svg>
-                            <p class="text-sm font-medium text-gray-700 mb-1">Klik untuk pilih file</p>
-                            <p class="text-xs text-gray-400">XLSX, XLS, CSV (maks 2MB)</p>
+                            <p class="text-sm font-medium text-gray-700 mb-1">Click to select a file</p>
+                            <p class="text-xs text-gray-400">XLSX, XLS, CSV (max 2MB)</p>
                         </label>
-                        <p id="importFileName" class="text-xs text-blue-600 mt-2 font-medium">Belum ada file dipilih</p>
+                        <p id="importFileName" class="text-xs text-blue-600 mt-2 font-medium">No file selected</p>
                     </div>
 
                     <x-input-error class="text-red-500 text-sm" :messages="$errors->import->get('file')" />
 
                     <a href="/subscriptions/template" class="text-sm text-blue-600 hover:underline">
-                        Download template Excel
+                        Download Excel template
                     </a>
 
                     <div class="flex gap-3 pt-2">
                         <button type="button" @click="$dispatch('close-modal', 'import-subscription')"
                             class="flex-1 px-4 py-2.5 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 transition">
-                            Batal
+                            Cancel
                         </button>
                         <button type="submit"
                             class="flex-1 px-4 py-2.5 bg-blue-500 hover:bg-blue-600 text-white rounded-xl font-medium transition">
