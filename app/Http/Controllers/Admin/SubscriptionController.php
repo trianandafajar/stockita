@@ -22,6 +22,7 @@ class SubscriptionController extends Controller
     public function index(Request $request)
     {
         $subscriptions = Subscription::with(['user', 'plan'])
+            ->where('is_demo', true)
             ->when($request->search, function ($q) use ($request) {
                 $search = $request->search;
 
@@ -58,6 +59,7 @@ class SubscriptionController extends Controller
     {
         $plans = Plan::all();
         $owners = User::role('owner')
+            ->where('is_demo', true)
             ->whereDoesntHave('subscription')
             ->get();
 

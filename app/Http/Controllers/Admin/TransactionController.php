@@ -43,11 +43,13 @@ class TransactionController extends Controller
                         $q->where('name', 'like', "%$search%");
                     });
             });
-        })->when($request->status, function ($q) use ($request) {
-            $q->where('status', $request->status);
-        })->when($request->store, function ($q) use ($request) {
-            $q->where('store_id', $request->store);
-        });
+        })
+            ->where('is_demo', true)
+            ->when($request->status, function ($q) use ($request) {
+                $q->where('status', $request->status);
+            })->when($request->store, function ($q) use ($request) {
+                $q->where('store_id', $request->store);
+            });
 
         $stats = [
             'total' => (clone $transactionQuery)->count(),
@@ -69,7 +71,7 @@ class TransactionController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        $stores = Store::all();
+        $stores = Store::where('is_demo', true)->get();
 
         return view('admin.transaksi.index', compact('transactions', 'stats', 'stores'));
     }
@@ -77,7 +79,7 @@ class TransactionController extends Controller
     public function create()
     {
         $products = Product::all();
-        $stores = Store::all();
+        $stores = Store::where('is_demo', true)->get();
 
         return view('admin.transaksi.create', compact('products', 'stores'));
     }

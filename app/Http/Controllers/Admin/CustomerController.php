@@ -39,19 +39,20 @@ class CustomerController extends Controller
             'type' => $request->type,
             'status' => $request->status,
         ])
+            ->where('is_demo', true)
             ->latest()
             ->paginate(15)
             ->withQueryString();
 
         $stats = [
-            'total' => Customer::count(),
-            'exclusive' => Customer::exclusive()->count(),
-            'active' => Customer::active()->count(),
-            'total_spent' => Transaction::where('status', 'paid')
+            'total' => Customer::where('is_demo', true)->count(),
+            'exclusive' => Customer::where('is_demo', true)->exclusive()->count(),
+            'active' => Customer::where('is_demo', true)->active()->count(),
+            'total_spent' => Transaction::where('is_demo', true)->where('status', 'paid')
                 ->sum('total'),
         ];
 
-        $stores = Store::all();
+        $stores = Store::where('is_demo', true)->get();
 
         return view('admin.pelanggan.index', compact('customers', 'stats', 'stores'));
     }

@@ -28,6 +28,7 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         $categoriesQuery = Category::with('store')
+            ->where('is_demo', true)
             ->when($request->search, function ($q) use ($request) {
                 $search = $request->search;
 
@@ -46,7 +47,7 @@ class CategoryController extends Controller
             });
 
         $categories = $categoriesQuery->latest()->get();
-        $stores = Store::all();
+        $stores = Store::where('is_demo', true)->get();
 
         return view('admin.category.index', compact('categories', 'stores'));
     }

@@ -38,6 +38,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $productQuery = Product::with('store')
+            ->where('is_demo', true)
             ->when($request->search, function ($q) use ($request) {
                 $search = $request->search;
 
@@ -59,8 +60,8 @@ class ProductController extends Controller
             });
 
         $products = $productQuery->latest()->get();
-        $stores = Store::all();
-        $categories = Category::all();
+        $stores = Store::where('is_demo', true)->get();
+        $categories = Category::where('is_demo', true)->get();
 
         return view('admin.produk.index', compact('products', 'categories', 'stores'));
     }

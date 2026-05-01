@@ -22,7 +22,7 @@ class StoreController extends Controller
 
     public function index()
     {
-        $stores = Store::all();
+        $stores = Store::where('is_demo', true)->get();
 
         return view('admin.store.index', compact('stores'));
     }
