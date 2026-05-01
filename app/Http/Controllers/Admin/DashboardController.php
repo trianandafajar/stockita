@@ -19,11 +19,20 @@ class DashboardController extends Controller
 
     public function index(Request $request)
     {
+        $isDemoUser = auth()->user()->is_demo;
         // card data
-        $totalUsers = User::where('is_demo', true)->count();
-        $totalStores = Store::where('is_demo', true)->count();
-        $totalTransactions = Transaction::where('is_demo', true)->count();
-        $totalRevenue = Transaction::where('status', 'paid')->where('is_demo', true)->sum('total');
+        $totalUsers = User::when($isDemoUser, function ($q) {
+            return $q->where('is_demo', true);
+        });
+        $totalStores = Store::when($isDemoUser, function ($q) {
+            return $q->where('is_demo', true);
+        })->count();
+        $totalTransactions = Transaction::when($isDemoUser, function ($q) {
+            return $q->where('is_demo', true);
+        })->count();
+        $totalRevenue = Transaction::where('status', 'paid')->when($isDemoUser, function ($q) {
+            return $q->where('is_demo', true);
+        })->sum('total');
 
         $range = $request->range ?? 7;
 
@@ -32,13 +41,17 @@ class DashboardController extends Controller
 
         // chart 
         $rawData = Transaction::selectRaw('DATE(created_at) as date, SUM(total) as revenue, COUNT(*) as orders')
-            ->where('is_demo', true)
+            ->when($isDemoUser, function ($q) {
+                return $q->where('is_demo', true);
+            })
             ->whereBetween('created_at', [$start, $end])
             ->groupBy('date')
             ->pluck('revenue', 'date');
 
         $orderData = Transaction::selectRaw('DATE(created_at) as date, COUNT(*) as orders')
-            ->where('is_demo', true)
+            ->when($isDemoUser, function ($q) {
+                return $q->where('is_demo', true);
+            })
             ->whereBetween('created_at', [$start, $end])
             ->groupBy('date')
             ->pluck('orders', 'date');
@@ -58,12 +71,16 @@ class DashboardController extends Controller
         }
 
         $todayRevenue = Transaction::where('status', 'paid')
-            ->where('is_demo', true)
+            ->when($isDemoUser, function ($q) {
+                return $q->where('is_demo', true);
+            })
             ->whereDate('created_at', today())
             ->sum('total');
 
         $yesterdayRevenue = Transaction::where('status', 'paid')
-            ->where('is_demo', true)
+            ->when($isDemoUser, function ($q) {
+                return $q->where('is_demo', true);
+            })
             ->whereDate('created_at', today()->subDay())
             ->sum('total');
 
@@ -75,7 +92,9 @@ class DashboardController extends Controller
 
         // top store
         $topStores = Transaction::selectRaw('store_id, SUM(total) as revenue')
-            ->where('is_demo', true)
+            ->when($isDemoUser, function ($q) {
+                return $q->where('is_demo', true);
+            })
             ->where('status', 'paid')
             ->groupBy('store_id')
             ->with('store')
@@ -85,7 +104,9 @@ class DashboardController extends Controller
 
         // transaksi terakkhir
         $latestTransactions = Transaction::with('store')
-            ->where('is_demo', true)
+            ->when($isDemoUser, function ($q) {
+                return $q->where('is_demo', true);
+            })
             ->latest()
             ->limit(5)
             ->get();

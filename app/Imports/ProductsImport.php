@@ -34,7 +34,8 @@ class ProductsImport implements ToModel, WithHeadingRow, WithValidation
             [
                 'store_id'  => $finalStoreId,
                 'slug'      => $this->generateUniqueSlug($row['category']),
-                'is_active' => true
+                'is_active' => true,
+                'is_demo'  => auth()->user()->is_demo,
             ]
         );
 
@@ -46,6 +47,7 @@ class ProductsImport implements ToModel, WithHeadingRow, WithValidation
             'category_id' => $category->id,
             'store_id'    => $finalStoreId,
             'created_by'  => Auth::id(),
+            'is_demo'  => auth()->user()->is_demo,
         ]);
     }
 

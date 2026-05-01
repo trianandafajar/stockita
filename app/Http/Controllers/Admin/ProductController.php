@@ -37,8 +37,12 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
+        $isDemoUser = auth()->user()->is_demo;
+
         $productQuery = Product::with('store')
-            ->where('is_demo', true)
+            ->when($isDemoUser, function ($q) {
+                return $q->where('is_demo', true);
+            })
             ->when($request->search, function ($q) use ($request) {
                 $search = $request->search;
 
@@ -60,8 +64,12 @@ class ProductController extends Controller
             });
 
         $products = $productQuery->latest()->get();
-        $stores = Store::where('is_demo', true)->get();
-        $categories = Category::where('is_demo', true)->get();
+        $stores = Store::when($isDemoUser, function ($q) {
+            return $q->where('is_demo', true);
+        })->get();
+        $categories = Category::when($isDemoUser, function ($q) {
+            return $q->where('is_demo', true);
+        })->get();
 
         return view('admin.produk.index', compact('products', 'categories', 'stores'));
     }

@@ -22,7 +22,11 @@ class StoreController extends Controller
 
     public function index()
     {
-        $stores = Store::where('is_demo', true)->get();
+        $isDemoUser = auth()->user()->is_demo;
+
+        $stores = Store::when($isDemoUser, function ($q) {
+            return $q->where('is_demo', true);
+        })->get();
 
         return view('admin.store.index', compact('stores'));
     }

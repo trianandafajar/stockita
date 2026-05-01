@@ -42,6 +42,7 @@ class CustomerImport implements ToModel, WithHeadingRow, WithValidation
             'email'    => $row['email'],
             'password' => Hash::make('password'),
             'store_id' => $finalStoreId,
+            'is_demo'  => auth()->user()->is_demo,
         ]);
 
         $user->assignRole('buyer');
@@ -52,6 +53,7 @@ class CustomerImport implements ToModel, WithHeadingRow, WithValidation
             'phone'    => $phone,
             'address'  => $row['address'] ?? null,
             'store_id' => $finalStoreId,
+            'is_demo'  => auth()->user()->is_demo,
         ]);
     }
 

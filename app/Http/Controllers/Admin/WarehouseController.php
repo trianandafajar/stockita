@@ -25,8 +25,12 @@ class WarehouseController extends Controller
      */
     public function index(Request $request)
     {
+        $isDemoUser = auth()->user()->is_demo;
+
         $warehouseQuery = Warehouse::with('store')
-            ->where('is_demo', true)
+            ->when($isDemoUser, function ($q) {
+                return $q->where('is_demo', true);
+            })
             ->when($request->search, function ($q) use ($request) {
                 $search = $request->search;
 
@@ -43,7 +47,9 @@ class WarehouseController extends Controller
             });
 
         $warehouses = $warehouseQuery->latest()->get();
-        $stores = Store::where('is_demo', true)->get();
+        $stores = Store::when($isDemoUser, function ($q) {
+            return $q->where('is_demo', true);
+        })->get();
 
         return view('admin.warehouse.index', compact('warehouses', 'stores'));
     }

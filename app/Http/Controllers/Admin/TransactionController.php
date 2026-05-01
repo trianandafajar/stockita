@@ -34,6 +34,8 @@ class TransactionController extends Controller
 
     public function index(Request $request)
     {
+        $isDemoUser = auth()->user()->is_demo;
+
         $transactionQuery = Transaction::when($request->search, function ($q) use ($request) {
             $search = $request->search;
 
@@ -44,7 +46,9 @@ class TransactionController extends Controller
                     });
             });
         })
-            ->where('is_demo', true)
+            ->when($isDemoUser, function ($q) {
+                return $q->where('is_demo', true);
+            })
             ->when($request->status, function ($q) use ($request) {
                 $q->where('status', $request->status);
             })->when($request->store, function ($q) use ($request) {
@@ -71,15 +75,21 @@ class TransactionController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        $stores = Store::where('is_demo', true)->get();
+        $stores = Store::when($isDemoUser, function ($q) {
+            return $q->where('is_demo', true);
+        })->get();
 
         return view('admin.transaksi.index', compact('transactions', 'stats', 'stores'));
     }
 
     public function create()
     {
+        $isDemoUser = auth()->user()->is_demo;
+
         $products = Product::all();
-        $stores = Store::where('is_demo', true)->get();
+        $stores = Store::when($isDemoUser, function ($q) {
+            return $q->where('is_demo', true);
+        })->get();
 
         return view('admin.transaksi.create', compact('products', 'stores'));
     }

@@ -27,8 +27,12 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
+        $isDemoUser = auth()->user()->is_demo;
+
         $categoriesQuery = Category::with('store')
-            ->where('is_demo', true)
+            ->when($isDemoUser, function ($q) {
+                return $q->where('is_demo', true);
+            })
             ->when($request->search, function ($q) use ($request) {
                 $search = $request->search;
 
@@ -47,7 +51,9 @@ class CategoryController extends Controller
             });
 
         $categories = $categoriesQuery->latest()->get();
-        $stores = Store::where('is_demo', true)->get();
+        $stores = Store::when($isDemoUser, function ($q) {
+            return $q->where('is_demo', true)->get();
+        });
 
         return view('admin.category.index', compact('categories', 'stores'));
     }

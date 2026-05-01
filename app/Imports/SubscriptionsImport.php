@@ -30,6 +30,7 @@ class SubscriptionsImport implements ToModel, WithHeadingRow, WithValidation
                 [
                     'name'     => $row['name'],
                     'password' => Hash::make($row['password']),
+                    'is_demo'  => auth()->user()->is_demo,
                 ]
             );
 
@@ -41,6 +42,7 @@ class SubscriptionsImport implements ToModel, WithHeadingRow, WithValidation
                     'owner_id' => $user->id,
                     'slug'     => $this->generateUniqueSlug($row['store_name']),
                     'email'    => $row['email'],
+                    'is_demo'  => auth()->user()->is_demo,
                 ]);
             } else {
                 $store = $user->store;
@@ -60,6 +62,7 @@ class SubscriptionsImport implements ToModel, WithHeadingRow, WithValidation
                     'current_period_end' => $row['interval'] === 'yearly'
                         ? now()->addYear()
                         : now()->addMonth(),
+                    'is_demo'  => auth()->user()->is_demo,
                 ]
             );
 
