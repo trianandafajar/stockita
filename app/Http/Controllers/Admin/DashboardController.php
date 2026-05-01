@@ -23,7 +23,7 @@ class DashboardController extends Controller
         // card data
         $totalUsers = User::when($isDemoUser, function ($q) {
             return $q->where('is_demo', true);
-        });
+        })->count();
         $totalStores = Store::when($isDemoUser, function ($q) {
             return $q->where('is_demo', true);
         })->count();

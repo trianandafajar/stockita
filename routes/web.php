@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\StoreController;
 use App\Http\Controllers\Admin\SubscriptionController;
 use App\Http\Controllers\Admin\TransactionController as AdminTransactionController;
 use App\Http\Controllers\Admin\WarehouseController as AdminWarehouseController;
+use App\Http\Controllers\Auth\DemoLoginController;
 use App\Http\Controllers\Buyer\DashboardController as BuyerDashboardController;
 use App\Http\Controllers\Buyer\OrderController;
 use App\Http\Controllers\CategoryController;
@@ -41,6 +42,11 @@ Route::get('/', fn() => view('welcome'));
 | Public Routes
 |--------------------------------------------------------------------------
 */
+
+
+Route::post('/demo-login', [DemoLoginController::class, 'login'])
+    ->name('demo.login');
+    
 Route::post('/pay', [PaymentController::class, 'pay']);
 Route::post('/midtrans/webhook', [PaymentController::class, 'webhook']);
 
