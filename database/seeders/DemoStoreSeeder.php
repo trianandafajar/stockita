@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Customer;
 use App\Models\Store;
+use App\Models\Subscription;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -33,6 +34,15 @@ class DemoStoreSeeder extends Seeder
             'user_id' => $buyer->id,
             'phone' => '+13059565677',
             'store_id' => $store->id,
+            'is_demo' => true
+        ]);
+
+        Subscription::firstOrCreate([
+            'user_id' => $owner->id,
+            'plan_id' => 3,
+            'interval' => 'monthly',
+            'status' => 'active',
+            'current_period_end' => now()->addMonth(),
             'is_demo' => true
         ]);
     }

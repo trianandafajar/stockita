@@ -19,6 +19,7 @@ class DemoDataSeeder extends Seeder
             DemoCategorySeeder::class,
             DemoProductSeeder::class,
             DemoStockSeeder::class,
+            DemoTransactionSeeder::class,
         ]);
     }
 }
