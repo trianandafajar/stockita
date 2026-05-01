@@ -184,6 +184,7 @@ $prefix = $isAdmin ? '/admin' : '';
         <div class="border-t border-green-100 my-4"></div>
 
         @can('manage roles & permissions')
+        @if(!auth()->user()->is_demo)
         <a href="{{ $prefix }}/roles" class="nav-item {{ str_contains($currentPath, 'roles') ? 'active' : '' }}">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -192,6 +193,7 @@ $prefix = $isAdmin ? '/admin' : '';
             </svg>
             <span class="sidebar-text will-change-transform">Roles & Permissions</span>
         </a>
+        @endif
         @endcan
 
         <a href="/logs" class="nav-item {{ str_contains($currentPath, 'logs') ? 'active' : '' }}">
@@ -207,6 +209,7 @@ $prefix = $isAdmin ? '/admin' : '';
 
         {{-- settings --}}
         @can('view settings')
+        @if(!auth()->user()->is_demo)
         <a href="{{ $prefix }}/settings" class="nav-item {{ str_contains($currentPath, 'settings') ? 'active' : '' }}">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="size-5">
@@ -217,6 +220,7 @@ $prefix = $isAdmin ? '/admin' : '';
 
             <span class="sidebar-text will-change-transform">Settings</span>
         </a>
+        @endif
         @endcan
 
 
