@@ -9,7 +9,7 @@
 
             Swal.fire({
                 icon: type,
-                title: isLongMessage ? "Peringatan Import" : message,
+                title: isLongMessage ? "Import Warning" : message,
                 html: isLongMessage ? message : "", 
                 toast: isLongMessage ? false : true,
                 position: isLongMessage ? 'center' : 'top-end',

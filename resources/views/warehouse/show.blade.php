@@ -99,7 +99,7 @@
 
                 <div class="relative aspect-[4/3] bg-gray-100">
 
-                    <img src="{{ asset('storage/' . $stock->product->image) }}"
+                    <img src="{{ $stock->product->image ? asset('storage/' . $stock->product->image) : asset('image/product/products.jpg') }}"
                         class="w-full h-full object-cover group-hover:scale-105 transition">
 
                     <span class="absolute top-2 left-2 text-xs font-bold bg-green-500 text-white px-2 py-1 rounded-lg">
