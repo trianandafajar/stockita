@@ -119,6 +119,7 @@ class TransactionController extends Controller
                 'change' => $change,
                 'status' => 'paid',
                 'created_by' => auth()->id(),
+                'is_demo'  => auth()->user()->is_demo,
             ]);
 
             foreach ($request->items as $item) {
@@ -142,6 +143,7 @@ class TransactionController extends Controller
                     'qty' => $qty,
                     'price' => $price,
                     'subtotal' => $qty * $price,
+                    'is_demo'  => auth()->user()->is_demo,
                 ]);
 
                 // update stok
@@ -281,19 +283,19 @@ class TransactionController extends Controller
         $center = $width / 2;
         $fontPath = public_path('fonts/RobotoMono-Regular.ttf');
 
-        // Gunakan tempHeight yang cukup
+        // Use sufficient tempHeight
         $tempHeight = 2000;
         $img = $manager->create($width, $tempHeight)->fill('white');
 
         $y = 30;
 
-        // --- Header Toko ---
-        $img->text(strtoupper($store->name ?? 'TOKO'), $center, $y, function ($font) use ($fontPath) {
+        // --- Store Header ---
+        $img->text(strtoupper($store->name ?? 'STORE'), $center, $y, function ($font) use ($fontPath) {
             $font->file($fontPath)->size(22)->align('center')->color('000');
         });
 
         $y += 25;
-        $address = strtoupper($store->address ?? 'ALAMAT TOKO');
+        $address = strtoupper($store->address ?? 'STORE ADDRESS');
         $charPerLine = floor(($width - ($leftX * 2)) / 7);
         $lines = explode("\n", wordwrap($address, $charPerLine, "\n", true));
 
@@ -308,10 +310,10 @@ class TransactionController extends Controller
         $img->text(receipt_line(), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
         $y += 20;
 
-        // --- Info Transaksi ---
-        $img->text($transaction->invoice_code, $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
+        // --- Transaction Info ---
+        $img->text('INV: ' . $transaction->invoice_code, $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
         $y += 18;
-        $img->text($transaction->created_at->format('d/m/Y H:i'), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
+        $img->text('DATE: ' . $transaction->created_at->format('d/m/Y H:i'), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
         $y += 20;
         $img->text(receipt_line(), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
         $y += 20;
@@ -324,7 +326,8 @@ class TransactionController extends Controller
             foreach ($lines as $i => $lineText) {
                 if ($i === 0) {
                     $left = $lineText . ' x' . $item->qty;
-                    $right = 'Rp ' . number_format($item->subtotal, 0, ',', '.');
+                    // English format usually uses $ or just the number with 2 decimal places
+                    $right = '$ ' . number_format($item->subtotal, 2, '.', ',');
                     $img->text(receipt_format($left, $right), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
                 } else {
                     $img->text($lineText, $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
@@ -338,22 +341,22 @@ class TransactionController extends Controller
         $y += 20;
 
         // --- Totals ---
-        $img->text(receipt_format('TOTAL', 'Rp ' . number_format($transaction->total, 0, ',', '.')), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
+        $img->text(receipt_format('TOTAL', '$ ' . number_format($transaction->total, 2, '.', ',')), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
         $y += 18;
-        $img->text(receipt_format('TUNAI', 'Rp ' . number_format($transaction->paid, 0, ',', '.')), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
+        $img->text(receipt_format('CASH', '$ ' . number_format($transaction->paid, 2, '.', ',')), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
         $y += 18;
-        $img->text(receipt_format('KEMBALI', 'Rp ' . number_format($transaction->change, 0, ',', '.')), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
+        $img->text(receipt_format('CHANGE', '$ ' . number_format($transaction->change, 2, '.', ',')), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
         $y += 25;
 
         $img->text(receipt_line(), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
         $y += 25;
 
         // --- Footer ---
-        $img->text('TERIMA KASIH', $center, $y, fn($font) => $font->file($fontPath)->size(12)->align('center')->color('000'));
+        $img->text('THANK YOU', $center, $y, fn($font) => $font->file($fontPath)->size(12)->align('center')->color('000'));
         $y += 18;
-        $img->text('SELAMAT BERBELANJA KEMBALI', $center, $y, fn($font) => $font->file($fontPath)->size(11)->align('center')->color('000'));
+        $img->text('PLEASE COME AGAIN', $center, $y, fn($font) => $font->file($fontPath)->size(11)->align('center')->color('000'));
 
-        // --- Finalisasi Gambar ---
+        // --- Image Finalization ---
         $finalHeight = $y + 30;
         $img->crop($width, $finalHeight, 0, 0);
 

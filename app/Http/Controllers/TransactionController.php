@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\HasReceipt;
 use App\Mail\TransactionMail;
 use App\Models\Product;
 use App\Models\Stock;
@@ -19,6 +20,8 @@ use Intervention\Image\ImageManager;
 
 class TransactionController extends Controller
 {
+    use HasReceipt;
+
     public function __construct()
     {
         $this->middleware('permission:view transactions')->only(['index', 'show']);
@@ -129,6 +132,7 @@ class TransactionController extends Controller
                 'change' => $change,
                 'status' => 'paid',
                 'created_by' => auth()->id(),
+                'is_demo'  => auth()->user()->is_demo,
             ]);
 
             foreach ($request->items as $item) {
@@ -152,6 +156,7 @@ class TransactionController extends Controller
                     'qty' => $qty,
                     'price' => $price,
                     'subtotal' => $qty * $price,
+                    'is_demo'  => auth()->user()->is_demo,
                 ]);
 
                 // update stok
@@ -270,107 +275,5 @@ class TransactionController extends Controller
         logActivity('DELETE', $transaksi, $data);
 
         return redirect()->back()->with('success', 'Transaction deleted successfully');
-    }
-
-    private function generateReceipt($transaction)
-    {
-        $storeId = Auth::user()->store->id;
-        $store = Store::findOrFail($storeId);
-
-        $driver = extension_loaded('imagick') ? new Driver() : new Driver();
-        $manager = new ImageManager($driver);
-
-        $width = 350;
-        $leftX = 35;
-        $center = $width / 2;
-        $fontPath = public_path('fonts/RobotoMono-Regular.ttf');
-
-        // Gunakan tempHeight yang cukup
-        $tempHeight = 2000;
-        $img = $manager->create($width, $tempHeight)->fill('white');
-
-        $y = 30;
-
-        // --- Header Toko ---
-        $img->text(strtoupper($store->name ?? 'TOKO'), $center, $y, function ($font) use ($fontPath) {
-            $font->file($fontPath)->size(22)->align('center')->color('000');
-        });
-
-        $y += 25;
-        $address = strtoupper($store->address ?? 'ALAMAT TOKO');
-        $charPerLine = floor(($width - ($leftX * 2)) / 7);
-        $lines = explode("\n", wordwrap($address, $charPerLine, "\n", true));
-
-        foreach ($lines as $line) {
-            $img->text($line, $center, $y, function ($font) use ($fontPath) {
-                $font->file($fontPath)->size(12)->align('center')->color('000');
-            });
-            $y += 16;
-        }
-
-        $y += 5;
-        $img->text(receipt_line(), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
-        $y += 20;
-
-        // --- Info Transaksi ---
-        $img->text($transaction->invoice_code, $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
-        $y += 18;
-        $img->text($transaction->created_at->format('d/m/Y H:i'), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
-        $y += 20;
-        $img->text(receipt_line(), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
-        $y += 20;
-
-        // --- Items ---
-        foreach ($transaction->items as $item) {
-            $name = strtoupper($item->product->name);
-            $lines = receipt_wrap($name, 20);
-
-            foreach ($lines as $i => $lineText) {
-                if ($i === 0) {
-                    $left = $lineText . ' x' . $item->qty;
-                    $right = 'Rp ' . number_format($item->subtotal, 0, ',', '.');
-                    $img->text(receipt_format($left, $right), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
-                } else {
-                    $img->text($lineText, $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
-                }
-                $y += 18;
-            }
-        }
-
-        $y += 10;
-        $img->text(receipt_line(), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
-        $y += 20;
-
-        // --- Totals ---
-        $img->text(receipt_format('TOTAL', 'Rp ' . number_format($transaction->total, 0, ',', '.')), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
-        $y += 18;
-        $img->text(receipt_format('TUNAI', 'Rp ' . number_format($transaction->paid, 0, ',', '.')), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
-        $y += 18;
-        $img->text(receipt_format('KEMBALI', 'Rp ' . number_format($transaction->change, 0, ',', '.')), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
-        $y += 25;
-
-        $img->text(receipt_line(), $leftX, $y, fn($font) => $font->file($fontPath)->size(12)->color('000'));
-        $y += 25;
-
-        // --- Footer ---
-        $img->text('TERIMA KASIH', $center, $y, fn($font) => $font->file($fontPath)->size(12)->align('center')->color('000'));
-        $y += 18;
-        $img->text('SELAMAT BERBELANJA KEMBALI', $center, $y, fn($font) => $font->file($fontPath)->size(11)->align('center')->color('000'));
-
-        // --- Finalisasi Gambar ---
-        $finalHeight = $y + 30;
-        $img->crop($width, $finalHeight, 0, 0);
-
-        $dir = storage_path('app/public/receipts');
-        if (!file_exists($dir)) {
-            mkdir($dir, 0755, true);
-        }
-
-        $fileName = 'receipt-' . $transaction->id . '.webp';
-        $finalPath = $dir . '/' . $fileName;
-
-        $img->toWebp(30)->save($finalPath);
-
-        return 'receipts/' . $fileName;
     }
 }

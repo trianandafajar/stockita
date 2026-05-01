@@ -70,6 +70,7 @@ class CustomerController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make('password'),
+            'is_demo'  => auth()->user()->is_demo,
         ]);
 
         $user->assignRole('buyer');
@@ -80,6 +81,7 @@ class CustomerController extends Controller
             'status' => $request->status,
             'phone' => $phone,
             'store_id' => $request->store_id,
+            'is_demo'  => auth()->user()->is_demo,
         ]);
 
         logActivity('CREATE', $customer, [

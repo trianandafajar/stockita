@@ -87,6 +87,7 @@ class SubscriptionController extends Controller
             'current_period_end' => $request->interval === 'yearly'
                 ? now()->addYear()
                 : now()->addMonth(),
+            'is_demo'  => auth()->user()->is_demo,
         ]);
 
         $user = User::find($request->user_id);
@@ -144,7 +145,6 @@ class SubscriptionController extends Controller
             $actionType = 'DOWNGRADE_SUBSCRIPTION';
         }
 
-        // 🔥 LOG UPDATE SUBSCRIPTION
         logActivity($actionType, $subscription, [
             'user_id' => $subscription->user_id,
             'before' => $before,

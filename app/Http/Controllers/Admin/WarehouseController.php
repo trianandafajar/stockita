@@ -59,6 +59,7 @@ class WarehouseController extends Controller
             'location' => $request->location,
             'store_id' => $request->store_id,
             'description' => $request->description,
+            'is_demo'  => auth()->user()->is_demo,
         ]);
 
         logActivity('CREATE', $warehouse, [

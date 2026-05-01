@@ -51,6 +51,7 @@ class StoreController extends Controller
             'name'     => $request->owner_name,
             'email'    => $request->owner_email,
             'password' => Hash::make($request->password),
+            'is_demo'  => auth()->user()->is_demo,
         ]);
 
         $owner->assignRole('owner');
@@ -62,6 +63,7 @@ class StoreController extends Controller
             'address'  => $request->address,
             'phone'    => $request->phone,
             'slug'     => $this->generateUniqueSlug($request->name),
+            'is_demo'  => auth()->user()->is_demo,
         ]);
 
         logActivity('CREATE', $store, [

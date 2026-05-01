@@ -57,6 +57,7 @@ class CategoryController extends Controller
             'name' => $request->name,
             'slug' => $this->generateUniqueSlug($request->name),
             'store_id' => Auth::user()->store->id,
+            'is_demo'  => auth()->user()->is_demo,
         ]);
 
         logActivity('CREATE', $category, [

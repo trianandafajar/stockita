@@ -113,6 +113,7 @@ class ProductController extends Controller
             'created_by' => auth()->id(),
             'store_id' => $request->store_id,
             'warehouse_id' => $request->warehouse_id,
+            'is_demo'  => auth()->user()->is_demo,
         ]);
 
         logActivity('CREATE', $product, [

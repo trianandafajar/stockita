@@ -48,6 +48,7 @@ class StockController extends Controller
             ],
             [
                 'qty' => 0,
+                'is_demo'  => auth()->user()->is_demo,
             ]
         );
 
