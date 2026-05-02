@@ -26,7 +26,7 @@
 
                             <div>
                                 <h1
-                                    class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black bg-gradient-to-r from-white via-white to-green-100/50 bg-clip-text text-transparent leading-tight lg:leading-[1.2] mb-4 sm:mb-6 drop-shadow-2xl">
+                                    class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black bg-gradient-to-r from-white via-white to-green-100/50 bg-clip-text text-transparent leading-tight !md:leading-[1.2] mb-4 sm:mb-6 drop-shadow-2xl">
                                     Uncertain Conditions,
                                     <br class="hidden sm:block">
 
