@@ -4,17 +4,17 @@
             <nav
                 class="w-full sm:w-auto flex flex-wrap sm:flex-nowrap items-center gap-4 sm:gap-6 text-xs sm:text-sm justify-center sm:justify-end">
                 <a href="/privacy" class="text-gray-600 hover:text-emerald-600">Privacy</a>
-                <a href="/dmca" class="text-gray-600 hover:text-emerald-600">DMCA & Hak Cipta</a>
-                <a href="/terms" class="text-gray-600 hover:text-emerald-600">Syarat & Ketentuan</a>
+                <a href="/dmca" class="text-gray-600 hover:text-emerald-600">DMCA & Copyright</a>
+                <a href="/terms" class="text-gray-600 hover:text-emerald-600">Terms & Conditions</a>
             </nav>
-
         </div>
+
         <div class="max-w-4xl mx-auto px-6 py-16 text-center">
             <h2 class="text-3xl font-bold text-gray-900 mb-2">
-                Syarat & Ketentuan
+                Terms & Conditions
             </h2>
             <p class="text-gray-600">
-                Aturan penggunaan layanan StocKita yang perlu Anda pahami.
+                The rules for using StocKita services that you need to understand.
             </p>
         </div>
     </section>
@@ -24,58 +24,58 @@
         <div class="space-y-10 leading-relaxed">
 
             <p class="text-gray-600">
-                Dengan menggunakan layanan StocKita, Anda dianggap telah membaca,
-                memahami, dan menyetujui seluruh syarat dan ketentuan yang berlaku.
+                By using StocKita services, you are considered to have read,
+                understood, and agreed to all applicable terms and conditions.
             </p>
 
             <div>
-                <h3 class="text-xl font-semibold mb-2">1. Penggunaan Layanan</h3>
+                <h3 class="text-xl font-semibold mb-2">1. Use of Services</h3>
                 <p class="text-gray-600">
-                    Layanan ini hanya boleh digunakan untuk kegiatan bisnis yang sah
-                    dan tidak melanggar hukum yang berlaku.
+                    This service may only be used for lawful business activities
+                    and must not violate applicable laws.
                 </p>
             </div>
 
             <div>
-                <h3 class="text-xl font-semibold mb-2">2. Akun Pengguna</h3>
+                <h3 class="text-xl font-semibold mb-2">2. User Accounts</h3>
                 <p class="text-gray-600">
-                    Pengguna bertanggung jawab penuh atas keamanan akun, termasuk menjaga kerahasiaan password.
+                    Users are fully responsible for account security, including keeping passwords confidential.
                 </p>
             </div>
 
             <div>
-                <h3 class="text-xl font-semibold mb-2">3. Pembayaran & Transaksi</h3>
+                <h3 class="text-xl font-semibold mb-2">3. Payments & Transactions</h3>
                 <p class="text-gray-600">
-                    Semua transaksi diproses melalui sistem pembayaran yang terintegrasi.
-                    Pengguna wajib memastikan data pembayaran yang dimasukkan benar.
+                    All transactions are processed through an integrated payment system.
+                    Users must ensure that the payment information entered is accurate.
                 </p>
             </div>
 
             <div>
-                <h3 class="text-xl font-semibold mb-2">4. Larangan Penggunaan</h3>
+                <h3 class="text-xl font-semibold mb-2">4. Prohibited Use</h3>
                 <p class="text-gray-600">
-                    Pengguna dilarang menggunakan layanan untuk aktivitas ilegal, penyalahgunaan sistem,
-                    atau tindakan yang merugikan pihak lain.
+                    Users are prohibited from using the service for illegal activities, system abuse,
+                    or actions that may harm other parties.
                 </p>
             </div>
 
             <div>
-                <h3 class="text-xl font-semibold mb-2">5. Pembatasan Tanggung Jawab</h3>
+                <h3 class="text-xl font-semibold mb-2">5. Limitation of Liability</h3>
                 <p class="text-gray-600">
-                    StocKita tidak bertanggung jawab atas kerugian yang timbul akibat kesalahan penggunaan
-                    atau gangguan teknis di luar kendali kami.
+                    StocKita is not responsible for any losses resulting from misuse
+                    or technical issues beyond our control.
                 </p>
             </div>
 
             <div>
-                <h3 class="text-xl font-semibold mb-2">6. Perubahan Ketentuan</h3>
+                <h3 class="text-xl font-semibold mb-2">6. Changes to Terms</h3>
                 <p class="text-gray-600">
-                    Kami berhak untuk mengubah syarat dan ketentuan ini sewaktu-waktu sesuai kebutuhan layanan.
+                    We reserve the right to modify these terms and conditions at any time as needed.
                 </p>
             </div>
 
             <p class="text-sm text-gray-400">
-                Terakhir diperbarui: 2026
+                Last updated: 2026
             </p>
 
         </div>

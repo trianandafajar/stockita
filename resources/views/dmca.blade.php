@@ -4,17 +4,17 @@
             <nav
                 class="w-full sm:w-auto flex flex-wrap sm:flex-nowrap items-center gap-4 sm:gap-6 text-xs sm:text-sm justify-center sm:justify-end">
                 <a href="/privacy" class="text-gray-600 hover:text-emerald-600">Privacy</a>
-                <a href="/dmca" class="text-gray-600 hover:text-emerald-600">DMCA & Hak Cipta</a>
-                <a href="/terms" class="text-gray-600 hover:text-emerald-600">Syarat & Ketentuan</a>
+                <a href="/dmca" class="text-gray-600 hover:text-emerald-600">DMCA & Copyright</a>
+                <a href="/terms" class="text-gray-600 hover:text-emerald-600">Terms & Conditions</a>
             </nav>
-
         </div>
+
         <div class="max-w-4xl mx-auto px-6 py-16 text-center">
             <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                DMCA & Hak Cipta
+                DMCA & Copyright
             </h2>
             <p class="text-sm sm:text-base text-gray-600">
-                Kami menghormati hak cipta dan menangani pelanggaran dengan serius.
+                We respect copyright and handle violations seriously.
             </p>
         </div>
     </section>
@@ -24,38 +24,36 @@
         <div class="space-y-8 sm:space-y-10 leading-relaxed">
 
             <p class="text-sm sm:text-base text-gray-600">
-                StocKita berkomitmen untuk melindungi hak cipta dan mematuhi ketentuan Digital Millennium Copyright Act
-                (DMCA).
-                Jika terdapat konten yang melanggar, kami akan mengambil tindakan sesuai kebijakan.
+                StocKita is committed to protecting copyright and complying with the Digital Millennium Copyright Act (DMCA).
+                If any content violates copyright, we will take action in accordance with our policies.
             </p>
 
             <div>
-                <h3 class="text-lg sm:text-xl font-semibold mb-2">1. Pelaporan Pelanggaran</h3>
+                <h3 class="text-lg sm:text-xl font-semibold mb-2">1. Reporting Violations</h3>
                 <p class="text-sm sm:text-base text-gray-600">
-                    Jika Anda merasa bahwa konten dalam platform kami melanggar hak cipta Anda, silakan kirimkan laporan
-                    yang berisi bukti kepemilikan, detail pelanggaran, dan informasi kontak Anda.
+                    If you believe that content on our platform infringes your copyright, please submit a report
+                    including proof of ownership, details of the violation, and your contact information.
                 </p>
             </div>
 
             <div>
-                <h3 class="text-lg sm:text-xl font-semibold mb-2">2. Proses Peninjauan</h3>
+                <h3 class="text-lg sm:text-xl font-semibold mb-2">2. Review Process</h3>
                 <p class="text-sm sm:text-base text-gray-600">
-                    Tim kami akan meninjau laporan yang masuk dan melakukan verifikasi sebelum mengambil tindakan lebih
-                    lanjut.
+                    Our team will review incoming reports and verify the information before taking further action.
                 </p>
             </div>
 
             <div>
-                <h3 class="text-lg sm:text-xl font-semibold mb-2">3. Tindakan</h3>
+                <h3 class="text-lg sm:text-xl font-semibold mb-2">3. Actions</h3>
                 <p class="text-sm sm:text-base text-gray-600">
-                    Jika terbukti melanggar, konten akan dihapus atau dibatasi sesuai kebijakan yang berlaku.
+                    If a violation is confirmed, the content will be removed or restricted in accordance with applicable policies.
                 </p>
             </div>
 
             <div>
-                <h3 class="text-lg sm:text-xl font-semibold mb-2">4. Kontak</h3>
+                <h3 class="text-lg sm:text-xl font-semibold mb-2">4. Contact</h3>
                 <p class="text-sm sm:text-base text-gray-600">
-                    Untuk laporan pelanggaran, silakan hubungi:
+                    For infringement reports, please contact:
                 </p>
 
                 <div
@@ -71,7 +69,7 @@
             </div>
 
             <p class="text-xs sm:text-sm text-gray-400">
-                Terakhir diperbarui: 2026
+                Last updated: 2026
             </p>
 
         </div>

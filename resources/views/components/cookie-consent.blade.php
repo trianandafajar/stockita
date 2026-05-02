@@ -3,8 +3,8 @@
         class="bg-white border-t-4 max-w-md border-green-500 mx-4 p-5 rounded-lg shadow-lg transform translate-y-full transition-transform duration-500">
         <div class="flex flex-col gap-8">
             <div>
-                <p class="text-sm text-gray-700 mb-1">Kami menggunakan cookies untuk pengalaman terbaik</p>
-                <p class="text-xs text-gray-500">Dengan melanjutkan, Anda setuju dengan kebijakan kami</p>
+                <p class="text-sm text-gray-700 mb-1">We use cookies for the best experience</p>
+                <p class="text-xs text-gray-500">By continuing, you agree to our policy</p>
             </div>
             <div class="flex gap-2">
                 <button id="declineCookie"

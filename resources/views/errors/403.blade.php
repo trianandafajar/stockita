@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -23,16 +23,16 @@
         </div>
 
         <div class="text-center">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-4">Akses Ditolak</h2>
+            <h2 class="text-2xl font-semibold text-gray-900 mb-4">Access Denied</h2>
             <p class="text-gray-500 mb-8 text-lg">
-                Anda tidak memiliki izin untuk mengakses halaman ini.
+                You do not have permission to access this page.
             </p>
         </div>
 
         <div>
             <a href="javascript:history.back()"
                 class="block w-full max-w-sm mx-auto flex justify-center py-3 px-6 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors duration-200">
-                Kembali ke Halaman Sebelumnya
+                Back to Previous Page
             </a>
         </div>
     </div>

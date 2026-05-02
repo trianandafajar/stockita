@@ -276,10 +276,10 @@
                                     </svg>
                                 </div>
                                 <h3 class="text-lg font-semibold mb-2">No customers yet</h3>
-                                <p class="mb-4">Mulai tambahkan pelanggan pertama Anda</p>
+                                <p class="mb-4">Start by adding your first customer</p>
                                 <button @click="$dispatch('open-modal', { name: 'create-customer' })"
                                     class="px-4 py-2 text-white rounded-lg font-medium bg-green-500 hover:bg-green-600">
-                                    + Tambah Pelanggan
+                                    + Add Customer
                                 </button>
                             </td>
                         </tr>
