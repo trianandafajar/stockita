@@ -26,7 +26,7 @@
 
                             <div>
                                 <h1
-                                    class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black bg-gradient-to-r from-white via-white to-green-100/50 bg-clip-text text-transparent leading-tight lg:leading-[0.9] mb-4 sm:mb-6 drop-shadow-2xl">
+                                    class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black bg-gradient-to-r from-white via-white to-green-100/50 bg-clip-text text-transparent leading-tight lg:leading-[1.2] mb-4 sm:mb-6 drop-shadow-2xl">
                                     Uncertain Conditions,
                                     <br class="hidden sm:block">
 
@@ -49,19 +49,19 @@
                             </div>
 
                             <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
-                                <a href="/register" class="group relative 
-                                    bg-white text-green-700 hover:bg-green-100 
-                                    px-6 sm:px-8 lg:px-10 
-                                    py-4 sm:py-5 lg:py-6 
-                                    rounded-2xl sm:rounded-3xl 
-                                    font-bold sm:font-black 
-                                    text-base sm:text-lg lg:text-xl 
-                                    shadow-xl sm:shadow-2xl 
-                                    transform hover:-translate-y-1 sm:hover:-translate-y-2 
-                                    transition-all duration-500 
-                                    flex items-center justify-center gap-3 sm:gap-4 
-                                    w-full sm:w-auto 
-                                    min-w-0 sm:min-w-[220px] 
+                                <a href="/register" class="group relative
+                                    bg-white text-green-700 hover:bg-green-100
+                                    px-6 sm:px-8 lg:px-10
+                                    py-4 sm:py-5 lg:py-6
+                                    rounded-2xl sm:rounded-3xl
+                                    font-bold sm:font-black
+                                    text-base sm:text-lg lg:text-xl
+                                    shadow-xl sm:shadow-2xl
+                                    transform hover:-translate-y-1 sm:hover:-translate-y-2
+                                    transition-all duration-500
+                                    flex items-center justify-center gap-3 sm:gap-4
+                                    w-full sm:w-auto
+                                    min-w-0 sm:min-w-[220px]
                                     border-2 border-white/20 hover:border-green-200/50">
 
                                     <span class="relative z-10">Start for Free</span>
@@ -103,17 +103,17 @@
 
                             <div>
                                 <!-- SLIDE 2 -->
-                                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl 
-    font-black 
-    bg-gradient-to-r from-white via-white to-green-100/50 
-    bg-clip-text text-transparent 
-    leading-tight lg:leading-[0.9] 
+                                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl
+    font-black
+    bg-gradient-to-r from-white via-white to-green-100/50
+    bg-clip-text text-transparent
+    leading-tight lg:leading-[0.9]
     mb-4 sm:mb-6 drop-shadow-2xl">
 
                                     POS Application
 
-                                    <span class="block mt-2 sm:mt-0 
-        bg-gradient-to-r from-green-300 via-green-200 to-emerald-300 
+                                    <span class="block mt-2 sm:mt-0
+        bg-gradient-to-r from-green-300 via-green-200 to-emerald-300
         bg-clip-text text-transparent drop-shadow-2xl">
                                         The Best
                                     </span>
@@ -121,8 +121,8 @@
                                     and Most Complete
                                 </h1>
 
-                                <p class="text-base sm:text-lg md:text-xl 
-    text-white/95 max-w-md sm:max-w-lg 
+                                <p class="text-base sm:text-lg md:text-xl
+    text-white/95 max-w-md sm:max-w-lg
     leading-relaxed font-medium drop-shadow-lg">
 
                                     Improve your business performance with complete features and a
@@ -134,19 +134,19 @@
                             </div>
 
                             <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
-                                <a href="/register" class="group 
-                                    bg-white text-green-700 hover:bg-green-100 
-                                    px-6 sm:px-8 lg:px-10 
-                                    py-4 sm:py-5 lg:py-6 
-                                    rounded-2xl sm:rounded-3xl 
-                                    font-bold sm:font-black 
-                                    text-base sm:text-lg lg:text-xl 
-                                    shadow-xl sm:shadow-2xl 
-                                    transform hover:-translate-y-1 sm:hover:-translate-y-2 
-                                    transition-all duration-500 
-                                    flex items-center justify-center gap-3 sm:gap-4 
-                                    w-full sm:w-auto 
-                                    min-w-0 sm:min-w-[220px] 
+                                <a href="/register" class="group
+                                    bg-white text-green-700 hover:bg-green-100
+                                    px-6 sm:px-8 lg:px-10
+                                    py-4 sm:py-5 lg:py-6
+                                    rounded-2xl sm:rounded-3xl
+                                    font-bold sm:font-black
+                                    text-base sm:text-lg lg:text-xl
+                                    shadow-xl sm:shadow-2xl
+                                    transform hover:-translate-y-1 sm:hover:-translate-y-2
+                                    transition-all duration-500
+                                    flex items-center justify-center gap-3 sm:gap-4
+                                    w-full sm:w-auto
+                                    min-w-0 sm:min-w-[220px]
                                     border-2 border-white/20">
 
                                     <span class="relative z-10">Get Started for Free</span>
@@ -188,26 +188,26 @@
 
                             <div>
                                 <!-- SLIDE 3 -->
-                                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl 
-    font-black 
-    bg-gradient-to-r from-white via-white to-green-100/50 
-    bg-clip-text text-transparent 
-    leading-tight lg:leading-[0.9] 
+                                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl
+    font-black
+    bg-gradient-to-r from-white via-white to-green-100/50
+    bg-clip-text text-transparent
+    leading-tight lg:leading-[0.9]
     mb-4 sm:mb-6 drop-shadow-2xl">
 
                                     Support Your Business
 
                                     <br class="hidden sm:block">
 
-                                    <span class="block mt-2 sm:mt-0 
-        bg-gradient-to-r from-green-300 via-green-200 to-emerald-300 
+                                    <span class="block mt-2 sm:mt-0
+        bg-gradient-to-r from-green-300 via-green-200 to-emerald-300
         bg-clip-text text-transparent drop-shadow-2xl">
                                         With StocKita
                                     </span>
                                 </h1>
 
-                                <p class="text-base sm:text-lg md:text-xl 
-    text-white/95 max-w-md sm:max-w-lg 
+                                <p class="text-base sm:text-lg md:text-xl
+    text-white/95 max-w-md sm:max-w-lg
     leading-relaxed font-medium drop-shadow-lg">
 
                                     <span class="font-black text-green-100 text-lg sm:text-xl">
@@ -220,19 +220,19 @@
                             </div>
 
                             <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
-                                <a href="/register" class="group relative 
-                                    bg-white text-green-700 hover:bg-green-100 
-                                    px-6 sm:px-8 lg:px-10 
-                                    py-4 sm:py-5 lg:py-6 
-                                    rounded-2xl sm:rounded-3xl 
-                                    font-bold sm:font-black 
-                                    text-base sm:text-lg lg:text-xl 
-                                    shadow-xl sm:shadow-2xl 
-                                    transform hover:-translate-y-1 sm:hover:-translate-y-2 
-                                    transition-all duration-500 
-                                    flex items-center justify-center gap-3 sm:gap-4 
-                                    w-full sm:w-auto 
-                                    min-w-0 sm:min-w-[220px] 
+                                <a href="/register" class="group relative
+                                    bg-white text-green-700 hover:bg-green-100
+                                    px-6 sm:px-8 lg:px-10
+                                    py-4 sm:py-5 lg:py-6
+                                    rounded-2xl sm:rounded-3xl
+                                    font-bold sm:font-black
+                                    text-base sm:text-lg lg:text-xl
+                                    shadow-xl sm:shadow-2xl
+                                    transform hover:-translate-y-1 sm:hover:-translate-y-2
+                                    transition-all duration-500
+                                    flex items-center justify-center gap-3 sm:gap-4
+                                    w-full sm:w-auto
+                                    min-w-0 sm:min-w-[220px]
                                     border-2 border-white/20 hover:border-green-200/50">
 
                                     <span class="relative z-10">Join Now</span>
@@ -263,26 +263,26 @@
         </div>
 
         <button class="hidden md:flex carousel-prev z-30
-                absolute bottom-4 left-4 
+                absolute bottom-4 left-4
                 lg:top-1/2 lg:left-8 lg:bottom-auto lg:-translate-y-1/2
                 w-12 h-12 lg:w-16 lg:h-16
-                bg-white/30 hover:bg-white/60 backdrop-blur-2xl 
-                rounded-2xl lg:rounded-3xl 
-                items-center justify-center text-white 
-                transition-all duration-300 hover:scale-110 
+                bg-white/30 hover:bg-white/60 backdrop-blur-2xl
+                rounded-2xl lg:rounded-3xl
+                items-center justify-center text-white
+                transition-all duration-300 hover:scale-110
                 shadow-2xl border border-white/30">
             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
             </svg>
         </button>
         <button class="hidden md:flex carousel-next z-30
-                absolute bottom-4 right-4 
+                absolute bottom-4 right-4
                 lg:top-1/2 lg:right-8 lg:bottom-auto lg:-translate-y-1/2
                 w-12 h-12 lg:w-16 lg:h-16
-                bg-white/30 hover:bg-white/60 backdrop-blur-2xl 
-                rounded-2xl lg:rounded-3xl 
-                items-center justify-center text-white 
-                transition-all duration-300 hover:scale-110 
+                bg-white/30 hover:bg-white/60 backdrop-blur-2xl
+                rounded-2xl lg:rounded-3xl
+                items-center justify-center text-white
+                transition-all duration-300 hover:scale-110
                 shadow-2xl border border-white/30">
             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
@@ -413,11 +413,11 @@
             clearInterval(autoPlayInterval);
 
             gsap.killTweensOf(track);
-            
-            isTransitioning = false; 
+
+            isTransitioning = false;
 
             startTrackX = gsap.getProperty(track, "x");
-            
+
             index = Math.round(Math.abs(startTrackX) / slideWidth);
 
         }, { passive: true });
@@ -460,7 +460,7 @@
                     prevSlide();
                 }
             } else {
-                moveToSlide(index); 
+                moveToSlide(index);
             }
 
             isDragging = false;
