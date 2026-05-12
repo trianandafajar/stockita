@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ActivityLogController;
+use App\Http\Controllers\AiInsightController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\CategoryController as AdminCategoryController;
 use App\Http\Controllers\Admin\CustomerController as AdminCustomerController;
@@ -332,6 +333,22 @@ Route::middleware(['auth', 'role:buyer'])
         Route::get('/dashboard', [BuyerDashboardController::class, 'index'])->name('dashboard');
         Route::get('/orders', [OrderController::class, 'index'])->name('orders');
         Route::get('/orders/{id}', [OrderController::class, 'show'])->name('orders.show');
+    });
+
+/*
+|--------------------------------------------------------------------------
+| AI Insights (Owner + Admin + Buyer)
+|--------------------------------------------------------------------------
+*/
+Route::middleware(['auth'])
+    ->prefix('ai-insights')
+    ->name('ai-insights.')
+    ->group(function () {
+        Route::get('/', [AiInsightController::class, 'index'])->name('index');
+        Route::get('/recommendations',     [AiInsightController::class, 'recommendations'])->name('recommendations');
+        Route::get('/top-products',        [AiInsightController::class, 'topProducts'])->name('top-products');
+        Route::get('/stock-suggestions',   [AiInsightController::class, 'stockSuggestions'])->name('stock-suggestions');
+        Route::get('/personalized',        [AiInsightController::class, 'personalized'])->name('personalized');
     });
 
 require __DIR__ . '/auth.php';
