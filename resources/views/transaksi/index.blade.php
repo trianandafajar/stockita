@@ -202,7 +202,7 @@
             @endforelse
         </div>
 
-        <div class="px-6 py-4 bg-gray-50 border-t">
+        <div class="py-4 bg-gray-50 border-t">
             {{ $transactions->appends(request()->query())->links() }}
         </div>
     </div>
