@@ -52,8 +52,8 @@ class CategoryController extends Controller
 
         $categories = $categoriesQuery->latest()->get();
         $stores = Store::when($isDemoUser, function ($q) {
-            return $q->where('is_demo', true)->get();
-        });
+            $q->where('is_demo', true);
+        })->get();
 
         return view('admin.category.index', compact('categories', 'stores'));
     }
