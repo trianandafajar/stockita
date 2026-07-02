@@ -33,6 +33,7 @@ use App\Models\Customer;
 use App\Models\User;
 // Buyer
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
@@ -45,6 +46,22 @@ Route::get('/', fn() => view('welcome'));
 */
 
 
+Route::get('/api/health', function () {
+    $databaseOk = false;
+
+    try {
+        DB::select('SELECT 1');
+        $databaseOk = true;
+    } catch (\Throwable $e) {
+        $databaseOk = false;
+    }
+
+    return response()->json([
+        'status' => $databaseOk ? 'ok' : 'degraded',
+        'api' => true,
+        'database' => $databaseOk,
+    ]);
+});
 Route::post('/demo-login', [DemoLoginController::class, 'login'])
     ->name('demo.login');
     
@@ -352,3 +369,4 @@ Route::middleware(['auth'])
     });
 
 require __DIR__ . '/auth.php';
+
