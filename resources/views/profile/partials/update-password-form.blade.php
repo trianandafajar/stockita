@@ -19,11 +19,11 @@
 
             <x-text-input id="update_password_current_password" name="current_password"
                 x-bind:type="show ? 'text' : 'password'" autocomplete="current-password"
-                class="block w-full border-2 border-green-200 focus:border-green-500 focus:ring-green-500 text-gray-800 rounded-lg px-4 py-3 pr-12"
+                class="block w-full border-2 border-primary-200 focus:border-primary-500 focus:ring-primary-500 text-gray-800 rounded-lg px-4 py-3 pr-12"
                 required />
 
             <button type="button" @click="show = !show"
-                class="absolute right-3 top-[42px] text-gray-500 hover:text-green-600">
+                class="absolute right-3 top-[42px] text-gray-500 hover:text-primary-600">
 
                 <svg x-show="!show" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -50,11 +50,11 @@
 
             <x-text-input id="update_password_password" name="password" autocomplete="new-password"
                 x-bind:type="show ? 'text' : 'password'"
-                class="block w-full border-2 border-green-200 focus:border-green-500 focus:ring-green-500 text-gray-800 rounded-lg px-4 py-3 pr-12"
+                class="block w-full border-2 border-primary-200 focus:border-primary-500 focus:ring-primary-500 text-gray-800 rounded-lg px-4 py-3 pr-12"
                 required />
 
             <button type="button" @click="show = !show"
-                class="absolute right-3 top-[42px] text-gray-500 hover:text-green-600">
+                class="absolute right-3 top-[42px] text-gray-500 hover:text-primary-600">
 
                 <svg x-show="!show" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -80,11 +80,11 @@
 
             <x-text-input id="update_password_password_confirmation" name="password_confirmation"
                 autocomplete="new-password" x-bind:type="show ? 'text' : 'password'"
-                class="block w-full border-2 border-green-200 focus:border-green-500 focus:ring-green-500 text-gray-800 rounded-lg px-4 py-3 pr-12"
+                class="block w-full border-2 border-primary-200 focus:border-primary-500 focus:ring-primary-500 text-gray-800 rounded-lg px-4 py-3 pr-12"
                 required />
 
             <button type="button" @click="show = !show"
-                class="absolute right-3 top-[42px] text-gray-500 hover:text-green-600">
+                class="absolute right-3 top-[42px] text-gray-500 hover:text-primary-600">
 
                 <svg x-show="!show" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -143,7 +143,7 @@
                 </button>
 
                 <button type="submit" form="password-form"
-                    class="flex-1 px-4 py-2.5 bg-green-600 text-white rounded-lg">
+                    class="flex-1 px-4 py-2.5 bg-primary-600 text-white rounded-lg">
                     Yes, Update
                 </button>
             </div>

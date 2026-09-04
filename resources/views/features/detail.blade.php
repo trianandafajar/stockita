@@ -12,20 +12,20 @@
 
     <x-landingpage-header />
 
-    <section class="bg-gradient-to-br from-emerald-600 to-emerald-500 text-white py-20 relative overflow-hidden">
+    <section class="bg-gradient-to-br from-primary-600 to-primary-500 text-white py-20 relative overflow-hidden">
 
         <div class="max-w-5xl mx-auto pb-12 text-center pt-12 px-6">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 {{ $title }}
             </h1>
 
-            <p class="max-w-2xl mx-auto text-lg text-emerald-100 mb-8 leading-relaxed">
+            <p class="max-w-2xl mx-auto text-lg text-primary-100 mb-8 leading-relaxed">
                 {{ $excerpt ?? 'This feature helps streamline your business operations to be faster and more efficient.'
                 }}
             </p>
 
             <a href="/register"
-                class="inline-block bg-white text-emerald-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-colors duration-200 shadow-md hover:shadow-lg">
+                class="inline-block bg-white text-primary-700 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-gray-50 transition-colors duration-200 shadow-md hover:shadow-lg">
                 Get Started for Free
             </a>
         </div>
@@ -40,9 +40,9 @@
     <section class="max-w-6xl mx-auto px-6 mt-10">
         <div class="grid md:grid-cols-3 gap-6 text-center">
             @foreach ($highlights as $item)
-            <div class="bg-white p-6 rounded-2xl border hover:border-emerald-200 transition-colors duration-200">
+            <div class="bg-white p-6 rounded-2xl border hover:border-primary-200 transition-colors duration-200">
                 <div
-                    class="w-14 h-14 bg-emerald-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-md">
+                    class="w-14 h-14 bg-primary-600 rounded-2xl flex items-center justify-center mb-6 mx-auto shadow-md">
                     <span class="text-white font-bold text-lg">{{ $loop->index + 1 }}</span>
                 </div>
                 <h3 class="text-2xl font-bold text-slate-900 mb-3">
@@ -70,10 +70,10 @@
                 <div class="space-y-4">
                     @foreach ($benefits as $benefit)
                     <div
-                        class="flex items-start space-x-3 p-4 bg-white rounded-xl border border-slate-100 hover:border-emerald-200 hover:shadow-sm transition-all duration-200 group">
+                        class="flex items-start space-x-3 p-4 bg-white rounded-xl border border-slate-100 hover:border-primary-200 hover:shadow-sm transition-all duration-200 group">
                         <div
-                            class="w-6 h-6 flex-shrink-0 mt-0.5 bg-emerald-100 rounded-lg flex items-center justify-center group-hover:bg-emerald-200 transition-colors">
-                            <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+                            class="w-6 h-6 flex-shrink-0 mt-0.5 bg-primary-100 rounded-lg flex items-center justify-center group-hover:bg-primary-200 transition-colors">
+                            <svg class="w-4 h-4 text-primary-600" fill="currentColor" viewBox="0 0 20 20">
                                 <path fill-rule="evenodd"
                                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                     clip-rule="evenodd"></path>
@@ -92,11 +92,11 @@
             <h2 class="text-3xl font-bold text-center mb-12 text-slate-900">
                 How to Use
             </h2>
-            <div class="relative border-l-2 border-emerald-600 space-y-10">
+            <div class="relative border-l-2 border-primary-600 space-y-10">
                 @foreach ($steps as $index => $step)
                 <div class="relative pl-8 group">
                     <div
-                        class="absolute -left-5 top-1 w-10 h-10 bg-emerald-600 text-white flex items-center justify-center rounded-full font-bold shadow-md">
+                        class="absolute -left-5 top-1 w-10 h-10 bg-primary-600 text-white flex items-center justify-center rounded-full font-bold shadow-md">
                         {{ $index + 1 }}
                     </div>
                     <h3 class="font-semibold text-lg mb-1 text-slate-900">
@@ -120,7 +120,7 @@
             <div class="grid md:grid-cols-3 gap-6">
                 @foreach ($use_cases as $case)
                 <div
-                    class="bg-slate-50 p-6 rounded-2xl border hover:border-emerald-200 transition-colors duration-200 text-center">
+                    class="bg-slate-50 p-6 rounded-2xl border hover:border-primary-200 transition-colors duration-200 text-center">
                     <p class="font-semibold text-slate-900">
                         {{ $case }}
                     </p>
@@ -159,15 +159,15 @@
     </section>
     @endif
 
-    <section class="bg-emerald-600 text-white py-20 text-center">
+    <section class="bg-primary-600 text-white py-20 text-center">
         <h2 class="text-3xl font-bold mb-4">
             Ready to Use This Feature?
         </h2>
-        <p class="mb-6 text-emerald-100">
+        <p class="mb-6 text-primary-100">
             Get started now and experience the simplicity.
         </p>
         <a href="/register"
-            class="bg-white text-emerald-600 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-200">
+            class="bg-white text-primary-600 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-200">
             Get Started for Free
         </a>
     </section>

@@ -32,7 +32,7 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
             @foreach ($plans as $index => $plan)
             <div class="offer-card w-full
             {{ $plan->name == 'Pro' 
-                ? 'bg-emerald-500 text-white p-8 shadow-2xl relative' 
+                ? 'bg-primary-500 text-white p-8 shadow-2xl relative' 
                 : 'bg-white p-8 border shadow-sm hover:shadow-xl' }} 
             {{ $loop->last ? 'md:col-span-2 lg:col-span-1' : '' }}
             rounded-3xl transition 
@@ -40,14 +40,14 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
 
                 {{-- Badge --}}
                 @if ($plan->name == 'Pro')
-                <span class="absolute top-4 right-4 bg-white text-emerald-600 text-xs px-3 py-1 rounded-full">
+                <span class="absolute top-4 right-4 bg-white text-primary-600 text-xs px-3 py-1 rounded-full">
                     MOST POPULAR
                 </span>
                 @endif
 
                 @if ($plan->id == 1)
                 <span
-                    class="absolute top-4 right-4 bg-emerald-100 text-emerald-600 text-xs px-3 py-1 rounded-full font-semibold">
+                    class="absolute top-4 right-4 bg-primary-100 text-primary-600 text-xs px-3 py-1 rounded-full font-semibold">
                     FREE TRIAL
                 </span>
                 @endif
@@ -68,7 +68,7 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
                 {{-- Price --}}
                 <div class="mb-6">
                     <div
-                        class="text-sm mt-1 {{ $plan->name == 'Pro' ? 'text-white' : 'text-emerald-500' }} save-badge hidden">
+                        class="text-sm mt-1 {{ $plan->name == 'Pro' ? 'text-white' : 'text-primary-500' }} save-badge hidden">
                         Save 20%
                     </div>
 
@@ -92,7 +92,7 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
                 </button>
 
                 @elseif($plan->name == 'Pro')
-                <button class="w-full py-3 rounded-xl bg-white text-emerald-600 font-semibold pay-btn"
+                <button class="w-full py-3 rounded-xl bg-white text-primary-600 font-semibold pay-btn"
                     data-plan-id="{{ $plan->id }}">
                     Choose Plan
                 </button>
@@ -169,7 +169,7 @@ $subscription = App\Models\Subscription::where('user_id', $user_id)->where('stat
                 if (isSamePlan) {
                     btn.disabled = true;
 
-                    btn.classList.add('bg-green-500', 'text-green-700', 'cursor-not-allowed');
+                    btn.classList.add('bg-primary-500', 'text-primary-700', 'cursor-not-allowed');
 
                     btn.innerText = 'Active';
 

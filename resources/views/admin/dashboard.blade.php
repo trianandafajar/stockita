@@ -2,14 +2,14 @@
     <div class="min-h-screen">
 
         {{-- header --}}
-        <div class="bg-white/80 backdrop-blur-md shadow-sm border-b border-green-200 rounded-2xl border">
+        <div class="bg-white/80 backdrop-blur-md shadow-sm border-b border-primary-200 rounded-2xl border">
             <div class="max-w-7xl">
                 <div class="flex items-center justify-between">
                     <div class="px-6 py-6">
-                        <h1 class="text-3xl font-bold text-green-600">
+                        <h1 class="text-3xl font-bold text-primary-600">
                             Admin Dashboard
                         </h1>
-                        <p class="text-green-900">Monitoring all platforms</p>
+                        <p class="text-primary-900">Monitoring all platforms</p>
                     </div>
                 </div>
             </div>
@@ -20,15 +20,15 @@
             {{-- cards --}}
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
                 {{-- total user --}}
-                <div class="bg-white p-6 rounded-2xl border border-green-200 hover:border-green-500">
+                <div class="bg-white p-6 rounded-2xl border border-primary-200 hover:border-primary-500">
                     <div class="flex items-center justify-between">
                         <div class="flex flex-col gap-2">
-                            <p class="text-sm font-medium text-green-700 uppercase tracking-wide">Total Users</p>
-                            <p class="text-3xl font-bold text-green-900">
+                            <p class="text-sm font-medium text-primary-700 uppercase tracking-wide">Total Users</p>
+                            <p class="text-3xl font-bold text-primary-900">
                                 {{ number_format($totalUsers) }}
                             </p>
                         </div>
-                        <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center">
+                        <div class="w-16 h-16 bg-primary-500 rounded-2xl flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 class="size-6 text-white">
                                 <path fill-rule="evenodd"
@@ -42,19 +42,19 @@
                 </div>
 
                 {{-- total store --}}
-                <div class="bg-white p-6 rounded-2xl border border-green-200 hover:border-green-500">
+                <div class="bg-white p-6 rounded-2xl border border-primary-200 hover:border-primary-500">
                     <div class="flex items-center justify-between">
                         <div class="flex flex-col gap-2">
-                            <p class="text-sm font-medium text-green-700 uppercase tracking-wide">
+                            <p class="text-sm font-medium text-primary-700 uppercase tracking-wide">
                                 Total Stores
                             </p>
 
-                            <p class="text-3xl font-bold text-green-900 mt-1">
+                            <p class="text-3xl font-bold text-primary-900 mt-1">
                                 {{ number_format($totalStores) }}
                             </p>
                         </div>
 
-                        <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center">
+                        <div class="w-16 h-16 bg-primary-500 rounded-2xl flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 class="size-6 text-white">
                                 <path
@@ -69,15 +69,15 @@
 
                 {{-- total transaksi --}}
                 <div
-                    class="md:col-span-2 lg:col-span-1 bg-white p-6 rounded-2xl border border-green-200 hover:border-green-500">
+                    class="md:col-span-2 lg:col-span-1 bg-white p-6 rounded-2xl border border-primary-200 hover:border-primary-500">
                     <div class="flex items-center justify-between">
                         <div class="flex flex-col gap-2">
-                            <p class="text-sm font-medium text-green-700 uppercase tracking-wide">Total Transactions</p>
-                            <p class="text-3xl font-bold text-green-900">
+                            <p class="text-sm font-medium text-primary-700 uppercase tracking-wide">Total Transactions</p>
+                            <p class="text-3xl font-bold text-primary-900">
                                 {{ number_format($totalTransactions) }}
                             </p>
                         </div>
-                        <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center">
+                        <div class="w-16 h-16 bg-primary-500 rounded-2xl flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 class="size-6 text-white">
                                 <path d="M12 7.5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" />
@@ -98,7 +98,7 @@
                     <div>
                         <div class="flex justify-between items-center mb-2">
                             <p class="text-sm text-gray-500">Total Revenue</p>
-                            <div class="bg-green-100 p-2 rounded-lg group-hover:scale-110 transition">
+                            <div class="bg-primary-100 p-2 rounded-lg group-hover:scale-110 transition">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                     stroke-width="1.5" stroke="currentColor" class="size-6">
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -107,11 +107,11 @@
                             </div>
                         </div>
 
-                        <p class="text-3xl font-bold text-green-600">
+                        <p class="text-3xl font-bold text-primary-600">
                             Rp {{ number_format($totalRevenue, 0, ',', '.') }}
                         </p>
 
-                        <p class="text-sm mt-2 {{ $revenueGrowth >= 0 ? 'text-green-500' : 'text-red-500' }}">
+                        <p class="text-sm mt-2 {{ $revenueGrowth >= 0 ? 'text-primary-500' : 'text-red-500' }}">
                             {{ $revenueGrowth >= 0 ? '▲' : '▼' }}
                             {{ number_format($revenueGrowth, 1) }}% from previous period
                         </p>
@@ -152,7 +152,7 @@
 
                     @foreach ($latestTransactions as $trx)
                     <div class="flex items-start gap-3 pb-2 border-b  mb-2">
-                        <div class="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                        <div class="w-2 h-2 bg-primary-500 rounded-full mt-2"></div>
 
                         <div class="flex-1">
                             <p class="text-sm font-medium">{{ $trx->invoice_code }}</p>
@@ -249,7 +249,7 @@
                     labels: @json($chartLabels),
                     datasets: [{
                         data: @json($chartRevenue),
-                        borderColor: '#22c55e',
+                        borderColor: #4f46e5,
                         borderWidth: 2,
                         fill: false,
                         tension: 0.4

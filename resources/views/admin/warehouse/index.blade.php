@@ -27,7 +27,7 @@
             <div x-data class="flex gap-3">
                 @can('create warehouse')
                 <button @click="$dispatch('open-modal', { name: 'create-warehouse' })"
-                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-white font-medium text-sm rounded-xl bg-green-500 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5">
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-white font-medium text-sm rounded-xl bg-primary-500 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
@@ -164,7 +164,7 @@
                     <div>
                         <label class="text-sm font-medium">Store <span class="text-red-500">*</span></label>
                         <select name="store_id" x-model="storeId"
-                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">
 
                             <option value="">--- Select Store ---</option>
 
@@ -182,21 +182,21 @@
                     <div>
                         <label class="text-sm font-medium">Warehouse Name <span class="text-red-500">*</span></label>
                         <input type="text" name="name" value="{{ old('name') }}"
-                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">
                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
                     <div>
                         <label class="text-sm font-medium">Location <span class="text-red-500">*</span></label>
                         <input type="text" name="location" value="{{ old('location') }}"
-                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">
                         <x-input-error :messages="$errors->get('location')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
                     <div>
                         <label class="text-sm font-medium">Description <span class="text-red-500">*</span></label>
                         <textarea name="description"
-                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">{{ old('description') }}</textarea>
+                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">{{ old('description') }}</textarea>
                         <x-input-error :messages="$errors->get('description')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
@@ -207,7 +207,7 @@
                             Cancel
                         </button>
 
-                        <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                        <button type="submit" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700">
                             Save
                         </button>
                     </div>
@@ -243,21 +243,21 @@
                     <div>
                         <label class="text-sm font-medium">Warehouse Name <span class="text-red-500">*</span></label>
                         <input type="text" name="name" x-model="name"
-                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">
                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
                     <div>
                         <label class="text-sm font-medium">Location <span class="text-red-500">*</span></label>
                         <input type="text" name="location" x-model="location"
-                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">
                         <x-input-error :messages="$errors->get('location')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
                     <div>
                         <label class="text-sm font-medium">Description <span class="text-red-500">*</span></label>
                         <textarea name="description" x-model="description"
-                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500"></textarea>
+                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500"></textarea>
                         <x-input-error :messages="$errors->get('description')" class="mt-2 text-red-500 text-sm" />
                     </div>
 

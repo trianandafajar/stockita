@@ -4,7 +4,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
             <div class="lg:col-span-2">
-                <div class="bg-white rounded-2xl shadow-sm border border-green-500 p-6">
+                <div class="bg-white rounded-2xl shadow-sm border border-primary-500 p-6">
                     <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                         <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -63,7 +63,7 @@
             </div>
 
             <div>
-                <div class="bg-white rounded-2xl shadow-sm border border-green-500 p-6 sticky">
+                <div class="bg-white rounded-2xl shadow-sm border border-primary-500 p-6 sticky">
                     <h2 class="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                         <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -81,7 +81,7 @@
                         @if ($transaction->paid)
                             <div class="flex justify-between py-2 border-b">
                                 <span class="text-sm text-gray-600">Paid</span>
-                                <span class="font-semibold text-green-600">Rp
+                                <span class="font-semibold text-primary-600">Rp
                                     {{ number_format($transaction->paid, 0, ',', '.') }}</span>
                             </div>
                         @endif
@@ -89,23 +89,23 @@
                         @if ($transaction->change)
                             <div class="flex justify-between py-2 border-b">
                                 <span class="text-sm text-gray-600">Change</span>
-                                <span class="font-semibold text-green-600">Rp
+                                <span class="font-semibold text-primary-600">Rp
                                     {{ number_format($transaction->change, 0, ',', '.') }}</span>
                             </div>
                         @endif
                     </div>
 
                     <div
-                        class="bg-gradient-to-r from-emerald-50 to-green-50 border border-green-100 rounded-xl p-4 mb-6">
+                        class="bg-gradient-to-r from-primary-50 to-primary-50 border border-primary-100 rounded-xl p-4 mb-6">
                         <div class="flex items-center justify-between">
                             <div>
-                                <p class="text-sm text-green-700 font-medium">Payment Status</p>
-                                <p class="text-2xl font-bold text-green-600">
+                                <p class="text-sm text-primary-700 font-medium">Payment Status</p>
+                                <p class="text-2xl font-bold text-primary-600">
                                     {{ $transaction->status == 'paid' ? 'PAID' : 'PENDING' }}
                                 </p>
                             </div>
-                            <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center">
-                                <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor"
+                            <div class="w-12 h-12 bg-primary-100 rounded-2xl flex items-center justify-center">
+                                <svg class="w-6 h-6 text-primary-600" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M5 13l4 4L19 7" />
@@ -116,7 +116,7 @@
                 </div>
 
                 @if ($transaction->receipt)
-                    <div class="bg-white rounded-2xl shadow-sm border border-green-500 p-6 mt-6">
+                    <div class="bg-white rounded-2xl shadow-sm border border-primary-500 p-6 mt-6">
                         <h3 class="font-semibold text-lg mb-4 flex items-center gap-2">
                             <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

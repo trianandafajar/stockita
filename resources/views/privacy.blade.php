@@ -1,12 +1,12 @@
 <x-legal-layout>
 
-    <section class="bg-emerald-50 py-6">
+    <section class="bg-primary-50 py-6">
         <div class="max-w-6xl mx-auto px-4 flex flex-wrap items-center justify-center md:justify-end gap-3">
             <nav
                 class="w-full sm:w-auto flex flex-wrap sm:flex-nowrap items-center gap-4 sm:gap-6 text-xs sm:text-sm justify-center sm:justify-end">
-                <a href="/privacy" class="text-gray-600 hover:text-emerald-600">Privacy</a>
-                <a href="/dmca" class="text-gray-600 hover:text-emerald-600">DMCA & Copyright</a>
-                <a href="/terms" class="text-gray-600 hover:text-emerald-600">Terms & Conditions</a>
+                <a href="/privacy" class="text-gray-600 hover:text-primary-600">Privacy</a>
+                <a href="/dmca" class="text-gray-600 hover:text-primary-600">DMCA & Copyright</a>
+                <a href="/terms" class="text-gray-600 hover:text-primary-600">Terms & Conditions</a>
             </nav>
         </div>
 

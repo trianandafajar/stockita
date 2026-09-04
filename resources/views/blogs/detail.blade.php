@@ -46,8 +46,8 @@
                 prose-p:text-gray-700 
                 prose-li:text-gray-700
                 prose-strong:text-gray-900
-                prose-blockquote:border-l-emerald-500
-                prose-blockquote:bg-emerald-50
+                prose-blockquote:border-l-primary-500
+                prose-blockquote:bg-primary-50
                 prose-blockquote:px-6 prose-blockquote:py-3 prose-blockquote:rounded-lg">
 
                 {!! $content !!}
@@ -56,15 +56,15 @@
         </div>
     </section>
 
-    <section class="bg-emerald-600 text-white py-20 text-center">
+    <section class="bg-primary-600 text-white py-20 text-center">
         <h3 class="text-2xl font-bold">
             Ready to Manage Your Business More Easily?
         </h3>
-        <p class="mt-2 text-emerald-100">
+        <p class="mt-2 text-primary-100">
             Use our POS system to improve efficiency and increase your sales.
         </p>
         <a href="/register"
-            class="inline-block mt-4 px-6 py-3 bg-white text-emerald-600 rounded-xl font-semibold hover:bg-gray-100 transition">
+            class="inline-block mt-4 px-6 py-3 bg-white text-primary-600 rounded-xl font-semibold hover:bg-gray-100 transition">
             Try It Now
         </a>
     </section>

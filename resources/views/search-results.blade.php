@@ -3,7 +3,7 @@
         <div class="max-w-4xl mx-auto px-4">
 
             <a href="/"
-                class="mb-6 inline-flex items-center gap-2 text-sm text-slate-600 hover:text-emerald-600 transition">
+                class="mb-6 inline-flex items-center gap-2 text-sm text-slate-600 hover:text-primary-600 transition">
 
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
@@ -15,12 +15,12 @@
 
             <form action="/search" method="GET" class="mb-8">
                 <input type="text" name="q" value="{{ $query }}" placeholder="Search something..."
-                    class="w-full px-5 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-emerald-500 outline-none">
+                    class="w-full px-5 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary-500 outline-none">
             </form>
 
             <div class="mb-6">
                 <h1 class="text-2xl font-semibold text-slate-900">
-                    Search results for "<span class="text-emerald-600">{{ $query }}</span>"
+                    Search results for "<span class="text-primary-600">{{ $query }}</span>"
                 </h1>
                 <p class="text-sm text-slate-500 mt-1">
                     {{ count($results) }} results found
@@ -37,7 +37,7 @@
                         <img src="{{ $item['image'] }}" class="w-24 h-24 object-cover rounded-lg flex-shrink-0">
 
                         <div class="flex-1">
-                            <h2 class="text-lg font-semibold text-slate-800 group-hover:text-emerald-600 transition">
+                            <h2 class="text-lg font-semibold text-slate-800 group-hover:text-primary-600 transition">
                                 {{ $item['title'] }}
                             </h2>
 

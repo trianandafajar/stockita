@@ -3,7 +3,7 @@
     $plans = $plans ?? [];
     @endphp
 
-    <section class="py-24 bg-gradient-to-b from-white rounded-2xl to-emerald-50">
+    <section class="py-24 bg-gradient-to-b from-white rounded-2xl to-primary-50">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <h2 class="text-4xl font-bold mb-4">Manage Subscription</h2>
             @if ($subscription)
@@ -27,15 +27,15 @@
             <div class="grid md:grid-cols-3 gap-8">
                 @foreach ($plans as $plan)
                 <div
-                    class="offer-card {{ $plan->name == 'Pro' ? 'bg-emerald-500 text-white p-10 shadow-2xl' : 'bg-white p-8 border shadow-sm hover:shadow-xl' }} rounded-3xl transition relative">
+                    class="offer-card {{ $plan->name == 'Pro' ? 'bg-primary-500 text-white p-10 shadow-2xl' : 'bg-white p-8 border shadow-sm hover:shadow-xl' }} rounded-3xl transition relative">
                     @if ($plan->name == 'Pro')
                     <span
-                        class="absolute top-4 right-4 bg-white text-emerald-600 text-xs px-3 py-1 rounded-full">POPULAR</span>
+                        class="absolute top-4 right-4 bg-white text-primary-600 text-xs px-3 py-1 rounded-full">POPULAR</span>
                     @endif
 
                     @if ($plan->id == 1)
                     <span
-                        class="absolute top-4 right-4 bg-emerald-100 text-emerald-600 text-xs px-3 py-1 rounded-full font-semibold">
+                        class="absolute top-4 right-4 bg-primary-100 text-primary-600 text-xs px-3 py-1 rounded-full font-semibold">
                         FREE TRIAL
                     </span>
                     @endif
@@ -53,7 +53,7 @@
                     <ul class="space-y-3 mb-8">
                         @foreach ($plan->features as $feature)
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 {{ $plan->name == 'Pro' ? 'text-white' : 'text-emerald-500' }}"
+                            <svg class="w-5 h-5 {{ $plan->name == 'Pro' ? 'text-white' : 'text-primary-500' }}"
                                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M5 13l4 4L19 7"></path>
@@ -64,7 +64,7 @@
                     </ul>
 
                     <button class="w-full py-3 rounded-xl transition-all duration-200
-                            {{ $plan->name == 'Pro' ? 'bg-white text-emerald-600 font-semibold' : 'bg-gray-900 text-white' }} 
+                            {{ $plan->name == 'Pro' ? 'bg-white text-primary-600 font-semibold' : 'bg-gray-900 text-white' }} 
                             pay-btn" data-plan-id="{{ $plan->id }}">
                     </button>
                 </div>
@@ -111,11 +111,11 @@
 
                     btn.classList.remove('opacity-50', 'cursor-not-allowed', 'bg-gray-300',
                         'text-gray-500');
-                    btn.classList.remove('bg-green-100', 'text-green-700');
+                    btn.classList.remove('bg-primary-100', 'text-primary-700');
 
                     if (isSamePlan) {
                         btn.disabled = true;
-                        btn.classList.add('bg-green-500', 'text-green-700', 'cursor-not-allowed');
+                        btn.classList.add('bg-primary-500', 'text-primary-700', 'cursor-not-allowed');
 
                         btn.innerText = isSameInterval ? 'Active' : 'Current Plan';
 

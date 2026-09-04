@@ -54,7 +54,7 @@
     </style>
 </head>
 
-<body class="bg-gradient-to-br from-slate-50 to-emerald-50 overflow-x-hidden">
+<body class="bg-gradient-to-br from-slate-50 to-primary-50 overflow-x-hidden">
 
     <x-landingpage-header />
 

@@ -6,23 +6,23 @@ $hasAccess = !$isOwner || auth()->user()->hasActiveSubscription();
 $prefix = $isAdmin ? '/admin' : '';
 @endphp
 
-<aside id="sidebar" class="fixed top-0 left-0 h-screen w-64 bg-white border-r border-green-100 z-[9999] md:z-20 flex flex-col
+<aside id="sidebar" class="fixed top-0 left-0 h-screen w-64 bg-white border-r border-primary-100 z-[9999] md:z-20 flex flex-col
     transform transition-transform duration-300
      will-change-[width]">
 
-    <div class="flex items-center justify-between px-4 py-6 border-b h-16 border-green-50">
+    <div class="flex items-center justify-between px-4 py-6 border-b h-16 border-primary-50">
 
 
         <a href="{{ auth()->user()->getDashboardUrl() }}" class="flex items-center gap-3">
             <img src="/image/icon/icon.png" alt="icon" class="w-10 md:absolute top-3 left-5">
 
             <span
-                class="text-2xl sidebar-text font-bold bg-gradient-to-r from-green-600 to-green-700 bg-clip-text text-transparent md:absolute left-20">
+                class="text-2xl sidebar-text font-bold bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent md:absolute left-20">
                 StocKita
             </span>
         </a>
 
-        <button id="closeSidebar" class="lg:hidden p-2 text-gray-600 hover:bg-green-50 rounded-lg">
+        <button id="closeSidebar" class="lg:hidden p-2 text-gray-600 hover:bg-primary-50 rounded-lg">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                 stroke="currentColor" class="size-6 text-gray-600">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
@@ -192,7 +192,7 @@ $prefix = $isAdmin ? '/admin' : '';
         </a>
         @endrole
 
-        <div class="border-t border-green-100 my-4"></div>
+        <div class="border-t border-primary-100 my-4"></div>
 
         @can('manage roles & permissions')
         @if(!auth()->user()->is_demo)

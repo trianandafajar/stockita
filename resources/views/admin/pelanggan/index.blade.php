@@ -42,7 +42,7 @@
                     Import
                 </button>
                 <button type="button" @click="$dispatch('open-modal', { name: 'create-customer' })"
-                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-white font-medium text-sm rounded-xl bg-green-500 hover:bg-green-600 shadow-lg hover:shadow-xl transition-all">
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-white font-medium text-sm rounded-xl bg-primary-500 hover:bg-primary-600 shadow-lg hover:shadow-xl transition-all">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
@@ -63,9 +63,9 @@
                             {{ number_format($stats['total']) }}
                         </p>
                     </div>
-                    <div class="p-3 bg-green-100 rounded-xl">
+                    <div class="p-3 bg-primary-100 rounded-xl">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="size-5 text-green-600">
+                            stroke="currentColor" class="size-5 text-primary-600">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
                         </svg>
@@ -73,7 +73,7 @@
                 </div>
             </div>
 
-            <div class="bg-green-500 p-5 rounded-2xl text-white shadow-md">
+            <div class="bg-primary-500 p-5 rounded-2xl text-white shadow-md">
                 <p class="text-sm opacity-90">Exclusive</p>
                 <p class="text-2xl font-bold mt-1">{{ number_format($stats['exclusive']) }}</p>
             </div>
@@ -170,7 +170,7 @@
                         </div>
 
                         <a href="{{ route('customers.export', request()->query()) }}"
-                            class="px-6 py-3 bg-green-600 text-white text-sm rounded-lg hover:bg-green-700 flex items-center justify-center gap-2">
+                            class="px-6 py-3 bg-primary-600 text-white text-sm rounded-lg hover:bg-primary-700 flex items-center justify-center gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                 stroke="currentColor" class="size-4">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -206,7 +206,7 @@
                             <td class="px-6 py-4">
                                 <div class="flex items-center gap-3">
                                     <div
-                                        class="w-10 h-10 bg-gradient-to-r from-green-400 to-green-500 rounded-full flex items-center justify-center">
+                                        class="w-10 h-10 bg-gradient-to-r from-primary-400 to-primary-500 rounded-full flex items-center justify-center">
                                         <span class="text-white font-semibold text-sm">
                                             {{ substr($customer->user->name, 0, 1) }}
                                         </span>
@@ -221,18 +221,18 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm">
                                     <a href="https://wa.me/{{ $customer->phone }}"
-                                        class="text-green-600 hover:text-green-700 font-medium flex items-center gap-1">
+                                        class="text-primary-600 hover:text-primary-700 font-medium flex items-center gap-1">
                                         {{ $customer->formatted_phone }}
                             </td>
                             <td class="px-6 py-4">
                                 <span
-                                    class="px-3 py-1 {{ $customer->type === 'exclusive' ? 'bg-green-100 text-green-500' : 'bg-gray-100 text-gray-800' }} rounded-full text-xs font-medium">
+                                    class="px-3 py-1 {{ $customer->type === 'exclusive' ? 'bg-primary-100 text-primary-500' : 'bg-gray-100 text-gray-800' }} rounded-full text-xs font-medium">
                                     {{ ucfirst($customer->type) }}
                                 </span>
                             </td>
                             <td class="px-6 py-4">
                                 <span
-                                    class="px-3 py-1 {{ $customer->status === 'active' ? 'bg-green-100 text-green-500' : 'bg-red-100 text-red-800' }} rounded-full text-xs font-medium">
+                                    class="px-3 py-1 {{ $customer->status === 'active' ? 'bg-primary-100 text-primary-500' : 'bg-red-100 text-red-800' }} rounded-full text-xs font-medium">
                                     {{ ucfirst($customer->status) }}
                                 </span>
                             </td>
@@ -342,7 +342,7 @@
                     <div>
                         <label class="text-sm font-medium">Store <span class="text-red-500">*</span></label>
                         <select name="store_id" x-model="storeId"
-                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">
 
                             <option value="">--- Select Store ---</option>
 
@@ -360,14 +360,14 @@
                         <label class="block text-sm font-medium text-gray-700 mb-2">Full Name<span
                                 class="text-red-500">*</span></label>
                         <input type="text" name="name" value="{{ old('name') }}"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-500 text-sm" />
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Email <span
                                 class="text-red-500">*</span></label>
                         <input type="email" name="email" value="{{ old('email') }}"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
                         <x-input-error :messages="$errors->get('email')" class="mt-2 text-red-500 text-sm" />
                     </div>
                     <div class="grid grid-cols-2 gap-4">
@@ -399,7 +399,7 @@
                         <label class="block text-sm font-medium text-gray-700 mb-2">WhatsApp Number<span
                                 class="text-red-500">*</span></label>
                         <input type="tel" name="phone" value="{{ old('phone') }}"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
                         <x-input-error :messages="$errors->get('phone')" class="mt-2 text-red-500 text-sm" />
                     </div>
                     <div class="flex gap-3 pt-4">
@@ -409,7 +409,7 @@
                             Cancel
                         </button>
                         <button type="submit"
-                            class="flex-1 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium">
+                            class="flex-1 px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium">
                             Save Customer
                         </button>
                     </div>

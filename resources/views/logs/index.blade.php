@@ -61,7 +61,7 @@
                         <tr class="hover:bg-gray-50 transition">
                             <td class="px-6 py-4">
                                 <span @class([ 'px-2 py-1 text-xs font-medium rounded-lg'
-                                    , 'bg-green-100 text-green-700'=> $log->action == 'CREATE',
+                                    , 'bg-primary-100 text-primary-700'=> $log->action == 'CREATE',
                                     'bg-yellow-100 text-yellow-700' => $log->action == 'UPDATE',
                                     'bg-red-100 text-red-700' => $log->action == 'DELETE',
                                     'bg-gray-100 text-gray-700' => !in_array($log->action, ['CREATE', 'UPDATE',

@@ -1,18 +1,18 @@
 <div id="home" class="w-full pt-[5rem]">
     <div
-        class="carousel-container relative h-[calc(100dvh-80px)] min-h-[500px] overflow-hidden shadow-2xl border border-white/10 bg-gradient-to-br from-green-900/90 via-green-800/50 to-emerald-900/90">
+        class="carousel-container relative h-[calc(100dvh-80px)] min-h-[500px] overflow-hidden shadow-2xl border border-white/10 bg-gradient-to-br from-primary-900/90 via-primary-800/50 to-primary-900/90">
         <div id="carouselTrack" class="carousel-track flex h-full">
 
             <div class="carousel-slide w-full h-full flex-shrink-0 relative">
                 <div
-                    class="w-full h-full bg-gradient-to-br from-green-900 via-green-800/80 to-emerald-900/90 relative overflow-hidden">
+                    class="w-full h-full bg-gradient-to-br from-primary-900 via-primary-800/80 to-primary-900/90 relative overflow-hidden">
 
                     <div class="absolute inset-0 opacity-30">
                         <div
                             class="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(255,255,255,0.15),transparent_50%)]">
                         </div>
                         <div
-                            class="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(34,197,94,0.2),transparent_50%)]">
+                            class="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(99,102,241,0.2),transparent_50%)]">
                         </div>
                     </div>
 
@@ -26,12 +26,12 @@
 
                             <div>
                                 <h1
-                                    class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black bg-gradient-to-r from-white via-white to-green-100/50 bg-clip-text text-transparent leading-tight md:leading-[1.2] mb-4 sm:mb-6 drop-shadow-2xl" style="line-height: 1.2;">
+                                    class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black bg-gradient-to-r from-white via-white to-primary-100/50 bg-clip-text text-transparent leading-tight md:leading-[1.2] mb-4 sm:mb-6 drop-shadow-2xl" style="line-height: 1.2;">
                                     Uncertain Conditions,
                                     <br class="hidden sm:block">
 
                                     <span
-                                        class="block mt-2 sm:mt-0 bg-gradient-to-r from-green-300 via-green-200 to-emerald-300 bg-clip-text text-transparent drop-shadow-2xl">
+                                        class="block mt-2 sm:mt-0 bg-gradient-to-r from-primary-300 via-primary-200 to-primary-300 bg-clip-text text-transparent drop-shadow-2xl">
                                         Your Business Keeps Growing
                                     </span>
                                 </h1>
@@ -39,18 +39,18 @@
                                 <p
                                     class="text-base sm:text-lg md:text-xl text-white/95 max-w-md sm:max-w-lg leading-relaxed font-medium drop-shadow-lg">
                                     Trusted by
-                                    <span class="font-black text-green-100 text-lg sm:text-xl">
+                                    <span class="font-black text-primary-100 text-lg sm:text-xl">
                                         2 million++
                                     </span>
                                     users,
-                                    <strong class="text-green-100">StocKita</strong> is here to help your business
+                                    <strong class="text-primary-100">StocKita</strong> is here to help your business
                                     grow bigger.
                                 </p>
                             </div>
 
                             <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
                                 <a href="/register" class="group relative
-                                    bg-white text-green-700 hover:bg-green-100
+                                    bg-white text-primary-700 hover:bg-primary-100
                                     px-6 sm:px-8 lg:px-10
                                     py-4 sm:py-5 lg:py-6
                                     rounded-2xl sm:rounded-3xl
@@ -62,7 +62,7 @@
                                     flex items-center justify-center gap-3 sm:gap-4
                                     w-full sm:w-auto
                                     min-w-0 sm:min-w-[220px]
-                                    border-2 border-white/20 hover:border-green-200/50">
+                                    border-2 border-white/20 hover:border-primary-200/50">
 
                                     <span class="relative z-10">Start for Free</span>
 
@@ -82,7 +82,7 @@
             {{-- slide 2 --}}
             <div class="carousel-slide w-full h-full flex-shrink-0 relative">
                 <div
-                    class="w-full h-full bg-gradient-to-br from-green-900 via-emerald-800/80 to-green-900/90 relative overflow-hidden">
+                    class="w-full h-full bg-gradient-to-br from-primary-900 via-primary-800/80 to-primary-900/90 relative overflow-hidden">
 
                     <div class="absolute inset-0 opacity-30">
                         <div
@@ -105,7 +105,7 @@
                                 <!-- SLIDE 2 -->
                                 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl
     font-black
-    bg-gradient-to-r from-white via-white to-green-100/50
+    bg-gradient-to-r from-white via-white to-primary-100/50
     bg-clip-text text-transparent
     leading-tight lg:leading-[0.9]
     mb-4 sm:mb-6 drop-shadow-2xl">
@@ -113,7 +113,7 @@
                                     POS Application
 
                                     <span class="block mt-2 sm:mt-0
-        bg-gradient-to-r from-green-300 via-green-200 to-emerald-300
+        bg-gradient-to-r from-primary-300 via-primary-200 to-primary-300
         bg-clip-text text-transparent drop-shadow-2xl">
                                         The Best
                                     </span>
@@ -126,7 +126,7 @@
     leading-relaxed font-medium drop-shadow-lg">
 
                                     Improve your business performance with complete features and a
-                                    <strong class="text-green-100 font-bold sm:font-black">
+                                    <strong class="text-primary-100 font-bold sm:font-black">
                                         user-friendly
                                     </strong>
                                     experience from StocKita.
@@ -135,7 +135,7 @@
 
                             <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
                                 <a href="/register" class="group
-                                    bg-white text-green-700 hover:bg-green-100
+                                    bg-white text-primary-700 hover:bg-primary-100
                                     px-6 sm:px-8 lg:px-10
                                     py-4 sm:py-5 lg:py-6
                                     rounded-2xl sm:rounded-3xl
@@ -167,7 +167,7 @@
             {{-- slide 3 --}}
             <div class="carousel-slide w-full h-full flex-shrink-0 relative">
                 <div
-                    class="w-full h-full bg-gradient-to-br from-emerald-900 via-green-800/80 to-green-900/90 relative overflow-hidden">
+                    class="w-full h-full bg-gradient-to-br from-primary-900 via-primary-800/80 to-primary-900/90 relative overflow-hidden">
 
                     <div class="absolute inset-0 opacity-30">
                         <div
@@ -190,7 +190,7 @@
                                 <!-- SLIDE 3 -->
                                 <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl
     font-black
-    bg-gradient-to-r from-white via-white to-green-100/50
+    bg-gradient-to-r from-white via-white to-primary-100/50
     bg-clip-text text-transparent
     leading-tight lg:leading-[0.9]
     mb-4 sm:mb-6 drop-shadow-2xl">
@@ -200,7 +200,7 @@
                                     <br class="hidden sm:block">
 
                                     <span class="block mt-2 sm:mt-0
-        bg-gradient-to-r from-green-300 via-green-200 to-emerald-300
+        bg-gradient-to-r from-primary-300 via-primary-200 to-primary-300
         bg-clip-text text-transparent drop-shadow-2xl">
                                         With StocKita
                                     </span>
@@ -210,7 +210,7 @@
     text-white/95 max-w-md sm:max-w-lg
     leading-relaxed font-medium drop-shadow-lg">
 
-                                    <span class="font-black text-green-100 text-lg sm:text-xl">
+                                    <span class="font-black text-primary-100 text-lg sm:text-xl">
                                         1.5 million MSMEs
                                     </span>
                                     have trusted StocKita to grow their business digitally.
@@ -221,7 +221,7 @@
 
                             <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
                                 <a href="/register" class="group relative
-                                    bg-white text-green-700 hover:bg-green-100
+                                    bg-white text-primary-700 hover:bg-primary-100
                                     px-6 sm:px-8 lg:px-10
                                     py-4 sm:py-5 lg:py-6
                                     rounded-2xl sm:rounded-3xl
@@ -233,7 +233,7 @@
                                     flex items-center justify-center gap-3 sm:gap-4
                                     w-full sm:w-auto
                                     min-w-0 sm:min-w-[220px]
-                                    border-2 border-white/20 hover:border-green-200/50">
+                                    border-2 border-white/20 hover:border-primary-200/50">
 
                                     <span class="relative z-10">Join Now</span>
 

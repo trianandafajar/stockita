@@ -1,4 +1,4 @@
-<footer class="bg-[#169444] text-white pt-24 relative overflow-hidden">
+<footer class="bg-primary-900 text-white pt-24 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-6 lg:px-8 pb-6 relative z-10">
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
@@ -26,17 +26,17 @@
                 <h4 class="text-lg font-semibold mb-4">Product</h4>
                 <ul class="space-y-2 text-sm">
                     <li>
-                        <a href="/blog/kelola-produk" class="hover:text-emerald-300 transition">
+                        <a href="/blog/kelola-produk" class="hover:text-primary-300 transition">
                             Product Management
                         </a>
                     </li>
                     <li>
-                        <a href="/features/pelanggan" class="hover:text-emerald-300 transition">
+                        <a href="/features/pelanggan" class="hover:text-primary-300 transition">
                             Customer Management
                         </a>
                     </li>
                     <li>
-                        <a href="#offer" class="hover:text-emerald-300 transition">
+                        <a href="#offer" class="hover:text-primary-300 transition">
                             Payments
                         </a>
                     </li>
@@ -48,17 +48,17 @@
                 <h4 class="text-lg font-semibold mb-4">Legal</h4>
                 <ul class="space-y-2 text-sm">
                     <li>
-                        <a href="/privacy" class="hover:text-emerald-300 transition">
+                        <a href="/privacy" class="hover:text-primary-300 transition">
                             Privacy Policy
                         </a>
                     </li>
                     <li>
-                        <a href="/terms" class="hover:text-emerald-300 transition">
+                        <a href="/terms" class="hover:text-primary-300 transition">
                             Terms of Service
                         </a>
                     </li>
                     <li>
-                        <a href="/dmca" class="hover:text-emerald-300 transition">
+                        <a href="/dmca" class="hover:text-primary-300 transition">
                             DMCA
                         </a>
                     </li>

@@ -24,7 +24,7 @@
             <div class="flex items-center gap-4 min-w-0">
 
                 <div
-                    class="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 bg-green-500 text-white flex items-center justify-center rounded-xl text-lg font-bold shadow">
+                    class="w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 bg-primary-500 text-white flex items-center justify-center rounded-xl text-lg font-bold shadow">
                     {{ strtoupper(substr($customer->user->name, 0, 1)) }}
                 </div>
 
@@ -67,7 +67,7 @@
 
             <div class="bg-white p-5 rounded-xl border shadow-sm">
                 <p class="text-sm text-gray-500">Total Spending</p>
-                <p class="text-2xl font-bold text-green-600 mt-1">
+                <p class="text-2xl font-bold text-primary-600 mt-1">
                     Rp {{ number_format($totalSpent, 0, ',', '.') }}
                 </p>
             </div>
@@ -117,7 +117,7 @@
                             <td class="px-6 py-4">
                                 <span
                                     class="px-3 py-1 text-xs rounded-full
-                                        {{ $order->status === 'completed' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700' }}">
+                                        {{ $order->status === 'completed' ? 'bg-primary-100 text-primary-700' : 'bg-yellow-100 text-yellow-700' }}">
                                     {{ ucfirst($order->status) }}
                                 </span>
                             </td>
@@ -169,13 +169,13 @@
                         <label class="block text-sm font-medium text-gray-700 mb-2">Full Name <span
                                 class="text-red-500">*</span></label>
                         <input type="text" name="name" value="{{ $customer->user->name }}"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-500 text-sm" />
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
                         <input type="email" name="email" value="{{ $customer->user->email }}"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
                         <x-input-error :messages="$errors->get('email')" class="mt-2 text-red-500 text-sm" />
                     </div>
                     <div class="grid grid-cols-2 gap-4">
@@ -213,7 +213,7 @@
                         <label class="block text-sm font-medium text-gray-700 mb-2">WhatsApp Number <span
                                 class="text-red-500">*</span></label>
                         <input type="tel" name="phone" value="{{ $customer->formatted_phone }}"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
                         <x-input-error :messages="$errors->get('phone')" class="mt-2 text-red-500 text-sm" />
                     </div>
                     <div class="flex gap-3 pt-4">
@@ -223,7 +223,7 @@
                             Cancel
                         </button>
                         <button type="submit"
-                            class="flex-1 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium">
+                            class="flex-1 px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium">
                             Save Changes
                         </button>
                     </div>

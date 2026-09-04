@@ -12,14 +12,14 @@
         'amber'  => 'border-amber-200',
         'sky'    => 'border-sky-200',
         'rose'   => 'border-rose-200',
-        default  => 'border-green-200',
+        default  => 'border-primary-200',
     };
 
     $iconGradient = match ($accent) {
         'amber'  => 'from-amber-500 to-orange-500',
         'sky'    => 'from-sky-500 to-blue-600',
         'rose'   => 'from-rose-500 to-pink-600',
-        default  => 'from-emerald-500 to-green-600',
+        default  => 'from-primary-500 to-primary-600',
     };
 @endphp
 
@@ -56,7 +56,7 @@
 
     <div data-output class="p-6 min-h-[200px]">
         <div class="flex flex-col items-center justify-center text-center text-gray-400 py-8">
-            <div class="size-10 rounded-full border-4 border-gray-200 border-t-green-500 animate-spin mb-3"></div>
+            <div class="size-10 rounded-full border-4 border-gray-200 border-t-primary-500 animate-spin mb-3"></div>
             <p class="text-sm">Loading insights…</p>
         </div>
     </div>

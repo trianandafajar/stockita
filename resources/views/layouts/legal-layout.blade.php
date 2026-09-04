@@ -14,15 +14,15 @@
     {{-- <header class="w-full border-b bg-white sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-wrap items-center justify-between gap-3">
 
-            <a href="/" class="font-bold text-base sm:text-lg text-emerald-600">
+            <a href="/" class="font-bold text-base sm:text-lg text-primary-600">
                 StocKita
             </a>
 
             <nav
                 class="w-full sm:w-auto flex flex-wrap sm:flex-nowrap items-center gap-4 sm:gap-6 text-xs sm:text-sm justify-start sm:justify-end">
-                <a href="/privacy" class="text-gray-600 hover:text-emerald-600">Privacy</a>
-                <a href="/dmca" class="text-gray-600 hover:text-emerald-600">DMCA & Hak Cipta</a>
-                <a href="/terms" class="text-gray-600 hover:text-emerald-600">Syarat & Ketentuan</a>
+                <a href="/privacy" class="text-gray-600 hover:text-primary-600">Privacy</a>
+                <a href="/dmca" class="text-gray-600 hover:text-primary-600">DMCA & Hak Cipta</a>
+                <a href="/terms" class="text-gray-600 hover:text-primary-600">Syarat & Ketentuan</a>
             </nav>
 
         </div>

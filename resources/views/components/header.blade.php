@@ -1,8 +1,8 @@
 <header x-data="{ openDropdown: null }" id="headerDashboard"
-    class="h-16 fixed top-0 left-0 md:left-64 right-0 z-50 bg-white border-b border-green-100 flex items-center justify-between px-3 md:px-6">
+    class="h-16 fixed top-0 left-0 md:left-64 right-0 z-50 bg-white border-b border-primary-100 flex items-center justify-between px-3 md:px-6">
     <div class="flex items-center gap-4">
         <button id="toggleCollapse"
-            class="hidden md:flex w-10 h-10 items-center justify-center relative z-[999] pointer-events-auto rounded-lg hover:bg-green-50">
+            class="hidden md:flex w-10 h-10 items-center justify-center relative z-[999] pointer-events-auto rounded-lg hover:bg-primary-50">
             <svg id="iconMenu" class="w-6 h-6 text-gray-600 absolute md:opacity-0 lg:opacity-1 pointer-events-none"
                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
@@ -17,7 +17,7 @@
         </button>
 
         <button id="toggleSidebar"
-            class="md:hidden w-10 h-10 items-center justify-center relative pointer-events-auto rounded-lg hover:bg-green-50">
+            class="md:hidden w-10 h-10 items-center justify-center relative pointer-events-auto rounded-lg hover:bg-primary-50">
             <svg class="w-6 h-6 text-gray-600 absolute inset-0 m-auto" fill="none" stroke="currentColor"
                 viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
@@ -38,9 +38,9 @@
 
         <div class="relative group inline-block">
             <button @click.stop="openDropdown = openDropdown === 'profile' ? null : 'profile'"
-                class="flex items-center gap-2 p-2 rounded-lg hover:bg-green-50">
+                class="flex items-center gap-2 p-2 rounded-lg hover:bg-primary-50">
                 <div
-                    class="w-8 h-8 bg-green-500 text-white flex items-center justify-center rounded-full text-sm font-semibold">
+                    class="w-8 h-8 bg-primary-500 text-white flex items-center justify-center rounded-full text-sm font-semibold">
                     {{ strtoupper(substr(auth()->user()->name ?? 'U', 0, 1)) }}
                 </div>
                 <span class="hidden md:block text-sm font-medium text-gray-700">
@@ -53,7 +53,7 @@
 
                 <div x-data class="py-2 space-y-1">
                     <a href="/profile"
-                        class="group/menu flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:text-green-700 transition-all duration-200 relative overflow-hidden">
+                        class="group/menu flex items-center gap-3 px-5 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-primary-50 hover:to-primary-100 hover:text-primary-700 transition-all duration-200 relative overflow-hidden">
                         <div
                             class="w-10 h-10 bg-indigo-400 flex items-center justify-center rounded-xl text-white text-sm font-semibold shadow-md group-hover/parent:scale-105 transition-transform duration-200">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,7 +66,7 @@
                             <span class="text-xs opacity-75 block">View your profile</span>
                         </div>
                         <div
-                            class="w-2 h-2 bg-green-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity ml-auto">
+                            class="w-2 h-2 bg-primary-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity ml-auto">
                         </div>
                     </a>
 

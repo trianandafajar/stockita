@@ -20,11 +20,11 @@
                 </div>
 
                 <div class="p-6 flex flex-col flex-1">
-                    <span class="text-sm text-emerald-600 font-semibold">
+                    <span class="text-sm text-primary-600 font-semibold">
                         Getting Started
                     </span>
 
-                    <h3 class="text-xl font-bold mt-2 group-hover:text-emerald-600 transition line-clamp-2">
+                    <h3 class="text-xl font-bold mt-2 group-hover:text-primary-600 transition line-clamp-2">
                         How to Use the POS Dashboard for the First Time
                     </h3>
 
@@ -43,11 +43,11 @@
                 </div>
 
                 <div class="p-6 flex flex-col flex-1">
-                    <span class="text-sm text-emerald-600 font-semibold">
+                    <span class="text-sm text-primary-600 font-semibold">
                         Products & Inventory
                     </span>
 
-                    <h3 class="text-xl font-bold mt-2 group-hover:text-emerald-600 transition line-clamp-2">
+                    <h3 class="text-xl font-bold mt-2 group-hover:text-primary-600 transition line-clamp-2">
                         How to Add and Manage Products
                     </h3>
 
@@ -66,11 +66,11 @@
                 </div>
 
                 <div class="p-6 flex flex-col flex-1">
-                    <span class="text-sm text-emerald-600 font-semibold">
+                    <span class="text-sm text-primary-600 font-semibold">
                         Transactions
                     </span>
 
-                    <h3 class="text-xl font-bold mt-2 group-hover:text-emerald-600 transition line-clamp-2">
+                    <h3 class="text-xl font-bold mt-2 group-hover:text-primary-600 transition line-clamp-2">
                         How to Process Transactions in the POS System (Cashier Guide)
                     </h3>
 

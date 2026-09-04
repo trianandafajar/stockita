@@ -20,21 +20,21 @@
     <div class="space-y-8">
 
         {{-- HEADER --}}
-        <div class="bg-green-50 p-6 rounded-2xl shadow-sm border border-green-100">
+        <div class="bg-primary-50 p-6 rounded-2xl shadow-sm border border-primary-100">
             <div class="flex justify-between items-center">
 
                 <div>
-                    <h1 class="text-3xl font-bold text-green-800">
+                    <h1 class="text-3xl font-bold text-primary-800">
                         {{ $store->name }}
                     </h1>
-                    <p class="text-green-600 text-sm mt-1">
+                    <p class="text-primary-600 text-sm mt-1">
                         {{ $store->slug }}
                     </p>
                 </div>
 
                 @can('edit store')
                 <button x-data @click="$dispatch('open-modal', { name: 'edit-store' })"
-                    class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+                    class="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition">
                     Edit
                 </button>
                 @endcan
@@ -202,7 +202,7 @@
                             Cancel
                         </button>
 
-                        <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                        <button type="submit" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700">
                             Save Changes
                         </button>
                     </div>

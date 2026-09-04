@@ -36,7 +36,7 @@ $prefix = $isAdmin ? '/admin' : '';
             <div x-data class="flex gap-3">
                 @can('create store')
                 <button x-data @click="$dispatch('open-modal', { name: 'create-store' })"
-                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-white font-medium text-sm rounded-xl bg-green-500 hover:bg-green-600 shadow-lg hover:shadow-xl transition-all">
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-white font-medium text-sm rounded-xl bg-primary-500 hover:bg-primary-600 shadow-lg hover:shadow-xl transition-all">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
@@ -191,7 +191,7 @@ $prefix = $isAdmin ? '/admin' : '';
                             Cancel
                         </button>
 
-                        <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg">
+                        <button type="submit" class="px-4 py-2 bg-primary-600 text-white rounded-lg">
                             Save
                         </button>
                     </div>

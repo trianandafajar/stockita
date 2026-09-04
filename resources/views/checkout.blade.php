@@ -35,7 +35,7 @@
                         {{ $plan->name }} Plan
                     </h2>
 
-                    <div class="text-4xl font-bold text-emerald-600 mb-4">
+                    <div class="text-4xl font-bold text-primary-600 mb-4">
                         <span id="priceDisplay">
                             Rp {{ $interval == 'yearly' ? $plan->yearly_price : $plan->price }}
                         </span>
@@ -51,7 +51,7 @@
                     </ul>
 
                     @if ($interval == 'yearly')
-                    <div class="text-sm text-emerald-600 font-semibold">
+                    <div class="text-sm text-primary-600 font-semibold">
                         Save more with the yearly plan
                     </div>
                     @endif
@@ -86,7 +86,7 @@
                     </div>
 
                     <button onclick="pay({{ $plan->id }}, '{{ $interval }}')"
-                        class="mt-6 w-full bg-emerald-500 hover:bg-emerald-600 text-white py-3 rounded-xl font-semibold transition">
+                        class="mt-6 w-full bg-primary-500 hover:bg-primary-600 text-white py-3 rounded-xl font-semibold transition">
                         Pay Now
                     </button>
 

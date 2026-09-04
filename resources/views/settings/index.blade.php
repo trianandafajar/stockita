@@ -44,7 +44,7 @@
                         <p class="text-sm text-gray-500">Application identity</p>
                     </div>
                     <button @click="$dispatch('open-modal', { name: 'edit-app'})"
-                        class="text-sm font-medium text-green-600 hover:text-green-700 px-3 py-1 border border-green-100 rounded-lg hover:bg-green-50 transition-colors">
+                        class="text-sm font-medium text-primary-600 hover:text-primary-700 px-3 py-1 border border-primary-100 rounded-lg hover:bg-primary-50 transition-colors">
                         Edit
                     </button>
                 </div>
@@ -74,18 +74,18 @@
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     @foreach ($plans as $plan)
                     <div class="border flex flex-col justify-between rounded-xl p-6 relative 
-                                    {{ $plan->name == 'Pro' ? 'bg-green-50 border-green-200' : '' }}">
+                                    {{ $plan->name == 'Pro' ? 'bg-primary-50 border-primary-200' : '' }}">
 
                         {{-- badge --}}
                         @if ($plan->name == 'Pro')
-                        <span class="absolute top-3 right-3 text-xs bg-green-600 text-white px-2 py-1 rounded-full">
+                        <span class="absolute top-3 right-3 text-xs bg-primary-600 text-white px-2 py-1 rounded-full">
                             Popular
                         </span>
                         @endif
 
                         {{-- name --}}
                         <p class="text-sm uppercase 
-                                         {{ $plan->name == 'Pro' ? 'text-green-600' : 'text-gray-500' }}">
+                                         {{ $plan->name == 'Pro' ? 'text-primary-600' : 'text-gray-500' }}">
                             {{ $plan->name }}
                         </p>
 
@@ -166,7 +166,7 @@
                             <button @click="$dispatch('open-modal', { 
                             name: 'email-template', 
                             template: @js($template) 
-                        })" class="text-sm text-green-600 hover:text-green-700">
+                        })" class="text-sm text-primary-600 hover:text-primary-700">
                                 Edit
                             </button>
                         </div>
@@ -204,7 +204,7 @@
                         {{-- edit --}}
                         @can('edit store')
                         <button @click="$dispatch('open-modal', { name: 'edit-store'})"
-                            class="text-sm font-medium text-green-600 hover:text-green-700 px-3 py-1 border border-green-100 rounded-lg hover:bg-green-50">
+                            class="text-sm font-medium text-primary-600 hover:text-primary-700 px-3 py-1 border border-primary-100 rounded-lg hover:bg-primary-50">
                             Edit Store
                         </button>
                         @endcan
@@ -240,7 +240,7 @@
                 </div>
 
                 @if ($plan)
-                <div class="flex items-center justify-between p-6 border border-gray-100 rounded-xl bg-green-50/50">
+                <div class="flex items-center justify-between p-6 border border-gray-100 rounded-xl bg-primary-50/50">
                     <div>
                         <p class="text-xl font-bold text-gray-900">{{ $plan->name }} Plan</p>
                         <p class="text-sm text-gray-600">
@@ -249,7 +249,7 @@
                     </div>
                     <form action="{{ route('subscription.index') }}" method="GET">
                         <button type="submit"
-                            class="bg-green-600 text-white px-6 py-2.5 rounded-lg font-medium text-sm hover:bg-green-700 transition-colors shadow-sm hover:shadow-md">
+                            class="bg-primary-600 text-white px-6 py-2.5 rounded-lg font-medium text-sm hover:bg-primary-700 transition-colors shadow-sm hover:shadow-md">
                             Upgrade
                         </button>
                     </form>
@@ -258,7 +258,7 @@
                 <div class="p-6 border border-gray-100 rounded-xl bg-gray-50 text-center">
                     <p class="text-gray-500">No active package yet</p>
                     <a href="{{ route('subscription.index') }}"
-                        class="mt-4 inline-block bg-green-600 text-white px-6 py-2.5 rounded-lg font-medium text-sm hover:bg-green-700 transition-colors shadow-sm hover:shadow-md">
+                        class="mt-4 inline-block bg-primary-600 text-white px-6 py-2.5 rounded-lg font-medium text-sm hover:bg-primary-700 transition-colors shadow-sm hover:shadow-md">
                         Choose a Plan
                     </a>
                 </div>
@@ -311,7 +311,7 @@
                     </button>
 
                     <button type="submit"
-                        class="px-4 py-2 text-sm bg-green-600 text-white rounded-lg hover:bg-green-700">
+                        class="px-4 py-2 text-sm bg-primary-600 text-white rounded-lg hover:bg-primary-700">
                         Save
                     </button>
                 </div>
@@ -413,7 +413,7 @@
                     </button>
 
                     <button type="submit"
-                        class="px-4 py-2 text-sm bg-green-600 text-white rounded-lg hover:bg-green-700">
+                        class="px-4 py-2 text-sm bg-primary-600 text-white rounded-lg hover:bg-primary-700">
                         Save
                     </button>
                 </div>
@@ -486,7 +486,7 @@
                 </div>
 
                 <div class="flex justify-end">
-                    <button type="submit" class="px-5 py-2.5 bg-green-600 text-white rounded-lg">
+                    <button type="submit" class="px-5 py-2.5 bg-primary-600 text-white rounded-lg">
                         Save
                     </button>
                 </div>
@@ -552,7 +552,7 @@
                     </button>
 
                     <button type="submit"
-                        class="px-4 py-2 text-sm bg-green-600 text-white rounded-lg hover:bg-green-700">
+                        class="px-4 py-2 text-sm bg-primary-600 text-white rounded-lg hover:bg-primary-700">
                         Save
                     </button>
                 </div>

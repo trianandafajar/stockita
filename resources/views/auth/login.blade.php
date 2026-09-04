@@ -30,7 +30,7 @@
         <div class="mb-4">
             <x-input-label for="email" :value="__('Email Address')" class="text-gray-800 font-semibold mb-2 block" />
             <x-text-input id="email"
-                class="block w-full border-2 border-green-200 focus:border-green-500 focus:ring-green-500 bg-green-50 text-gray-800 rounded-lg px-4 py-3"
+                class="block w-full border-2 border-primary-200 focus:border-primary-500 focus:ring-primary-500 bg-primary-50 text-gray-800 rounded-lg px-4 py-3"
                 type="email" name="email" value="{{ old('email', request()->cookie('remember_email')) }}" required
                 autofocus />
             <x-input-error :messages="$errors->get('email')" class="mt-2 text-red-500 text-sm" />
@@ -41,11 +41,11 @@
 
             <x-text-input id="password" x-bind:type="show ? 'text' : 'password'"
                 value="{{ old('password', request()->cookie('remember_password')) }}"
-                class="block w-full border-2 border-green-200 focus:border-green-500 focus:ring-green-500 bg-green-50 text-gray-800 rounded-lg px-4 py-3 pr-12"
+                class="block w-full border-2 border-primary-200 focus:border-primary-500 focus:ring-primary-500 bg-primary-50 text-gray-800 rounded-lg px-4 py-3 pr-12"
                 name="password" required />
 
             <button type="button" @click="show = !show"
-                class="absolute right-3 top-[42px] text-gray-500 hover:text-green-600">
+                class="absolute right-3 top-[42px] text-gray-500 hover:text-primary-600">
 
                 <svg x-show="!show" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
@@ -67,26 +67,26 @@
         <div class="mb-6 flex items-center justify-between">
             <label class="flex items-center gap-2">
                 <input id="remember_me" type="checkbox"
-                    class="w-4 h-4 text-green-600 border-2 border-green-300 rounded focus:ring-green-500"
+                    class="w-4 h-4 text-primary-600 border-2 border-primary-300 rounded focus:ring-primary-500"
                     name="remember">
                 <span class="text-sm text-gray-700">Remember me</span>
             </label>
 
             @if (Route::has('password.request'))
-            <a href="{{ route('password.request') }}" class="text-sm text-green-600 hover:text-green-700 font-medium">
+            <a href="{{ route('password.request') }}" class="text-sm text-primary-600 hover:text-primary-700 font-medium">
                 Forgot password?
             </a>
             @endif
         </div>
 
         <button
-            class="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all">
+            class="w-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-3 rounded-xl shadow-lg hover:shadow-xl transition-all">
             Log in
         </button>
 
         <p class="text-center text-sm text-gray-600 mt-6">
             Don't have an account?
-            <a href="{{ route('register') }}" class="text-green-600 hover:text-green-700 font-semibold">
+            <a href="{{ route('register') }}" class="text-primary-600 hover:text-primary-700 font-semibold">
                 Sign up now
             </a>
         </p>
@@ -103,7 +103,7 @@
         </div>
 
         <a href="/auth/google"
-            class="flex items-center justify-center w-full my-6 bg-white border-2 border-green-200 hover:border-green-400 text-gray-800 hover:text-green-700 font-semibold py-3 rounded-xl shadow-md hover:shadow-lg transition-all gap-3">
+            class="flex items-center justify-center w-full my-6 bg-white border-2 border-primary-200 hover:border-primary-400 text-gray-800 hover:text-primary-700 font-semibold py-3 rounded-xl shadow-md hover:shadow-lg transition-all gap-3">
             <svg class="w-5 h-5" viewBox="0 0 24 24">
                 <path fill="#4285F4"
                     d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
@@ -127,7 +127,7 @@
                 </div>
             </div>
 
-            <div class="bg-green-50 border-2 border-green-200 rounded-xl p-4">
+            <div class="bg-primary-50 border-2 border-primary-200 rounded-xl p-4">
                 <p class="text-center text-xs text-gray-500 mb-3 font-medium">
                     Try the demo — all data is automatically reset every 2 hours
                 </p>
@@ -149,8 +149,8 @@
                         @csrf
                         <input type="hidden" name="role" value="owner">
                         <button type="submit"
-                            class="w-full flex flex-col items-center bg-white border-2 border-green-200 hover:border-green-400 hover:bg-green-50 text-gray-700 font-semibold py-3 rounded-xl shadow-sm hover:shadow-md transition-all">
-                            <span class="text-[10px] uppercase tracking-wider text-green-500 mb-1">Access</span>
+                            class="w-full flex flex-col items-center bg-white border-2 border-primary-200 hover:border-primary-400 hover:bg-primary-50 text-gray-700 font-semibold py-3 rounded-xl shadow-sm hover:shadow-md transition-all">
+                            <span class="text-[10px] uppercase tracking-wider text-primary-500 mb-1">Access</span>
                             <span class="text-xs">Owner</span>
                         </button>
                     </form>

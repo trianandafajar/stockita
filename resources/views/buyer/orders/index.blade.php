@@ -18,7 +18,7 @@
             <input type="date" name="end"
                 class="border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 focus:outline-none">
 
-            <button class="bg-emerald-500 text-white px-4 rounded-xl">
+            <button class="bg-primary-500 text-white px-4 rounded-xl">
                 Filter
             </button>
         </form>
@@ -37,13 +37,13 @@
 
                 <div class="text-right">
 
-                    <p class="font-semibold text-emerald-600">
+                    <p class="font-semibold text-primary-600">
                         Rp {{ number_format($order->total, 0, ',', '.') }}
                     </p>
 
                     <span
                         class="text-xs px-2 py-1 rounded-full
-                        {{ $order->status == 'paid' ? 'bg-green-100 text-green-600' : 'bg-yellow-100 text-yellow-600' }}">
+                        {{ $order->status == 'paid' ? 'bg-primary-100 text-primary-600' : 'bg-yellow-100 text-yellow-600' }}">
                         {{ strtoupper($order->status) }}
                     </span>
 

@@ -32,8 +32,8 @@
                 @can('create categories')
                 <button x-data @click="$dispatch('open-modal', { name: 'create-category' })" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-white font-medium text-sm rounded-xl
                 {{ auth()->user()->can('create categories')
-                    ? 'bg-green-500 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5'
-                    : 'bg-green-200 border-gray-200 cursor-not-allowed' }}">
+                    ? 'bg-primary-500 shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5'
+                    : 'bg-primary-200 border-gray-200 cursor-not-allowed' }}">
 
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -138,7 +138,7 @@
                     <div>
                         <label class="text-sm font-medium">Name <span class="text-red-500">*</span></label>
                         <input type="text" name="name" x-ref="categoryInput"
-                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">
                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
@@ -149,7 +149,7 @@
                             Cancel
                         </button>
 
-                        <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                        <button type="submit" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700">
                             Save
                         </button>
                     </div>
@@ -191,7 +191,7 @@
                 <div>
                     <label class="text-sm font-medium">Name <span class="text-red-500">*</span></label>
                     <input type="text" name="name" x-model="categoryName" x-ref="categoryInput"
-                        class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+                        class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">
                     <x-input-error :messages="$errors->editCategory->get('name')" class="mt-2 text-red-500 text-sm" />
                 </div>
 
@@ -202,7 +202,7 @@
                         Cancel
                     </button>
 
-                    <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                    <button type="submit" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700">
                         Save
                     </button>
                 </div>

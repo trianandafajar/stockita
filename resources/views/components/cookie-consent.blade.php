@@ -1,6 +1,6 @@
 <div class="fixed -bottom-8 left-0 right-0 z-50">
     <div id="cookieConsent"
-        class="bg-white border-t-4 max-w-md border-green-500 mx-4 p-5 rounded-lg shadow-lg transform translate-y-full transition-transform duration-500">
+        class="bg-white border-t-4 max-w-md border-primary-500 mx-4 p-5 rounded-lg shadow-lg transform translate-y-full transition-transform duration-500">
         <div class="flex flex-col gap-8">
             <div>
                 <p class="text-sm text-gray-700 mb-1">We use cookies for the best experience</p>
@@ -12,7 +12,7 @@
                     Decline
                 </button>
                 <button id="acceptCookie"
-                    class="bg-green-500 text-white px-6 py-2 rounded-md font-medium hover:bg-green-600 transition-colors">
+                    class="bg-primary-500 text-white px-6 py-2 rounded-md font-medium hover:bg-primary-600 transition-colors">
                     Accept
                 </button>
             </div>

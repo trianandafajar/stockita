@@ -36,7 +36,7 @@
             <div class="flex gap-2">
                 @can('create transactions')
                 <a href="/transactions/create"
-                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-white font-medium text-sm rounded-xl bg-green-500 hover:bg-green-600">
+                    class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2.5 sm:py-3 text-white font-medium text-sm rounded-xl bg-primary-500 hover:bg-primary-600">
                     + New Transaction
                 </a>
                 @endcan
@@ -65,7 +65,7 @@
                     </button>
 
                     <a href="{{ route('transactions.export', request()->query()) }}"
-                        class="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center justify-center gap-2">
+                        class="px-6 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 flex items-center justify-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-5">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -85,7 +85,7 @@
                 <div class="text-sm text-gray-500">Total Transactions</div>
             </div>
             <div class="bg-white p-6 rounded-xl shadow-sm border text-center">
-                <div class="text-2xl font-bold text-green-600">Rp {{ number_format($stats['total_amount'] ?? 0) }}
+                <div class="text-2xl font-bold text-primary-600">Rp {{ number_format($stats['total_amount'] ?? 0) }}
                 </div>
                 <div class="text-sm text-gray-500">Total Amount</div>
             </div>
@@ -114,7 +114,7 @@
                     </div>
 
                     <span class="px-3 py-1 rounded-full text-xs font-semibold
-                        {{ $trx->type == 'in' ? 'bg-green-100 text-green-500' : 'bg-red-100 text-red-800' }}">
+                        {{ $trx->type == 'in' ? 'bg-primary-100 text-primary-500' : 'bg-red-100 text-red-800' }}">
                         {{ $trx->type == 'in' ? 'IN' : 'OUT' }}
                     </span>
                 </div>
@@ -122,7 +122,7 @@
                 <div class="flex justify-between items-center mb-4">
                     <span
                         class="text-xs px-3 py-1 rounded-full font-medium
-                        {{ $trx->status == 'paid' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700' }}">
+                        {{ $trx->status == 'paid' ? 'bg-primary-100 text-primary-700' : 'bg-yellow-100 text-yellow-700' }}">
                         {{ strtoupper($trx->status) }}
                     </span>
 
@@ -162,7 +162,7 @@
                 <div x-data class="flex flex-wrap gap-2">
                     @if ($trx->status != 'paid')
                     <button onclick="confirmPayment({{ $trx->id }})"
-                        class="flex-1 px-3 py-2 text-xs bg-green-100 text-green-700 rounded-lg hover:bg-green-200 font-medium">
+                        class="flex-1 px-3 py-2 text-xs bg-primary-100 text-primary-700 rounded-lg hover:bg-primary-200 font-medium">
                         Pay
                     </button>
                     @endif

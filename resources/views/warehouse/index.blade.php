@@ -22,7 +22,7 @@
         <div x-data class="flex justify-between">
             <h1 class="text-lg font-semibold">Warehouse</h1>
             <button @click="$dispatch('open-modal', { name: 'create-warehouse' })"
-                class="px-4 py-2 bg-green-600 text-white rounded-lg">
+                class="px-4 py-2 bg-primary-600 text-white rounded-lg">
                 + Add Warehouse
             </button>
         </div>
@@ -119,21 +119,21 @@
                     <div>
                         <label class="text-sm font-medium">Warehouse Name <span class="text-red-500">*</span></label>
                         <input type="text" name="name" value="{{ old('name') }}"
-                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">
                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
                     <div>
                         <label class="text-sm font-medium">Location <span class="text-red-500">*</span></label>
                         <input type="text" name="location" value="{{ old('location') }}"
-                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">
                         <x-input-error :messages="$errors->get('location')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
                     <div>
                         <label class="text-sm font-medium">Description <span class="text-red-500">*</span></label>
                         <textarea name="description"
-                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">{{ old('description') }}</textarea>
+                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">{{ old('description') }}</textarea>
                         <x-input-error :messages="$errors->get('description')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
@@ -144,7 +144,7 @@
                             Cancel
                         </button>
 
-                        <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                        <button type="submit" class="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700">
                             Save
                         </button>
                     </div>
@@ -180,21 +180,21 @@
                     <div>
                         <label class="text-sm font-medium">Warehouse Name <span class="text-red-500">*</span></label>
                         <input type="text" name="name" x-model="name"
-                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">
                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
                     <div>
                         <label class="text-sm font-medium">Location <span class="text-red-500">*</span></label>
                         <input type="text" name="location" x-model="location"
-                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">
                         <x-input-error :messages="$errors->get('location')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
                     <div>
                         <label class="text-sm font-medium">Description <span class="text-red-500">*</span></label>
                         <textarea name="description" x-model="description"
-                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500"></textarea>
+                            class="w-full mt-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500"></textarea>
                         <x-input-error :messages="$errors->get('description')" class="mt-2 text-red-500 text-sm" />
                     </div>
 

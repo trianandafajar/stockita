@@ -9,7 +9,7 @@ $prefix = $isAdmin ? '/admin' : '';
 
             <div class="w-full md:w-1/3">
                 <select id="user_id"
-                    class="w-full border-gray-300 rounded-xl px-4 py-2 focus:ring-2 focus:ring-emerald-500">
+                    class="w-full border-gray-300 rounded-xl px-4 py-2 focus:ring-2 focus:ring-primary-500">
                     <option value="">Select Owner</option>
                     @foreach ($owners as $user)
                     <option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -38,16 +38,16 @@ $prefix = $isAdmin ? '/admin' : '';
         <div class="grid md:grid-cols-3 gap-8">
             @foreach ($plans as $plan)
             <div class="offer-card transform hover:-translate-y-1 hover:shadow-xl transition duration-300 p-8  shadow-sm
-                        {{ $plan->name == 'Pro' ? 'bg-emerald-500 text-white' : 'bg-white border' }}
+                        {{ $plan->name == 'Pro' ? 'bg-primary-500 text-white' : 'bg-white border' }}
                         rounded-3xl relative">
                 @if ($plan->name == 'Pro')
                 <span
-                    class="absolute top-4 right-4 bg-white text-emerald-600 text-xs px-3 py-1 rounded-full">POPULAR</span>
+                    class="absolute top-4 right-4 bg-white text-primary-600 text-xs px-3 py-1 rounded-full">POPULAR</span>
                 @endif
 
                 @if ($plan->id == 1)
                 <span
-                    class="absolute top-4 right-4 bg-emerald-100 text-emerald-600 text-xs px-3 py-1 rounded-full font-semibold">
+                    class="absolute top-4 right-4 bg-primary-100 text-primary-600 text-xs px-3 py-1 rounded-full font-semibold">
                     FREE TRIAL
                 </span>
                 @endif
@@ -77,7 +77,7 @@ $prefix = $isAdmin ? '/admin' : '';
 
                     <button type="submit"
                         class="w-full py-3 rounded-xl
-                            {{ $plan->name == 'Pro' ? 'bg-white text-emerald-600 font-semibold' : 'bg-gray-900 text-white' }}">
+                            {{ $plan->name == 'Pro' ? 'bg-white text-primary-600 font-semibold' : 'bg-gray-900 text-white' }}">
                         Choose Plan
                     </button>
                 </form>

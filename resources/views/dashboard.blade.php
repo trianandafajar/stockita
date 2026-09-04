@@ -1,13 +1,13 @@
 <x-app-layout>
     <div class="min-h-screen">
         <div
-            class="bg-white/80 backdrop-blur-md shadow-sm border-b border-green-200 rounded-2xl border border-green-200">
+            class="bg-white/80 backdrop-blur-md shadow-sm border-b border-primary-200 rounded-2xl border border-primary-200">
             <div class="max-w-7xl mx-auto px-4 py-6 lg:px-8">
                 <div class="flex items-center justify-between">
                     <div class="flex flex-col gap-2">
                         <h1
-                            class="text-3xl flex items-center gap-3 font-bold bg-green-600 to-teal-600 bg-clip-text text-transparent">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#16A34A" class="size-8">
+                            class="text-3xl flex items-center gap-3 font-bold bg-gradient-to-r from-primary-600 to-teal-600 bg-clip-text text-transparent">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#4f46e5" class="size-8">
                                 <path
                                     d="M5.223 2.25c-.497 0-.974.198-1.325.55l-1.3 1.298A3.75 3.75 0 0 0 7.5 9.75c.627.47 1.406.75 2.25.75.844 0 1.624-.28 2.25-.75.626.47 1.406.75 2.25.75.844 0 1.623-.28 2.25-.75a3.75 3.75 0 0 0 4.902-5.652l-1.3-1.299a1.875 1.875 0 0 0-1.325-.549H5.223Z" />
                                 <path fill-rule="evenodd"
@@ -20,7 +20,7 @@
                             @endphp
                             {{ $user->store->name }}
                         </h1>
-                        <p class="text-green-900 font-medium">Welcome back!</p>
+                        <p class="text-primary-900 font-medium">Welcome back!</p>
                     </div>
                 </div>
             </div>
@@ -31,11 +31,11 @@
             {{-- statistics --}}
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                 {{-- total order --}}
-                <div class="bg-white p-6 rounded-2xl border border-green-200 hover:border-green-500">
+                <div class="bg-white p-6 rounded-2xl border border-primary-200 hover:border-primary-500">
                     <div class="flex items-center justify-between">
                         <div class="flex flex-col gap-2">
-                            <p class="text-sm font-medium text-green-700 uppercase tracking-wide">Total Orders</p>
-                            <p class="text-3xl font-bold text-green-900">
+                            <p class="text-sm font-medium text-primary-700 uppercase tracking-wide">Total Orders</p>
+                            <p class="text-3xl font-bold text-primary-900">
                                 {{ number_format($totalOrder) }}
                             </p>
                             @php
@@ -43,14 +43,14 @@
                             @endphp
 
                             <p class="font-semibold flex items-center 
-                                 {{ $isUp ? 'text-green-600' : 'text-red-600' }}">
+                                 {{ $isUp ? 'text-primary-600' : 'text-red-600' }}">
                                 <i
-                                    class="fas {{ $isUp ? 'fa-arrow-up text-green-500' : 'fa-arrow-down text-red-500' }} mr-1"></i>
+                                    class="fas {{ $isUp ? 'fa-arrow-up text-primary-500' : 'fa-arrow-down text-red-500' }} mr-1"></i>
 
                                 {{ $percentOrderLabel }} from yesterday
                             </p>
                         </div>
-                        <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center">
+                        <div class="w-16 h-16 bg-primary-500 rounded-2xl flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 class="size-6 text-white">
                                 <path
@@ -61,14 +61,14 @@
                 </div>
 
                 {{-- revenue --}}
-                <div class="bg-white p-6 rounded-2xl border border-green-200 hover:border-green-500">
+                <div class="bg-white p-6 rounded-2xl border border-primary-200 hover:border-primary-500">
                     <div class="flex items-center justify-between">
                         <div class="flex flex-col gap-2">
-                            <p class="text-sm font-medium text-green-700 uppercase tracking-wide">
+                            <p class="text-sm font-medium text-primary-700 uppercase tracking-wide">
                                 Today's Revenue
                             </p>
 
-                            <p class="text-3xl font-bold text-green-900 mt-1">
+                            <p class="text-3xl font-bold text-primary-900 mt-1">
                                 {{ 'Rp ' . number_format($todayRevenue, 0, ',', '.') }}
                             </p>
 
@@ -77,16 +77,16 @@
                             @endphp
 
                             <p class="font-semibold flex items-center 
-                                {{ $isUp ? 'text-green-600' : 'text-red-600' }}">
+                                {{ $isUp ? 'text-primary-600' : 'text-red-600' }}">
 
                                 <i
-                                    class="fas {{ $isUp ? 'fa-arrow-up text-green-500' : 'fa-arrow-down text-red-500' }} mr-1"></i>
+                                    class="fas {{ $isUp ? 'fa-arrow-up text-primary-500' : 'fa-arrow-down text-red-500' }} mr-1"></i>
 
                                 {{ $percentRevenueLabel }}
                             </p>
                         </div>
 
-                        <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center">
+                        <div class="w-16 h-16 bg-primary-500 rounded-2xl flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 class="size-6 text-white">
                                 <path d="M12 7.5a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" />
@@ -102,11 +102,11 @@
                 </div>
 
                 {{-- stock ready --}}
-                <div class="bg-white p-6 rounded-2xl border border-green-200 hover:border-green-500">
+                <div class="bg-white p-6 rounded-2xl border border-primary-200 hover:border-primary-500">
                     <div class="flex items-center justify-between">
                         <div class="flex flex-col gap-2">
-                            <p class="text-sm font-medium text-green-700 uppercase tracking-wide">Ready Stock</p>
-                            <p class="text-3xl font-bold text-green-900">
+                            <p class="text-sm font-medium text-primary-700 uppercase tracking-wide">Ready Stock</p>
+                            <p class="text-3xl font-bold text-primary-900">
                                 {{ number_format($totalStock) }}
                             </p>
 
@@ -115,15 +115,15 @@
                             @endphp
 
                             <p class="font-semibold flex items-center 
-                                {{ $isUp ? 'text-green-600' : 'text-orange-600' }}">
+                                {{ $isUp ? 'text-primary-600' : 'text-orange-600' }}">
 
                                 <i
-                                    class="fas {{ $isUp ? 'fa-arrow-up text-green-500' : 'fa-arrow-down text-orange-500' }} mr-1"></i>
+                                    class="fas {{ $isUp ? 'fa-arrow-up text-primary-500' : 'fa-arrow-down text-orange-500' }} mr-1"></i>
 
                                 {{ abs(number_format($percentStock, 1)) }}%
                             </p>
                         </div>
-                        <div class="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center">
+                        <div class="w-16 h-16 bg-primary-500 rounded-2xl flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 class="size-6 text-white">
                                 <path fill-rule="evenodd"
@@ -136,7 +136,7 @@
                 </div>
 
                 {{-- low stock --}}
-                <div class="bg-white p-6 rounded-2xl border-2 {{ $isUp ? 'border-green-200' : 'border-amber-200' }}">
+                <div class="bg-white p-6 rounded-2xl border-2 {{ $isUp ? 'border-primary-200' : 'border-amber-200' }}">
                     <div class="flex items-center justify-between">
                         <div class="flex flex-col gap-2">
                             <p class="text-sm font-medium text-amber-700 uppercase tracking-wide">Low Stock</p>
@@ -149,7 +149,7 @@
                             @endphp
 
                             <p class="font-bold text-lg flex items-center gap-2
-                                {{ $isUp ? 'text-green-500' : 'text-amber-600' }}">
+                                {{ $isUp ? 'text-primary-500' : 'text-amber-600' }}">
 
                                 {!! $lowStockCount > 0
                                 ? '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -167,7 +167,7 @@
                             </p>
                         </div>
                         <div
-                            class="w-16 h-16 {{ $isUp ? 'bg-green-500' : 'bg-yellow-400' }}  rounded-2xl flex items-center justify-center">
+                            class="w-16 h-16 {{ $isUp ? 'bg-primary-500' : 'bg-yellow-400' }}  rounded-2xl flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                                 class="size-6 text-white">
                                 <path fill-rule="evenodd"
@@ -186,7 +186,7 @@
                         <div class="flex items-center justify-between mb-4">
                             <h3 class="text-lg font-semibold text-gray-800 flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="size-6 text-green-600">
+                                    stroke-width="1.5" stroke="currentColor" class="size-6 text-primary-600">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
                                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -213,7 +213,7 @@
                         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
                             <h3 class="text-lg font-semibold text-gray-800 flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="size-6 text-green-600">
+                                    stroke-width="1.5" stroke="currentColor" class="size-6 text-primary-600">
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1 5.814-5.518l2.74-1.22m0 0-5.94-2.281m5.94 2.28-2.28 5.941" />
                                 </svg>
@@ -301,7 +301,7 @@
                 datasets: [{
                     data: @json($data),
                     backgroundColor: [
-                        '#10b981',
+                        #4f46e5,
                         '#3b82f6',
                         '#f59e0b',
                         '#ef4444',

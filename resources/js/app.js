@@ -523,7 +523,7 @@ inputs.forEach((input, i) => {
                 item.className = `
                     search-card p-3 text-sm cursor-pointer rounded-lg
                     transition-all duration-150 ease-in-out
-                    hover:bg-emerald-50
+                    hover:bg-primary-50
                 `;
 
                 item.innerHTML = `
@@ -543,7 +543,7 @@ inputs.forEach((input, i) => {
             });
             if (currentResults.length > 0) {
                 const seeAll = document.createElement('div');
-                seeAll.className = 'p-3 text-sm text-center border-t border-slate-100 text-emerald-600 font-bold cursor-pointer hover:bg-slate-50';
+                seeAll.className = 'p-3 text-sm text-center border-t border-slate-100 text-primary-600 font-bold cursor-pointer hover:bg-slate-50';
                 seeAll.innerHTML = `See all results for "${keyword}"`;
                 seeAll.onclick = () => window.location.href = `/search?q=${encodeURIComponent(keyword)}`;
                 resultsBox.appendChild(seeAll);
@@ -587,10 +587,10 @@ inputs.forEach((input, i) => {
 
     function updateActive(items) {
         items.forEach((item, index) => {
-            item.classList.remove('bg-emerald-100');
+            item.classList.remove('bg-primary-100');
 
             if (index === activeIndex) {
-                item.classList.add('bg-emerald-100');
+                item.classList.add('bg-primary-100');
             }
         });
     }

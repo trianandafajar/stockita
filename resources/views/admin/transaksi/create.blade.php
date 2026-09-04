@@ -81,7 +81,7 @@
 
                             <button id="buttonSubmit" type="button"
                                 @click="$dispatch('open-modal', { name: 'payment-modal' })"
-                                class="w-full mt-3 bg-green-500 text-white py-3 rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed">
+                                class="w-full mt-3 bg-primary-500 text-white py-3 rounded-xl font-semibold disabled:opacity-50 disabled:cursor-not-allowed">
                                 Save Transaction
                             </button>
                         </div>
@@ -134,7 +134,7 @@
                         Cencel
                     </button>
                     <button onclick="submitTransaction()" id="submitBtn"
-                        class="px-4 py-2 bg-green-500 text-white rounded-xl flex items-center justify-center gap-2">
+                        class="px-4 py-2 bg-primary-500 text-white rounded-xl flex items-center justify-center gap-2">
 
                         <span id="btnText">Save</span>
                     </button>

@@ -28,7 +28,7 @@
             </div>
             @can('edit products')
             <button @click.prevent=" $dispatch('open-modal', { name: 'edit-produk'})"
-                class="px-4 py-2 text-white rounded-lg text-sm font-medium bg-green-500 hover:bg-green-600 transition-colors shadow-sm">
+                class="px-4 py-2 text-white rounded-lg text-sm font-medium bg-primary-500 hover:bg-primary-600 transition-colors shadow-sm">
                 Edit
             </button>
             @endcan
@@ -66,13 +66,13 @@
                             <p class="text-sm text-gray-500">{{ $product->sku }}</p>
                         </div>
                         <span
-                            class="px-3 py-1 bg-green-50 text-green-700 text-sm rounded-full font-medium border border-green-200">
+                            class="px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full font-medium border border-primary-200">
                             {{ $product->category->name ?? '-' }}
                         </span>
                     </div>
-                    <div class="bg-green-50/50 p-4 rounded-lg border border-green-100">
-                        <p class="text-sm font-medium text-green-800 mb-1">Total Stock</p>
-                        <p class="text-xl font-bold text-green-900">{{ $product->stocks->sum('qty') }} pcs</p>
+                    <div class="bg-primary-50/50 p-4 rounded-lg border border-primary-100">
+                        <p class="text-sm font-medium text-primary-800 mb-1">Total Stock</p>
+                        <p class="text-xl font-bold text-primary-900">{{ $product->stocks->sum('qty') }} pcs</p>
                     </div>
                 </div>
 
@@ -90,7 +90,7 @@
         </div>
 
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
-            <div class="bg-green-500 px-6 py-4 text-white">
+            <div class="bg-primary-500 px-6 py-4 text-white">
                 <h2 class="text-lg font-semibold flex items-center gap-2">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -104,8 +104,8 @@
                 @forelse($product->stocks as $stock)
                 <div class="flex justify-between items-center px-6 py-4 hover:bg-gray-50 transition-colors">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-green-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="w-10 h-10 bg-primary-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
                                 </path>
@@ -117,7 +117,7 @@
                         </div>
                     </div>
                     <span
-                        class="px-3 py-1 bg-green-50 text-green-700 rounded-lg text-sm font-semibold border border-green-200">
+                        class="px-3 py-1 bg-primary-50 text-primary-700 rounded-lg text-sm font-semibold border border-primary-200">
                         {{ $stock->qty }} pcs
                     </span>
                 </div>
@@ -167,7 +167,7 @@
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Upload new image</label>
                     <input type="file" name="image" id="image-input" required
-                        class="block w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-green-50 file:text-green-700 hover:file:bg-green-100 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent px-3 py-2"
+                        class="block w-full text-sm text-gray-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary-50 file:text-primary-700 hover:file:bg-primary-100 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent px-3 py-2"
                         accept="image/*">
                     <p class="mt-1 text-xs text-gray-500">PNG, JPG, GIF. Maksimal 2MB</p>
                 </div>
@@ -178,7 +178,7 @@
                         Cancel
                     </button>
                     <button type="submit" id="save-btn"
-                        class="close-modal flex-1 px-4 py-2.5 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium shadow-sm hover:shadow transition-all">
+                        class="close-modal flex-1 px-4 py-2.5 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium shadow-sm hover:shadow transition-all">
                         save
                     </button>
                 </div>
@@ -214,7 +214,7 @@
                         <label class="block text-sm font-medium text-gray-700 mb-1">Product Name <span
                                 class="text-red-500">*</span></label>
                         <input type="text" name="name" value="{{ $product->name }}" x-ref="productName"
-                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none">
+                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none">
                         <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
@@ -222,7 +222,7 @@
                         <label class="block text-sm font-medium text-gray-700 mb-1">Price <span
                                 class="text-red-500">*</span></label>
                         <input type="number" name="price" value="{{ $product->price }}"
-                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none">
+                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none">
                         <x-input-error :messages="$errors->get('price')" class="mt-2 text-red-500 text-sm" />
 
                     </div>
@@ -232,7 +232,7 @@
                         <label class="block text-sm font-medium text-gray-700 mb-1">Category <span
                                 class="text-red-500">*</span></label>
                         <select name="category_id"
-                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none">
+                            class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500 outline-none">
 
                             @foreach ($categories as $category)
                             <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' :
@@ -253,7 +253,7 @@
                             Cancel
                         </button>
                         <button type="submit" id="save-btn"
-                            class="close-modal flex-1 px-4 py-2.5 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium shadow-sm hover:shadow transition-all">
+                            class="close-modal flex-1 px-4 py-2.5 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium shadow-sm hover:shadow transition-all">
                             Save
                         </button>
                     </div>

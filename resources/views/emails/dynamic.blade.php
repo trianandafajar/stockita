@@ -15,7 +15,7 @@
 
                     <tr>
                         <td
-                            style="background:linear-gradient(135deg, #10b981, #059669); padding:25px; text-align:center; color:white;">
+                            style="background:linear-gradient(135deg, #4f46e5, #4f46e5); padding:25px; text-align:center; color:white;">
                             <h2 style="margin:0; font-size:20px; font-weight:600; letter-spacing:0.5px;">
                                 {{ $store_name }}
                             </h2>
@@ -23,7 +23,7 @@
                     </tr>
 
                     <tr>
-                        <td style="height:4px; background:#10b981;"></td>
+                        <td style="height:4px; background:#4f46e5;"></td>
                     </tr>
 
                     <tr>
@@ -37,7 +37,7 @@
                     <tr>
                         <td align="center" style="padding-bottom:30px;">
                             <a href="{{ config('app.url') }}"
-                                style="display:inline-block; background:#10b981; color:#ffffff; text-decoration:none; padding:12px 26px; border-radius:8px; font-size:14px; font-weight:600;">
+                                style="display:inline-block; background:#4f46e5; color:#ffffff; text-decoration:none; padding:12px 26px; border-radius:8px; font-size:14px; font-weight:600;">
                                 Kunjungi Aplikasi
                             </a>
                         </td>

@@ -8,7 +8,7 @@
             </div>
             <div>
                 <h1
-                    class="font-bold text-2xl bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+                    class="font-bold text-2xl bg-gradient-to-r from-primary-600 to-teal-600 bg-clip-text text-transparent">
                     StocKita</h1>
                 <p class="text-xs text-slate-500 font-medium">Inventory Pro</p>
             </div>
@@ -18,23 +18,23 @@
         <ul class="hidden lg:flex items-center gap-8 mx-auto">
             <li>
                 <a href="/#home"
-                    class="text-slate-700 hover:text-emerald-600 font-medium px-3 py-2 rounded-lg transition-all group hover:bg-emerald-50">Home
+                    class="text-slate-700 hover:text-primary-600 font-medium px-3 py-2 rounded-lg transition-all group hover:bg-primary-50">Home
                 </a>
             </li>
             <li>
                 <a href="/#features"
-                    class="text-slate-700 hover:text-emerald-600 font-medium px-3 py-2 rounded-lg transition-all group hover:bg-emerald-50">Features
+                    class="text-slate-700 hover:text-primary-600 font-medium px-3 py-2 rounded-lg transition-all group hover:bg-primary-50">Features
                 </a>
             </li>
 
             <li>
                 <a href="/#blog"
-                    class="text-slate-700 hover:text-emerald-600 font-medium px-3 py-2 rounded-lg transition-all group hover:bg-emerald-50">Guide
+                    class="text-slate-700 hover:text-primary-600 font-medium px-3 py-2 rounded-lg transition-all group hover:bg-primary-50">Guide
                 </a>
             </li>
             <li>
                 <a href="/#offer"
-                    class="text-slate-700 hover:text-emerald-600 font-medium px-3 py-2 rounded-lg transition-all group hover:bg-emerald-50">Pricing
+                    class="text-slate-700 hover:text-primary-600 font-medium px-3 py-2 rounded-lg transition-all group hover:bg-primary-50">Pricing
                 </a>
             </li>
         </ul>
@@ -48,7 +48,7 @@
                 </svg>
 
                 <input id="searchInput" type="text" placeholder="Search..."
-                    class="pl-12 pr-4 py-3 w-72 bg-slate-100 border border-green-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:bg-white transition-all duration-200 shadow-sm group-hover:shadow-md">
+                    class="pl-12 pr-4 py-3 w-72 bg-slate-100 border border-primary-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-400 focus:bg-white transition-all duration-200 shadow-sm group-hover:shadow-md">
 
                 <button id="clearSearch"
                     class="absolute right-3 top-1/2 -translate-y-1/2 w-7 h-7 items-center justify-center hidden transition">
@@ -67,7 +67,7 @@
 
                 @guest
                 <a href="/register"
-                    class="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 hidden sm:block">
+                    class="px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 hidden sm:block">
                     Sign Up
                 </a>
 
@@ -79,7 +79,7 @@
 
                 @auth
                 <a href="{{ auth()->user()->getDashboardUrl() }}"
-                    class="px-6 py-3 bg-emerald-500 hover:bg-emerald-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 hidden sm:block">
+                    class="px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 hidden sm:block">
                     Dashboard
                 </a>
                 @endauth
@@ -87,7 +87,7 @@
             </div>
 
             <button id="menuToggle"
-                class="flex w-10 h-10 items-center justify-center relative z-[9999] pointer-events-auto rounded-lg hover:bg-green-50 lg:hidden">
+                class="flex w-10 h-10 items-center justify-center relative z-[9999] pointer-events-auto rounded-lg hover:bg-primary-50 lg:hidden">
                 <svg id="menuIcon" class="w-6 h-6 text-gray-600 absolute opacity-1 pointer-events-none" fill="none"
                     stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
@@ -107,23 +107,23 @@
 
         <div class="px-4 pb-4">
             <ul class="flex flex-col gap-2 mt-3">
-                <li><a href="/#home" class="block py-2 text-slate-700 hover:text-emerald-600">Home</a></li>
-                <li><a href="/#features" class="block py-2 text-slate-700 hover:text-emerald-600">Features</a></li>
-                <li><a href="/#blog" class="block py-2 text-slate-700 hover:text-emerald-600">Guide</a></li>
-                <li><a href="/#offer" class="block py-2 text-slate-700 hover:text-emerald-600">Pricing</a></li>
+                <li><a href="/#home" class="block py-2 text-slate-700 hover:text-primary-600">Home</a></li>
+                <li><a href="/#features" class="block py-2 text-slate-700 hover:text-primary-600">Features</a></li>
+                <li><a href="/#blog" class="block py-2 text-slate-700 hover:text-primary-600">Guide</a></li>
+                <li><a href="/#offer" class="block py-2 text-slate-700 hover:text-primary-600">Pricing</a></li>
             </ul>
 
             {{-- Search mobile --}}
             <div class="relative w-full lg:hidden group">
                 <input id="searchInput" type="text" placeholder="Search..."
-                    class="pl-12 pr-4 py-3 bg-slate-100 w-full border border-green-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:bg-white transition-all duration-200 shadow-sm group-hover:shadow-md">
+                    class="pl-12 pr-4 py-3 bg-slate-100 w-full border border-primary-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary-400 focus:bg-white transition-all duration-200 shadow-sm group-hover:shadow-md">
             </div>
 
             {{-- Button --}}
             <div class="flex items-center gap-4 mt-4 md:hidden">
 
                 @guest
-                <a href="/register" class="flex-1 text-center px-4 py-2 bg-emerald-500 text-white rounded-xl">
+                <a href="/register" class="flex-1 text-center px-4 py-2 bg-primary-500 text-white rounded-xl">
                     Sign Up
                 </a>
 
@@ -134,7 +134,7 @@
 
                 @auth
                 <a href="{{ auth()->user()->getDashboardUrl() }}"
-                    class="flex-1 text-center px-4 py-2 bg-emerald-500 text-white rounded-xl">
+                    class="flex-1 text-center px-4 py-2 bg-primary-500 text-white rounded-xl">
                     Dashboard
                 </a>
                 @endauth

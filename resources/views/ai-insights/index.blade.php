@@ -3,11 +3,11 @@
 
     <div class="min-h-screen space-y-6">
         {{-- Header --}}
-        <div class="bg-white/80 backdrop-blur-md shadow-sm border border-green-200 rounded-2xl">
+        <div class="bg-white/80 backdrop-blur-md shadow-sm border border-primary-200 rounded-2xl">
             <div class="px-6 py-6">
                 <div class="flex items-center justify-between flex-wrap gap-4">
                     <div class="flex items-center gap-4">
-                        <div class="size-14 rounded-2xl bg-gradient-to-br from-green-500 via-emerald-500 to-teal-600 flex items-center justify-center shadow-md">
+                        <div class="size-14 rounded-2xl bg-gradient-to-br from-primary-500 via-primary-500 to-teal-600 flex items-center justify-center shadow-md">
                             <i data-lucide="sparkles" class="size-7 text-white"></i>
                         </div>
                         <div>
@@ -32,7 +32,7 @@
 
                         <button type="button"
                                 id="refresh-all-btn"
-                                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white text-sm font-semibold shadow-sm transition disabled:opacity-60 disabled:cursor-not-allowed">
+                                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-primary-600 to-primary-600 hover:from-primary-700 hover:to-primary-700 text-white text-sm font-semibold shadow-sm transition disabled:opacity-60 disabled:cursor-not-allowed">
                             <i data-lucide="refresh-cw" id="refresh-all-icon" class="size-4"></i>
                             <span id="refresh-all-label">Refresh All</span>
                         </button>
@@ -47,15 +47,15 @@
                        endpoint="{{ route('ai-insights.personalized') }}"
                        title="Product Recommendations For You"
                        subtitle="AI selects products from the store catalog based on your purchase history"
-                       icon="shopping-cart"
-                       accent="green" />
+                        icon="shopping-cart"
+                       accent="primary" />
         @else
             <x-ai-card id="recommendations"
                        endpoint="{{ route('ai-insights.recommendations') }}"
                        title="Business Recommendations"
                        subtitle="30-day performance summary + priority actions"
                        icon="lightbulb"
-                       accent="green" />
+                       accent="primary" />
 
             <x-ai-card id="topProducts"
                        endpoint="{{ route('ai-insights.top-products') }}"
@@ -124,8 +124,8 @@
                         </div>
 
                         ${data.ai_summary ? `
-                            <div class="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-4 flex items-start gap-3">
-                                <div class="size-9 rounded-lg bg-green-600 text-white flex items-center justify-center flex-shrink-0">
+                            <div class="bg-gradient-to-r from-primary-50 to-primary-50 border border-primary-200 rounded-xl p-4 flex items-start gap-3">
+                                <div class="size-9 rounded-lg bg-primary-600 text-white flex items-center justify-center flex-shrink-0">
                                     ${icon('message-square-text', 'size-5')}
                                 </div>
                                 <p class="text-sm text-gray-700 leading-relaxed flex-1 pt-1">${esc(data.ai_summary)}</p>
@@ -134,7 +134,7 @@
 
                         <div class="bg-white border border-gray-100 rounded-xl p-4">
                             <h4 class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                                ${icon('trending-up', 'size-4 text-emerald-600')}
+                                ${icon('trending-up', 'size-4 text-primary-600')}
                                 30-Day Revenue Trend
                             </h4>
                             <canvas id="chart-rec-trend" height="80"></canvas>
@@ -143,13 +143,13 @@
                         ${data.ai_actions && data.ai_actions.length ? `
                             <div>
                                 <h4 class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                                    ${icon('target', 'size-4 text-green-600')}
+                                    ${icon('target', 'size-4 text-primary-600')}
                                     Priority Actions
                                 </h4>
                                 <div class="space-y-2">
                                     ${data.ai_actions.map((a, i) => `
-                                        <div class="flex items-start gap-3 p-4 bg-white border border-gray-200 rounded-xl hover:border-green-300 transition">
-                                            <div class="size-8 rounded-full bg-green-100 text-green-700 font-bold flex items-center justify-center text-sm flex-shrink-0">${i + 1}</div>
+                                        <div class="flex items-start gap-3 p-4 bg-white border border-gray-200 rounded-xl hover:border-primary-300 transition">
+                                            <div class="size-8 rounded-full bg-primary-100 text-primary-700 font-bold flex items-center justify-center text-sm flex-shrink-0">${i + 1}</div>
                                             <div class="flex-1 min-w-0">
                                                 <div class="flex items-center gap-2 flex-wrap">
                                                     <h5 class="font-semibold text-gray-800">${esc(a.title)}</h5>
@@ -203,7 +203,7 @@
                             datasets: [{
                                 label: 'Revenue',
                                 data: data.revenue_trend.map(d => d.revenue),
-                                borderColor: '#10b981',
+                                borderColor: #4f46e5,
                                 backgroundColor: 'rgba(16, 185, 129, 0.1)',
                                 tension: 0.4,
                                 fill: true,
@@ -227,7 +227,7 @@
             function renderTopProducts(out, data) {
                 const verdictBadge = {
                     star:   { label: 'Star',   ico: 'star',            cls: 'bg-amber-100 text-amber-800 border-amber-300' },
-                    stable: { label: 'Stable', ico: 'check-circle-2',  cls: 'bg-emerald-100 text-emerald-800 border-emerald-300' },
+                    stable: { label: 'Stable', ico: 'check-circle-2',  cls: 'bg-primary-100 text-primary-800 border-primary-300' },
                     risk:   { label: 'Risk',   ico: 'alert-octagon',   cls: 'bg-rose-100 text-rose-800 border-rose-300' },
                 };
 
@@ -285,7 +285,7 @@
                                                 <span>·</span>
                                                 <span>${p.share_pct}%</span>
                                             </div>
-                                            <div class="text-xs font-semibold text-emerald-700 mb-2">${rp(p.revenue_rp)}</div>
+                                            <div class="text-xs font-semibold text-primary-700 mb-2">${rp(p.revenue_rp)}</div>
                                             ${p.ai_comment ? `<p class="text-xs text-gray-600 italic border-l-2 border-amber-300 pl-2">${esc(p.ai_comment)}</p>` : ''}
                                         </div>
                                     `;
@@ -298,7 +298,7 @@
                 destroyChart('tp-units');
                 destroyChart('tp-cat');
 
-                const colors = ['#f59e0b', '#10b981', '#3b82f6', '#8b5cf6', '#ef4444', '#06b6d4', '#ec4899', '#84cc16', '#f97316', '#6366f1'];
+                const colors = ['#f59e0b', #4f46e5, '#3b82f6', '#8b5cf6', '#ef4444', '#06b6d4', '#ec4899', '#84cc16', '#f97316', '#6366f1'];
 
                 const ctxU = document.getElementById('chart-tp-units');
                 if (ctxU) {
@@ -399,7 +399,7 @@
                                             <span class="text-gray-600">${it.avg_per_day}/day</span>
                                             ${showSuggestedQty && it.suggested_qty ? `
                                                 <span class="text-gray-400">·</span>
-                                                <span class="text-emerald-700 font-semibold inline-flex items-center gap-1">
+                                                <span class="text-primary-700 font-semibold inline-flex items-center gap-1">
                                                     ${icon('shopping-bag', 'size-3')} Buy ~${num(it.suggested_qty)}
                                                 </span>
                                             ` : ''}
@@ -431,8 +431,8 @@
                 out.innerHTML = `
                     <div class="space-y-6">
                         ${data.ai_summary ? `
-                            <div class="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-4 flex items-start gap-3">
-                                <div class="size-9 rounded-lg bg-green-600 text-white flex items-center justify-center flex-shrink-0">
+                            <div class="bg-gradient-to-r from-primary-50 to-primary-50 border border-primary-200 rounded-xl p-4 flex items-start gap-3">
+                                <div class="size-9 rounded-lg bg-primary-600 text-white flex items-center justify-center flex-shrink-0">
                                     ${icon('message-square-text', 'size-5')}
                                 </div>
                                 <p class="text-sm text-gray-700 leading-relaxed flex-1 pt-1">${esc(data.ai_summary)}</p>
@@ -441,15 +441,15 @@
 
                         <div>
                             <h4 class="text-sm font-semibold text-gray-700 mb-3 flex items-center gap-2">
-                                ${icon('sparkles', 'size-4 text-green-600')}
+                                ${icon('sparkles', 'size-4 text-primary-600')}
                                 Recommended For You
                             </h4>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                                 ${data.recommendations.map(r => `
-                                    <div class="bg-white border border-green-200 rounded-xl p-4 hover:shadow-md transition">
+                                    <div class="bg-white border border-primary-200 rounded-xl p-4 hover:shadow-md transition">
                                         <div class="flex items-center justify-between mb-2">
-                                            <span class="text-xs bg-green-100 text-green-700 px-2 py-0.5 rounded-full">${esc(r.category)}</span>
-                                            <span class="text-emerald-700 font-bold">${rp(r.price_rp)}</span>
+                                            <span class="text-xs bg-primary-100 text-primary-700 px-2 py-0.5 rounded-full">${esc(r.category)}</span>
+                                            <span class="text-primary-700 font-bold">${rp(r.price_rp)}</span>
                                         </div>
                                         <h5 class="font-semibold text-gray-800 mb-2">${esc(r.name)}</h5>
                                         ${r.ai_reason ? `<p class="text-xs text-gray-600 italic">${esc(r.ai_reason)}</p>` : ''}
@@ -480,7 +480,7 @@
             // ─── shared partials ───
             function statCard(label, value, accent, sub) {
                 const map = {
-                    emerald: 'from-emerald-50 to-emerald-100 text-emerald-700 border-emerald-200',
+                    emerald: 'from-primary-50 to-primary-100 text-primary-700 border-primary-200',
                     sky:     'from-sky-50 to-sky-100 text-sky-700 border-sky-200',
                     violet:  'from-violet-50 to-violet-100 text-violet-700 border-violet-200',
                     rose:    'from-rose-50 to-rose-100 text-rose-700 border-rose-200',
@@ -508,7 +508,7 @@
                     `;
                 }
                 const max = Math.max(...items.map(x => x[valueKey] || 0)) || 1;
-                const barCls = accent === 'emerald' ? 'bg-emerald-400' : 'bg-gray-300';
+                const barCls = accent === 'emerald' ? 'bg-primary-400' : 'bg-gray-300';
 
                 return `
                     <div class="bg-white border border-gray-100 rounded-xl p-4">
@@ -559,7 +559,7 @@
                 refIcon?.classList.add('animate-spin');
                 out.innerHTML = `
                     <div class="flex flex-col items-center justify-center py-12 text-gray-500">
-                        <div class="size-10 rounded-full border-4 border-gray-200 border-t-green-500 animate-spin"></div>
+                        <div class="size-10 rounded-full border-4 border-gray-200 border-t-primary-500 animate-spin"></div>
                         <p class="text-sm mt-3">AI is analyzing…</p>
                     </div>
                 `;

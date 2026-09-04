@@ -127,7 +127,7 @@ $prefix = $isAdmin ? 'admin.' : '';
 
     @if (session('success'))
     <div
-        class="fixed top-4 right-4 z-50 bg-green-100 border border-green-400 text-green-700 px-6 py-3 rounded-xl shadow-lg max-w-sm mx-auto">
+        class="fixed top-4 right-4 z-50 bg-primary-100 border border-primary-400 text-primary-700 px-6 py-3 rounded-xl shadow-lg max-w-sm mx-auto">
         {{ session('success') }}
     </div>
     @endif

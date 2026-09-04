@@ -29,7 +29,7 @@
                 <div class="flex items-start sm:items-center gap-3">
 
                     <div
-                        class="w-10 h-10 sm:w-12 sm:h-12 bg-green-500 rounded-xl flex items-center justify-center shadow-md">
+                        class="w-10 h-10 sm:w-12 sm:h-12 bg-primary-500 rounded-xl flex items-center justify-center shadow-md">
                         <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -53,7 +53,7 @@
                     @can('create inventory')
                     <button @click="$dispatch('open-modal', {name:'create-stock'})" class="w-full sm:w-auto justify-center px-4 py-3 text-sm sm:text-base
                     rounded-xl flex items-center gap-2 text-white font-semibold
-                  bg-green-500 hover:scale-[1.02] active:scale-95 transition">
+                  bg-primary-500 hover:scale-[1.02] active:scale-95 transition">
 
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -70,7 +70,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6 mt-6 pt-6 border-t">
 
                 <div class="p-4 rounded-xl border text-center">
-                    <div class="text-xl sm:text-2xl font-bold text-green-600">
+                    <div class="text-xl sm:text-2xl font-bold text-primary-600">
                         {{ $stocks->count() }}
                     </div>
                     <div class="text-xs sm:text-sm text-slate-500">Total Products</div>
@@ -84,7 +84,7 @@
                 </div>
 
                 <div class="p-4 rounded-xl border text-center">
-                    <div class="text-lg sm:text-2xl font-bold text-emerald-600">
+                    <div class="text-lg sm:text-2xl font-bold text-primary-600">
                         Rp {{ number_format($stocks->sum(fn($s) => $s->qty * $s->product->price), 0, ',', '.') }}
                     </div>
                     <div class="text-xs sm:text-sm text-slate-500">Stock Value</div>
@@ -104,7 +104,7 @@
                         class="w-full h-full object-cover group-hover:scale-105 transition">
 
                     <!-- QTY -->
-                    <span class="absolute top-2 left-2 text-xs font-bold bg-green-500 text-white px-2 py-1 rounded-lg">
+                    <span class="absolute top-2 left-2 text-xs font-bold bg-primary-500 text-white px-2 py-1 rounded-lg">
                         {{ $stock->qty }}
                     </span>
 
@@ -122,7 +122,7 @@
                             @can('adjust stock')
                             <button
                                 @click="$dispatch('open-modal', { name: 'add-stock', id: {{ $stock->id }} }); open=false"
-                                class="w-full text-left px-3 py-2 flex gap-1 items-center hover:bg-green-50 text-green-600">
+                                class="w-full text-left px-3 py-2 flex gap-1 items-center hover:bg-primary-50 text-primary-600">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                                     stroke="currentColor" class="size-3">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -173,7 +173,7 @@
                         {{ $stock->product->sku }}
                     </p>
 
-                    <p class="text-sm font-bold text-green-600 mt-1">
+                    <p class="text-sm font-bold text-primary-600 mt-1">
                         Rp {{ number_format($stock->product->price, 0, ',', '.') }}
                     </p>
 
@@ -211,7 +211,7 @@
                     <div>
                         <label class="text-sm font-medium">Product <span class="text-red-500">*</span></label>
                         <select name="product_id"
-                            class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+                            class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">
                             <option value="">--- Select Product ---</option>
                             @foreach ($products as $product)
                             <option value="{{ $product->id }}">
@@ -226,7 +226,7 @@
                     <div>
                         <label class="text-sm font-medium">Quantity <span class="text-red-500">*</span></label>
                         <input type="number" name="qty"
-                            class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+                            class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">
                         <x-input-error :messages="$errors->createStock->get('qty')" class="mt-2 text-red-500 text-sm" />
                     </div>
                     <input type="hidden" name="warehouse_id" value="{{ $warehouse->id }}">
@@ -237,7 +237,7 @@
                             Cancel
                         </button>
 
-                        <button type="submit" class="px-4 py-2 text-sm bg-green-600 text-white rounded-lg">
+                        <button type="submit" class="px-4 py-2 text-sm bg-primary-600 text-white rounded-lg">
                             Save
                         </button>
                     </div>
@@ -273,7 +273,7 @@
                         <label class="text-sm font-medium">Enter Quantity <span class="text-red-500">*</span>
                         </label>
                         <input type="number" name="qty" value="{{ old('qty') }}" placeholder="Enter Numbers"
-                            class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-green-500">
+                            class="w-full mt-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-primary-500">
                         <x-input-error :messages="$errors->addStock->get('qty')" class="mt-2 text-red-500 text-sm" />
                     </div>
 
@@ -283,7 +283,7 @@
                             Cancel
                         </button>
 
-                        <button type="submit" class="px-4 py-2 text-sm bg-green-600 text-white rounded-lg">
+                        <button type="submit" class="px-4 py-2 text-sm bg-primary-600 text-white rounded-lg">
                             Save
                         </button>
                     </div>
