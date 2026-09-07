@@ -17,9 +17,9 @@ class StoreSeeder extends Seeder
         $owner = User::where('email', 'owner@gmail.com')->first();
 
         $store =  Store::firstOrCreate([
-            'name' => 'Stockita',
-            'slug' => 'stoc-kita',
-            'email' => 'StocKita@email.com',
+            'name' => 'StockFlow',
+            'slug' => 'stock-flow',
+            'email' => 'StockFlow@email.com',
             'phone' => '08123456789',
             'owner_id' => $owner->id,
             'address' => 'Jl. Pandanaran No. 123, Semarang, Jawa Tengah, 50241, Indonesia',

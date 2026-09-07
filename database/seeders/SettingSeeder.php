@@ -10,7 +10,7 @@ class SettingSeeder extends Seeder
     public function run(): void
     {
         $settings = [
-            'app.name' => 'StocKita',
+            'app.name' => 'StockFlow',
             'app.description' => 'Modern cashier system',
         ];
 

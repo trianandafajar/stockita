@@ -52,7 +52,7 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="space-y-2">
                         <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Application Name</p>
-                        <p class="text-2xl font-bold text-gray-900">{{ config('app.name', 'StocKita') }}</p>
+                        <p class="text-2xl font-bold text-gray-900">{{ config('app.name', 'StockFlow') }}</p>
                     </div>
                     <div class="space-y-2">
                         <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">Description</p>
@@ -292,7 +292,7 @@
 
                     <div>
                         <label class="text-sm font-medium">Application Name</label>
-                        <input type="text" name="app[name]" value="{{ config('app.name', 'StocKita') }}"
+                        <input type="text" name="app[name]" value="{{ config('app.name', 'StockFlow') }}"
                             class="w-full border px-3 py-2 rounded-xl">
                     </div>
 

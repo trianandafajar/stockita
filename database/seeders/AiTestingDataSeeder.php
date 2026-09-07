@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 /**
- * Seeder khusus untuk uji fitur AI Stockita
+ * Seeder khusus untuk uji fitur AI StockFlow
  * (rekomendasi produk, evaluasi produk paling laku, saran stok, slow-mover).
  *
  * Asumsi: DemoDataSeeder sudah dijalankan lebih dulu

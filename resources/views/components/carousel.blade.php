@@ -43,7 +43,7 @@
                                         2 million++
                                     </span>
                                     users,
-                                    <strong class="text-primary-100">StocKita</strong> is here to help your business
+                                    <strong class="text-primary-100">StockFlow</strong> is here to help your business
                                     grow bigger.
                                 </p>
                             </div>
@@ -129,7 +129,7 @@
                                     <strong class="text-primary-100 font-bold sm:font-black">
                                         user-friendly
                                     </strong>
-                                    experience from StocKita.
+                                    experience from StockFlow.
                                 </p>
                             </div>
 
@@ -202,7 +202,7 @@
                                     <span class="block mt-2 sm:mt-0
         bg-gradient-to-r from-primary-300 via-primary-200 to-primary-300
         bg-clip-text text-transparent drop-shadow-2xl">
-                                        With StocKita
+                                        With StockFlow
                                     </span>
                                 </h1>
 
@@ -213,7 +213,7 @@
                                     <span class="font-black text-primary-100 text-lg sm:text-xl">
                                         1.5 million MSMEs
                                     </span>
-                                    have trusted StocKita to grow their business digitally.
+                                    have trusted StockFlow to grow their business digitally.
                                 </p>
 
 

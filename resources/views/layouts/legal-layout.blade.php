@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - StocKita</title>
+    <title>Privacy Policy - StockFlow</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -15,7 +15,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-wrap items-center justify-between gap-3">
 
             <a href="/" class="font-bold text-base sm:text-lg text-primary-600">
-                StocKita
+                StockFlow
             </a>
 
             <nav

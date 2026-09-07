@@ -16,8 +16,8 @@
     <div class="relative isolate flex min-h-screen items-center justify-center overflow-hidden px-4 py-10 sm:px-6 lg:px-8">
         <div class="w-full max-w-4xl">
             <div class="text-center">
-                <img src="/image/icon/icon.png" alt="StocKita Logo" class="mx-auto h-20 w-20 sm:h-24 sm:w-24">
-                <p class="mt-4 text-xs font-semibold uppercase tracking-[0.35em] text-primary-600">{{ config('app.name', 'StocKita') }}</p>
+                <img src="/image/icon/icon.png" alt="StockFlow Logo" class="mx-auto h-20 w-20 sm:h-24 sm:w-24">
+                <p class="mt-4 text-xs font-semibold uppercase tracking-[0.35em] text-primary-600">{{ config('app.name', 'StockFlow') }}</p>
             </div>
 
             <div class="text-center">

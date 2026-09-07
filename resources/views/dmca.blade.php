@@ -24,7 +24,7 @@
         <div class="space-y-8 sm:space-y-10 leading-relaxed">
 
             <p class="text-sm sm:text-base text-gray-600">
-                StocKita is committed to protecting copyright and complying with the Digital Millennium Copyright Act (DMCA).
+                StockFlow is committed to protecting copyright and complying with the Digital Millennium Copyright Act (DMCA).
                 If any content violates copyright, we will take action in accordance with our policies.
             </p>
 
@@ -64,7 +64,7 @@
                             d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
                     </svg>
 
-                    <span>support@stockita.com</span>
+                    <span>support@stockflow.com</span>
                 </div>
             </div>
 

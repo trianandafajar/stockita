@@ -10,7 +10,7 @@
                         <img src="/image/icon/icon.png" alt="logo">
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold">StocKita</h3>
+                        <h3 class="text-xl font-bold">StockFlow</h3>
                         <p class="text-xs opacity-80">Inventory Pro</p>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
         </div>
 
         <div class="border-t border-white/20 mt-16 pt-6 text-center text-sm text-white/70">
-            <p>&copy; {{ date('Y') }} StocKita. All rights reserved.</p>
+            <p>&copy; {{ date('Y') }} StockFlow. All rights reserved.</p>
         </div>
 
     </div>

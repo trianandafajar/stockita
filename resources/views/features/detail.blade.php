@@ -173,7 +173,7 @@
     </section>
 
     <footer class="border-t border-slate-200 py-6 text-center text-sm text-slate-500">
-        © {{ date('Y') }} StocKita. All rights reserved.
+        © {{ date('Y') }} StockFlow. All rights reserved.
     </footer>
 
 </body>

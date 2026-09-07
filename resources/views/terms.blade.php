@@ -14,7 +14,7 @@
                 Terms & Conditions
             </h2>
             <p class="text-gray-600">
-                The rules for using StocKita services that you need to understand.
+                The rules for using StockFlow services that you need to understand.
             </p>
         </div>
     </section>
@@ -24,7 +24,7 @@
         <div class="space-y-10 leading-relaxed">
 
             <p class="text-gray-600">
-                By using StocKita services, you are considered to have read,
+                By using StockFlow services, you are considered to have read,
                 understood, and agreed to all applicable terms and conditions.
             </p>
 
@@ -62,7 +62,7 @@
             <div>
                 <h3 class="text-xl font-semibold mb-2">5. Limitation of Liability</h3>
                 <p class="text-gray-600">
-                    StocKita is not responsible for any losses resulting from misuse
+                    StockFlow is not responsible for any losses resulting from misuse
                     or technical issues beyond our control.
                 </p>
             </div>

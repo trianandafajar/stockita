@@ -18,7 +18,7 @@ $prefix = $isAdmin ? '/admin' : '';
 
             <span
                 class="text-2xl sidebar-text font-bold bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent md:absolute left-20">
-                StocKita
+                StockFlow
             </span>
         </a>
 

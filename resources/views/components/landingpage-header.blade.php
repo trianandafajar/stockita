@@ -9,7 +9,7 @@
             <div>
                 <h1
                     class="font-bold text-2xl bg-gradient-to-r from-primary-600 to-teal-600 bg-clip-text text-transparent">
-                    StocKita</h1>
+                    StockFlow</h1>
                 <p class="text-xs text-slate-500 font-medium">Inventory Pro</p>
             </div>
         </a>

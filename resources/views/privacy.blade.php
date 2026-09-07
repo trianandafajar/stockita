@@ -25,7 +25,7 @@
         <div class="space-y-10 leading-relaxed">
 
             <p class="text-gray-600">
-                StocKita is committed to protecting user privacy. This page explains
+                StockFlow is committed to protecting user privacy. This page explains
                 how we collect, use, and protect your information when using our services.
             </p>
 
