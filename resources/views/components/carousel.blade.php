@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="carousel-media-wrap absolute inset-0 w-full h-full pointer-events-none">
-                        <img src="/image/hero1.png" alt="Business Growth"
+                        <img src="/image/hero_1.png" alt="Business Growth"
                             class="carousel-media w-full h-full object-cover object-right-top">
                     </div>
                     <div class="carousel-hero-veil absolute inset-0 pointer-events-none"></div>
@@ -95,7 +95,7 @@
                     </div>
 
                     <div class="carousel-media-wrap absolute inset-0 w-full h-full pointer-events-none">
-                        <img src="/image/hero2.png" alt="POS System"
+                        <img src="/image/hero_2.png" alt="POS System"
                             class="carousel-media w-full h-full object-cover object-right-top">
                     </div>
                     <div class="carousel-hero-veil absolute inset-0 pointer-events-none"></div>
@@ -181,7 +181,7 @@
                     </div>
 
                     <div class="carousel-media-wrap absolute inset-0 w-full h-full pointer-events-none">
-                        <img src="/image/hero3.png" alt="Retail Success"
+                        <img src="/image/hero_3.png" alt="Retail Success"
                             class="carousel-media w-full h-full object-cover object-right-top">
                     </div>
                     <div class="carousel-hero-veil absolute inset-0 pointer-events-none"></div>
