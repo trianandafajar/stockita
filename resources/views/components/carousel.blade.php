@@ -16,10 +16,11 @@
                         </div>
                     </div>
 
-                    <div class="absolute top-0 right-0 w-full lg:w-3/4 h-full pointer-events-none">
+                    <div class="carousel-media-wrap absolute inset-0 w-full h-full pointer-events-none">
                         <img src="/image/hero1.png" alt="Business Growth"
-                            class="w-full h-full object-cover object-right-top brightness-90 contrast-110">
+                            class="carousel-media w-full h-full object-cover object-right-top">
                     </div>
+                    <div class="carousel-hero-veil absolute inset-0 pointer-events-none"></div>
 
                     <div class="relative z-20 h-full mx-auto flex items-center px-4 sm:px-6 lg:ml-32 lg:px-12">
                         <div class="w-full lg:w-1/2 space-y-6 sm:space-y-8 lg:pr-12">
@@ -93,10 +94,11 @@
                         </div>
                     </div>
 
-                    <div class="absolute top-0 right-0 w-full lg:w-3/4 h-full pointer-events-none">
+                    <div class="carousel-media-wrap absolute inset-0 w-full h-full pointer-events-none">
                         <img src="/image/hero2.png" alt="POS System"
-                            class="w-full h-full object-cover object-right-top brightness-90 contrast-110">
+                            class="carousel-media w-full h-full object-cover object-right-top">
                     </div>
+                    <div class="carousel-hero-veil absolute inset-0 pointer-events-none"></div>
 
                     <div class="relative z-20 h-full mx-auto flex items-center px-4 sm:px-6 lg:ml-32 lg:px-12">
                         <div class="w-full lg:w-1/2 space-y-6 sm:space-y-8 lg:pr-12">
@@ -178,10 +180,11 @@
                         </div>
                     </div>
 
-                    <div class="absolute top-0 right-0 w-full lg:w-3/4 h-full pointer-events-none">
+                    <div class="carousel-media-wrap absolute inset-0 w-full h-full pointer-events-none">
                         <img src="/image/hero3.png" alt="Retail Success"
-                            class="w-full h-full object-cover object-right-top brightness-90 contrast-110">
+                            class="carousel-media w-full h-full object-cover object-right-top">
                     </div>
+                    <div class="carousel-hero-veil absolute inset-0 pointer-events-none"></div>
 
                     <div class="relative z-20 h-full mx-auto flex items-center px-4 sm:px-6 lg:ml-32 lg:px-12">
                         <div class="w-full lg:w-1/2 space-y-6 sm:space-y-8 lg:pr-12">
@@ -501,6 +504,57 @@
     .carousel-slide {
         backface-visibility: hidden;
         transform: translateZ(0);
+    }
+
+    /* Deep StockFlow veil with a localized blur, matching the reference hero treatment. */
+    .carousel-media-wrap {
+        overflow: hidden;
+        isolation: isolate;
+    }
+
+    .carousel-media {
+        filter: brightness(0.72) saturate(0.82) contrast(1.06);
+        transform: scale(1.035);
+        transition: filter 700ms ease, transform 900ms ease;
+    }
+
+    .carousel-hero-veil {
+        z-index: 10;
+        width: 100%;
+        background:
+            linear-gradient(90deg,
+                rgba(31, 27, 112, 0.98) 0%,
+                rgba(45, 40, 139, 0.95) 25%,
+                rgba(63, 58, 160, 0.68) 45%,
+                rgba(74, 68, 170, 0.24) 62%,
+                rgba(74, 68, 170, 0.06) 72%,
+                rgba(74, 68, 170, 0) 80%),
+            linear-gradient(180deg, rgba(11, 15, 45, 0.12), rgba(11, 15, 45, 0.34));
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        mask-image: linear-gradient(90deg, #000 0%, #000 52%, rgba(0, 0, 0, 0.84) 62%, transparent 78%);
+        -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 52%, rgba(0, 0, 0, 0.84) 62%, transparent 78%);
+    }
+
+    @media (max-width: 640px) {
+        .carousel-media {
+            filter: brightness(0.62) saturate(0.78) contrast(1.05);
+        }
+
+        .carousel-hero-veil {
+            width: 100%;
+            background:
+                linear-gradient(90deg, rgba(31, 27, 112, 0.96), rgba(45, 40, 139, 0.82) 70%, rgba(17, 24, 39, 0.4)),
+                linear-gradient(180deg, rgba(11, 15, 45, 0.16), rgba(11, 15, 45, 0.46));
+            mask-image: none;
+            -webkit-mask-image: none;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .carousel-media {
+            transition: none;
+        }
     }
 
     /* Smooth scrolling for all scrollable elements */

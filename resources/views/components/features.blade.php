@@ -14,7 +14,7 @@
             <a href="/features/transaksi-kasir"
                 class="feature-item group bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition duration-200">
                 <div class="overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1718157582099-5227b1f7112d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fFBvaW50JTIwb2YlMjBzZWxsJTIwZGFzaGJvYXJkfGVufDB8fDB8fHww"
+                    <img src="https://images.unsplash.com/photo-1750263160670-42be92c0eaf0?auto=format&fit=crop&w=800&q=80"
                         class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="p-5">
@@ -28,7 +28,7 @@
             <a href="/features/kelola-produk"
                 class="feature-item group bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition duration-200">
                 <div class="overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800"
+                    <img src="https://images.unsplash.com/photo-1749244768351-2726dc23d26c?auto=format&fit=crop&w=800&q=80"
                         class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="p-5">
@@ -42,7 +42,7 @@
             <a href="/features/struk-otomatis"
                 class="feature-item group bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition duration-200">
                 <div class="overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1654263736203-a289f57c0d82?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    <img src="https://images.unsplash.com/photo-1750262727446-759032bf283f?auto=format&fit=crop&w=800&q=80"
                         class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="p-5">
@@ -56,7 +56,7 @@
             <a href="/features/laporan"
                 class="feature-item group bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition duration-200">
                 <div class="overflow-hidden">
-                    <img src="https://plus.unsplash.com/premium_photo-1661297441050-cd5f9980051d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TGFwb3JhbiUyMCUyNiUyMFN0YXRpc3Rpa3xlbnwwfHwwfHx8MA%3D%3D"
+                    <img src="https://images.unsplash.com/photo-1782898669120-53aac9b0464e?auto=format&fit=crop&w=800&q=80"
                         class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="p-5">
@@ -70,7 +70,7 @@
             <a href="/features/pelanggan"
                 class="feature-item group bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition duration-200">
                 <div class="overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800"
+                    <img src="https://images.unsplash.com/photo-1746201175390-3e02c20b890b?auto=format&fit=crop&w=800&q=80"
                         class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="p-5">
@@ -84,7 +84,7 @@
             <a href="/features/multi-role"
                 class="feature-item group bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition duration-200">
                 <div class="overflow-hidden">
-                    <img src="https://plus.unsplash.com/premium_photo-1733328013343-e5ee77acaf05?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fE11bHRpJTIwUm9sZSUyMCUyNiUyMEFrc2VzfGVufDB8fDB8fHww"
+                    <img src="https://images.unsplash.com/photo-1667372283496-893f0b1e7c16?auto=format&fit=crop&w=800&q=80"
                         class="w-full h-56 object-cover group-hover:scale-110 transition duration-500">
                 </div>
                 <div class="p-5">

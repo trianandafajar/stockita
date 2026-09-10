@@ -15,7 +15,7 @@
                 class="blog-card group bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition duration-200 flex flex-col h-full">
 
                 <div class="overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800"
+                    <img src="https://images.unsplash.com/photo-1783408356665-3c0dacbe3d22?auto=format&fit=crop&w=800&q=80"
                         class="w-full h-48 md:h-40 lg:h-56 object-cover group-hover:scale-110 transition duration-500">
                 </div>
 
@@ -38,7 +38,7 @@
                 class="blog-card group bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition duration-200 flex flex-col h-full">
 
                 <div class="overflow-hidden">
-                    <img src="https://media.istockphoto.com/id/1484852942/photo/smart-warehouse-inventory-management-system-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=0AdwccZASPFJm1I99lN3q9RHz8lNkPUxMOrbHWYfr88="
+                    <img src="https://images.unsplash.com/photo-1758518727820-28491c194bee?auto=format&fit=crop&w=800&q=80"
                         class="w-full h-48 md:h-40 lg:h-56 object-cover group-hover:scale-110 transition duration-500">
                 </div>
 
@@ -61,7 +61,7 @@
                 class="blog-card group bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-md transition duration-200 flex flex-col h-full">
 
                 <div class="overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1556740772-1a741367b93e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8dHJhbnNhY3Rpb258ZW58MHx8MHx8fDA%3D"
+                    <img src="https://images.unsplash.com/photo-1784639340419-d12a4024cb8c?auto=format&fit=crop&w=800&q=80"
                         class="w-full h-48 md:h-40 lg:h-56 object-cover group-hover:scale-110 transition duration-500">
                 </div>
 
