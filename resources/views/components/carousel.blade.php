@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="carousel-media-wrap absolute inset-0 w-full h-full pointer-events-none">
-                        <img src="/image/hero_1.png" alt="Business Growth"
+                        <img src="https://images.unsplash.com/photo-1784537642955-9d371c0cbf91?auto=format&fit=crop&w=1800&q=82" alt="Stylish boutique retail interior"
                             class="carousel-media w-full h-full object-cover object-right-top">
                     </div>
                     <div class="carousel-hero-veil absolute inset-0 pointer-events-none"></div>
@@ -95,7 +95,7 @@
                     </div>
 
                     <div class="carousel-media-wrap absolute inset-0 w-full h-full pointer-events-none">
-                        <img src="/image/hero_2.png" alt="POS System"
+                        <img src="https://images.unsplash.com/photo-1781106743595-1a2c6397e812?auto=format&fit=crop&w=1800&q=82" alt="Organized business workspace"
                             class="carousel-media w-full h-full object-cover object-right-top">
                     </div>
                     <div class="carousel-hero-veil absolute inset-0 pointer-events-none"></div>
@@ -181,7 +181,7 @@
                     </div>
 
                     <div class="carousel-media-wrap absolute inset-0 w-full h-full pointer-events-none">
-                        <img src="/image/hero_3.png" alt="Retail Success"
+                        <img src="https://images.unsplash.com/photo-1781156216069-f51d03f20e4f?auto=format&fit=crop&w=1800&q=82" alt="Bright retail workshop space"
                             class="carousel-media w-full h-full object-cover object-right-top">
                     </div>
                     <div class="carousel-hero-veil absolute inset-0 pointer-events-none"></div>
