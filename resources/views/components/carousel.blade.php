@@ -530,8 +530,6 @@
                 rgba(74, 68, 170, 0.06) 72%,
                 rgba(74, 68, 170, 0) 80%),
             linear-gradient(180deg, rgba(11, 15, 45, 0.12), rgba(11, 15, 45, 0.34));
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
         mask-image: linear-gradient(90deg, #000 0%, #000 52%, rgba(0, 0, 0, 0.84) 62%, transparent 78%);
         -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 52%, rgba(0, 0, 0, 0.84) 62%, transparent 78%);
     }
